@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { and, count, eq, gt } from "drizzle-orm";
 
-import { documentChunks, documents } from "@vidhan/schema";
+import { documentChunks, documentToc, documents } from "@vidhan/schema";
 import type { TDocumentStatus } from "@vidhan/schema";
 
 import type { Env } from "../../index";
@@ -229,6 +229,38 @@ docs.get("/:id/content", async (c) => {
     chunks: rows.map((row) => ({ index: row.chunkIndex, content: row.content })),
     totalChunks,
     nextIndex: lastIndex !== undefined && lastIndex + 1 < totalChunks ? lastIndex + 1 : null,
+  });
+});
+
+// GET /docs/:id/toc — table of contents, built at ingest time
+// (ingest/cli.ts parses every markdown heading and records the chunk index
+// it falls in). Served whole — a TOC is small — so the reader can render
+// the jump list before any content chunk is loaded. Documents without
+// content have no rows: `headings` is an empty array, not an error.
+docs.get("/:id/toc", async (c) => {
+  const id = c.req.param("id");
+  const db = createDb(c.env.DB);
+
+  const [docRow] = await db
+    .select({ id: documents.id })
+    .from(documents)
+    .where(eq(documents.id, id))
+    .limit(1);
+  if (!docRow) return c.json({ error: "not_found" }, 404);
+
+  const rows = await db
+    .select()
+    .from(documentToc)
+    .where(eq(documentToc.documentId, id))
+    .orderBy(documentToc.position);
+
+  return c.json({
+    documentId: id,
+    headings: rows.map((row) => ({
+      text: row.text,
+      level: row.level,
+      chunkIndex: row.chunkIndex,
+    })),
   });
 });
 

@@ -8,7 +8,8 @@ Status: implemented (2026-10-02). The detail page (`/repo/[id]`) is no longer a 
 - **`GET /docs/:id/content?limit=N&after=M` is cursor-paginated.** `after` is the last chunk index already received (`-1` = start); the response carries `{ documentId, chunks: [{index, content}], totalChunks, nextIndex }` (`nextIndex` null on the last page). The API never ships a whole long document in one response. `limit` default 10, capped at 50. Contract shared via `ZDocumentChunksPage` in `@vidhan/schema`.
 - **Segmentation is for display, not retrieval — chunks do NOT overlap.** The reader renders chunks back-to-back, so duplicated overlap text would be visible to users. The chunker (`apps/api/src/rag/chunker.ts`) cuts at ~2000 chars, nudging the cut to the last paragraph break (`\n\n`), then newline, then sentence end inside the window. This keeps markdown structure (headings, list blocks) intact in almost all cases; a split inside a table/list is an accepted edge case.
 - **Ingest is a local script, not an API pipeline.** `apps/api/src/ingest/cli.ts` reads `data/*.md` (each `seed-doc-NNN.md` maps to that document id, others fall back to `seed-doc-001`), chunks the text, and writes `data/content.seed.sql` (DELETE + INSERT chunks, then set `chunk_count`/`status='indexed'` on the document). It also **resets every other document** to `chunk_count = 0, status = 'pending'`, clearing the fake chunk counts the old seed wrote — content is null for everyone except the documents with MD files. Reloading is idempotent.
-- **Only `seed-doc-001` has content today** (a mock constitution, `data/seed-doc-001.md`). All other documents exercise the empty state: "No content available for this document yet."
+- **The reader has an ingest-time table of contents.** `ingest/cli.ts` parses every markdown heading (regex on trimmed source) and records `{ text, level, chunkIndex }` — the chunk index comes from `chunkPlan()`'s start offsets, so a heading can never map to the wrong chunk. Stored in `document_toc` (PK `(document_id, position)`), served whole by `GET /docs/:id/toc` — a TOC is small, so the jump list renders before any content chunk loads. The reader mirrors the repo list's alphabet index: sticky sidebar (desktop) / collapsible "Contents" (mobile), click → `Virtuoso.scrollToIndex({ index: chunkIndex })` (the missing chunks then prefetch like any scroll), and the active heading is the last one whose chunk sits at or above the topmost rendered item (`itemsRendered`, same approximation as the list's active letter). This has since become a **collapsible outline tree**: the flat heading list is nested by level (stack: parent = most recent preceding heading with a lower level, so Part → Articles → Clauses), and it **starts fully collapsed** — any node with children carries a chevron that expands/collapses it (`expanded` is a Set of flat heading positions — the same keys the scroll targets use). Labels still jump; leaves have no chevron. Documents without content have no TOC rows (`headings: []`).
+- **Only `seed-doc-001` has content today** (a mock constitution, `data/seed-doc-001.md`; 14 chunks, 106 headings). All other documents exercise the empty state: "No content available for this document yet."
 - **The reader virtualizes + lazily loads.** `DocumentDetail` (client component) fetches title/year via `getDocument` and the first chunk page in parallel, then a plain `Virtuoso` (window scroll, same as the repo list) renders chunks around the viewport only. `rangeChanged` prefetches one page (`PREFETCH_GAP` ahead of the visible range) when the frontier is reached; loaded chunks are cached in a `Map`; unloaded rows render skeleton placeholders so the scrollbar stays stable. Chunks render through `react-markdown` + `remark-gfm` (tables from the mock constitution) styled with `@tailwindcss/typography` (`prose`). v10 note: `className` was removed from react-markdown — the prose classes sit on a wrapper div.
 
 ## How to run (fresh database)
@@ -20,11 +21,12 @@ Status: implemented (2026-10-02). The detail page (`/repo/[id]`) is no longer a 
 
 ## Files
 
-- `packages/schema/src/db/schema.ts` — `document_chunks`, `ZDocumentChunksPage`
-- `packages/schema/drizzle/20261002161835_fine_thundra/` — migration
-- `apps/api/src/rag/chunker.ts` — real chunker (was a stub returning `[]`)
-- `apps/api/src/routes/public/docs.ts` — `GET /docs/:id/content`
-- `apps/api/src/ingest/cli.ts` — MD → `data/content.seed.sql`
+- `packages/schema/src/db/schema.ts` — `document_chunks`, `document_toc`, `ZDocumentChunksPage`, `ZDocumentToc`
+- `packages/schema/drizzle/20261002161835_fine_thundra/` — chunks migration
+- `packages/schema/drizzle/20261002170022_nosy_lady_bullseye/` — toc migration
+- `apps/api/src/rag/chunker.ts` — real chunker (was a stub returning `[]`); `chunkPlan()` reports offsets for the TOC build
+- `apps/api/src/routes/public/docs.ts` — `GET /docs/:id/content`, `GET /docs/:id/toc`
+- `apps/api/src/ingest/cli.ts` — MD → chunks + TOC → `data/content.seed.sql`
 - `apps/api/package.json` — `db:seed:content:load`
 - `apps/web/src/lib/documents.ts` — `getDocument`, `getDocumentChunks`
 - `apps/web/src/components/documents/document-detail.tsx` — virtualized reader

@@ -109,6 +109,26 @@ export const documentChunks = sqliteTable(
   ],
 );
 
+// Ingest-time table of contents: every markdown heading of a document with
+// the chunk index it falls in, so the reader can jump to a heading without
+// loading the whole document. `position` is the heading's 0-based order.
+export const documentToc = sqliteTable(
+  "document_toc",
+  {
+    documentId: text("document_id")
+      .notNull()
+      .references(() => documents.id),
+    position: integer("position").notNull(),
+    level: integer("level").notNull(),
+    text: text("text").notNull(),
+    chunkIndex: integer("chunk_index").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.documentId, t.position] }),
+    index("document_toc_doc_idx").on(t.documentId),
+  ],
+);
+
 export const CHAT_ROLES = ["user", "assistant"] as const;
 
 declare const jsonDataType: unique symbol;
@@ -261,6 +281,23 @@ export const ZDocumentChunksPage = z.object({
 });
 
 export type TDocumentChunksPage = z.infer<typeof ZDocumentChunksPage>;
+
+// Ingest-time table of contents. `headings` are in document order; each
+// entry's `chunkIndex` is the chunk the heading text appears in, which the
+// reader uses to jump (scrollToIndex) before that chunk is even loaded.
+export const ZDocumentTocHeading = z.object({
+  text: z.string(),
+  level: z.number().int().min(1).max(6),
+  chunkIndex: z.number().int().nonnegative(),
+});
+
+export const ZDocumentToc = z.object({
+  documentId: z.string(),
+  headings: z.array(ZDocumentTocHeading),
+});
+
+export type TDocumentToc = z.infer<typeof ZDocumentToc>;
+export type TDocumentTocHeading = z.infer<typeof ZDocumentTocHeading>;
 
 const userRefinements = {
   email: (s: z.ZodString) => s.email(),

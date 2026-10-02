@@ -1,6 +1,11 @@
-import { ZDocumentChunksPage, ZPublicDocument } from "@vidhan/schema";
+import {
+  ZDocumentChunksPage,
+  ZDocumentToc,
+  ZPublicDocument,
+} from "@vidhan/schema";
 import type {
   TDocumentChunksPage,
+  TDocumentToc,
   TPublicDocument,
 } from "@vidhan/schema";
 
@@ -94,6 +99,15 @@ export async function getDocumentChunks(
     `/docs/${encodeURIComponent(id)}/content?${params}`,
   )) as unknown;
   return ZDocumentChunksPage.parse(payload);
+}
+
+// The TOC is ingested per-heading with its chunk index, so the reader can
+// render the jump list and scroll before any content chunk is loaded.
+export async function getDocumentToc(id: string): Promise<TDocumentToc> {
+  const payload = (await apiGet(
+    `/docs/${encodeURIComponent(id)}/toc`,
+  )) as unknown;
+  return ZDocumentToc.parse(payload);
 }
 
 // Static export needs every route's params at build time, and the seed

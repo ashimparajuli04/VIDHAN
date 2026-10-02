@@ -17,6 +17,11 @@ index_name = "vidhan"
 binding = "IMAGES"
 bucket_name = "vidhan-images"
 
+[dev]
+# Bind all interfaces so phones/other devices on the LAN can reach the API.
+ip = "0.0.0.0"
+port = 8787
+
 [vars]
 ADMIN_USERNAME = ""
 ADMIN_PASSWORD = ""

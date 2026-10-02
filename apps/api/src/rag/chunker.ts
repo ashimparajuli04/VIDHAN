@@ -28,30 +28,43 @@ export interface ChunkOptions {
 // returns the occurrence closest to the ceiling (lastIndexOf), so chunks
 // stay near maxLength — a paragraph break anywhere in the window wins over
 // a space near the ceiling.
+//
+// chunkPlan() is the same algorithm but reports each piece's start offset
+// in the source text. The ingest script uses those offsets to attach a
+// table of contents (headings -> chunk) without reparsing.
 const DEFAULT_MAX_LENGTH = 2000;
 const DEFAULT_MIN_LENGTH = 800;
 
-export function chunk(text: string, options: ChunkOptions = {}): string[] {
+export interface ChunkPiece {
+  content: string;
+  /** Character offset of `content` inside the text given to chunkPlan. */
+  start: number;
+}
+
+export function chunkPlan(text: string, options: ChunkOptions = {}): ChunkPiece[] {
   const maxLength = options.maxLength ?? DEFAULT_MAX_LENGTH;
   const minLength = options.minLength ?? DEFAULT_MIN_LENGTH;
-  const source = text.trim();
-  const chunks: string[] = [];
+  const pieces: ChunkPiece[] = [];
 
   let start = 0;
-  while (start < source.length) {
-    const end = Math.min(start + maxLength, source.length);
-    if (end === source.length) {
-      chunks.push(source.slice(start));
+  while (start < text.length) {
+    const end = Math.min(start + maxLength, text.length);
+    if (end === text.length) {
+      pieces.push({ start, content: text.slice(start) });
       break;
     }
 
     const earliest = start + minLength;
-    const cut = findCut(source, end, earliest);
-    chunks.push(source.slice(start, cut));
+    const cut = findCut(text, end, earliest);
+    pieces.push({ start, content: text.slice(start, cut) });
     start = cut;
   }
 
-  return chunks.filter((chunkEntry) => chunkEntry.trim().length > 0);
+  return pieces.filter((piece) => piece.content.trim().length > 0);
+}
+
+export function chunk(text: string, options: ChunkOptions = {}): string[] {
+  return chunkPlan(text.trim(), options).map((piece) => piece.content);
 }
 
 // Boundary preference: paragraph break, then single newline, then sentence
