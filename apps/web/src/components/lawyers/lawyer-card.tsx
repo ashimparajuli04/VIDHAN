@@ -1,4 +1,5 @@
 import { ArrowRight, MapPin } from "lucide-react";
+import Link from "next/link";
 
 import type { TPublicLawyer } from "@vidhan/schema";
 
@@ -75,22 +76,12 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
       </CardContent>
 
       <CardFooter className="mt-auto">
-        {lawyer.bookingUrl ? (
-          <Button asChild className="w-full">
-            <a
-              href={lawyer.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book consultation
-              <ArrowRight />
-            </a>
-          </Button>
-        ) : (
-          <p className="w-full text-center text-sm text-muted-foreground">
-            Booking coming soon
-          </p>
-        )}
+        <Button asChild className="w-full">
+          <Link href={`/lawyers/${lawyer.id}`}>
+            Details
+            <ArrowRight />
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   );
