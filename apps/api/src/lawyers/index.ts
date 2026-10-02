@@ -6,6 +6,7 @@ import type {
   TLanguage,
   TPracticeArea,
   TPublicLawyer,
+  TPublicLawyerDetail,
 } from "@vidhan/schema";
 import type { Db } from "../db";
 import type { Env } from "../index";
@@ -44,6 +45,19 @@ export function toPublicLawyer(
     bio: row.bio,
     bookingUrl: row.bookingUrl,
     imageUrl: imageUrlFor(env, origin, row.imageKey),
+  };
+}
+
+// Profile view adds trust signals (verified, bar number) the list omits.
+export function toPublicLawyerDetail(
+  row: LawyerRow,
+  env: Env,
+  origin: string,
+): TPublicLawyerDetail {
+  return {
+    ...toPublicLawyer(row, env, origin),
+    verified: row.verified,
+    barNumber: row.barNumber,
   };
 }
 
@@ -91,7 +105,7 @@ export async function findPublicLawyer(
   id: string,
   env: Env,
   origin: string,
-): Promise<TPublicLawyer | null> {
+): Promise<TPublicLawyerDetail | null> {
   const row = await db
     .select()
     .from(lawyersTable)
@@ -103,7 +117,7 @@ export async function findPublicLawyer(
       ),
     )
     .get();
-  return row ? toPublicLawyer(row, env, origin) : null;
+  return row ? toPublicLawyerDetail(row, env, origin) : null;
 }
 
 function compareByLanguageThenRank(languages: Set<string>) {

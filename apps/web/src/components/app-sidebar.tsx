@@ -28,6 +28,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -240,6 +241,16 @@ export function AppSidebar() {
       {/* ───────────────── Footer ───────────────── */}
 
       <SidebarFooter className="border-t-0 p-2">
+
+        {/* Theme toggle */}
+
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <ThemeToggle />
+          </SidebarMenuItem>
+        </SidebarMenu>
+
+        <SidebarSeparator className="mx-2 my-2" />
 
         {/* User */}
 

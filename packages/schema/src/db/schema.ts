@@ -71,13 +71,17 @@ export const lawyers = sqliteTable(
   ],
 );
 
+export const DOCUMENT_STATUSES = ["pending", "indexed", "failed"] as const;
+export type TDocumentStatus = (typeof DOCUMENT_STATUSES)[number];
+
 export const documents = sqliteTable(
   "documents",
   {
     id: text("id").primaryKey(),
     title: text("title").notNull(),
+    year: integer("year"),
     summary: text("summary"),
-    status: text("status", { enum: ["pending", "indexed", "failed"] })
+    status: text("status", { enum: DOCUMENT_STATUSES })
       .notNull()
       .default("pending"),
     chunkCount: integer("chunk_count").notNull().default(0),
@@ -194,12 +198,31 @@ export const ZPublicLawyer = z.object({
   imageUrl: z.string().nullable(),
 });
 
+// Detail/profile view adds the trust signals the list deliberately hides.
+// Internal fields (imageKey, timestamps, active) stay out of public surfaces.
+export const ZPublicLawyerDetail = ZPublicLawyer.extend({
+  verified: z.boolean(),
+  barNumber: z.string().nullable(),
+});
+
 export const documentSchema = createSelectSchema(documents);
 export const documentCreateSchema = createInsertSchema(documents).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
 });
+
+// Public list surface for the document repository. Internal fields
+// (summary, chunkCount, timestamps) stay out of public surfaces.
+export const ZPublicDocument = z.object({
+  id: z.string(),
+  title: z.string(),
+  year: z.number().nullable(),
+  status: z.enum(DOCUMENT_STATUSES),
+});
+
+export type TPublicDocument = z.infer<typeof ZPublicDocument>;
+export type TDocumentCreate = z.infer<typeof documentCreateSchema>;
 
 const userRefinements = {
   email: (s: z.ZodString) => s.email(),
@@ -227,7 +250,6 @@ export const ZAuthUpdate = z.object({
 });
 
 export const ZChatSession = createSelectSchema(chatSessions);
-// createSelectSchema types json columns as JSONValue; refine to recover TToolCall[].
 // createSelectSchema maps json columns to ZodType<Json>, which would infer JSONValue.
 export const ZChatMessageToolCalls = z.array(ZToolCall).nullable();
 export const ZChatMessageToolResults = z.array(ZToolResult).nullable();
@@ -244,6 +266,7 @@ export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
 export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
 export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
+export type TPublicLawyerDetail = z.infer<typeof ZPublicLawyerDetail>;
 export type Document = z.infer<typeof documentSchema>;
 export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 
