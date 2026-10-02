@@ -28,3 +28,12 @@ Status: implemented. The `docs/repo-schema.md` design (nodes/FTS) is not impleme
 - `apps/web/src/components/documents/{document-repo,document-row,alphabet-index}.tsx`
 - `apps/web/src/app/repo/page.tsx`, `apps/web/src/app/repo/[id]/page.tsx`, `apps/web/src/app/not-found.tsx`
 - `apps/web/src/components/ui/pagination.tsx` — no longer used by the repo page (kept for other surfaces)
+## Files
+
+- `packages/schema/src/db/schema.ts` — `year`, `DOCUMENT_STATUSES`, `ZPublicDocument`
+- `apps/api/src/routes/public/docs.ts` — `GET /docs` (list, max 500) and `GET /docs/:id` (id/title/year)
+- `apps/api/src/documents/list.ts` — paginated query helper
+- `apps/api/src/seed/documents.ts` + `data/documents.seed.sql`
+- `apps/web/src/lib/documents.ts`, `apps/web/src/features/documents/groups.ts`
+- `apps/web/src/components/documents/{document-repo,document-row,alphabet-index}.tsx`
+- `apps/web/src/app/repo/page.tsx`, `apps/web/src/app/repo/[id]/page.tsx`, `apps/web/src/app/not-found.tsx`
