@@ -1,5 +1,8 @@
-import { ZPublicDocument } from "@vidhan/schema";
-import type { TPublicDocument } from "@vidhan/schema";
+import { ZDocumentChunksPage, ZPublicDocument } from "@vidhan/schema";
+import type {
+  TDocumentChunksPage,
+  TPublicDocument,
+} from "@vidhan/schema";
 
 import { apiGet } from "@/lib/api";
 
@@ -55,6 +58,42 @@ export async function getDocuments(
 export async function getRepositoryDocuments(): Promise<TRepoDocument[]> {
   const result = await getDocuments({ limit: REPO_DOCUMENTS_LIMIT });
   return result.documents.map(({ id, title, year }) => ({ id, title, year }));
+}
+
+export interface ContentQuery {
+  limit?: number;
+  after?: number;
+}
+
+// Detail header only needs title + year; status stays out of this surface.
+const ZDocumentDetail = ZPublicDocument.pick({
+  id: true,
+  title: true,
+  year: true,
+});
+
+export async function getDocument(id: string): Promise<TRepoDocument | null> {
+  const payload = (await apiGet(`/docs/${encodeURIComponent(id)}`)) as {
+    document?: unknown;
+  };
+  if (!payload.document) return null;
+  return ZDocumentDetail.parse(payload.document);
+}
+
+// One page of chunked document content; the detail page pulls pages lazily
+// as the reader scrolls (see components/documents/document-detail.tsx).
+export async function getDocumentChunks(
+  id: string,
+  query: ContentQuery = {},
+): Promise<TDocumentChunksPage> {
+  const params = new URLSearchParams();
+  if (query.limit !== undefined) params.set("limit", String(query.limit));
+  if (query.after !== undefined) params.set("after", String(query.after));
+
+  const payload = (await apiGet(
+    `/docs/${encodeURIComponent(id)}/content?${params}`,
+  )) as unknown;
+  return ZDocumentChunksPage.parse(payload);
 }
 
 // Static export needs every route's params at build time, and the seed

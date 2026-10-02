@@ -9,7 +9,9 @@ import { parseCsv, parseIntParam } from "../../lib/validate";
 export const lawyers = new Hono<{ Bindings: Env }>();
 
 const DEFAULT_LIMIT = 20;
-const MAX_LIMIT = 50;
+// The web catalogue fetches the whole set once (mirrors the docs
+// repository); keep the cap in step with the web client's MAX_RESULTS.
+const MAX_LIMIT = 200;
 
 const isPracticeArea = (v: string): v is TPracticeArea =>
   (PRACTICE_AREAS as readonly string[]).includes(v);

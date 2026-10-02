@@ -1,6 +1,7 @@
 import {
   index,
   integer,
+  primaryKey,
   sqliteTable,
   text,
   uniqueIndex,
@@ -89,6 +90,23 @@ export const documents = sqliteTable(
     updatedAt: text("updated_at").notNull(),
   },
   (t) => [index("documents_status_idx").on(t.status)],
+);
+
+// Chunked document content. A document with no content has no rows here
+// (document-level "nullability"); chunk rows themselves always carry text.
+export const documentChunks = sqliteTable(
+  "document_chunks",
+  {
+    documentId: text("document_id")
+      .notNull()
+      .references(() => documents.id),
+    chunkIndex: integer("chunk_index").notNull(),
+    content: text("content").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.documentId, t.chunkIndex] }),
+    index("document_chunks_doc_idx").on(t.documentId, t.chunkIndex),
+  ],
 );
 
 export const CHAT_ROLES = ["user", "assistant"] as const;
@@ -223,6 +241,23 @@ export const ZPublicDocument = z.object({
 
 export type TPublicDocument = z.infer<typeof ZPublicDocument>;
 export type TDocumentCreate = z.infer<typeof documentCreateSchema>;
+
+// One page of a document's chunked content. `chunks` are contiguous
+// (`index` is a chunk offset); `nextIndex` is null when the page is the
+// last one. A document without content has `totalChunks: 0` and no chunks.
+export const ZDocumentChunk = z.object({
+  index: z.number().int().nonnegative(),
+  content: z.string(),
+});
+
+export const ZDocumentChunksPage = z.object({
+  documentId: z.string(),
+  chunks: z.array(ZDocumentChunk),
+  totalChunks: z.number().int().nonnegative(),
+  nextIndex: z.number().int().nonnegative().nullable(),
+});
+
+export type TDocumentChunksPage = z.infer<typeof ZDocumentChunksPage>;
 
 const userRefinements = {
   email: (s: z.ZodString) => s.email(),

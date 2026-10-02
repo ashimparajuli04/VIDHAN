@@ -2,6 +2,11 @@
 
 import * as React from "react";
 import { Search, X } from "lucide-react";
+import {
+  GroupedVirtuoso,
+  type GroupedVirtuosoHandle,
+  type ListItem,
+} from "react-virtuoso";
 
 import { AlphabetIndex } from "@/components/documents/alphabet-index";
 import { DocumentRow } from "@/components/documents/document-row";
@@ -25,7 +30,7 @@ export function DocumentRepo() {
   const [retryKey, setRetryKey] = React.useState(0);
   const [query, setQuery] = React.useState("");
   const [activeLetter, setActiveLetter] = React.useState<string | null>(null);
-  const sectionElements = React.useRef(new Map<string, HTMLElement>());
+  const virtuosoRef = React.useRef<GroupedVirtuosoHandle>(null);
 
   React.useEffect(() => {
     let active = true;
@@ -50,6 +55,21 @@ export function DocumentRepo() {
     [documents],
   );
   const letters = sections.map((section) => section.letter);
+  // GroupedVirtuoso consumes the list as one flattened stream. itemContent's
+  // index is flat across all groups (despite what the docs example implies),
+  // so rows are looked up from the flat array; groupCounts only drive the
+  // group boundaries.
+  const { groupCounts, flatItems, firstRowOfGroup } = React.useMemo(() => {
+    const counts = sections.map((section) => section.documents.length);
+    const items = sections.flatMap((section) => section.documents);
+    const firstRows = new Set<number>();
+    let offset = 0;
+    for (const count of counts) {
+      firstRows.add(offset);
+      offset += count;
+    }
+    return { groupCounts: counts, flatItems: items, firstRowOfGroup: firstRows };
+  }, [sections]);
 
   // Search filters the full set locally — 200 titles, no round trip needed.
   const results = React.useMemo(() => {
@@ -57,37 +77,33 @@ export function DocumentRepo() {
     return searchDocuments(documents, query);
   }, [documents, query]);
 
-  const browsing = !query.trim();
-
-  // Track the section currently near the top so the index can highlight it.
-  React.useEffect(() => {
-    if (!browsing || !documents) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveLetter(entry.target.id.slice("section-".length));
-          }
-        }
-      },
-      { rootMargin: "-15% 0px -75% 0px" },
-    );
-    for (const element of sectionElements.current.values()) {
-      observer.observe(element);
+  // The virtualizer only mounts the rows around the viewport and unmounts
+  // the rest as they scroll away; the group header of the topmost visible
+  // row is what the alphabet index should highlight.
+  function handleItemsRendered(items: ListItem<unknown>[]) {
+    let letter: string | null = null;
+    for (const item of items) {
+      if (item.type !== "group" && item.groupIndex != null) {
+        letter = sections[item.groupIndex]?.letter ?? null;
+        break;
+      }
     }
-    return () => observer.disconnect();
-  }, [browsing, documents]);
+    setActiveLetter((prev) => (prev === letter ? prev : letter));
+  }
 
   function scrollToLetter(letter: string) {
     setActiveLetter(letter);
-    const element = sectionElements.current.get(letter);
-    if (!element) return;
+    const groupIndex = sections.findIndex(
+      (section) => section.letter === letter,
+    );
+    if (groupIndex < 0) return;
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    element.scrollIntoView({
+    virtuosoRef.current?.scrollToIndex({
+      groupIndex,
+      align: "start",
       behavior: reduced ? "auto" : "smooth",
-      block: "start",
     });
   }
 
@@ -157,36 +173,47 @@ export function DocumentRepo() {
             {documents.length} documents
           </p>
 
-          <div className="space-y-8">
-            {sections.map((section) => (
-              <section
-                key={section.letter}
-                id={`section-${section.letter}`}
-                ref={(element) => {
-                  if (element) sectionElements.current.set(section.letter, element);
-                  else sectionElements.current.delete(section.letter);
-                }}
-                className="scroll-mt-6"
-              >
-                <div className="mb-2 flex items-baseline gap-3 px-1">
-                  <h2 className="text-lg font-semibold tracking-tight">
-                    {section.letter}
-                  </h2>
-                  <div
-                    aria-hidden
-                    className="h-px flex-1 translate-y-[-3px] bg-border"
-                  />
-                </div>
-                <ul className="divide-y divide-border/70 rounded-lg border bg-card">
-                  {section.documents.map((document) => (
-                    <DocumentRow key={document.id} document={document} />
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+          <GroupedVirtuoso
+            ref={virtuosoRef}
+            useWindowScroll
+            overscan={400}
+            groupCounts={groupCounts}
+            groupContent={(groupIndex) => (
+              <LetterHeader letter={sections[groupIndex]?.letter ?? ""} />
+            )}
+            itemContent={(index) => {
+              // index is flat; it is always in range, the guard is only for
+              // strict indexed access.
+              const document = flatItems[index];
+              if (!document) return null;
+              return (
+                <DocumentRow
+                  document={document}
+                  showDivider={!firstRowOfGroup.has(index)}
+                />
+              );
+            }}
+            itemsRendered={handleItemsRendered}
+          />
         </>
       )}
+    </div>
+  );
+}
+
+// Rendered inside the virtualizer's sticky header slot, which pins to the
+// top of the viewport while the group is in view — opaque background keeps
+// the rows scrolling underneath from showing through. Spacing is padding,
+// not margin: item sizes come from a contentRect ResizeObserver, which
+// ignores margins.
+function LetterHeader({ letter }: { letter: string }) {
+  return (
+    <div className="flex items-baseline gap-3 bg-background px-1 pt-6 pb-2">
+      <h2 className="text-lg font-semibold tracking-tight">{letter}</h2>
+      <div
+        aria-hidden
+        className="h-px flex-1 -translate-y-[3px] bg-border"
+      />
     </div>
   );
 }

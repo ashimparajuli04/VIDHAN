@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
+
+import { DocumentDetail } from "@/components/documents/document-detail";
 import { REPO_DOCUMENT_IDS } from "@/lib/documents";
+
+export const metadata: Metadata = {
+  title: "Document · Vidhan",
+};
 
 // Static export needs every route's params at build time.
 export function generateStaticParams() {
   return REPO_DOCUMENT_IDS.map((id) => ({ id }));
 }
 
-// Deliberately empty for now — the document view will land here later.
-export default function RepositoryDocumentPage() {
-  return <main className="flex-1" />;
+export default async function RepositoryDocumentPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  return <DocumentDetail id={id} />;
 }
