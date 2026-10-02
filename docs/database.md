@@ -80,7 +80,7 @@ Invoke-RestMethod http://localhost:8787/lawyers   # -> { lawyers = @(); meta = @
 
 ## Remote
 
-`wrangler.toml` ships placeholders: `database_id = "0000..."`, empty `ADMIN_TOKEN` / `OPENROUTER_API_KEY`. Before deploy: create the D1 database, paste the real id, set secrets with `wrangler secret put`, then `wrangler d1 migrations apply DB --remote`.
+`wrangler.toml` ships placeholders: `database_id = "0000..."`, empty `ADMIN_USERNAME` / `ADMIN_PASSWORD` / `OPENROUTER_API_KEY`. Before deploy: create the D1 database, paste the real id, set secrets with `wrangler secret put`, then `wrangler d1 migrations apply DB --remote`.
 
 ## Typecheck
 
