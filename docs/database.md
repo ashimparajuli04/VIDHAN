@@ -21,11 +21,13 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 
 - `id` text PK (uuid, generated app-side)
 - `practiceAreas`, `languages` — JSON text columns, typed via `.$type<...[]>()`
-- `bookingUrl` NOT NULL — only contact channel (no phone/email stored)
+- `district` — validated against the `DISTRICTS` const (all 77, shared with web/admin dropdowns)
+- `bookingUrl` nullable — contact/booking mechanism deferred
 - `barNumber`, `yearsOfExperience`, `bio` nullable
+- unique index on `bar_number` (unique only when present)
 - `verified`, `active` — boolean mode over integer, defaults `false`/`true`
 - `createdAt`, `updatedAt` — ISO strings set app-side
-- composite index `(practice_areas, city)` for escalation lookup
+- composite index `(practice_areas, district)` for catalog lookup
 
 `documents` — repo metadata (chunks live in Vectorize).
 
@@ -37,12 +39,12 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 
 ## Conventions
 
-- **Types derive from Drizzle, not hand-written.** `createSelectSchema` / `createInsertSchema` / `createUpdateSchema` from `drizzle-orm/zod`; refinements applied per column. `create`/`update` schemas omit `id` + timestamps (set server-side).
+- **Types derive from Drizzle, not hand-written.** `createSelectSchema` / `createInsertSchema` / `createUpdateSchema` from `drizzle-orm/zod`; refinements applied per column. `create`/`update` schemas omit `id` + timestamps (set server-side). Schemas are `Z*`, inferred types `T*` (`ZLawyer`, `TLawyer`).
 - **Soft-delete** via `active` on lawyers — a row never disappears mid-conversation.
 - **Timestamps are ISO text** written by the route, not DB defaults.
 - **`practiceAreas` is a closed enum** (`PRACTICE_AREAS`) so the escalation verdict joins directly to SQL — no fuzzy matching. Adding an area = one line in the const.
-- **`city` is free text** — Nepal cities too varied to enumerate; exact/`LIKE` match, fall back to area-only.
-- **API envelope** — `{ lawyers }` / `{ lawyer }` on success, `{ error, details? }` on failure. Validation via `parseJson` + `validationError` (`apps/api/src/lib/validate.ts`) → `400 validation_error` with flattened zod issues.
+- **`district` is a closed enum** (`DISTRICTS`, all 77) — exact match; empty-district recovery returns per-district counts instead of silently relaxing.
+- **API envelope** — `{ lawyers }` / `{ lawyer }` on success (public list adds `meta: { total, districtCounts? }`), `{ error, details? }` on failure. Validation via `parseJson` + `validationError` (`apps/api/src/lib/validate.ts`) → `400 validation_error` with flattened zod issues.
 
 ## Migration workflow
 
@@ -55,6 +57,15 @@ pnpm --filter @vidhan/api exec wrangler d1 migrations apply DB --local
 
 `wrangler.toml` points `migrations_dir` at `packages/schema/drizzle`, so drizzle-kit generates and wrangler applies — no second copy of the SQL.
 
+## Seeding mock lawyers (local)
+
+`apps/api/src/seed/lawyers.ts` deterministically generates 80 lawyers (every practice area and district covered) and writes `data/lawyers.seed.sql`.
+
+```pwsh
+pnpm --filter @vidhan/api db:seed        # regenerate data/lawyers.seed.sql
+pnpm --filter @vidhan/api db:seed:load   # load into local D1
+```
+
 ## Verifying DB setup (local)
 
 ```pwsh
@@ -64,7 +75,7 @@ pnpm --filter @vidhan/api exec wrangler d1 migrations list DB --local
 pnpm --filter @vidhan/api exec wrangler d1 execute DB --local --command "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;"
 # 3. start api, hit a DB-backed route
 pnpm dev:api
-Invoke-RestMethod http://localhost:8787/lawyers   # -> { lawyers = @() }
+Invoke-RestMethod http://localhost:8787/lawyers   # -> { lawyers = @(); meta = @{ total = 0 } }
 ```
 
 ## Remote

@@ -21,3 +21,21 @@ export function validationError(c: Context, error: z.ZodError) {
     400,
   );
 }
+
+export function parseCsv(value: string | undefined): string[] {
+  if (!value) return [];
+  return value
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+export function parseIntParam(
+  value: string | undefined,
+  fallback: number,
+): number | null {
+  if (value === undefined || value === "") return fallback;
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed) || parsed < 0) return null;
+  return parsed;
+}

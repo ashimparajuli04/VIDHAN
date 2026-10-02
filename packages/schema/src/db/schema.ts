@@ -1,4 +1,10 @@
-import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import {
+  index,
+  integer,
+  sqliteTable,
+  text,
+  uniqueIndex,
+} from "drizzle-orm/sqlite-core";
 import {
   createInsertSchema,
   createSelectSchema,
@@ -14,6 +20,29 @@ export const PRACTICE_AREAS = [
 
 export const LANGUAGES = ["en", "ne", "roman_ne"] as const;
 
+export const DISTRICTS = [
+  "bhojpur", "dhankuta", "ilam", "jhapa", "khotang", "morang",
+  "okhaldhunga", "panchthar", "sankhuwasabha", "solukhumbu", "sunsari",
+  "taplejung", "terhathum", "udayapur",
+  "bara", "dhanusha", "mahottari", "parsa", "rautahat", "saptari",
+  "sarlahi", "siraha",
+  "bhaktapur", "chitwan", "dhading", "dolakha", "kathmandu",
+  "kavrepalanchok", "lalitpur", "makwanpur", "nuwakot", "ramechhap",
+  "rasuwa", "sindhuli", "sindhupalchok",
+  "baglung", "gorkha", "kaski", "lamjung", "manang", "mustang", "myagdi",
+  "nawalpur", "parbat", "syangja", "tanahun",
+  "arghakhanchi", "banke", "bardiya", "dang", "gulmi", "kapilvastu",
+  "parasi", "palpa", "pyuthan", "rolpa", "eastern_rukum", "rupandehi",
+  "dailekh", "dolpa", "humla", "jajarkot", "jumla", "kalikot", "mugu",
+  "salyan", "surkhet", "western_rukum",
+  "achham", "baitadi", "bajhang", "bajura", "dadeldhura", "darchula",
+  "doti", "kailali", "kanchanpur",
+] as const;
+
+export type TPracticeArea = (typeof PRACTICE_AREAS)[number];
+export type TLanguage = (typeof LANGUAGES)[number];
+export type TDistrict = (typeof DISTRICTS)[number];
+
 export const lawyers = sqliteTable(
   "lawyers",
   {
@@ -22,11 +51,11 @@ export const lawyers = sqliteTable(
     practiceAreas: text("practice_areas", { mode: "json" })
       .$type<(typeof PRACTICE_AREAS)[number][]>()
       .notNull(),
-    city: text("city").notNull(),
+    district: text("district").notNull(),
     languages: text("languages", { mode: "json" })
       .$type<(typeof LANGUAGES)[number][]>()
       .notNull(),
-    bookingUrl: text("booking_url").notNull(),
+    bookingUrl: text("booking_url"),
     barNumber: text("bar_number"),
     yearsOfExperience: integer("years_of_experience"),
     bio: text("bio"),
@@ -35,7 +64,10 @@ export const lawyers = sqliteTable(
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at").notNull(),
   },
-  (t) => [index("lawyers_practice_city_idx").on(t.practiceAreas, t.city)],
+  (t) => [
+    index("lawyers_practice_district_idx").on(t.practiceAreas, t.district),
+    uniqueIndex("lawyers_bar_number_unique").on(t.barNumber),
+  ],
 );
 
 export const documents = sqliteTable(
@@ -57,19 +89,19 @@ export const documents = sqliteTable(
 const lawyerRefinements = {
   name: (s: z.ZodString) => s.min(1),
   practiceAreas: () => z.array(z.enum(PRACTICE_AREAS)).min(1),
-  city: (s: z.ZodString) => s.min(1),
+  district: () => z.enum(DISTRICTS),
   languages: () => z.array(z.enum(LANGUAGES)).min(1),
-  bookingUrl: () => z.url(),
+  bookingUrl: (s: z.ZodString) => s.url(),
   yearsOfExperience: (s: z.ZodNumber) => s.int().min(0),
   bio: (s: z.ZodString) => s.max(500),
 };
 
-export const lawyerSchema = createSelectSchema(lawyers, lawyerRefinements);
-export const lawyerCreateSchema = createInsertSchema(
+export const ZLawyer = createSelectSchema(lawyers, lawyerRefinements);
+export const ZLawyerCreate = createInsertSchema(
   lawyers,
   lawyerRefinements,
 ).omit({ id: true, createdAt: true, updatedAt: true });
-export const lawyerUpdateSchema = createUpdateSchema(
+export const ZLawyerUpdate = createUpdateSchema(
   lawyers,
   lawyerRefinements,
 ).omit({ id: true, createdAt: true, updatedAt: true });
@@ -81,9 +113,9 @@ export const documentCreateSchema = createInsertSchema(documents).omit({
   updatedAt: true,
 });
 
-export type Lawyer = z.infer<typeof lawyerSchema>;
-export type LawyerCreate = z.infer<typeof lawyerCreateSchema>;
-export type LawyerUpdate = z.infer<typeof lawyerUpdateSchema>;
+export type TLawyer = z.infer<typeof ZLawyer>;
+export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
+export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
 export type Document = z.infer<typeof documentSchema>;
 export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 
