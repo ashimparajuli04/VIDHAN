@@ -12,13 +12,15 @@
   },
   "dependencies": {
     "@vidhan/schema": "workspace:*",
+    "drizzle-orm": "^1.0.0-rc.4",
     "hono": "^4.6.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "@types/node": "^26.6.3",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
-    "wrangler": "^3.100.0"
+    "wrangler": "^4.145.0"
   }
 }
