@@ -14,7 +14,7 @@ Three-person team, hackathon build. English UI; chat supports English, roman Nep
 | AI | OpenRouter for chat + embeddings + summary generation; Vercel AI SDK for streaming/tool calls |
 | Frontends | Next.js static export ×2: `apps/web` (chat), `apps/admin` (tables/forms) |
 | Monorepo | pnpm workspaces + Turborepo, TS strict, zod as single source of truth |
-| Admin auth | Single `ADMIN_TOKEN`, bearer header, passcode screen in admin app |
+| Admin auth | `ADMIN_USERNAME` / `ADMIN_PASSWORD` HTTP Basic, credential screen in admin app |
 
 ## Repo structure
 
@@ -69,7 +69,7 @@ Summaries: AI-generated at ingest, stored in D1 + embedded — doubles as the st
 
 Not UI-focused; functional for admins only.
 
-- Token passcode screen → localStorage → bearer header on all requests
+- Credential screen → localStorage → HTTP Basic header on all requests
 - **Lawyer catalog:** list + create/edit/delete form
 - **Repo:** document list with status (indexed, summary, chunk count), edit sections, edit/regenerate summary, upload new document, reindex
 - Writes keep D1 and Vectorize in sync in the same operation

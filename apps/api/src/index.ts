@@ -6,7 +6,8 @@ import { adminRoutes } from "./routes/admin";
 export type Env = {
   DB: D1Database;
   VECTORIZE: VectorizeIndex;
-  ADMIN_TOKEN: string;
+  ADMIN_USERNAME: string;
+  ADMIN_PASSWORD: string;
   OPENROUTER_API_KEY: string;
 };
 
