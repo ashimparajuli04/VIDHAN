@@ -1,6 +1,6 @@
-import { ArrowRight, BadgeCheck, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 
-import type { Lawyer } from "@vidhan/schema";
+import type { TPublicLawyer } from "@vidhan/schema";
 
 import { PigAvatar } from "@/components/lawyers/pig-avatar";
 import { Badge } from "@/components/ui/badge";
@@ -14,14 +14,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { practiceAreaLabel } from "@/lib/lawyers";
+import { districtLabel, practiceAreaLabel } from "@/features/lawyers/labels";
 
 // Keep the card scannable: surface only a small number of practice areas.
 // The rest lives on the lawyer's detail page.
 const MAX_PRACTICE_AREAS = 3;
 
-export function LawyerCard({ lawyer }: { lawyer: Lawyer }) {
-  const inactive = !lawyer.active;
+export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
   const visibleAreas = lawyer.practiceAreas.slice(0, MAX_PRACTICE_AREAS);
   const hiddenAreaCount =
     lawyer.practiceAreas.length - visibleAreas.length;
@@ -29,8 +28,7 @@ export function LawyerCard({ lawyer }: { lawyer: Lawyer }) {
   return (
     <Card
       className={cn(
-        "h-full transition-[box-shadow,border-color] hover:border-foreground/15 hover:shadow-sm",
-        inactive && "opacity-60 saturate-50"
+        "h-full transition-[box-shadow,border-color] hover:border-foreground/15 hover:shadow-sm"
       )}
     >
       <CardHeader className="gap-3">
@@ -40,25 +38,12 @@ export function LawyerCard({ lawyer }: { lawyer: Lawyer }) {
           <div className="min-w-0">
             <CardTitle className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[15px]">
               <span className="truncate">{lawyer.name}</span>
-
-              {lawyer.verified && (
-                <Badge className="shrink-0 border-transparent bg-emerald-600/10 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">
-                  <BadgeCheck />
-                  Verified
-                </Badge>
-              )}
-
-              {!lawyer.verified && inactive && (
-                <Badge variant="outline" className="shrink-0">
-                  Inactive
-                </Badge>
-              )}
             </CardTitle>
 
             <CardDescription className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
               <span className="inline-flex items-center gap-1">
                 <MapPin className="size-3.5" />
-                {lawyer.city}
+                {districtLabel(lawyer.district)}
               </span>
               {typeof lawyer.yearsOfExperience === "number" && (
                 <span>· {lawyer.yearsOfExperience} yrs experience</span>
@@ -90,16 +75,22 @@ export function LawyerCard({ lawyer }: { lawyer: Lawyer }) {
       </CardContent>
 
       <CardFooter className="mt-auto">
-        <Button asChild className="w-full">
-          <a
-            href={lawyer.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book consultation
-            <ArrowRight />
-          </a>
-        </Button>
+        {lawyer.bookingUrl ? (
+          <Button asChild className="w-full">
+            <a
+              href={lawyer.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book consultation
+              <ArrowRight />
+            </a>
+          </Button>
+        ) : (
+          <p className="w-full text-center text-sm text-muted-foreground">
+            Booking coming soon
+          </p>
+        )}
       </CardFooter>
     </Card>
   );

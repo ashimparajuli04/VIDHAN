@@ -3,32 +3,27 @@
 import * as React from "react";
 import { ChevronDown, Search, X } from "lucide-react";
 
-import type { Lawyer } from "@vidhan/schema";
-import { LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
+import type { TPublicLawyer } from "@vidhan/schema";
+import { DISTRICTS, LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
 
 import { LawyerCard } from "@/components/lawyers/lawyer-card";
 import { LawyerSkeleton } from "@/components/lawyers/lawyer-skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  getLawyers,
-  languageLabel,
-  lawyerCities,
-  practiceAreaLabel,
-  type LawyerQuery,
-} from "@/lib/lawyers";
+import { districtLabel, languageLabel, practiceAreaLabel } from "@/features/lawyers/labels";
+import { getLawyers, type LawyerQuery } from "@/lib/lawyers";
 
 const SEARCH_DEBOUNCE_MS = 250;
 const SKELETON_COUNT = 8;
 
 export function LawyerCatalogue() {
-  const [lawyers, setLawyers] = React.useState<Lawyer[]>([]);
+  const [lawyers, setLawyers] = React.useState<TPublicLawyer[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [searchInput, setSearchInput] = React.useState("");
   const [query, setQuery] = React.useState<LawyerQuery>({});
 
   const hasActiveFilters = Boolean(
-    query.search || query.practiceArea || query.city || query.language
+    query.search || query.practiceArea || query.district || query.language
   );
 
   // Debounce the search box into the query.
@@ -97,13 +92,16 @@ export function LawyerCatalogue() {
         />
 
         <FilterSelect
-          value={query.city ?? ""}
+          value={query.district ?? ""}
           onChange={(value) =>
-            setQuery((prev) => ({ ...prev, city: value || undefined }))
+            setQuery((prev) => ({ ...prev, district: value || undefined }))
           }
-          placeholder="City"
-          ariaLabel="Filter by city"
-          options={lawyerCities.map((city) => ({ value: city, label: city }))}
+          placeholder="District"
+          ariaLabel="Filter by district"
+          options={DISTRICTS.map((district) => ({
+            value: district,
+            label: districtLabel(district),
+          }))}
         />
 
         <FilterSelect

@@ -1,0 +1,1 @@
+ALTER TABLE `lawyers` ADD `image_key` text;

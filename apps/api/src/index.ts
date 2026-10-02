@@ -6,8 +6,15 @@ import { adminRoutes } from "./routes/admin";
 export type Env = {
   DB: D1Database;
   VECTORIZE: VectorizeIndex;
-  ADMIN_TOKEN: string;
+  IMAGES: R2Bucket;
+  ADMIN_USERNAME: string;
+  ADMIN_PASSWORD: string;
   OPENROUTER_API_KEY: string;
+  R2_ACCOUNT_ID: string;
+  R2_BUCKET_NAME: string;
+  R2_ACCESS_KEY_ID: string;
+  R2_SECRET_ACCESS_KEY: string;
+  R2_PUBLIC_BASE_URL: string;
 };
 
 const app = new Hono<{ Bindings: Env }>();
