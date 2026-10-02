@@ -124,6 +124,13 @@ export const ZPublicLawyer = z.object({
   imageUrl: z.string().nullable(),
 });
 
+// Detail/profile view adds the trust signals the list deliberately hides.
+// Internal fields (imageKey, timestamps, active) stay out of public surfaces.
+export const ZPublicLawyerDetail = ZPublicLawyer.extend({
+  verified: z.boolean(),
+  barNumber: z.string().nullable(),
+});
+
 export const documentSchema = createSelectSchema(documents);
 export const documentCreateSchema = createInsertSchema(documents).omit({
   id: true,
@@ -136,6 +143,7 @@ export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
 export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
 export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
+export type TPublicLawyerDetail = z.infer<typeof ZPublicLawyerDetail>;
 export type Document = z.infer<typeof documentSchema>;
 export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 
