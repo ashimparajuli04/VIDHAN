@@ -1,5 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { TLawyer, TLawyerCreate, TLawyerUpdate } from "@vidhan/schema";
+import type {
+  TLawyerCreate,
+  TLawyerUpdate,
+  TLawyerWithImage,
+} from "@vidhan/schema";
 import { createLawyer, listLawyers, updateLawyer } from "./api";
 
 export const lawyerKeys = {
@@ -37,9 +41,9 @@ export function useUpdateLawyer(active?: boolean) {
     mutationFn: ({ id, patch }: TUpdateVariables) => updateLawyer(id, patch),
     onMutate: async ({ id, patch }) => {
       await queryClient.cancelQueries({ queryKey });
-      const previous = queryClient.getQueryData<TLawyer[]>(queryKey);
+      const previous = queryClient.getQueryData<TLawyerWithImage[]>(queryKey);
       if (previous) {
-        queryClient.setQueryData<TLawyer[]>(
+        queryClient.setQueryData<TLawyerWithImage[]>(
           queryKey,
           previous.map((lawyer) =>
             lawyer.id === id ? { ...lawyer, ...patch } : lawyer,
@@ -50,7 +54,10 @@ export function useUpdateLawyer(active?: boolean) {
     },
     onError: (_error, _variables, context) => {
       if (context?.previous) {
-        queryClient.setQueryData<TLawyer[]>(queryKey, context.previous);
+        queryClient.setQueryData<TLawyerWithImage[]>(
+          queryKey,
+          context.previous,
+        );
       }
     },
     onSettled: () => {

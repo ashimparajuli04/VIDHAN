@@ -1,13 +1,13 @@
 "use client";
 
-import type { TLawyer, TLawyerUpdate } from "@vidhan/schema";
+import type { TLawyerUpdate, TLawyerWithImage } from "@vidhan/schema";
 import { LawyerRow } from "./LawyerRow";
 
 export type TLawyerTableProps = {
-  lawyers: TLawyer[];
+  lawyers: TLawyerWithImage[];
   updatingId: string | undefined;
   onToggle: (id: string, patch: TLawyerUpdate) => void;
-  onEdit: (lawyer: TLawyer) => void;
+  onEdit: (lawyer: TLawyerWithImage) => void;
 };
 
 const HEADERS = [

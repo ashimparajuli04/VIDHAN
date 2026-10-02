@@ -1,7 +1,8 @@
 "use client";
 
-import type { TLawyer, TLawyerUpdate } from "@vidhan/schema";
+import type { TLawyerUpdate, TLawyerWithImage } from "@vidhan/schema";
 import { Toggle } from "./Toggle";
+import { Avatar } from "./Avatar";
 import {
   districtLabel,
   formatDate,
@@ -10,10 +11,10 @@ import {
 } from "../labels";
 
 export type TLawyerRowProps = {
-  lawyer: TLawyer;
+  lawyer: TLawyerWithImage;
   busy: boolean;
   onToggle: (id: string, patch: TLawyerUpdate) => void;
-  onEdit: (lawyer: TLawyer) => void;
+  onEdit: (lawyer: TLawyerWithImage) => void;
 };
 
 export function LawyerRow({
@@ -24,7 +25,16 @@ export function LawyerRow({
 }: TLawyerRowProps) {
   return (
     <tr className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
-      <td className="px-3 py-2 font-medium text-slate-900">{lawyer.name}</td>
+      <td className="px-3 py-2">
+        <div className="flex items-center gap-2">
+          <Avatar
+            name={lawyer.name}
+            imageUrl={lawyer.imageUrl}
+            className="h-8 w-8 text-sm"
+          />
+          <span className="font-medium text-slate-900">{lawyer.name}</span>
+        </div>
+      </td>
       <td className="px-3 py-2 text-slate-700">
         {districtLabel(lawyer.district)}
       </td>

@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type {
   TDistrict,
-  TLawyer,
   TLawyerCreate,
   TLawyerUpdate,
+  TLawyerWithImage,
   TPracticeArea,
 } from "@vidhan/schema";
 import { ApiError } from "@/lib/api";
@@ -29,7 +29,7 @@ export default function LawyersPage() {
   const [active, setActive] = useState<boolean | undefined>(undefined);
   const [actionError, setActionError] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
-  const [editing, setEditing] = useState<TLawyer | null>(null);
+  const [editing, setEditing] = useState<TLawyerWithImage | null>(null);
 
   const query = useLawyers(active, ready);
   const createMutation = useCreateLawyer();
@@ -92,7 +92,7 @@ export default function LawyersPage() {
     setFormOpen(true);
   }
 
-  function openEdit(lawyer: TLawyer) {
+  function openEdit(lawyer: TLawyerWithImage) {
     createMutation.reset();
     updateMutation.reset();
     setActionError(null);

@@ -59,6 +59,7 @@ export const lawyers = sqliteTable(
     barNumber: text("bar_number"),
     yearsOfExperience: integer("years_of_experience"),
     bio: text("bio"),
+    imageKey: text("image_key"),
     verified: integer("verified", { mode: "boolean" }).notNull().default(false),
     active: integer("active", { mode: "boolean" }).notNull().default(true),
     createdAt: text("created_at").notNull(),
@@ -106,6 +107,23 @@ export const ZLawyerUpdate = createUpdateSchema(
   lawyerRefinements,
 ).omit({ id: true, createdAt: true, updatedAt: true });
 
+// Admin responses carry a resolved display URL alongside the stored key.
+export const ZLawyerWithImage = ZLawyer.extend({
+  imageUrl: z.string().nullable(),
+});
+
+export const ZPublicLawyer = z.object({
+  id: z.string(),
+  name: z.string(),
+  practiceAreas: z.array(z.enum(PRACTICE_AREAS)),
+  district: z.enum(DISTRICTS),
+  languages: z.array(z.enum(LANGUAGES)),
+  yearsOfExperience: z.number().nullable(),
+  bio: z.string().nullable(),
+  bookingUrl: z.string().nullable(),
+  imageUrl: z.string().nullable(),
+});
+
 export const documentSchema = createSelectSchema(documents);
 export const documentCreateSchema = createInsertSchema(documents).omit({
   id: true,
@@ -114,8 +132,10 @@ export const documentCreateSchema = createInsertSchema(documents).omit({
 });
 
 export type TLawyer = z.infer<typeof ZLawyer>;
+export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
 export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
+export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
 export type Document = z.infer<typeof documentSchema>;
 export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 

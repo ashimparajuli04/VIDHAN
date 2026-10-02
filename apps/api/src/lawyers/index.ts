@@ -5,21 +5,11 @@ import type {
   TDistrict,
   TLanguage,
   TPracticeArea,
+  TPublicLawyer,
 } from "@vidhan/schema";
 import type { Db } from "../db";
-
-// Public projection. Internal fields (barNumber, flags, timestamps) never leave
-// this module — the chatbot tool will reuse searchLawyers with the same shape.
-export type TPublicLawyer = {
-  id: string;
-  name: string;
-  practiceAreas: TPracticeArea[];
-  district: TDistrict;
-  languages: TLanguage[];
-  yearsOfExperience: number | null;
-  bio: string | null;
-  bookingUrl: string | null;
-};
+import type { Env } from "../index";
+import { imageUrlFor } from "../uploads/r2";
 
 export type TLawyerSearchQuery = {
   practiceAreas: TPracticeArea[];
@@ -39,7 +29,11 @@ export type TLawyerSearchResult = {
   meta: TLawyerSearchMeta;
 };
 
-export function toPublicLawyer(row: LawyerRow): TPublicLawyer {
+export function toPublicLawyer(
+  row: LawyerRow,
+  env: Env,
+  origin: string,
+): TPublicLawyer {
   return {
     id: row.id,
     name: row.name,
@@ -49,6 +43,7 @@ export function toPublicLawyer(row: LawyerRow): TPublicLawyer {
     yearsOfExperience: row.yearsOfExperience,
     bio: row.bio,
     bookingUrl: row.bookingUrl,
+    imageUrl: imageUrlFor(env, origin, row.imageKey),
   };
 }
 
@@ -56,6 +51,8 @@ export function toPublicLawyer(row: LawyerRow): TPublicLawyer {
 export async function searchLawyers(
   db: Db,
   query: TLawyerSearchQuery,
+  env: Env,
+  origin: string,
 ): Promise<TLawyerSearchResult> {
   const rows = await db
     .select()
@@ -83,12 +80,17 @@ export async function searchLawyers(
   }
 
   const page = matched.slice(query.offset, query.offset + query.limit);
-  return { lawyers: page.map(toPublicLawyer), meta };
+  return {
+    lawyers: page.map((row) => toPublicLawyer(row, env, origin)),
+    meta,
+  };
 }
 
 export async function findPublicLawyer(
   db: Db,
   id: string,
+  env: Env,
+  origin: string,
 ): Promise<TPublicLawyer | null> {
   const row = await db
     .select()
@@ -101,7 +103,7 @@ export async function findPublicLawyer(
       ),
     )
     .get();
-  return row ? toPublicLawyer(row) : null;
+  return row ? toPublicLawyer(row, env, origin) : null;
 }
 
 function compareByLanguageThenRank(languages: Set<string>) {

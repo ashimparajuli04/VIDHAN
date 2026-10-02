@@ -45,19 +45,29 @@ lawyers.get("/", async (c) => {
   }
 
   const db = createDb(c.env.DB);
-  const result = await searchLawyers(db, {
-    practiceAreas: rawPractice.filter(isPracticeArea),
-    districts: rawDistrict.filter(isDistrict),
-    languages: rawLanguage.filter(isLanguage),
-    limit: Math.min(limit, MAX_LIMIT),
-    offset,
-  });
+  const result = await searchLawyers(
+    db,
+    {
+      practiceAreas: rawPractice.filter(isPracticeArea),
+      districts: rawDistrict.filter(isDistrict),
+      languages: rawLanguage.filter(isLanguage),
+      limit: Math.min(limit, MAX_LIMIT),
+      offset,
+    },
+    c.env,
+    new URL(c.req.url).origin,
+  );
   return c.json(result);
 });
 
 lawyers.get("/:id", async (c) => {
   const db = createDb(c.env.DB);
-  const lawyer = await findPublicLawyer(db, c.req.param("id"));
+  const lawyer = await findPublicLawyer(
+    db,
+    c.req.param("id"),
+    c.env,
+    new URL(c.req.url).origin,
+  );
   if (!lawyer) return c.json({ error: "not_found" }, 404);
   return c.json({ lawyer });
 });

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { FormEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import {
   DISTRICTS,
   LANGUAGES,
@@ -11,15 +11,21 @@ import {
 import type {
   TDistrict,
   TLanguage,
-  TLawyer,
   TLawyerCreate,
+  TLawyerWithImage,
   TPracticeArea,
 } from "@vidhan/schema";
 import { districtLabel, languageLabel, practiceAreaLabel } from "../labels";
+import {
+  IMAGE_CONTENT_TYPES,
+  MAX_IMAGE_BYTES,
+  uploadImage,
+} from "../../uploads/api";
+import { Avatar } from "./Avatar";
 
 export type TLawyerFormModalProps = {
   open: boolean;
-  lawyer: TLawyer | null;
+  lawyer: TLawyerWithImage | null;
   submitting: boolean;
   error: string | null;
   onClose: () => void;
@@ -37,11 +43,12 @@ type TDraft = {
   barNumber: string;
   bookingUrl: string;
   bio: string;
+  imageKey: string;
   verified: boolean;
   active: boolean;
 };
 
-function toDraft(lawyer: TLawyer | null): TDraft {
+function toDraft(lawyer: TLawyerWithImage | null): TDraft {
   if (!lawyer) {
     return {
       name: "",
@@ -52,6 +59,7 @@ function toDraft(lawyer: TLawyer | null): TDraft {
       barNumber: "",
       bookingUrl: "",
       bio: "",
+      imageKey: "",
       verified: false,
       active: true,
     };
@@ -66,6 +74,7 @@ function toDraft(lawyer: TLawyer | null): TDraft {
     barNumber: lawyer.barNumber ?? "",
     bookingUrl: lawyer.bookingUrl ?? "",
     bio: lawyer.bio ?? "",
+    imageKey: lawyer.imageKey ?? "",
     verified: lawyer.verified,
     active: lawyer.active,
   };
@@ -135,11 +144,17 @@ export function LawyerFormModal({
 }: TLawyerFormModalProps) {
   const [draft, setDraft] = useState<TDraft>(() => toDraft(lawyer));
   const [fieldErrors, setFieldErrors] = useState<TFieldErrors>({});
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   useEffect(() => {
     if (open) {
       setDraft(toDraft(lawyer));
       setFieldErrors({});
+      setPreviewUrl(lawyer?.imageUrl ?? null);
+      setUploading(false);
+      setUploadError(null);
     }
   }, [open, lawyer]);
 
@@ -153,6 +168,39 @@ export function LawyerFormModal({
   }, [open, onClose]);
 
   if (!open) return null;
+
+  async function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    setUploadError(null);
+    if (!(IMAGE_CONTENT_TYPES as readonly string[]).includes(file.type)) {
+      setUploadError("Use a JPEG, PNG, or WebP image.");
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setUploadError("Image must be 5MB or smaller.");
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const uploaded = await uploadImage(file);
+      setDraft((current) => ({ ...current, imageKey: uploaded.key }));
+      setPreviewUrl(uploaded.publicUrl);
+    } catch {
+      setUploadError("Upload failed. Try again.");
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  function removePhoto() {
+    setDraft((current) => ({ ...current, imageKey: "" }));
+    setPreviewUrl(null);
+    setUploadError(null);
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -168,6 +216,7 @@ export function LawyerFormModal({
       barNumber: draft.barNumber.trim() || undefined,
       bookingUrl: draft.bookingUrl.trim() || undefined,
       bio: draft.bio.trim() || undefined,
+      imageKey: draft.imageKey.trim() || null,
       verified: draft.verified,
       active: draft.active,
     });
@@ -228,6 +277,45 @@ export function LawyerFormModal({
               </select>
               <FieldError messages={fieldErrors.district} />
             </label>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Avatar
+              name={draft.name || "?"}
+              imageUrl={previewUrl}
+              className="h-16 w-16 text-xl"
+            />
+            <div className="space-y-1">
+              <label className="inline-flex cursor-pointer items-center rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100">
+                {uploading
+                  ? "Uploading…"
+                  : previewUrl
+                    ? "Replace photo"
+                    : "Upload photo"}
+                <input
+                  type="file"
+                  accept={IMAGE_CONTENT_TYPES.join(",")}
+                  disabled={uploading}
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </label>
+              {previewUrl && !uploading && (
+                <button
+                  type="button"
+                  onClick={removePhoto}
+                  className="block text-xs text-red-600 hover:underline"
+                >
+                  Remove photo
+                </button>
+              )}
+              {uploadError && (
+                <p className="text-xs text-red-600">{uploadError}</p>
+              )}
+              <p className="text-xs text-slate-500">
+                JPEG, PNG or WebP · up to 5MB
+              </p>
+            </div>
           </div>
 
           <CheckboxGroup
@@ -361,7 +449,7 @@ export function LawyerFormModal({
             </button>
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || uploading}
               className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-700 disabled:opacity-50"
             >
               {submitting

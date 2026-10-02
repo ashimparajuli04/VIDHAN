@@ -13,7 +13,14 @@ migrations_pattern = "../../packages/schema/drizzle/*/migration.sql"
 binding = "VECTORIZE"
 index_name = "vidhan"
 
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "vidhan-images"
+
 [vars]
 ADMIN_USERNAME = ""
 ADMIN_PASSWORD = ""
 OPENROUTER_API_KEY = ""
+R2_ACCOUNT_ID = ""
+R2_BUCKET_NAME = "vidhan-images"
+R2_PUBLIC_BASE_URL = ""

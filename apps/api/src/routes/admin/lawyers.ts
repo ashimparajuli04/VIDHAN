@@ -1,11 +1,17 @@
 import { Hono } from "hono";
 import { eq } from "drizzle-orm";
 import { lawyers as lawyersTable, ZLawyerCreate, ZLawyerUpdate } from "@vidhan/schema";
+import type { LawyerRow } from "@vidhan/schema";
 import type { Env } from "../../index";
 import { createDb } from "../../db";
 import { parseJson, validationError } from "../../lib/validate";
+import { imageUrlFor } from "../../uploads/r2";
 
 export const lawyers = new Hono<{ Bindings: Env }>();
+
+function withImageUrl(row: LawyerRow, env: Env, origin: string) {
+  return { ...row, imageUrl: imageUrlFor(env, origin, row.imageKey) };
+}
 
 // Drizzle wraps the D1 error, so walk the cause chain for the SQLite message.
 function isDuplicateBarNumber(err: unknown): boolean {
@@ -40,7 +46,8 @@ lawyers.get("/", async (c) => {
     active === undefined
       ? await db.select().from(lawyersTable)
       : await db.select().from(lawyersTable).where(eq(lawyersTable.active, active));
-  return c.json({ lawyers: rows });
+  const origin = new URL(c.req.url).origin;
+  return c.json({ lawyers: rows.map((row) => withImageUrl(row, c.env, origin)) });
 });
 
 lawyers.get("/:id", async (c) => {
@@ -51,7 +58,8 @@ lawyers.get("/:id", async (c) => {
     .where(eq(lawyersTable.id, c.req.param("id")))
     .get();
   if (!row) return c.json({ error: "not_found" }, 404);
-  return c.json({ lawyer: row });
+  const origin = new URL(c.req.url).origin;
+  return c.json({ lawyer: withImageUrl(row, c.env, origin) });
 });
 
 lawyers.post("/", async (c) => {
@@ -67,6 +75,7 @@ lawyers.post("/", async (c) => {
     barNumber: parsed.data.barNumber ?? null,
     yearsOfExperience: parsed.data.yearsOfExperience ?? null,
     bio: parsed.data.bio ?? null,
+    imageKey: parsed.data.imageKey ?? null,
     verified: parsed.data.verified ?? false,
     active: parsed.data.active ?? true,
     createdAt: now,
@@ -81,7 +90,8 @@ lawyers.post("/", async (c) => {
     }
     throw err;
   }
-  return c.json({ lawyer: row }, 201);
+  const origin = new URL(c.req.url).origin;
+  return c.json({ lawyer: withImageUrl(row, c.env, origin) }, 201);
 });
 
 lawyers.patch("/:id", async (c) => {
@@ -110,7 +120,8 @@ lawyers.patch("/:id", async (c) => {
     }
     throw err;
   }
-  return c.json({ lawyer: updated });
+  const origin = new URL(c.req.url).origin;
+  return c.json({ lawyer: withImageUrl(updated, c.env, origin) });
 });
 
 lawyers.delete("/:id", async (c) => {

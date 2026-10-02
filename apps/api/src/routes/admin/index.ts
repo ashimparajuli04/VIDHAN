@@ -3,6 +3,7 @@ import type { Env } from "../../index";
 import { lawyers } from "./lawyers";
 import { documents } from "./documents";
 import { stats } from "./stats";
+import { uploads } from "./uploads";
 
 export const adminRoutes = new Hono<{ Bindings: Env }>();
 
@@ -57,3 +58,4 @@ adminRoutes.use("*", async (c, next) => {
 adminRoutes.route("/lawyers", lawyers);
 adminRoutes.route("/documents", documents);
 adminRoutes.route("/stats", stats);
+adminRoutes.route("/uploads", uploads);
