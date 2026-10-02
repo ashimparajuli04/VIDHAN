@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { TLawyer, TLawyerUpdate } from "@vidhan/schema";
-import { listLawyers, updateLawyer } from "./api";
+import type { TLawyer, TLawyerCreate, TLawyerUpdate } from "@vidhan/schema";
+import { createLawyer, listLawyers, updateLawyer } from "./api";
 
 export const lawyerKeys = {
   all: ["lawyers"] as const,
@@ -13,6 +13,17 @@ export function useLawyers(active?: boolean, enabled = true) {
     queryKey: lawyerKeys.list(active),
     queryFn: () => listLawyers(active),
     enabled,
+  });
+}
+
+export function useCreateLawyer() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (input: TLawyerCreate) => createLawyer(input),
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: lawyerKeys.all });
+    },
   });
 }
 

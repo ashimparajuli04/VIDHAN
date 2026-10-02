@@ -1,6 +1,6 @@
 # Sprint 3 — Admin UI (Lawyer Management)
 
-Scope: the `apps/admin` interface over the Sprint 2 lawyers API. **Read + toggle only** — list, search/filter, and inline `verified` / `active` switches. Create/edit forms, document repo, and the web app are **out of scope**.
+Scope: the `apps/admin` interface over the Sprint 2 lawyers API. List, search/filter, inline `verified` / `active` switches, and create/edit forms. Document repo and the web app are **out of scope**.
 
 ## Decisions
 
@@ -33,7 +33,7 @@ src/
 ├── features/lawyers/
 │   ├── api.ts         # list(active?) + patch(id, partial), zod-validated
 │   ├── hooks.ts       # useLawyers, useUpdateLawyer (optimistic, invalidate on error)
-│   └── components/    # table, row, toggle, filters
+│   └── components/    # table, row, toggle, filters, form modal
 └── app/
     ├── login/page.tsx # credential form
     ├── lawyers/page.tsx # list; no creds → /login, 401 → clear + /login
@@ -49,6 +49,7 @@ src/
 - Filters: practice area, district (dropdowns from `@vidhan/schema` consts), active/all (server `?active=`).
 - Columns: name, district, practiceAreas, languages, experience, barNumber, verified, active, updatedAt.
 - Toggles call `PATCH /admin/lawyers/:id`; optimistic update, invalidate on failure.
+- `Add lawyer` / per-row `Edit` open a client-state modal (`LawyerFormModal`); create → `POST`, edit → `PATCH`. Form is zod-validated with `ZLawyerCreate`; server errors (`409 duplicate_bar_number`, `400`, `500`) render in the modal. No dynamic route, per the decision above.
 - Errors: `409`/`400`/`500` → inline error; `401` → clear creds, back to `/login`.
 
 ## Accepted trade-off
@@ -61,6 +62,6 @@ Basic credentials sit in `localStorage` (base64, not encrypted). Fine for an adm
 
 ## Out of scope
 
-- Lawyer create/edit forms (Sprint 4?).
 - Document repo admin.
 - Web app directory screen.
+- Hard delete (soft-delete is the `active` toggle).

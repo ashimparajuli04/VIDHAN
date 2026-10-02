@@ -2,12 +2,23 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { TDistrict, TPracticeArea, TLawyerUpdate } from "@vidhan/schema";
+import type {
+  TDistrict,
+  TLawyer,
+  TLawyerCreate,
+  TLawyerUpdate,
+  TPracticeArea,
+} from "@vidhan/schema";
 import { ApiError } from "@/lib/api";
 import { clearCreds, hasCreds } from "@/lib/auth";
 import { Filters } from "@/features/lawyers/components/Filters";
+import { LawyerFormModal } from "@/features/lawyers/components/LawyerFormModal";
 import { LawyerTable } from "@/features/lawyers/components/LawyerTable";
-import { useLawyers, useUpdateLawyer } from "@/features/lawyers/hooks";
+import {
+  useCreateLawyer,
+  useLawyers,
+  useUpdateLawyer,
+} from "@/features/lawyers/hooks";
 
 export default function LawyersPage() {
   const router = useRouter();
@@ -17,13 +28,19 @@ export default function LawyersPage() {
   const [district, setDistrict] = useState<TDistrict | "">("");
   const [active, setActive] = useState<boolean | undefined>(undefined);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [editing, setEditing] = useState<TLawyer | null>(null);
 
   const query = useLawyers(active, ready);
-  const mutation = useUpdateLawyer(active);
+  const createMutation = useCreateLawyer();
+  const updateMutation = useUpdateLawyer(active);
 
   const unauthorized =
     (query.error instanceof ApiError && query.error.unauthorized) ||
-    (mutation.error instanceof ApiError && mutation.error.unauthorized);
+    (createMutation.error instanceof ApiError &&
+      createMutation.error.unauthorized) ||
+    (updateMutation.error instanceof ApiError &&
+      updateMutation.error.unauthorized);
 
   useEffect(() => {
     if (hasCreds()) setReady(true);
@@ -38,14 +55,16 @@ export default function LawyersPage() {
   }, [unauthorized, router]);
 
   useEffect(() => {
-    const error = mutation.error;
-    if (!error || (error instanceof ApiError && error.unauthorized)) return;
+    const error = updateMutation.error;
+    if (!error || formOpen || (error instanceof ApiError && error.unauthorized)) {
+      return;
+    }
     setActionError(
       error instanceof ApiError
         ? `Update failed (${error.code}).`
         : "Update failed.",
     );
-  }, [mutation.error]);
+  }, [updateMutation.error, formOpen]);
 
   const lawyers = useMemo(() => {
     const list = query.data ?? [];
@@ -65,9 +84,41 @@ export default function LawyersPage() {
     });
   }, [query.data, search, practiceArea, district]);
 
+  function openCreate() {
+    createMutation.reset();
+    updateMutation.reset();
+    setActionError(null);
+    setEditing(null);
+    setFormOpen(true);
+  }
+
+  function openEdit(lawyer: TLawyer) {
+    createMutation.reset();
+    updateMutation.reset();
+    setActionError(null);
+    setEditing(lawyer);
+    setFormOpen(true);
+  }
+
+  function closeForm() {
+    setFormOpen(false);
+    setEditing(null);
+  }
+
   function handleToggle(id: string, patch: TLawyerUpdate) {
     setActionError(null);
-    mutation.mutate({ id, patch });
+    updateMutation.mutate({ id, patch });
+  }
+
+  function handleSubmit(values: TLawyerCreate) {
+    if (editing) {
+      updateMutation.mutate(
+        { id: editing.id, patch: values },
+        { onSuccess: closeForm },
+      );
+    } else {
+      createMutation.mutate(values, { onSuccess: closeForm });
+    }
   }
 
   function handleSignOut() {
@@ -77,7 +128,20 @@ export default function LawyersPage() {
 
   if (!ready) return null;
 
-  const updatingId = mutation.isPending ? mutation.variables?.id : undefined;
+  const updatingId = updateMutation.isPending
+    ? updateMutation.variables?.id
+    : undefined;
+  const formError = formOpen
+    ? editing
+      ? updateMutation.error
+      : createMutation.error
+    : null;
+  const formErrorMessage =
+    formError instanceof ApiError
+      ? `Save failed (${formError.code}).`
+      : formError
+        ? "Save failed."
+        : null;
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-8">
@@ -89,13 +153,22 @@ export default function LawyersPage() {
             {query.isFetching ? " · refreshing…" : ""}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={handleSignOut}
-          className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100"
-        >
-          Sign out
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={openCreate}
+            className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-700"
+          >
+            Add lawyer
+          </button>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100"
+          >
+            Sign out
+          </button>
+        </div>
       </header>
 
       <div className="mb-4">
@@ -126,8 +199,18 @@ export default function LawyersPage() {
           lawyers={lawyers}
           updatingId={updatingId}
           onToggle={handleToggle}
+          onEdit={openEdit}
         />
       )}
+
+      <LawyerFormModal
+        open={formOpen}
+        lawyer={editing}
+        submitting={createMutation.isPending || updateMutation.isPending}
+        error={formErrorMessage}
+        onClose={closeForm}
+        onSubmit={handleSubmit}
+      />
     </main>
   );
 }

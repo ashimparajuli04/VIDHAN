@@ -7,6 +7,7 @@ export type TLawyerTableProps = {
   lawyers: TLawyer[];
   updatingId: string | undefined;
   onToggle: (id: string, patch: TLawyerUpdate) => void;
+  onEdit: (lawyer: TLawyer) => void;
 };
 
 const HEADERS = [
@@ -19,12 +20,14 @@ const HEADERS = [
   "Verified",
   "Active",
   "Updated",
+  "Actions",
 ];
 
 export function LawyerTable({
   lawyers,
   updatingId,
   onToggle,
+  onEdit,
 }: TLawyerTableProps) {
   if (lawyers.length === 0) {
     return (
@@ -53,6 +56,7 @@ export function LawyerTable({
               lawyer={lawyer}
               busy={updatingId === lawyer.id}
               onToggle={onToggle}
+              onEdit={onEdit}
             />
           ))}
         </tbody>
