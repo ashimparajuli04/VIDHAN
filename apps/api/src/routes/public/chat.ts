@@ -133,16 +133,22 @@ chat.post("/sessions/:id/messages", async (c) => {
     // Step once more after a tool result so the model summarises the lawyers.
     stopWhen: stepCountIs(3),
     onFinish: (event) => {
-      const toolCalls: TToolCall[] = event.toolCalls.map((call) => ({
-        toolCallId: call.toolCallId,
-        toolName: call.toolName,
-        input: call.input,
-      }));
-      const toolResults: TToolResult[] = event.toolResults.map((toolResult) => ({
-        toolCallId: toolResult.toolCallId,
-        toolName: toolResult.toolName,
-        output: toolResult.output,
-      }));
+      // Tool calls live in the step that invoked them, not the final step that
+      // summarises the result, so aggregate across every step.
+      const toolCalls: TToolCall[] = event.steps.flatMap((step) =>
+        step.toolCalls.map((call) => ({
+          toolCallId: call.toolCallId,
+          toolName: call.toolName,
+          input: call.input,
+        })),
+      );
+      const toolResults: TToolResult[] = event.steps.flatMap((step) =>
+        step.toolResults.map((toolResult) => ({
+          toolCallId: toolResult.toolCallId,
+          toolName: toolResult.toolName,
+          output: toolResult.output,
+        })),
+      );
       // Context can tear down once the last chunk flushes; waitUntil keeps the
       // isolate alive for these writes.
       c.executionCtx.waitUntil(

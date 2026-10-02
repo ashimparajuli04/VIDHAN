@@ -121,6 +121,9 @@ export const users = sqliteTable(
     passwordHash: text("password_hash").notNull(),
     name: text("name").notNull(),
     district: text("district"),
+    isResearcher: integer("is_researcher", { mode: "boolean" })
+      .notNull()
+      .default(false),
     language: text("language").notNull().default("en"),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at").notNull(),
@@ -238,6 +241,8 @@ export const ZAuthRegister = z.object({
   email: z.string().email().transform((v) => v.trim().toLowerCase()),
   password: z.string().min(8).max(200),
   name: z.string().trim().min(1).max(120),
+  district: z.enum(DISTRICTS).nullable().default(null),
+  isResearcher: z.boolean().default(false),
 });
 export const ZAuthLogin = z.object({
   email: z.string().email().transform((v) => v.trim().toLowerCase()),
@@ -246,6 +251,7 @@ export const ZAuthLogin = z.object({
 export const ZAuthUpdate = z.object({
   name: z.string().trim().min(1).max(120).optional(),
   district: z.enum(DISTRICTS).nullable().optional(),
+  isResearcher: z.boolean().optional(),
   language: z.enum(LANGUAGES).optional(),
 });
 

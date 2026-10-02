@@ -13,7 +13,6 @@ import {
   MessageSquarePlus,
   MoreHorizontal,
   Scale,
-  Settings,
   User,
 } from "lucide-react";
 
@@ -35,7 +34,6 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -43,6 +41,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useAuth } from "@/features/auth/provider";
 
 const navItems = [
   {
@@ -82,16 +81,14 @@ const recentChats = [
   },
 ];
 
-const mockUser = {
-  name: "Guest User",
-  email: "guest@vidhan.app",
-};
-
 export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
+  const { user, logout } = useAuth();
 
   const collapsed = state === "collapsed";
+  const displayName = user?.name ?? "Account";
+  const displayEmail = user?.email ?? "";
 
   return (
     <Sidebar collapsible="icon">
@@ -260,7 +257,7 @@ export function AppSidebar() {
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
                   size="lg"
-                  tooltip={`${mockUser.name} - ${mockUser.email}`}
+                  tooltip={`${displayName} - ${displayEmail}`}
                   className="rounded-lg"
                 >
                   <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sidebar-accent">
@@ -268,12 +265,10 @@ export function AppSidebar() {
                   </div>
 
                   <div className="grid min-w-0 flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-medium">
-                      {mockUser.name}
-                    </span>
+                    <span className="truncate font-medium">{displayName}</span>
 
                     <span className="truncate text-xs text-sidebar-foreground/60">
-                      {mockUser.email}
+                      {displayEmail}
                     </span>
                   </div>
                 </SidebarMenuButton>
@@ -287,29 +282,13 @@ export function AppSidebar() {
                 className="w-60 rounded-xl"
               >
                 <DropdownMenuLabel className="font-normal">
-                  <p className="text-sm font-medium">{mockUser.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {mockUser.email}
-                  </p>
+                  <p className="text-sm font-medium">{displayName}</p>
+                  <p className="text-xs text-muted-foreground">{displayEmail}</p>
                 </DropdownMenuLabel>
 
                 <DropdownMenuSeparator />
 
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <User />
-                    Profile
-                  </DropdownMenuItem>
-
-                  <DropdownMenuItem>
-                    <Settings />
-                    Account settings
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-
-                <DropdownMenuSeparator />
-
-                <DropdownMenuItem variant="destructive">
+                <DropdownMenuItem variant="destructive" onSelect={logout}>
                   <LogOut />
                   Sign out
                 </DropdownMenuItem>
