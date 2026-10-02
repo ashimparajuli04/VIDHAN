@@ -13,7 +13,9 @@
     "db:seed:load": "wrangler d1 execute DB --local --file=../../data/lawyers.seed.sql"
   },
   "dependencies": {
+    "@ai-sdk/openai-compatible": "^1.0.58",
     "@vidhan/schema": "workspace:*",
+    "ai": "^5.0.271",
     "aws4fetch": "^1.0.20",
     "drizzle-orm": "^1.0.0-rc.4",
     "hono": "^4.6.0",

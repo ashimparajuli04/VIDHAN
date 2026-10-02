@@ -87,6 +87,76 @@ export const documents = sqliteTable(
   (t) => [index("documents_status_idx").on(t.status)],
 );
 
+export const CHAT_ROLES = ["user", "assistant"] as const;
+
+declare const jsonDataType: unique symbol;
+type JsonValueOf<T> = { [jsonDataType]: T };
+
+// `$type` changes only the select type; inserts still demand the branded payload.
+export function asJson<T>(value: T[]): T[] & JsonValueOf<T[]> {
+  return value as T[] & JsonValueOf<T[]>;
+}
+
+export const ZToolCall = z.object({
+  toolCallId: z.string(),
+  toolName: z.string(),
+  input: z.unknown(),
+});
+
+export const ZToolResult = z.object({
+  toolCallId: z.string(),
+  toolName: z.string(),
+  output: z.unknown(),
+});
+
+export const users = sqliteTable(
+  "users",
+  {
+    id: text("id").primaryKey(),
+    email: text("email").notNull(),
+    passwordHash: text("password_hash").notNull(),
+    name: text("name").notNull(),
+    district: text("district"),
+    language: text("language").notNull().default("en"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [uniqueIndex("users_email_unique").on(t.email)],
+);
+
+export const chatSessions = sqliteTable(
+  "chat_sessions",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    title: text("title").notNull(),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [index("chat_sessions_user_updated_idx").on(t.userId, t.updatedAt)],
+);
+
+export const chatMessages = sqliteTable(
+  "chat_messages",
+  {
+    id: text("id").primaryKey(),
+    sessionId: text("session_id")
+      .notNull()
+      .references(() => chatSessions.id),
+    role: text("role", { enum: CHAT_ROLES }).notNull(),
+    content: text("content").notNull(),
+    // Brand the payload so select sees TToolCall[] instead of the column's `unknown`.
+    toolCalls: text("tool_calls", { mode: "json" }).$type<TToolCall[] & JsonValueOf<TToolCall[]>>(),
+    toolResults: text("tool_results", { mode: "json" }).$type<
+      TToolResult[] & JsonValueOf<TToolResult[]>
+    >(),
+    createdAt: text("created_at").notNull(),
+  },
+  (t) => [index("chat_messages_session_created_idx").on(t.sessionId, t.createdAt)],
+);
+
 const lawyerRefinements = {
   name: (s: z.ZodString) => s.min(1),
   practiceAreas: () => z.array(z.enum(PRACTICE_AREAS)).min(1),
@@ -131,6 +201,44 @@ export const documentCreateSchema = createInsertSchema(documents).omit({
   updatedAt: true,
 });
 
+const userRefinements = {
+  email: (s: z.ZodString) => s.email(),
+  name: (s: z.ZodString) => s.min(1),
+  district: () => z.enum(DISTRICTS).nullable(),
+  language: () => z.enum(LANGUAGES),
+};
+
+export const ZUser = createSelectSchema(users, userRefinements);
+export const ZPublicUser = ZUser.omit({ passwordHash: true });
+
+export const ZAuthRegister = z.object({
+  email: z.string().email().transform((v) => v.trim().toLowerCase()),
+  password: z.string().min(8).max(200),
+  name: z.string().trim().min(1).max(120),
+});
+export const ZAuthLogin = z.object({
+  email: z.string().email().transform((v) => v.trim().toLowerCase()),
+  password: z.string().min(1),
+});
+export const ZAuthUpdate = z.object({
+  name: z.string().trim().min(1).max(120).optional(),
+  district: z.enum(DISTRICTS).nullable().optional(),
+  language: z.enum(LANGUAGES).optional(),
+});
+
+export const ZChatSession = createSelectSchema(chatSessions);
+// createSelectSchema types json columns as JSONValue; refine to recover TToolCall[].
+// createSelectSchema maps json columns to ZodType<Json>, which would infer JSONValue.
+export const ZChatMessageToolCalls = z.array(ZToolCall).nullable();
+export const ZChatMessageToolResults = z.array(ZToolResult).nullable();
+export const ZChatMessage = createSelectSchema(chatMessages, {
+  toolCalls: () => ZChatMessageToolCalls,
+  toolResults: () => ZChatMessageToolResults,
+});
+export const ZChatSend = z.object({
+  content: z.string().trim().min(1).max(4000),
+});
+
 export type TLawyer = z.infer<typeof ZLawyer>;
 export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
@@ -139,7 +247,24 @@ export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
 export type Document = z.infer<typeof documentSchema>;
 export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 
+export type TToolCall = z.infer<typeof ZToolCall>;
+export type TToolResult = z.infer<typeof ZToolResult>;
+export type TUser = z.infer<typeof ZUser>;
+export type TPublicUser = z.infer<typeof ZPublicUser>;
+export type TAuthRegister = z.infer<typeof ZAuthRegister>;
+export type TAuthLogin = z.infer<typeof ZAuthLogin>;
+export type TAuthUpdate = z.infer<typeof ZAuthUpdate>;
+export type TChatSession = z.infer<typeof ZChatSession>;
+export type TChatMessage = z.infer<typeof ZChatMessage>;
+export type TChatSend = z.infer<typeof ZChatSend>;
+
 export type LawyerRow = typeof lawyers.$inferSelect;
 export type LawyerInsert = typeof lawyers.$inferInsert;
 export type DocumentRow = typeof documents.$inferSelect;
 export type DocumentInsert = typeof documents.$inferInsert;
+export type UserRow = typeof users.$inferSelect;
+export type UserInsert = typeof users.$inferInsert;
+export type ChatSessionRow = typeof chatSessions.$inferSelect;
+export type ChatSessionInsert = typeof chatSessions.$inferInsert;
+export type ChatMessageRow = typeof chatMessages.$inferSelect;
+export type ChatMessageInsert = typeof chatMessages.$inferInsert;

@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { eq } from "drizzle-orm";
-import { lawyers as lawyersTable, ZLawyerCreate, ZLawyerUpdate } from "@vidhan/schema";
+import { asJson, lawyers as lawyersTable, ZLawyerCreate, ZLawyerUpdate } from "@vidhan/schema";
 import type { LawyerRow } from "@vidhan/schema";
 import type { Env } from "../../index";
 import { createDb } from "../../db";
@@ -71,6 +71,7 @@ lawyers.post("/", async (c) => {
   const row = {
     ...parsed.data,
     id: crypto.randomUUID(),
+    languages: asJson(parsed.data.languages),
     bookingUrl: parsed.data.bookingUrl ?? null,
     barNumber: parsed.data.barNumber ?? null,
     yearsOfExperience: parsed.data.yearsOfExperience ?? null,
@@ -110,6 +111,7 @@ lawyers.patch("/:id", async (c) => {
   const updated = {
     ...existing,
     ...parsed.data,
+    languages: parsed.data.languages ? asJson(parsed.data.languages) : existing.languages,
     updatedAt: new Date().toISOString(),
   };
   try {
