@@ -10,7 +10,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "ingest": "tsx src/ingest/cli.ts",
     "db:seed": "tsx src/seed/lawyers.ts",
-    "db:seed:load": "wrangler d1 execute DB --local --file=../../data/lawyers.seed.sql"
+    "db:seed:documents": "tsx src/seed/documents.ts",
+    "db:seed:load": "wrangler d1 execute DB --local --file=../../data/lawyers.seed.sql",
+    "db:seed:documents:load": "wrangler d1 execute DB --local --file=../../data/documents.seed.sql"
   },
   "dependencies": {
     "@vidhan/schema": "workspace:*",

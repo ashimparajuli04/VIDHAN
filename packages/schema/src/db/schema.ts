@@ -71,13 +71,17 @@ export const lawyers = sqliteTable(
   ],
 );
 
+export const DOCUMENT_STATUSES = ["pending", "indexed", "failed"] as const;
+export type TDocumentStatus = (typeof DOCUMENT_STATUSES)[number];
+
 export const documents = sqliteTable(
   "documents",
   {
     id: text("id").primaryKey(),
     title: text("title").notNull(),
+    year: integer("year"),
     summary: text("summary"),
-    status: text("status", { enum: ["pending", "indexed", "failed"] })
+    status: text("status", { enum: DOCUMENT_STATUSES })
       .notNull()
       .default("pending"),
     chunkCount: integer("chunk_count").notNull().default(0),
@@ -137,6 +141,18 @@ export const documentCreateSchema = createInsertSchema(documents).omit({
   createdAt: true,
   updatedAt: true,
 });
+
+// Public list surface for the document repository. Internal fields
+// (summary, chunkCount, timestamps) stay out of public surfaces.
+export const ZPublicDocument = z.object({
+  id: z.string(),
+  title: z.string(),
+  year: z.number().nullable(),
+  status: z.enum(DOCUMENT_STATUSES),
+});
+
+export type TPublicDocument = z.infer<typeof ZPublicDocument>;
+export type TDocumentCreate = z.infer<typeof documentCreateSchema>;
 
 export type TLawyer = z.infer<typeof ZLawyer>;
 export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
