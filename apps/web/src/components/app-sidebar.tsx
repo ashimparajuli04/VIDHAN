@@ -207,7 +207,7 @@ export function AppSidebar() {
                       asChild
                       className="group h-9 rounded-lg px-2 text-[13px] font-normal"
                     >
-                      <Link href={`/chat/${chat.id}`}>
+                      <Link href={`/chat?id=${chat.id}`}>
                         <MessageSquare className="size-3.5 shrink-0 opacity-50" />
 
                         <span className="min-w-0 flex-1 truncate">

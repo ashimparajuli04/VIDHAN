@@ -1,5 +1,11 @@
-import { ChatPage } from "@/components/pages/chat-page";
+import { Suspense } from "react";
+
+import { ChatView } from "@/features/chat/components/chat-view";
 
 export default function Chat() {
-  return <ChatPage />;
+  return (
+    <Suspense fallback={null}>
+      <ChatView />
+    </Suspense>
+  );
 }

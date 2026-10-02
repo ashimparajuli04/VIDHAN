@@ -26,7 +26,7 @@ const MAX_RESULTS = 50;
 // Temporary stand-in so the catalogue can be previewed without a running
 // API. The real fetches are commented out in getLawyers/getLawyer below;
 // uncomment them and delete MOCK_LAWYERS to go back to live data.
-const MOCK_LAWYERS: TPublicLawyerDetail[] = [
+export const MOCK_LAWYERS: TPublicLawyerDetail[] = [
   {
     id: "mock-01",
     name: "Aasha Thapa",
