@@ -30,6 +30,7 @@ export function toPublicUser(row: UserRow): TPublicUser {
     email: row.email,
     name: row.name,
     district: row.district as TDistrict | null,
+    isResearcher: row.isResearcher,
     language: row.language as TLanguage,
     createdAt: row.createdAt,
     updatedAt: row.updatedAt,

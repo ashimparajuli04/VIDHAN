@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `is_researcher` integer DEFAULT false NOT NULL;

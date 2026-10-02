@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { Chrome } from "@/components/layout/chrome";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/features/auth/provider";
 
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Chrome>{children}</Chrome>
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>

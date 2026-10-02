@@ -34,7 +34,8 @@ auth.post("/register", async (c) => {
     email: parsed.data.email,
     passwordHash: await hashPassword(parsed.data.password),
     name: parsed.data.name,
-    district: null,
+    district: parsed.data.district,
+    isResearcher: parsed.data.isResearcher,
     language: "en",
     createdAt: now,
     updatedAt: now,
@@ -74,6 +75,7 @@ auth.patch("/me", requireAuth(), async (c) => {
   const updated = {
     name: parsed.data.name ?? user.name,
     district: parsed.data.district === undefined ? user.district : parsed.data.district,
+    isResearcher: parsed.data.isResearcher ?? user.isResearcher,
     language: (parsed.data.language ?? user.language) as TLanguage,
     updatedAt: new Date().toISOString(),
   };
