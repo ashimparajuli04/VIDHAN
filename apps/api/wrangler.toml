@@ -1,0 +1,16 @@
+name = "vidhan-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vidhan"
+database_id = ""
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "vidhan"
+
+[vars]
+ADMIN_TOKEN = ""
+OPENROUTER_API_KEY = ""

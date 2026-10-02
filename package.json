@@ -1,0 +1,23 @@
+{
+  "name": "vidhan",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "nx run-many -t build",
+    "typecheck": "nx run-many -t typecheck",
+    "lint": "nx run-many -t lint",
+    "dev:api": "nx run api:dev",
+    "dev:web": "nx run web:dev",
+    "dev:admin": "nx run admin:dev",
+    "api:dev": "nx run api:dev",
+    "web:dev": "nx run web:dev",
+    "admin:dev": "nx run admin:dev"
+  },
+  "devDependencies": {
+    "nx": "^23.0.0",
+    "typescript": "^5.7.0"
+  }
+}
