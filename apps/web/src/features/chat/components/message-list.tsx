@@ -8,15 +8,18 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import type { TChatMessageView, TStreamStatus } from "../types";
 import { MessageBubble } from "./message-bubble";
+import { SourceSteps } from "./source-steps";
 
 const NEAR_BOTTOM_PX = 48;
 
 export function MessageList({
   messages,
   status,
+  onRestoreQuery,
 }: {
   messages: TChatMessageView[];
   status: TStreamStatus;
+  onRestoreQuery?: (query: string) => void;
 }) {
   const rootRef = React.useRef<HTMLDivElement>(null);
   const viewportRef = React.useRef<HTMLElement | null>(null);
@@ -48,6 +51,8 @@ export function MessageList({
     viewport.scrollTop = viewport.scrollHeight;
   }, [messages, status, atBottom]);
 
+  // The in-flight user turn, so a Stop can put it back in the composer.
+  const lastUser = [...messages].reverse().find((m) => m.role === "user");
   const lastId = messages[messages.length - 1]?.id;
 
   return (
@@ -55,12 +60,29 @@ export function MessageList({
       <ScrollArea className="h-full">
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
           {messages.map((message) => (
-            <MessageBubble
-              key={message.id}
-              message={message}
-              thinking={status === "thinking" && message.id === lastId}
-            />
+            <div key={message.id} className="flex flex-col gap-3">
+              <MessageBubble
+                message={message}
+                thinking={status === "thinking" && message.id === lastId}
+              />
+
+              {message.sources && (
+                <div className="max-w-[85%] self-start">
+                  <SourceSteps steps={message.sources} />
+                </div>
+              )}
+            </div>
           ))}
+
+          {status !== "idle" && lastUser && onRestoreQuery && (
+            <button
+              type="button"
+              onClick={() => onRestoreQuery(lastUser.content)}
+              className="self-center rounded-full border bg-card px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              Edit message
+            </button>
+          )}
         </div>
       </ScrollArea>
 

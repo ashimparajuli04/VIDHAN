@@ -1,9 +1,27 @@
 import { tool } from "ai";
 import { z } from "zod/v4";
-import { DISTRICTS, LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
+import {
+  DOCUMENT_TYPES,
+  DISTRICTS,
+  LANGUAGES,
+  PRACTICE_AREAS,
+  ZCiteOutput,
+} from "@vidhan/schema";
 import { createDb } from "../db";
 import { searchLawyers, type TLawyerSearchResult } from "../lawyers";
+import { listDocuments, listDocumentTitles } from "../documents/list";
+import {
+  DEFAULT_OUTLINE_LIMIT,
+  DEFAULT_SECTION_MAX_CHARS,
+  getBoundedSection,
+  getCompactOutline,
+  resolveReferences,
+  searchDocumentSections,
+} from "../documents/retrieval";
+import type { TSectionText } from "../documents/retrieval";
 import type { Env } from "../index";
+
+export type TCiteResult = z.infer<typeof ZCiteOutput>;
 
 export type TFindLawyersInput = {
   practiceAreas: (typeof PRACTICE_AREAS)[number][];
@@ -47,7 +65,190 @@ export function buildTools(env: Env, origin: string) {
         );
       },
     }),
+
+    list_documents: tool({
+      description:
+        "List the legal documents available in the corpus. Call first when you need to " +
+        "know which statutes exist before picking one.",
+      inputSchema: z.object({}),
+      execute: async () => {
+        const db = createDb(env.DB);
+        const docs = await listDocumentTitles(db);
+        return {
+          documents: docs.map((doc) => ({
+            id: doc.id,
+            title: doc.title,
+            documentType: doc.documentType,
+          })),
+        };
+      },
+    }),
+
+    search_documents: tool({
+      description:
+        "Search legal documents by keywords in the title or summary. Use when the user " +
+        "names an act or topic; returns matching documents with ids.",
+      inputSchema: z.object({
+        query: z.string().min(1).describe("Keywords, e.g. 'domestic violence' or 'labour'"),
+        type: z
+          .enum(DOCUMENT_TYPES)
+          .optional()
+          .describe("Filter by document type when the user specifies one"),
+      }),
+      execute: async ({ query, type }) => {
+        const db = createDb(env.DB);
+        const result = await listDocuments(db, { page: 1, limit: 10, search: query, type });
+        return {
+          documents: result.documents.map((doc) => ({
+            id: doc.id,
+            title: doc.title,
+            documentType: doc.documentType,
+          })),
+          total: result.total,
+        };
+      },
+    }),
+
+    get_document_outline: tool({
+      description:
+        "List a document's sections (id, number, heading, chapter) so you can pick " +
+        "which to read. Pass query to filter by heading (e.g. 'complaint', 'limitation') — " +
+        "large statutes are capped, so filter rather than paging. Bodies are not included.",
+      inputSchema: z.object({
+        documentId: z.string().describe("Document id from list_documents/search_documents"),
+        query: z
+          .string()
+          .optional()
+          .describe("Filter sections whose heading contains this text"),
+        limit: z
+          .number()
+          .int()
+          .min(1)
+          .max(100)
+          .optional()
+          .describe("Max sections to return"),
+      }),
+      execute: async ({ documentId, query, limit }) => {
+        const db = createDb(env.DB);
+        const outline = await getCompactOutline(db, documentId, {
+          query,
+          limit: limit ?? DEFAULT_OUTLINE_LIMIT,
+        });
+        if (!outline) return { error: "not_found", documentId };
+        return outline;
+      },
+    }),
+
+    // One-shot ranked search. Prefer this over outline-then-read for a
+    // topic question — it returns the sections whose text itself matches.
+    search_document_sections: tool({
+      description:
+        "Rank a document's sections by keyword match against their text, returning " +
+        "snippets and node ids. Use to jump straight to relevant provisions instead " +
+        "of walking the outline.",
+      inputSchema: z.object({
+        query: z.string().min(1).describe("Keywords from the user's question"),
+        limit: z.number().int().min(1).max(20).optional().describe("Max sections"),
+      }),
+      execute: async ({ query, limit }) => {
+        const db = createDb(env.DB);
+        const matches = await searchDocumentSections(db, query, limit ?? 8);
+        return { matches, total: matches.length };
+      },
+    }),
+
+    get_section: tool({
+      description:
+        "Fetch one section's text and canonical citation by node id. The body is " +
+        "capped; if truncated is true, the content continues beyond what is shown. " +
+        "Cite the returned citation verbatim.",
+      inputSchema: z.object({
+        documentId: z.string(),
+        nodeId: z.string().describe("Node id from get_document_outline or search_document_sections"),
+        maxChars: z
+          .number()
+          .int()
+          .min(500)
+          .max(20000)
+          .optional()
+          .describe("Cap on returned characters; defaults to 6000"),
+      }),
+      execute: async ({ documentId, nodeId, maxChars }) => {
+        const db = createDb(env.DB);
+        const section = await getBoundedSection(
+          db,
+          documentId,
+          nodeId,
+          maxChars ?? DEFAULT_SECTION_MAX_CHARS,
+        );
+        if (!section) return { error: "not_found", documentId, nodeId };
+        return section;
+      },
+    }),
+
+    // Records the provisions the answer actually relied on, once, before the
+    // final text. Side-effect only — the refs render as the cited-sources row.
+    cite: tool({
+      description:
+        "Record the sections your answer relied on, so they can be shown as cited " +
+        "sources. Call exactly once, after reading the sections and before writing " +
+        "your final answer, passing every nodeId you used. Pass no ids if you used none.",
+      inputSchema: z.object({
+        nodeIds: z
+          .array(z.string())
+          .describe("Every node id you relied on, in the order you used them"),
+      }),
+      execute: async ({ nodeIds }) => {
+        const db = createDb(env.DB);
+        const references = await resolveReferences(db, nodeIds);
+        return { references } satisfies TCiteResult;
+      },
+    }),
   };
 }
 
 export type TToolSet = ReturnType<typeof buildTools>;
+
+// Deterministic first pass: rank the whole corpus by the user's question and
+// hand back the best sections' text, so the model can answer common
+// topic questions without a list→search→outline→read tool chain. The tools
+// stay available for anything the prefetch misses.
+export async function prefetchSections(
+  env: Env,
+  question: string,
+  limit = 5,
+): Promise<TSectionText[]> {
+  const db = createDb(env.DB);
+  const matches = await searchDocumentSections(db, question, limit);
+  const seen = new Set<string>();
+  const sections: TSectionText[] = [];
+  for (const match of matches) {
+    if (seen.has(match.nodeId)) continue;
+    seen.add(match.nodeId);
+    const section = await getBoundedSection(
+      db,
+      match.documentId,
+      match.nodeId,
+      DEFAULT_SECTION_MAX_CHARS,
+    );
+    if (section) sections.push(section);
+  }
+  return sections;
+}
+
+export function renderPrefetchedContext(sections: TSectionText[]): string {
+  return sections
+    .map((section) =>
+      [
+        `### ${section.documentTitle} — ${section.identifier}${
+          section.heading ? ` (${section.heading})` : ""
+        }`,
+        section.citation ? `Citation: ${section.citation}` : "",
+        `nodeId: ${section.nodeId}`,
+        section.content,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    )
+    .join("\n\n");
+}

@@ -9,10 +9,6 @@ database_id = "00000000-0000-0000-0000-000000000000"
 migrations_dir = "../../packages/schema/drizzle"
 migrations_pattern = "../../packages/schema/drizzle/*/migration.sql"
 
-[[vectorize]]
-binding = "VECTORIZE"
-index_name = "vidhan"
-
 [[r2_buckets]]
 binding = "IMAGES"
 bucket_name = "vidhan-images"

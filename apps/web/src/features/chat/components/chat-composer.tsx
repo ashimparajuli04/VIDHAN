@@ -11,13 +11,22 @@ export function ChatComposer({
   streaming,
   onSend,
   onStop,
+  seed,
 }: {
   streaming: boolean;
   onSend: (content: string) => void;
   onStop: () => void;
+  seed?: { value: string; nonce: number } | null;
 }) {
   const [value, setValue] = React.useState("");
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+
+  // A Stop puts the in-flight turn back in the box for editing.
+  React.useEffect(() => {
+    if (!seed) return;
+    setValue(seed.value);
+    textareaRef.current?.focus();
+  }, [seed]);
 
   React.useEffect(() => {
     const el = textareaRef.current;

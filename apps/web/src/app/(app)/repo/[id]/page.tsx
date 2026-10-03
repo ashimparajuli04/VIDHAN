@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { DocumentDetail } from "@/components/documents/document-detail";
-import { REPO_DOCUMENT_IDS } from "@/lib/documents";
+import { REPO_DOCUMENT_IDS } from "@/lib/document-ids.generated";
 
 export const metadata: Metadata = {
   title: "Document · Vidhan",

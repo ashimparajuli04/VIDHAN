@@ -1,6 +1,6 @@
 # Database — Decisions
 
-Cloudflare **D1 (SQLite)** holds structured data (catalog, metadata). **Vectorize** holds embeddings — D1 has no vector support. Drizzle ORM is the single access layer, bound to the Worker's `DB` D1 binding (`apps/api/src/db.ts`).
+Cloudflare **D1 (SQLite)** holds structured data (catalog, metadata, the legal document tree). There is **no vector DB** — retrieval is tool calling over D1 (see `docs/document-schema-plan.md`). Drizzle ORM is the single access layer, bound to the Worker's `DB` D1 binding (`apps/api/src/db.ts`).
 
 ## Where things live
 
@@ -29,13 +29,42 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 - `createdAt`, `updatedAt` — ISO strings set app-side
 - composite index `(practice_areas, district)` for catalog lookup
 
-`documents` — repo metadata (chunks live in Vectorize).
+`documents` — one row per source statute (`act | constitution | regulation`).
 
-- `id` text PK
-- `summary` nullable — AI-generated at ingest
-- `status` enum `pending | indexed | failed`, default `pending`
-- `chunkCount` default `0`
-- index on `status`
+- `id` text PK — slug from the source filename (2 garbage Nepali ids rewritten at ingest)
+- `title` — as extracted, already includes the year
+- `originalTitle` nullable — always null in the current corpus
+- `documentType` — closed enum; `yearBs`, `yearAd`, `totalPages` nullable ints
+- `sourceFilename` not null
+- `summary` nullable — populated later via LLM + admin action, never at ingest
+- `createdAt`, `updatedAt` — ISO strings
+- indexes on `document_type` and `title`
+
+`document_nodes` — normalized recursive tree (self-referential via `parent_id`).
+
+- `id` text PK — path id `{documentId}:{0.2.1}` (each segment is the 0-based position within its parent; positions not identifiers, so reused identifiers can't collide)
+- `documentId` FK → `documents.id`
+- `parentId` FK → self, nullable
+- `depth` int (1-based), `position` int (order within parent)
+- `nodeType` enum — `preamble, part, chapter, section_group, section, sub_section, clause, schedule`
+- `identifier`, `title` (raw, run-on as extracted), `heading` (derived), `content` nullable
+- `citation` nullable — precomputed canonical citation, null only for `section_group` containers
+- indexes `(document_id, position)`, `(document_id, parent_id)`, `(document_id, node_type)`
+
+### Document ingest + citation
+
+`apps/api/src/ingest/documents.ts` (tsx) parses the PG dumps in
+`data/documents-sql-inserts-test/` (dollar-quoted JSONB, parsed not executed),
+dedupes by id, walks the node tree recursively, derives each `heading` (title
+truncated at the first `:`/newline) and `citation`, then writes
+`data/legal-documents.seed.sql`. It also writes the id list to
+`apps/web/src/lib/document-ids.generated.ts` so the web static export can
+enumerate `/repo/[id]` routes.
+
+Citations follow `{document title}, {ancestor labels}, {label} ({heading})`,
+skipping `section_group` containers. Labels: `section` → `"Section 3"`, `chapter`
+verbatim (`"Chapter-1"`), `preamble` → `"Preamble"`. Example:
+`Domestic Violence (Offence and Punishment) Act, 2066 (2009), Section 3 (Domestic Violence not to be committed)`.
 
 ## Conventions
 
@@ -66,6 +95,17 @@ pnpm --filter @vidhan/api db:seed        # regenerate data/lawyers.seed.sql
 pnpm --filter @vidhan/api db:seed:load   # load into local D1
 ```
 
+## Seeding legal documents (local)
+
+`apps/api/src/ingest/documents.ts` converts the source dumps into `data/legal-documents.seed.sql` and the web id module.
+
+```pwsh
+pnpm --filter @vidhan/api db:seed:documents        # regenerate seed + generated id list
+pnpm --filter @vidhan/api db:seed:documents:load   # load into local D1 (DELETE + INSERT, idempotent)
+```
+
+The seed runs a `DELETE` of `document_nodes` + `documents` first, so reloading is safe.
+
 ## Verifying DB setup (local)
 
 ```pwsh
@@ -84,4 +124,4 @@ Invoke-RestMethod http://localhost:8787/lawyers   # -> { lawyers = @(); meta = @
 
 ## Typecheck
 
-`apps/api` is a Worker (`@cloudflare/workers-types`), but the ingest CLI (`src/ingest/cli.ts`) is a Node script run through `tsx`. Both type sets are listed in `apps/api/tsconfig.json` (`types: ["@cloudflare/workers-types", "node"]`) with `@types/node` as a devDependency — without it the CLI's `node:fs/promises` / `process` fail to resolve.
+`apps/api` is a Worker (`@cloudflare/workers-types`), but the ingest converter (`src/ingest/documents.ts`) is a Node script run through `tsx`. Both type sets are listed in `apps/api/tsconfig.json` (`types: ["@cloudflare/workers-types", "node"]`) with `@types/node` as a devDependency — without it the converter's `node:fs/promises` / `process` fail to resolve. D1 rejects statements over ~100KB (`SQLITE_TOOBIG`), so the node inserts are batched under a byte budget.

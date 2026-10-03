@@ -4,7 +4,27 @@ import { Scale } from "lucide-react";
 
 import { useAuth } from "@/features/auth/provider";
 
-import { CHAT_SUGGESTIONS } from "../mock";
+const CHAT_SUGGESTIONS = [
+  {
+    label: "Terminate a rental agreement",
+    prompt:
+      "Can I terminate my rental agreement early if the landlord won't fix the water supply?",
+  },
+  {
+    label: "Property dispute",
+    prompt:
+      "My neighbour is claiming part of my land. I need a property lawyer in Kathmandu.",
+  },
+  {
+    label: "Consumer complaint",
+    prompt:
+      "A shop sold me a phone that broke within a week and refuses to replace it. What are my rights?",
+  },
+  {
+    label: "Find a lawyer",
+    prompt: "Find me a family lawyer in Lalitpur who speaks English.",
+  },
+] as const;
 
 export function ChatEmpty({ onPick }: { onPick: (prompt: string) => void }) {
   const { user } = useAuth();

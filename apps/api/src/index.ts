@@ -5,7 +5,6 @@ import { adminRoutes } from "./routes/admin";
 
 export type Env = {
   DB: D1Database;
-  VECTORIZE: VectorizeIndex;
   IMAGES: R2Bucket;
   ADMIN_USERNAME: string;
   ADMIN_PASSWORD: string;

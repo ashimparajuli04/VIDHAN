@@ -24,9 +24,9 @@ export function DocumentRow({
         <span className="min-w-0 flex-1 truncate text-[15px] font-medium">
           {document.title}
         </span>
-        {typeof document.year === "number" && (
+        {typeof document.yearAd === "number" && (
           <span className="shrink-0 text-sm tabular-nums text-muted-foreground">
-            {document.year}
+            {document.yearAd}
           </span>
         )}
         <ChevronRight

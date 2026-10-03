@@ -505,6 +505,16 @@
       "table": "users"
     },
     {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "is_researcher",
+      "entityType": "columns",
+      "table": "users"
+    },
+    {
       "type": "text",
       "notNull": true,
       "autoincrement": false,

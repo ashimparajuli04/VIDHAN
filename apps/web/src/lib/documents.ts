@@ -1,12 +1,14 @@
 import {
-  ZDocumentChunksPage,
-  ZDocumentToc,
+  ZDocumentOutline,
   ZPublicDocument,
+  ZPublicDocumentDetail,
 } from "@vidhan/schema";
 import type {
-  TDocumentChunksPage,
-  TDocumentToc,
+  TDocumentNode,
+  TDocumentOutline,
+  TDocumentType,
   TPublicDocument,
+  TPublicDocumentDetail,
 } from "@vidhan/schema";
 
 import { apiGet } from "@/lib/api";
@@ -15,6 +17,7 @@ export interface DocumentQuery {
   page?: number;
   limit?: number;
   search?: string;
+  type?: TDocumentType;
 }
 
 export interface DocumentPage {
@@ -25,12 +28,15 @@ export interface DocumentPage {
   pageCount: number;
 }
 
-// The repository page only ever shows title + year. Status exists in the
-// schema but stays out of this surface on purpose.
-export type TRepoDocument = Pick<TPublicDocument, "id" | "title" | "year">;
+// The repository list shows title + year + type only; summary and timestamps
+// stay out of this surface on purpose.
+export type TRepoDocument = Pick<
+  TPublicDocument,
+  "id" | "title" | "documentType" | "yearBs" | "yearAd"
+>;
 
 // Browse fetches the whole repository once and groups it alphabetically
-// client-side; 500 comfortably covers the seed and headroom.
+// client-side; 500 comfortably covers the corpus and headroom.
 const REPO_DOCUMENTS_LIMIT = 500;
 
 export async function getDocuments(
@@ -40,6 +46,7 @@ export async function getDocuments(
   params.set("page", String(query.page ?? 1));
   params.set("limit", String(query.limit ?? 10));
   if (query.search) params.set("search", query.search);
+  if (query.type) params.set("type", query.type);
 
   const payload = (await apiGet(`/docs?${params}`)) as {
     documents?: unknown;
@@ -62,58 +69,41 @@ export async function getDocuments(
 
 export async function getRepositoryDocuments(): Promise<TRepoDocument[]> {
   const result = await getDocuments({ limit: REPO_DOCUMENTS_LIMIT });
-  return result.documents.map(({ id, title, year }) => ({ id, title, year }));
+  return result.documents.map(({ id, title, documentType, yearBs, yearAd }) => ({
+    id,
+    title,
+    documentType,
+    yearBs,
+    yearAd,
+  }));
 }
 
-export interface ContentQuery {
-  limit?: number;
-  after?: number;
-}
-
-// Detail header only needs title + year; status stays out of this surface.
-const ZDocumentDetail = ZPublicDocument.pick({
-  id: true,
-  title: true,
-  year: true,
-});
-
-export async function getDocument(id: string): Promise<TRepoDocument | null> {
+export async function getDocument(
+  id: string,
+): Promise<TPublicDocumentDetail | null> {
   const payload = (await apiGet(`/docs/${encodeURIComponent(id)}`)) as {
     document?: unknown;
   };
   if (!payload.document) return null;
-  return ZDocumentDetail.parse(payload.document);
+  return ZPublicDocumentDetail.parse(payload.document);
 }
 
-// One page of chunked document content; the detail page pulls pages lazily
-// as the reader scrolls (see components/documents/document-detail.tsx).
-export async function getDocumentChunks(
+// The outline is the node tree without body text — the reader renders its TOC
+// from it and lazily fetches section content by node id as the user scrolls.
+export async function getDocumentOutline(id: string): Promise<TDocumentOutline> {
+  const payload = (await apiGet(
+    `/docs/${encodeURIComponent(id)}/outline`,
+  )) as unknown;
+  return ZDocumentOutline.parse(payload);
+}
+
+export async function getDocumentNode(
   id: string,
-  query: ContentQuery = {},
-): Promise<TDocumentChunksPage> {
-  const params = new URLSearchParams();
-  if (query.limit !== undefined) params.set("limit", String(query.limit));
-  if (query.after !== undefined) params.set("after", String(query.after));
-
+  nodeId: string,
+): Promise<TDocumentNode | null> {
   const payload = (await apiGet(
-    `/docs/${encodeURIComponent(id)}/content?${params}`,
-  )) as unknown;
-  return ZDocumentChunksPage.parse(payload);
+    `/docs/${encodeURIComponent(id)}/nodes/${encodeURIComponent(nodeId)}`,
+  )) as { node?: unknown };
+  if (!payload.node) return null;
+  return payload.node as TDocumentNode;
 }
-
-// The TOC is ingested per-heading with its chunk index, so the reader can
-// render the jump list and scroll before any content chunk is loaded.
-export async function getDocumentToc(id: string): Promise<TDocumentToc> {
-  const payload = (await apiGet(
-    `/docs/${encodeURIComponent(id)}/toc`,
-  )) as unknown;
-  return ZDocumentToc.parse(payload);
-}
-
-// Static export needs every route's params at build time, and the seed
-// document ids are deterministic (seed-doc-001 … seed-doc-200). Swap this
-// for the real id source when the API becomes the source of truth.
-export const REPO_DOCUMENT_IDS: string[] = Array.from(
-  { length: 200 },
-  (_, index) => `seed-doc-${String(index + 1).padStart(3, "0")}`,
-);

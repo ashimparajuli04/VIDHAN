@@ -11,108 +11,69 @@ import {
 } from "react-virtuoso";
 import remarkGfm from "remark-gfm";
 
-import type { TDocumentTocHeading } from "@vidhan/schema";
+import type {
+  TDocumentNode,
+  TDocumentNodeOutline,
+  TDocumentOutline,
+  TPublicDocumentDetail,
+} from "@vidhan/schema";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import { getDocument, getDocumentChunks, getDocumentToc } from "@/lib/documents";
-import type { TRepoDocument } from "@/lib/documents";
+import {
+  getDocument,
+  getDocumentNode,
+  getDocumentOutline,
+} from "@/lib/documents";
 
-// One network page, and how far past the loaded frontier the visible range
-// may reach before the next page is prefetched. Chunks are ~2000 chars, so
-// 10 per page keeps the reader eager without bursting.
-const PAGE_SIZE = 10;
+// How far past the loaded frontier the visible range may reach before the next
+// missing section is fetched.
 const PREFETCH_GAP = 3;
 const SKELETON_ROWS = 4;
 
 /**
- * Document reader. Content is fetched one page of chunks at a time and held
- * in a cache; Virtuoso mounts only the rows around the viewport, so a long
- * document never renders — or ships — all at once. The ingest-time TOC
- * (headings → chunk index) powers the jump list: clicking a heading scrolls
- * Virtuoso to its chunk, which then prefetches on demand like any scroll.
+ * Document reader. The outline (node tree, no bodies) drives the TOC and the
+ * virtualized list; each section's body is fetched lazily by node id and
+ * cached. Virtuoso mounts only rows near the viewport, so long documents never
+ * render or ship all at once.
  */
 export function DocumentDetail({ id }: { id: string }) {
-  const [document, setDocument] = React.useState<TRepoDocument | null>(null);
-  const [chunks, setChunks] = React.useState<ReadonlyMap<number, string>>(
+  const [document, setDocument] = React.useState<TPublicDocumentDetail | null>(
+    null,
+  );
+  const [outline, setOutline] = React.useState<TDocumentOutline | null>(null);
+  const [bodies, setBodies] = React.useState<ReadonlyMap<string, TDocumentNode>>(
     new Map(),
   );
-  const [totalChunks, setTotalChunks] = React.useState<number | null>(null);
-  const [toc, setToc] = React.useState<TDocumentTocHeading[] | null>(null);
-  const [activeHeading, setActiveHeading] = React.useState<number | null>(null);
   const [status, setStatus] = React.useState<
     "loading" | "ready" | "error" | "not-found"
   >("loading");
   const [retryKey, setRetryKey] = React.useState(0);
-  // Which TOC tree nodes are expanded, keyed by flat heading position.
-  const [expanded, setExpanded] = React.useState<ReadonlySet<number>>(
+  const [activeRow, setActiveRow] = React.useState<number | null>(null);
+  const [expanded, setExpanded] = React.useState<ReadonlySet<string>>(
     () => new Set(),
   );
 
   const virtuosoRef = React.useRef<VirtuosoHandle>(null);
-
-  // Refs survive render boundaries; the virtualizer's callbacks only ever
-  // read the latest frontier/headings through them.
-  const totalChunksRef = React.useRef(0);
-  const nextIndexRef = React.useRef(0); // next chunk index to fetch; == total when done
-  const fetchingRef = React.useRef(false);
-  const requestedRef = React.useRef(-1); // last `after` sent; avoids duplicate fetches
-  const tocRef = React.useRef<TDocumentTocHeading[]>([]);
-
-  React.useEffect(() => {
-    totalChunksRef.current = totalChunks ?? 0;
-  }, [totalChunks]);
-
-  React.useEffect(() => {
-    tocRef.current = toc ?? [];
-  }, [toc]);
-
-  // The tree derived once per TOC fetch; expanded state keys off the flat
-  // positions, so expand/collapse survives re-renders. Everything starts
-  // collapsed; the user opens branches with the chevrons.
-  const tocTree = React.useMemo(() => buildTocTree(toc ?? []), [toc]);
-
-  function toggleHeading(position: number) {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(position)) {
-        next.delete(position);
-      } else {
-        next.add(position);
-      }
-      return next;
-    });
-  }
+  const fetchingRef = React.useRef<ReadonlySet<string>>(new Set());
 
   React.useEffect(() => {
     let active = true;
     setStatus("loading");
-    setChunks(new Map());
-    setToc(null);
-    setActiveHeading(null);
+    setBodies(new Map());
+    setOutline(null);
+    setActiveRow(null);
 
-    Promise.all([
-      getDocument(id),
-      getDocumentChunks(id, { limit: PAGE_SIZE }),
-      getDocumentToc(id),
-    ])
-      .then(([meta, page, tocResult]) => {
+    Promise.all([getDocument(id), getDocumentOutline(id)])
+      .then(([meta, outlineResult]) => {
         if (!active) return;
         if (!meta) {
           setStatus("not-found");
           return;
         }
         setDocument(meta);
-        setChunks((prev) => {
-          const next = new Map(prev);
-          for (const chunk of page.chunks) next.set(chunk.index, chunk.content);
-          return next;
-        });
-        setTotalChunks(page.totalChunks);
-        nextIndexRef.current = page.nextIndex ?? page.totalChunks;
-        totalChunksRef.current = page.totalChunks;
-        setToc(tocResult.headings);
+        setOutline(outlineResult);
         setStatus("ready");
       })
       .catch(() => {
@@ -124,75 +85,93 @@ export function DocumentDetail({ id }: { id: string }) {
     };
   }, [id, retryKey]);
 
-  async function fetchMore() {
-    if (fetchingRef.current) return;
-    if (nextIndexRef.current >= totalChunksRef.current) return;
-    const after = nextIndexRef.current - 1;
-    if (after === requestedRef.current) return;
-    requestedRef.current = after;
-    fetchingRef.current = true;
-    try {
-      const page = await getDocumentChunks(id, { limit: PAGE_SIZE, after });
-      setChunks((prev) => {
-        const next = new Map(prev);
-        for (const chunk of page.chunks) next.set(chunk.index, chunk.content);
-        return next;
-      });
-      nextIndexRef.current = page.nextIndex ?? page.totalChunks;
-    } catch {
-      // Transient network failure: allow the next scroll pass to retry.
-      requestedRef.current = -1;
-    } finally {
-      fetchingRef.current = false;
-    }
-  }
+  // Flatten the outline into the virtualizer's row model. Containers (chapter,
+  // section_group) become heading rows; citeable nodes with content become
+  // section rows. The flat index is the scroll target and cache key.
+  const rows = React.useMemo(() => (outline ? flattenOutline(outline.nodes) : []), [outline]);
+  const tocTree = React.useMemo(
+    () => (outline ? buildTocTree(outline.nodes) : []),
+    [outline],
+  );
+
+  const rowsRef = React.useRef(rows);
+  React.useEffect(() => {
+    rowsRef.current = rows;
+  }, [rows]);
+
+  const fetchBody = React.useCallback(
+    (node: TDocumentNodeOutline) => {
+      if (bodies.has(node.id) || fetchingRef.current.has(node.id)) return;
+      fetchingRef.current = new Set(fetchingRef.current).add(node.id);
+      getDocumentNode(id, node.id)
+        .then((full) => {
+          if (!full) return;
+          setBodies((prev) => {
+            const next = new Map(prev);
+            next.set(node.id, full);
+            return next;
+          });
+        })
+        .finally(() => {
+          const next = new Set(fetchingRef.current);
+          next.delete(node.id);
+          fetchingRef.current = next;
+        });
+    },
+    [bodies, id],
+  );
 
   function handleRangeChanged(range: { startIndex: number; endIndex: number }) {
-    if (range.endIndex + PREFETCH_GAP >= nextIndexRef.current) {
-      void fetchMore();
+    const all = rowsRef.current;
+    for (
+      let i = range.startIndex;
+      i <= Math.min(range.endIndex + PREFETCH_GAP, all.length - 1);
+      i++
+    ) {
+      const row = all[i];
+      if (row && row.isContent) void fetchBody(row);
     }
   }
 
-  // Mirrors the repo list's alphabet index: the active heading is the last
-  // one whose chunk is at or above the topmost rendered item.
   function handleItemsRendered(items: ListItem<unknown>[]) {
     for (const item of items) {
       if (item.type !== "group" && typeof item.index === "number") {
-        const headings = tocRef.current;
-        let active: number | null = null;
-        for (let i = 0; i < headings.length; i++) {
-          if (headings[i]!.chunkIndex <= item.index) active = i;
-          else break;
-        }
-        setActiveHeading((prev) => (prev === active ? prev : active));
+        setActiveRow((prev) => (prev === item.index ? prev : item.index));
         break;
       }
     }
   }
 
-  function scrollToHeading(position: number) {
-    const heading = toc?.[position];
-    if (!heading) return;
-    setActiveHeading(position);
+  function scrollToNode(nodeId: string) {
+    const index = rows.findIndex((row) => row.id === nodeId);
+    if (index < 0) return;
+    setActiveRow(index);
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
     virtuosoRef.current?.scrollToIndex({
-      index: heading.chunkIndex,
+      index,
       align: "start",
       behavior: reduced ? "auto" : "smooth",
     });
   }
 
-  const hasToc = toc !== null && toc.length > 0;
+  function toggleNode(nodeId: string) {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(nodeId)) next.delete(nodeId);
+      else next.add(nodeId);
+      return next;
+    });
+  }
+
+  const hasToc = tocTree.length > 0;
 
   return (
     <main
       className={cn(
         "mx-auto w-full flex-1 px-4 pb-16 md:px-8 md:pb-24",
-        hasToc && totalChunks !== null && totalChunks > 0
-          ? "max-w-6xl"
-          : "max-w-3xl",
+        hasToc && rows.length > 0 ? "max-w-6xl" : "max-w-3xl",
       )}
     >
       <nav aria-label="Breadcrumb">
@@ -243,20 +222,21 @@ export function DocumentDetail({ id }: { id: string }) {
         </div>
       )}
 
-      {status === "ready" && document && totalChunks !== null && (
+      {status === "ready" && document && (
         <>
           <header className="mb-8">
             <h1 className="text-3xl font-semibold tracking-tight">
               {document.title}
             </h1>
-            {typeof document.year === "number" && (
+            {typeof document.yearAd === "number" && (
               <p className="mt-2 text-[15px] text-muted-foreground">
-                {document.year}
+                {document.yearAd}
+                {typeof document.yearBs === "number" && ` (${document.yearBs} B.S.)`}
               </p>
             )}
           </header>
 
-          {totalChunks === 0 ? (
+          {rows.length === 0 ? (
             <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed py-16 text-center">
               <p className="text-sm font-medium">
                 No content available for this document yet
@@ -266,14 +246,14 @@ export function DocumentDetail({ id }: { id: string }) {
               </p>
             </div>
           ) : (
-            <div className="lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
+            <div className="lg:grid lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
               {hasToc && (
                 <TocSidebar
                   tree={tocTree}
-                  activeIndex={activeHeading}
+                  activeId={activeRow !== null ? rows[activeRow]?.id ?? null : null}
                   expanded={expanded}
-                  onSelect={scrollToHeading}
-                  onToggle={toggleHeading}
+                  onSelect={scrollToNode}
+                  onToggle={toggleNode}
                 />
               )}
 
@@ -281,33 +261,31 @@ export function DocumentDetail({ id }: { id: string }) {
                 {hasToc && (
                   <TocMobile
                     tree={tocTree}
-                    activeIndex={activeHeading}
+                    activeId={activeRow !== null ? rows[activeRow]?.id ?? null : null}
                     expanded={expanded}
-                    onSelect={scrollToHeading}
-                    onToggle={toggleHeading}
+                    onSelect={scrollToNode}
+                    onToggle={toggleNode}
                   />
                 )}
 
                 <Virtuoso
                   ref={virtuosoRef}
                   useWindowScroll
-                  overscan={1600}
-                  totalCount={totalChunks}
-                  defaultItemHeight={1000}
+                  overscan={1200}
+                  totalCount={rows.length}
+                  defaultItemHeight={400}
                   rangeChanged={handleRangeChanged}
                   itemsRendered={handleItemsRendered}
                   itemContent={(index) => {
-                    const content = chunks.get(index);
-                    return content === undefined ? (
-                      <ChunkSkeleton />
-                    ) : (
-                      <div className="py-0.5">
-                        <div className="prose prose-neutral max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:tracking-tight prose-headings:mt-5 prose-headings:mb-2 prose-h1:text-2xl prose-h2:text-lg prose-h3:text-base prose-h4:text-base prose-p:my-2 prose-p:leading-7 prose-ul:my-2 prose-ol:my-2 prose-li:my-0.5 prose-blockquote:my-3 prose-hr:my-5 prose-table:my-3">
-                          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                            {content}
-                          </ReactMarkdown>
-                        </div>
-                      </div>
+                    const row = rows[index];
+                    if (!row) return null;
+                    const body = bodies.get(row.id);
+                    return (
+                      <ReaderRow
+                        row={row}
+                        content={body?.content ?? null}
+                        citation={body?.citation ?? row.citation}
+                      />
                     );
                   }}
                 />
@@ -320,18 +298,106 @@ export function DocumentDetail({ id }: { id: string }) {
   );
 }
 
+interface FlatRow extends TDocumentNodeOutline {
+  /** True when this node carries body text to lazy-fetch and render. */
+  isContent: boolean;
+  /** Whether the source node declared content (null content still a leaf). */
+  contentPresent: boolean;
+}
+
+// Walk the outline depth-first (document order). Preamble + sections carry
+// content; chapters/section_group are structural headings. All are rows so the
+// reader shows the same hierarchy the outline describes.
+function flattenOutline(nodes: TDocumentNodeOutline[]): FlatRow[] {
+  const out: FlatRow[] = [];
+  const walk = (list: TDocumentNodeOutline[]) => {
+    for (const node of list) {
+      const contentPresent =
+        node.nodeType === "preamble" ||
+        node.nodeType === "section" ||
+        node.nodeType === "sub_section" ||
+        node.nodeType === "clause";
+      out.push({ ...node, isContent: contentPresent, contentPresent });
+      if (node.children.length > 0) walk(node.children);
+    }
+  };
+  walk(nodes);
+  return out;
+}
+
+interface TocNode {
+  id: string;
+  label: string;
+  level: number;
+  children: TocNode[];
+}
+
+// Build the TOC from the outline tree directly (depth = nesting level).
+function buildTocTree(nodes: TDocumentNodeOutline[]): TocNode[] {
+  return nodes
+    .filter((node) => node.nodeType !== "section_group")
+    .map((node) => ({
+      id: node.id,
+      label: node.heading ?? node.title ?? node.identifier,
+      level: node.depth,
+      children: buildTocTree(node.children),
+    }));
+}
+
+// One virtualized reader row. Structural containers render as an underlined
+// heading; content nodes render the fetched body (or a skeleton while loading).
+function ReaderRow({
+  row,
+  content,
+  citation,
+}: {
+  row: FlatRow;
+  content: string | null;
+  citation: string | null;
+}) {
+  if (!row.isContent) {
+    return (
+      <div className="pt-8 pb-2">
+        <h2 className="border-b pb-1 text-lg font-semibold tracking-tight">
+          {row.heading ?? row.title ?? row.identifier}
+        </h2>
+      </div>
+    );
+  }
+
+  return (
+    <section className="py-4">
+      <h3 className="mb-2 text-base font-semibold tracking-tight">
+        {row.identifier && row.nodeType === "section"
+          ? `${row.identifier}. ${row.heading ?? ""}`
+          : row.heading ?? row.title ?? row.identifier}
+      </h3>
+      {content === null ? (
+        <ChunkSkeleton />
+      ) : (
+        <div className="prose prose-neutral max-w-none dark:prose-invert prose-p:my-2 prose-p:leading-7 prose-ul:my-2 prose-ol:my-2 prose-li:my-0.5 prose-blockquote:my-3 prose-hr:my-5 prose-table:my-3">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+        </div>
+      )}
+      {citation && (
+        <p className="mt-3 text-xs text-muted-foreground italic">{citation}</p>
+      )}
+    </section>
+  );
+}
+
 function TocSidebar({
   tree,
-  activeIndex,
+  activeId,
   expanded,
   onSelect,
   onToggle,
 }: {
   tree: TocNode[];
-  activeIndex: number | null;
-  expanded: ReadonlySet<number>;
-  onSelect: (position: number) => void;
-  onToggle: (position: number) => void;
+  activeId: string | null;
+  expanded: ReadonlySet<string>;
+  onSelect: (id: string) => void;
+  onToggle: (id: string) => void;
 }) {
   return (
     <aside className="hidden lg:block">
@@ -341,7 +407,7 @@ function TocSidebar({
         </h2>
         <TocTree
           tree={tree}
-          activeIndex={activeIndex}
+          activeId={activeId}
           expanded={expanded}
           onSelect={onSelect}
           onToggle={onToggle}
@@ -351,19 +417,18 @@ function TocSidebar({
   );
 }
 
-// Mobile: collapsible panel above the content.
 function TocMobile({
   tree,
-  activeIndex,
+  activeId,
   expanded,
   onSelect,
   onToggle,
 }: {
   tree: TocNode[];
-  activeIndex: number | null;
-  expanded: ReadonlySet<number>;
-  onSelect: (position: number) => void;
-  onToggle: (position: number) => void;
+  activeId: string | null;
+  expanded: ReadonlySet<string>;
+  onSelect: (id: string) => void;
+  onToggle: (id: string) => void;
 }) {
   return (
     <details className="group mb-6 lg:hidden">
@@ -374,7 +439,7 @@ function TocMobile({
       <div className="mt-2 max-h-72 overflow-y-auto rounded-lg border bg-card p-2">
         <TocTree
           tree={tree}
-          activeIndex={activeIndex}
+          activeId={activeId}
           expanded={expanded}
           onSelect={onSelect}
           onToggle={onToggle}
@@ -384,53 +449,27 @@ function TocMobile({
   );
 }
 
-interface TocNode extends TDocumentTocHeading {
-  /** Flat index in the original heading list — the key for expand state and scroll targets. */
-  position: number;
-  children: TocNode[];
-}
-
-// Turn the flat ingest-time heading list into an outline tree: a heading's
-// parent is the most recent preceding heading with a LOWER level, so
-// Part I → Articles → Clauses. (The standalone "Preamble" level-2 heading
-// at the top simply becomes a childless root.)
-function buildTocTree(headings: TDocumentTocHeading[]): TocNode[] {
-  const roots: TocNode[] = [];
-  const stack: TocNode[] = [];
-  headings.forEach((heading, position) => {
-    const node: TocNode = { ...heading, position, children: [] };
-    while (stack.length > 0 && stack[stack.length - 1]!.level >= heading.level) {
-      stack.pop();
-    }
-    const parent = stack[stack.length - 1];
-    if (parent) parent.children.push(node);
-    else roots.push(node);
-    stack.push(node);
-  });
-  return roots;
-}
-
 function TocTree({
   tree,
-  activeIndex,
+  activeId,
   expanded,
   onSelect,
   onToggle,
 }: {
   tree: TocNode[];
-  activeIndex: number | null;
-  expanded: ReadonlySet<number>;
-  onSelect: (position: number) => void;
-  onToggle: (position: number) => void;
+  activeId: string | null;
+  expanded: ReadonlySet<string>;
+  onSelect: (id: string) => void;
+  onToggle: (id: string) => void;
 }) {
   if (tree.length === 0) return null;
   return (
     <nav aria-label="Contents" className="space-y-0.5">
       {tree.map((node) => (
         <TocTreeNode
-          key={node.position}
+          key={node.id}
           node={node}
-          activeIndex={activeIndex}
+          activeId={activeId}
           expanded={expanded}
           onSelect={onSelect}
           onToggle={onToggle}
@@ -440,26 +479,23 @@ function TocTree({
   );
 }
 
-// One outline entry. A node WITH children shows the expand chevron (down
-// when collapsed, pointing up when open); a leaf gets a spacer so the
-// labels stay aligned. The label itself still jumps to the heading.
 function TocTreeNode({
   node,
-  activeIndex,
+  activeId,
   expanded,
   onSelect,
   onToggle,
 }: {
   node: TocNode;
-  activeIndex: number | null;
-  expanded: ReadonlySet<number>;
-  onSelect: (position: number) => void;
-  onToggle: (position: number) => void;
+  activeId: string | null;
+  expanded: ReadonlySet<string>;
+  onSelect: (id: string) => void;
+  onToggle: (id: string) => void;
 }) {
-  const isExpanded = expanded.has(node.position);
+  const isExpanded = expanded.has(node.id);
   const hasChildren = node.children.length > 0;
-  const isActive = node.position === activeIndex;
-  const isLevel1 = node.level === 1;
+  const isActive = node.id === activeId;
+  const isLevel1 = node.level <= 2;
 
   return (
     <li>
@@ -467,9 +503,9 @@ function TocTreeNode({
         {hasChildren ? (
           <button
             type="button"
-            onClick={() => onToggle(node.position)}
+            onClick={() => onToggle(node.id)}
             aria-expanded={isExpanded}
-            aria-label={`${isExpanded ? "Collapse" : "Expand"} ${node.text}`}
+            aria-label={`${isExpanded ? "Collapse" : "Expand"} ${node.label}`}
             className="flex size-5 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
           >
             <ChevronDown
@@ -485,21 +521,19 @@ function TocTreeNode({
 
         <button
           type="button"
-          onClick={() => onSelect(node.position)}
+          onClick={() => onSelect(node.id)}
           aria-current={isActive ? "true" : undefined}
           className={cn(
             "min-w-0 flex-1 truncate rounded-md py-1 pr-2 text-left text-[13px] leading-snug transition-colors",
             isActive
-              ? isLevel1
-                ? "bg-accent font-semibold text-foreground"
-                : "bg-accent font-medium text-foreground"
+              ? "bg-accent font-medium text-foreground"
               : cn(
                   "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
                   isLevel1 && "font-semibold",
                 ),
           )}
         >
-          {node.text}
+          {node.label}
         </button>
       </div>
 
@@ -507,9 +541,9 @@ function TocTreeNode({
         <ul className="ml-2 space-y-0.5 border-l border-border/60 pl-1.5">
           {node.children.map((child) => (
             <TocTreeNode
-              key={child.position}
+              key={child.id}
               node={child}
-              activeIndex={activeIndex}
+              activeId={activeId}
               expanded={expanded}
               onSelect={onSelect}
               onToggle={onToggle}
@@ -545,7 +579,7 @@ function ReaderSkeleton() {
   );
 }
 
-// Shown while the next page is in flight; keeps the scrollbar position stable.
+// Shown while a section body is in flight; keeps the scrollbar position stable.
 function ChunkSkeleton() {
   return (
     <div className="space-y-3 py-3" aria-hidden>

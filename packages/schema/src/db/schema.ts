@@ -1,10 +1,10 @@
 import {
   index,
   integer,
-  primaryKey,
   sqliteTable,
   text,
   uniqueIndex,
+  type AnySQLiteColumn,
 } from "drizzle-orm/sqlite-core";
 import {
   createInsertSchema,
@@ -72,60 +72,68 @@ export const lawyers = sqliteTable(
   ],
 );
 
-export const DOCUMENT_STATUSES = ["pending", "indexed", "failed"] as const;
-export type TDocumentStatus = (typeof DOCUMENT_STATUSES)[number];
+export const DOCUMENT_TYPES = ["act", "constitution", "regulation"] as const;
+export type TDocumentType = (typeof DOCUMENT_TYPES)[number];
 
 export const documents = sqliteTable(
   "documents",
   {
     id: text("id").primaryKey(),
     title: text("title").notNull(),
-    year: integer("year"),
+    originalTitle: text("original_title"),
+    documentType: text("document_type", { enum: DOCUMENT_TYPES }).notNull(),
+    yearBs: integer("year_bs"),
+    yearAd: integer("year_ad"),
+    totalPages: integer("total_pages"),
+    sourceFilename: text("source_filename").notNull(),
+    // Populated later by an LLM + admin action; never generated at ingest.
     summary: text("summary"),
-    status: text("status", { enum: DOCUMENT_STATUSES })
-      .notNull()
-      .default("pending"),
-    chunkCount: integer("chunk_count").notNull().default(0),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at").notNull(),
   },
-  (t) => [index("documents_status_idx").on(t.status)],
-);
-
-// Chunked document content. A document with no content has no rows here
-// (document-level "nullability"); chunk rows themselves always carry text.
-export const documentChunks = sqliteTable(
-  "document_chunks",
-  {
-    documentId: text("document_id")
-      .notNull()
-      .references(() => documents.id),
-    chunkIndex: integer("chunk_index").notNull(),
-    content: text("content").notNull(),
-  },
   (t) => [
-    primaryKey({ columns: [t.documentId, t.chunkIndex] }),
-    index("document_chunks_doc_idx").on(t.documentId, t.chunkIndex),
+    index("documents_type_idx").on(t.documentType),
+    index("documents_title_idx").on(t.title),
   ],
 );
 
-// Ingest-time table of contents: every markdown heading of a document with
-// the chunk index it falls in, so the reader can jump to a heading without
-// loading the whole document. `position` is the heading's 0-based order.
-export const documentToc = sqliteTable(
-  "document_toc",
+export const DOCUMENT_NODE_TYPES = [
+  "preamble",
+  "part",
+  "chapter",
+  "section_group",
+  "section",
+  "sub_section",
+  "clause",
+  "schedule",
+] as const;
+export type TDocumentNodeType = (typeof DOCUMENT_NODE_TYPES)[number];
+
+// Normalized recursive tree. `id` is the path id `{documentId}:{0.2.1}` where
+// each segment is the node's 0-based position within its parent. Citations are
+// precomputed at ingest so retrieval never reconstructs them.
+export const documentNodes = sqliteTable(
+  "document_nodes",
   {
+    id: text("id").primaryKey(),
     documentId: text("document_id")
       .notNull()
       .references(() => documents.id),
+    parentId: text("parent_id").references((): AnySQLiteColumn => documentNodes.id),
+    depth: integer("depth").notNull(),
+    nodeType: text("node_type", { enum: DOCUMENT_NODE_TYPES }).notNull(),
+    identifier: text("identifier").notNull(),
+    title: text("title").notNull(),
+    heading: text("heading"),
+    content: text("content"),
     position: integer("position").notNull(),
-    level: integer("level").notNull(),
-    text: text("text").notNull(),
-    chunkIndex: integer("chunk_index").notNull(),
+    citation: text("citation"),
+    createdAt: text("created_at").notNull(),
   },
   (t) => [
-    primaryKey({ columns: [t.documentId, t.position] }),
-    index("document_toc_doc_idx").on(t.documentId),
+    index("document_nodes_doc_position_idx").on(t.documentId, t.position),
+    index("document_nodes_doc_parent_idx").on(t.documentId, t.parentId),
+    index("document_nodes_doc_type_idx").on(t.documentId, t.nodeType),
   ],
 );
 
@@ -150,6 +158,19 @@ export const ZToolResult = z.object({
   toolName: z.string(),
   output: z.unknown(),
 });
+
+// A provision the model says it relied on, resolved to display metadata at
+// `cite` time. `citation` mirrors the nullable document_nodes column.
+export const ZReference = z.object({
+  documentId: z.string(),
+  nodeId: z.string(),
+  identifier: z.string(),
+  heading: z.string(),
+  citation: z.string().nullable(),
+});
+
+// `cite` tool output. Shared so the client validates the shape the server writes.
+export const ZCiteOutput = z.object({ references: z.array(ZReference) });
 
 export const users = sqliteTable(
   "users",
@@ -196,6 +217,9 @@ export const chatMessages = sqliteTable(
     toolCalls: text("tool_calls", { mode: "json" }).$type<TToolCall[] & JsonValueOf<TToolCall[]>>(),
     toolResults: text("tool_results", { mode: "json" }).$type<
       TToolResult[] & JsonValueOf<TToolResult[]>
+    >(),
+    references: text("references", { mode: "json" }).$type<
+      TReference[] & JsonValueOf<TReference[]>
     >(),
     createdAt: text("created_at").notNull(),
   },
@@ -246,58 +270,63 @@ export const ZPublicLawyerDetail = ZPublicLawyer.extend({
   barNumber: z.string().nullable(),
 });
 
-export const documentSchema = createSelectSchema(documents);
-export const documentCreateSchema = createInsertSchema(documents).omit({
+export const ZDocument = createSelectSchema(documents);
+export const ZDocumentCreate = createInsertSchema(documents).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
 });
+export const ZDocumentNode = createSelectSchema(documentNodes);
 
-// Public list surface for the document repository. Internal fields
-// (summary, chunkCount, timestamps) stay out of public surfaces.
+// Public list surface. Internal fields (summary, timestamps, source) stay out.
 export const ZPublicDocument = z.object({
   id: z.string(),
   title: z.string(),
-  year: z.number().nullable(),
-  status: z.enum(DOCUMENT_STATUSES),
+  documentType: z.enum(DOCUMENT_TYPES),
+  yearBs: z.number().nullable(),
+  yearAd: z.number().nullable(),
 });
 
+// Detail adds the fields the list deliberately hides.
+export const ZPublicDocumentDetail = ZPublicDocument.extend({
+  totalPages: z.number().nullable(),
+  summary: z.string().nullable(),
+});
+
+// Outline node: the tree without the (potentially huge) body text.
+export interface TDocumentNodeOutline
+  extends Omit<z.infer<typeof ZDocumentNode>, "content" | "createdAt"> {
+  children: TDocumentNodeOutline[];
+}
+
+export const ZDocumentNodeOutline: z.ZodType<TDocumentNodeOutline> = z.lazy(() =>
+  z.object({
+    id: z.string(),
+    documentId: z.string(),
+    parentId: z.string().nullable(),
+    depth: z.number().int(),
+    nodeType: z.enum(DOCUMENT_NODE_TYPES),
+    identifier: z.string(),
+    title: z.string(),
+    heading: z.string().nullable(),
+    position: z.number().int(),
+    citation: z.string().nullable(),
+    children: z.array(ZDocumentNodeOutline),
+  }),
+);
+
+export const ZDocumentOutline = z.object({
+  documentId: z.string(),
+  title: z.string(),
+  nodes: z.array(ZDocumentNodeOutline),
+});
+
+export type TDocument = z.infer<typeof ZDocument>;
+export type TDocumentCreate = z.infer<typeof ZDocumentCreate>;
+export type TDocumentNode = z.infer<typeof ZDocumentNode>;
+export type TDocumentOutline = z.infer<typeof ZDocumentOutline>;
 export type TPublicDocument = z.infer<typeof ZPublicDocument>;
-export type TDocumentCreate = z.infer<typeof documentCreateSchema>;
-
-// One page of a document's chunked content. `chunks` are contiguous
-// (`index` is a chunk offset); `nextIndex` is null when the page is the
-// last one. A document without content has `totalChunks: 0` and no chunks.
-export const ZDocumentChunk = z.object({
-  index: z.number().int().nonnegative(),
-  content: z.string(),
-});
-
-export const ZDocumentChunksPage = z.object({
-  documentId: z.string(),
-  chunks: z.array(ZDocumentChunk),
-  totalChunks: z.number().int().nonnegative(),
-  nextIndex: z.number().int().nonnegative().nullable(),
-});
-
-export type TDocumentChunksPage = z.infer<typeof ZDocumentChunksPage>;
-
-// Ingest-time table of contents. `headings` are in document order; each
-// entry's `chunkIndex` is the chunk the heading text appears in, which the
-// reader uses to jump (scrollToIndex) before that chunk is even loaded.
-export const ZDocumentTocHeading = z.object({
-  text: z.string(),
-  level: z.number().int().min(1).max(6),
-  chunkIndex: z.number().int().nonnegative(),
-});
-
-export const ZDocumentToc = z.object({
-  documentId: z.string(),
-  headings: z.array(ZDocumentTocHeading),
-});
-
-export type TDocumentToc = z.infer<typeof ZDocumentToc>;
-export type TDocumentTocHeading = z.infer<typeof ZDocumentTocHeading>;
+export type TPublicDocumentDetail = z.infer<typeof ZPublicDocumentDetail>;
 
 const userRefinements = {
   email: (s: z.ZodString) => s.email(),
@@ -331,12 +360,20 @@ export const ZChatSession = createSelectSchema(chatSessions);
 // createSelectSchema maps json columns to ZodType<Json>, which would infer JSONValue.
 export const ZChatMessageToolCalls = z.array(ZToolCall).nullable();
 export const ZChatMessageToolResults = z.array(ZToolResult).nullable();
+export const ZChatMessageReferences = z.array(ZReference).nullable();
 export const ZChatMessage = createSelectSchema(chatMessages, {
   toolCalls: () => ZChatMessageToolCalls,
   toolResults: () => ZChatMessageToolResults,
+  references: () => ZChatMessageReferences,
 });
 export const ZChatSend = z.object({
   content: z.string().trim().min(1).max(4000),
+});
+// Streamed as a transient UI data part so the sidebar can name a session
+// before its first answer finishes.
+export const ZChatTitle = z.object({
+  sessionId: z.string(),
+  title: z.string(),
 });
 
 export type TLawyer = z.infer<typeof ZLawyer>;
@@ -345,11 +382,11 @@ export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
 export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
 export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
 export type TPublicLawyerDetail = z.infer<typeof ZPublicLawyerDetail>;
-export type Document = z.infer<typeof documentSchema>;
-export type DocumentCreate = z.infer<typeof documentCreateSchema>;
 
 export type TToolCall = z.infer<typeof ZToolCall>;
 export type TToolResult = z.infer<typeof ZToolResult>;
+export type TReference = z.infer<typeof ZReference>;
+export type TCiteOutput = z.infer<typeof ZCiteOutput>;
 export type TUser = z.infer<typeof ZUser>;
 export type TPublicUser = z.infer<typeof ZPublicUser>;
 export type TAuthRegister = z.infer<typeof ZAuthRegister>;
@@ -358,11 +395,14 @@ export type TAuthUpdate = z.infer<typeof ZAuthUpdate>;
 export type TChatSession = z.infer<typeof ZChatSession>;
 export type TChatMessage = z.infer<typeof ZChatMessage>;
 export type TChatSend = z.infer<typeof ZChatSend>;
+export type TChatTitle = z.infer<typeof ZChatTitle>;
 
 export type LawyerRow = typeof lawyers.$inferSelect;
 export type LawyerInsert = typeof lawyers.$inferInsert;
 export type DocumentRow = typeof documents.$inferSelect;
 export type DocumentInsert = typeof documents.$inferInsert;
+export type DocumentNodeRow = typeof documentNodes.$inferSelect;
+export type DocumentNodeInsert = typeof documentNodes.$inferInsert;
 export type UserRow = typeof users.$inferSelect;
 export type UserInsert = typeof users.$inferInsert;
 export type ChatSessionRow = typeof chatSessions.$inferSelect;

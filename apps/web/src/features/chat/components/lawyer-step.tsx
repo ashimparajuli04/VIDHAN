@@ -22,7 +22,9 @@ import { LawyerResultCard } from "./lawyer-result-card";
 
 export function LawyerStep({ search }: { search: TLawyerSearch }) {
   const [open, setOpen] = React.useState(false);
-  const searching = search.lawyers.length === 0;
+  const searching = search.state === "pending";
+  const failed = search.state === "error";
+  const hasResults = search.lawyers.length > 0;
 
   return (
     <div className="w-full space-y-3">
@@ -38,11 +40,7 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
             <Check className="size-3.5 shrink-0 text-emerald-600" />
           )}
 
-          <span className="flex-1 text-left">
-            {searching
-              ? "Searching for lawyers…"
-              : `Found ${search.lawyers.length} lawyers`}
-          </span>
+          <span className="flex-1 text-left">{statusText(search)}</span>
 
           <ChevronDown
             className={cn(
@@ -59,7 +57,11 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
         </CollapsibleContent>
       </Collapsible>
 
-      {!searching && (
+      {searching ? null : failed ? (
+        <p className="text-xs text-muted-foreground">
+          Could not search for lawyers.
+        </p>
+      ) : hasResults ? (
         <Carousel opts={{ align: "start", containScroll: "trimSnaps" }}>
           <div className="flex items-center justify-between gap-2">
             <p className="text-xs font-medium text-muted-foreground">
@@ -83,7 +85,18 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
             ))}
           </CarouselContent>
         </Carousel>
+      ) : (
+        <p className="text-xs text-muted-foreground">
+          No matching lawyers found.
+        </p>
       )}
     </div>
   );
+}
+
+function statusText(search: TLawyerSearch): string {
+  if (search.state === "pending") return "Searching for lawyers…";
+  if (search.state === "error") return "Lawyer search failed";
+  if (search.lawyers.length === 0) return "No matching lawyers";
+  return `Found ${search.lawyers.length} lawyers`;
 }

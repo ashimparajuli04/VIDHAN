@@ -42,6 +42,7 @@ import {
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useAuth } from "@/features/auth/provider";
+import { useChat } from "@/features/chat/store";
 
 const navItems = [
   {
@@ -61,30 +62,11 @@ const navItems = [
   },
 ] as const;
 
-// Temporary mock data until conversations are connected to the API.
-const recentChats = [
-  {
-    id: "1",
-    title: "Can I terminate my rental agreement?",
-  },
-  {
-    id: "2",
-    title: "Consumer rights in Nepal",
-  },
-  {
-    id: "3",
-    title: "Land ownership dispute",
-  },
-  {
-    id: "4",
-    title: "What happens after filing a case?",
-  },
-];
-
 export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
   const { user, logout } = useAuth();
+  const { sessions } = useChat();
 
   const collapsed = state === "collapsed";
   const displayName = user?.name ?? "Account";
@@ -201,7 +183,7 @@ export function AppSidebar() {
 
             <SidebarGroupContent>
               <SidebarMenu className="gap-0.5">
-                {recentChats.map((chat) => (
+                {sessions.map((chat) => (
                   <SidebarMenuItem key={chat.id}>
                     <SidebarMenuButton
                       asChild

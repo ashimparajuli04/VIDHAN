@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { streamText, stepCountIs, generateText } from "ai";
+import { streamText, stepCountIs, generateText, createUIMessageStream, createUIMessageStreamResponse } from "ai";
 import type { ModelMessage, ToolCallPart, ToolResultPart } from "ai";
-import { ZChatSend } from "@vidhan/schema";
-import type { TChatMessage, TToolCall, TToolResult } from "@vidhan/schema";
+import { ZChatSend, ZCiteOutput } from "@vidhan/schema";
+import type { TChatMessage, TChatTitle, TReference, TToolCall, TToolResult } from "@vidhan/schema";
 import { createDb } from "../../db";
 import { parseJson, validationError } from "../../lib/validate";
 import { requireAuth, type TAuthContext } from "../../auth";
@@ -16,11 +16,16 @@ import {
   listSessions,
   touchSession,
 } from "../../chat";
-import { buildTools, chatModel, chatSystemPrompt, TITLE_SYSTEM_PROMPT, titleModel } from "../../ai";
+import { buildTools, chatModel, chatSystemPrompt, prefetchSections, renderPrefetchedContext, TITLE_SYSTEM_PROMPT, titleModel } from "../../ai";
 
 export const chat = new Hono<TAuthContext>();
 
 chat.use("*", requireAuth());
+
+// Step budget for one answer. The model may spend all but the last step on
+// tools; the final step is forced text-only so a turn never ends on a tool
+// call with no answer.
+const TOOL_STEP_BUDGET = 6;
 
 chat.post("/sessions", async (c) => {
   const db = createDb(c.env.DB);
@@ -96,7 +101,7 @@ async function generateTitle(env: TAuthContext["Bindings"], message: string): Pr
       model: titleModel(env),
       system: TITLE_SYSTEM_PROMPT,
       prompt: message,
-      maxOutputTokens: 32,
+      maxOutputTokens: 400,
     });
     const title = text.trim().replace(/^"|"$/g, "").trim();
     return title.slice(0, 80) || "New chat";
@@ -120,18 +125,33 @@ chat.post("/sessions/:id/messages", async (c) => {
 
   // Persist the user turn before streaming so a failed AI call still keeps it.
   const userMessage = await insertUserMessage(db, session.id, parsed.data.content);
+
   const messages: ModelMessage[] = [
     ...toModelMessages(priorMessages),
     { role: "user", content: userMessage.content },
   ];
 
+  // Rank the corpus once and inject the top sections, so a common topic
+  // question skips the list→search→outline→read tool chain.
+  const prefetched = await prefetchSections(c.env, userMessage.content);
+  const prefetchedContext =
+    prefetched.length > 0
+      ? `Relevant provisions retrieved for this question:\n\n${renderPrefetchedContext(prefetched)}`
+      : "";
+
   const result = streamText({
     model: chatModel(c.env),
-    system: chatSystemPrompt(c.get("user").language),
+    system: chatSystemPrompt(c.get("user").language, c.get("user").district, prefetchedContext),
     messages,
     tools: buildTools(c.env, origin),
-    // Step once more after a tool result so the model summarises the lawyers.
-    stopWhen: stepCountIs(3),
+    // Prefetched context plus a tight tool budget: retrieval to read a couple
+    // of sections, the cite round-trip, one summarise step, then done.
+    stopWhen: stepCountIs(TOOL_STEP_BUDGET),
+    // The model can flail past its budget and end on a tool call with no text,
+    // leaving the user with only the tool UI. On the final step, force a
+    // text-only answer; any cite already recorded is unaffected.
+    prepareStep: ({ stepNumber }) =>
+      stepNumber >= TOOL_STEP_BUDGET - 1 ? { toolChoice: "none" } : undefined,
     onFinish: (event) => {
       // Tool calls live in the step that invoked them, not the final step that
       // summarises the result, so aggregate across every step.
@@ -149,6 +169,16 @@ chat.post("/sessions/:id/messages", async (c) => {
           output: toolResult.output,
         })),
       );
+      // `cite` is the only source of the cited refs; parse rather than cast so a
+      // malformed tool output degrades to no footer instead of throwing.
+      const cited = [...toolResults]
+        .reverse()
+        .find((result) => result.toolName === "cite");
+      const parsedRefs = cited ? ZCiteOutput.safeParse(cited.output) : null;
+      const references: TReference[] | null =
+        parsedRefs?.success && parsedRefs.data.references.length > 0
+          ? parsedRefs.data.references
+          : null;
       // Context can tear down once the last chunk flushes; waitUntil keeps the
       // isolate alive for these writes.
       c.executionCtx.waitUntil(
@@ -160,14 +190,33 @@ chat.post("/sessions/:id/messages", async (c) => {
             event.text,
             toolCalls.length > 0 ? toolCalls : null,
             toolResults.length > 0 ? toolResults : null,
+            references,
           );
-          const patch: { updatedAt: string; title?: string } = { updatedAt: now };
-          if (isFirstMessage) patch.title = await generateTitle(c.env, userMessage.content);
-          await touchSession(db, session.id, patch);
+          await touchSession(db, session.id, { updatedAt: now });
         })(),
       );
     },
   });
 
-  return result.toUIMessageStreamResponse();
+  // The title depends only on the user's query, so generate it alongside the
+  // answer and stream it as a transient data part: the sidebar names the chat
+  // the moment it is ready, without waiting for the answer to finish.
+  const stream = createUIMessageStream({
+    execute: ({ writer }) => {
+      writer.merge(result.toUIMessageStream());
+      if (isFirstMessage) {
+        void generateTitle(c.env, userMessage.content).then(async (title) => {
+          await touchSession(db, session.id, { title, updatedAt: new Date().toISOString() });
+          writer.write({
+            type: "data-title",
+            id: session.id,
+            data: { sessionId: session.id, title } satisfies TChatTitle,
+            transient: true,
+          });
+        });
+      }
+    },
+  });
+
+  return createUIMessageStreamResponse({ stream });
 });

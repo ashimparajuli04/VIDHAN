@@ -1,6 +1,12 @@
 import { and, asc, desc, eq, inArray } from "drizzle-orm";
 import { asJson, chatMessages, chatSessions } from "@vidhan/schema";
-import type { TChatMessage, TChatSession, TToolCall, TToolResult } from "@vidhan/schema";
+import type {
+  TChatMessage,
+  TChatSession,
+  TReference,
+  TToolCall,
+  TToolResult,
+} from "@vidhan/schema";
 import type { Db } from "../db";
 
 function toSession(row: typeof chatSessions.$inferSelect): TChatSession {
@@ -12,6 +18,7 @@ export function toChatMessage(row: typeof chatMessages.$inferSelect): TChatMessa
     ...row,
     toolCalls: row.toolCalls ? [...row.toolCalls] : null,
     toolResults: row.toolResults ? [...row.toolResults] : null,
+    references: row.references ? [...row.references] : null,
   };
 }
 
@@ -83,6 +90,7 @@ export async function insertUserMessage(
     content,
     toolCalls: null,
     toolResults: null,
+    references: null,
     createdAt: now,
   };
   await db.insert(chatMessages).values(row);
@@ -95,6 +103,7 @@ export async function insertAssistantMessage(
   content: string,
   toolCalls: TToolCall[] | null,
   toolResults: TToolResult[] | null,
+  references: TReference[] | null,
 ): Promise<TChatMessage> {
   const now = new Date().toISOString();
   const row = {
@@ -104,6 +113,7 @@ export async function insertAssistantMessage(
     content,
     toolCalls: toolCalls ? asJson(toolCalls) : null,
     toolResults: toolResults ? asJson(toolResults) : null,
+    references: references ? asJson(references) : null,
     createdAt: now,
   };
   await db.insert(chatMessages).values(row);
