@@ -10,3 +10,4 @@ out/
 .env
 .env.local
 .DS_Store
+data/document-embeddings.seed.sql

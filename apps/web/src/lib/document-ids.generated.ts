@@ -9,6 +9,7 @@ export const REPO_DOCUMENT_IDS: string[] = [
   "doc_companies_act_2063_2006__2063_company_act_pdf",
   "doc_compensation_relating_to_torture_act_2053_1996__2053_1996-12-18_legal_govt-of-nepal_eng_pdf",
   "doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p",
+  "doc_const_2072_2nd_amendment_2020",
   "doc_domestic_violence_offence_and_punishment_act_2066_2009_2066_domes",
   "doc_evidence_act_2031_2031_evidence_act_2031_1974_pdf",
   "doc_foreign_employment_act_2064_2007",

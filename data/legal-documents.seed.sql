@@ -10,6 +10,7 @@ INSERT INTO documents (id, title, original_title, document_type, year_bs, year_a
   ('doc_companies_act_2063_2006__2063_company_act_pdf', 'Companies Act, 2063 (2006)', NULL, 'act', 2063, 2006, 166, 'company_act.sql', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
   ('doc_compensation_relating_to_torture_act_2053_1996__2053_1996-12-18_legal_govt-of-nepal_eng_pdf', 'Compensation Relating to Torture Act, 2053 (1996)', NULL, 'act', 2053, 1996, 5, '1996-12-18_legal_govt-of-nepal_eng.sql', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
   ('doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p', 'Competition Promotion and Market Protection Act, 20 63 (2007)', NULL, 'act', 2063, 2007, 21, 'CompetitionPromotionMarketProtectionAct2007.sql', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020', 'The Constitution of Nepal', 'नेपालको संविधान', 'constitution', 2072, 2015, 202, 'Constitution of Nepal (2nd amd. English)_xf33zb3.sql', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
   ('doc_domestic_violence_offence_and_punishment_act_2066_2009_2066_domes', 'Domestic Violence (Offence and Punishment) Act, 2066 (2009)', NULL, 'act', 2066, 2009, 9, 'Domestic Violence (Offence and Punishment) Act, 2066.pdf', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
   ('doc_evidence_act_2031_2031_evidence_act_2031_1974_pdf', 'Evidence Act, 2031', NULL, 'act', 2031, 1974, 20, 'evidence-act-2031-1974.pdf', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
   ('doc_foreign_employment_act_2064_2007', 'Foreign Employment Act, 2064 (2007)', NULL, 'act', 2064, 2007, 41, 'Foreign_Employment_Act_2064_2007.sql', NULL, '2026-01-15T09:00:00.000Z', '2026-01-15T09:00:00.000Z'),
@@ -11036,6 +11037,5434 @@ completion of each financial year.
 (2) The Government of Nepal may make public the ann ual report 
 submitted pursuant to Sub-section (1).', 9, 'Competition Promotion and Market Protection Act, 20 63 (2007), Chapter-6, Section 38 (Annual report)', '2026-01-15T09:00:00.000Z'),
   ('doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p:7.10', 'doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p', 'doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p:7', 2, 'section', '39', 'Powers to frame rules : The Government of Nepal may frame necessary rules', 'Powers to frame rules', 'in order to implement the objective of this Act.', 10, 'Competition Promotion and Market Protection Act, 20 63 (2007), Chapter-6, Section 39 (Powers to frame rules)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:0', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'preamble', 'Preamble', 'Preamble', NULL, 'The Constitution of Nepal
+Date of Publication in Nepal Gazette
+September 20, 2015
+Amendments:', 0, 'The Constitution of Nepal, Preamble', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-1', 'Preliminary', 'Preliminary', '1. Constitution as Fundamental Law: (1) This Constitution is the fundamental law of
+Nepal. Any law inconsistent with this  Constitution shall, to the extent of such
+inconsistency, be void.
+(2) It shall be the duty of every person to uphold this Constitution.
+2. Sovereignty and State Power: The sovereignty and State power of Nepal shall be
+vested in the Nepali people. It shall be exercised in accordance with the provisions set
+forth in this Constitution.', 1, 'The Constitution of Nepal, Part-1 (Preliminary)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 1', 'The Constitution of Nepal (First Amendment), 2016', 'The Constitution of Nepal (First Amendment), 2016', NULL, 0, 'The Constitution of Nepal, Part-1, Article 1 (The Constitution of Nepal (First Amendment), 2016)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 2', 'The Constitution of Nepal (Second Amendment), 2020', 'The Constitution of Nepal (Second Amendment), 2020', 'February 28, 2016
+June 18, 2020
+Preamble:
+WE, THE SOVEREIGN PEOPLE OF NEPAL;
+INTERNALIZING the people''s sovereign right and right to autonomy and self -rule, while
+maintaining freedom, sovereignty, territorial integrity, national unity, independence and
+dignity of Nepal;
+RECALLING the glorious history of historic people''s movements, armed struggle, dedication
+and sacrifice of Nepali people carried out , from time to time, for the s ake of interests of the
+nation, democracy and progressive changes, and respecting for the martyrs, disappeared
+persons and victimized citizens;
+ELIMINA TING all forms of discrimination and oppression resulted from the feudalistic,
+autocratic, centralized, unitary system of governance of the State;
+PROTECTING and promoting unity in diversity, social and cultural solidarity, tolerance and
+harmony, by recognizing the multi -ethnic, multi -lingual, multi-religious, multi -cultural and
+geographically diverse characteristics; and resolving to build an egalitarian society based on
+the proportional inclusive and participatory principles in order to ensure econo mic equality,
+prosperity and social justice by eliminating discrimination based on class, caste, region,
+language, religion and gender and all forms of caste-based untouchability;
+BEING COMMITTED  to socialism based on democratic norms and values including the
+people''s competitive multiparty democratic system of governance, civil liberties, fundamental
+rights, human rights, adult franchise, periodic elections, full  freedom of the press, and
+independent, impartial and competent judiciary and concept of the ru le of law in order to
+build a prosperous nation;
+DESIRING to fulfil aspirations for sustainable peace, good governance, development and
+prosperity through the federal democratic republican system of governance;
+DO HEREBY ADOPT AND PROMULGA TE THIS CONSTI TUTION THROUGH THE
+CONSTITUENT ASSEMBLY .', 1, 'The Constitution of Nepal, Part-1, Article 2 (The Constitution of Nepal (Second Amendment), 2020)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 3', 'Nation', 'Nation', 'All the Nepali people, with multi-ethnic, multi-lingual, multi-religious, multi-
+cultural characteristics and in geographical diversities, and having common aspirations
+and being united by a bond of allegiance to national independence, territorial integrity,
+national interest and prosperity of Nepal, collectively constitute the nation.', 2, 'The Constitution of Nepal, Part-1, Article 3 (Nation)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 4', 'State of Nepal', 'State of Nepal', NULL, 3, 'The Constitution of Nepal, Part-1, Article 4 (State of Nepal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.3', 3, 'clause', '(1)', '', NULL, 'Nepal is an independent, indivisible, sovereign, secular, inclusive,
+democratic, socialism-oriented, federal democratic republican State.
+Explanation: For the purposes of this Article, "secular" means religious,
+cultural freedoms, including protection of religion and culture handed down from time
+immemorial.', 0, 'The Constitution of Nepal, Part-1, Article 4, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.3', 3, 'clause', '(2)', '', NULL, 'The territory of Nepal shall comprise the following:-
+(a) The territory existing at the time of commencement of this
+Constitution, and
+(b) Such other territory as may be acquired after the commencement of
+this Constitution.', 1, 'The Constitution of Nepal, Part-1, Article 4, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 5', 'National Interest', 'National Interest', NULL, 4, 'The Constitution of Nepal, Part-1, Article 5 (National Interest)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.4', 3, 'clause', '(1)', '', NULL, 'Safeguarding of the  freedom, sovereignty, territorial integrity,
+nationality, independence and dignity of Nepal, the rights of the Nepali people, border
+security, economic wellbeing and prosperity shall be the basic elements of the n ational
+interest of Nepal.', 0, 'The Constitution of Nepal, Part-1, Article 5, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.4', 3, 'clause', '(2)', '', NULL, 'Any conduct and act contrary to the national interest shall be punishable in
+accordance with the federal law.', 1, 'The Constitution of Nepal, Part-1, Article 5, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 6', 'Languages of Nation', 'Languages of Nation', 'All languages spoken as the mother tongues in Nepal are the
+languages of the nation.', 5, 'The Constitution of Nepal, Part-1, Article 6 (Languages of Nation)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 7', 'Official Language', 'Official Language', NULL, 6, 'The Constitution of Nepal, Part-1, Article 7 (Official Language)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.6', 3, 'clause', '(1)', '', NULL, 'The Nepali language in the Devnagari script shall be the
+official language of Nepal.', 0, 'The Constitution of Nepal, Part-1, Article 7, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.6', 3, 'clause', '(2)', '', NULL, 'A Province may, by a provincial law, determine one or more than one
+languages of the nation spoken by a majority of people within the Province as its
+official language or languages, in addition to the Nepali language.', 1, 'The Constitution of Nepal, Part-1, Article 7, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.6', 3, 'clause', '(3)', '', NULL, 'Other matters relating to language shall be as decided by the Government
+of Nepal on recommendation of the Language Commission.', 2, 'The Constitution of Nepal, Part-1, Article 7, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 8', 'National Flag', 'National Flag', NULL, 7, 'The Constitution of Nepal, Part-1, Article 8 (National Flag)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.7', 3, 'clause', '(1)', '', NULL, 'The national flag of Nepal consists of two juxtaposed triangular
+figures with a crimson -coloured base and deep blue borders, there being a white
+emblem of the crescent moon with eight rays visible out of sixteen in the upper part
+and a white emblem of a twelve rayed sun in the lower part.', 0, 'The Constitution of Nepal, Part-1, Article 8, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.7', 3, 'clause', '(2)', '', NULL, 'The method of drawing out the flag and other particulars relating thereto
+shall be as provided for in Schedule-1.', 1, 'The Constitution of Nepal, Part-1, Article 8, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1', 2, 'article', 'Article 9', 'National Anthem and so on', 'National Anthem and so on', NULL, 8, 'The Constitution of Nepal, Part-1, Article 9 (National Anthem and so on)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.8', 3, 'clause', '(1)', '', NULL, 'The national anthem of Nepal shall be as set forth in
+Schedule-2.', 0, 'The Constitution of Nepal, Part-1, Article 9, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.8', 3, 'clause', '(2)', '', NULL, 'The coat-of-arms of Nepal shall be as set forth in Schedule-3.', 1, 'The Constitution of Nepal, Part-1, Article 9, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:1.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:1.8', 3, 'clause', '(3)', '', NULL, 'The Rhododendron Arboreum shall be the national flower, Crimson Colour
+shall be the national colo ur, Cow shall be the national animal and Lophophor us shall
+be the national bird of Nepal.', 2, 'The Constitution of Nepal, Part-1, Article 9, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-2', 'Citizenship', 'Citizenship', NULL, 2, 'The Constitution of Nepal, Part-2 (Citizenship)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 10', 'Not to Deprive of Citizenship', 'Not to Deprive of Citizenship', NULL, 0, 'The Constitution of Nepal, Part-2, Article 10 (Not to Deprive of Citizenship)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.0', 3, 'clause', '(1)', '', NULL, 'No citizen of Nepal shall be deprived of the right to
+obtain citizenship.', 0, 'The Constitution of Nepal, Part-2, Article 10, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.0', 3, 'clause', '(2)', '', NULL, 'Provision of single federal citizenship with provincial identity has been
+made in Nepal.', 1, 'The Constitution of Nepal, Part-2, Article 10, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 11', 'To be Citizens of Nepal', 'To be Citizens of Nepal', NULL, 1, 'The Constitution of Nepal, Part-2, Article 11 (To be Citizens of Nepal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(1)', '', NULL, 'The persons who have obtained the citizenship of Nepal
+at the time of commencement of this Constitution and who are qualified to obtain
+citizenship in accordance with this Part shall be the citizens of Nepal.', 0, 'The Constitution of Nepal, Part-2, Article 11, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(2)', '', NULL, 'The following person who has his or her permanent domicile in Nepal at
+the time of commencement of this Constitution shall be the citizen of Nepal by
+descent:-
+(a) A person who has obtained the citizenship of Nepal by descent prior
+to the commencement of this Constitution;
+(b) A person whose father or mother was a citizen of Nepal at  the time of
+his or her birth.', 1, 'The Constitution of Nepal, Part-2, Article 11, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(3)', '', NULL, 'A child of a citizen having obtained the citizenship of Nepal by virtue of
+birth prior to the commencement of this Constitution shall, upon attaining the age of
+majority, acquire the citizenship of Nepal by descent in case  the child''s  father and
+mother both are citizens of Nepal.', 2, 'The Constitution of Nepal, Part-2, Article 11, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(4)', '', NULL, 'Every minor who is found within Nepal and the whereabouts of whose
+father and mother are not known shall, until the father or the m other of the child is
+traced, be a citizen of Nepal by descent.', 3, 'The Constitution of Nepal, Part-2, Article 11, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(5)', '', NULL, 'A person who is born in Nepal to a woman who is a citizen of Nepal  and
+has resided in Nepal and whose father is not traced shall be provided with the
+citizenship of Nepal by descent.
+Provided that in case his or her father is held to be a foreign citizen, the
+citizenship of such person shall be converted into naturalized citizenship as provided
+for in the federal law.', 4, 'The Constitution of Nepal, Part-2, Article 11, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(6)', '', NULL, 'A foreign woman who has a matrimonial relationship with a citi zen of
+Nepal may, in case  she so desires, acquire the naturalized citizenship of Nepal as
+provided for in the federal law.', 5, 'The Constitution of Nepal, Part-2, Article 11, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(7)', '', NULL, 'Notwithstanding anything contained elsewhere in this Article, in the case
+of a person  born to a woman who is a citizen of Nepal  and married to a foreign
+citizen, the person may acquire the naturalized citizenship of Nepal in accordance
+with the federal law in case he or she has permanently resided in Nepal and has not
+acquired the citizenship of a foreign country.
+Provided that  in case  such person''s mother and father both are citizens of
+Nepal at the time of acquisition of citizenship, such person born in Nepal may acquire
+the citizenship of Nepal by descent.', 6, 'The Constitution of Nepal, Part-2, Article 11, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(8)', '', NULL, 'In the cases other than those referred to in this Article, the Government of
+Nepal may, in accordance with  the federal law, grant the naturalized citizenship of
+Nepal.', 7, 'The Constitution of Nepal, Part-2, Article 11, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(9)', '', NULL, 'The Government of Nepal may, in accordance with  the federal law, grant
+the honorary citizenship of Nepal.', 8, 'The Constitution of Nepal, Part-2, Article 11, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.1.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2.1', 3, 'clause', '(10)', '', NULL, 'Whenever any territory is acquir ed by way of incorporation into Nepal, a
+person having his or her domicile within such territory shall , subject to the federal
+law, become a citizen of Nepal.', 9, 'The Constitution of Nepal, Part-2, Article 11, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 12', 'Citizenship based on Descent along with Gender Identity', 'Citizenship based on Descent along with Gender Identity', 'A person who is entitled to
+obtain the citizenship of Nepal by descent in  accordance with this Constitution may
+obtain a certificate of citizenship of Nepal with gender identity by the name of his or
+her mother or father.', 2, 'The Constitution of Nepal, Part-2, Article 12 (Citizenship based on Descent along with Gender Identity)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 13', 'Acquisition, Reacquisition and Termination of Citizenship', 'Acquisition, Reacquisition and Termination of Citizenship', 'Other matters relating to
+the acquisition, reacquisition and termination of citizenship shall be as provided  for in
+the federal law.', 3, 'The Constitution of Nepal, Part-2, Article 13 (Acquisition, Reacquisition and Termination of Citizenship)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 14', 'Power to Grant non-resident Nepali Citizenship', 'Power to Grant non-resident Nepali Citizenship', 'The non-residential citizenship of
+Nepal may be so granted to a  person who has acquired the citizenship of a foreign
+country, has resided in a country other than a Member State of the South Asian
+Association for Regional Coope ration, and who or whose father or mother ,
+grandfather or grandmother was prev iously a citizen of Nep al by decent or birth but
+subsequently acquired the citizenship of the foreign country that such person may
+enjoy economic, social and cultural rights in accordance with the federal law.', 4, 'The Constitution of Nepal, Part-2, Article 14 (Power to Grant non-resident Nepali Citizenship)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:2', 2, 'article', 'Article 15', 'Other Provisions relating to Citizenship of Nepal', 'Other Provisions relating to Citizenship of Nepal', 'Other matters relating to the
+maintenance of records setting out the identity of every citizen of Nepal and the
+citizenship of Nepal shall be as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-2, Article 15 (Other Provisions relating to Citizenship of Nepal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-3', 'Fundamental Rights and Duties', 'Fundamental Rights and Duties', NULL, 3, 'The Constitution of Nepal, Part-3 (Fundamental Rights and Duties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 16', 'Right to Live with Dignity', 'Right to Live with Dignity', NULL, 0, 'The Constitution of Nepal, Part-3, Article 16 (Right to Live with Dignity)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.0', 3, 'clause', '(1)', '', NULL, 'Every person shall have the right to live with dignity.', 0, 'The Constitution of Nepal, Part-3, Article 16, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.0', 3, 'clause', '(2)', '', NULL, 'No law shall be made providing for the death penalty to anyone.', 1, 'The Constitution of Nepal, Part-3, Article 16, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 17', 'Right to Freedom', 'Right to Freedom', NULL, 1, 'The Constitution of Nepal, Part-3, Article 17 (Right to Freedom)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(1)', '', NULL, 'No person shall be deprived of his or her personal liberty except
+in accordance with law.', 0, 'The Constitution of Nepal, Part-3, Article 17, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(2)', '', NULL, 'Every citizen shall have the following freedoms: -
+(a) Freedom of opinion and expression;
+(b) Freedom to assemble peaceably and without arms;
+(c) Freedom to form political parties;
+(d) Freedom to form unions and associations;
+(e) Freedom to move and reside in any part of Nepal;
+(f) Freedom to practise any profession, carry on any occupation  and establish
+and operate any industry, trade and business in any part of Nepal.
+Provided that:', 1, 'The Constitution of Nepal, Part-3, Article 17, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(1)', '', NULL, 'Nothing in sub-clause (a) shall be deemed to prevent the making of an Act
+to impose reasonab le restrictions on any act which may undermine the
+sovereignty, territorial integrity, nationality and independence of Nepal or
+the harmonious relations between the Federal Units or the people  of
+various castes, tribes, religions  or communities or  incite caste-based
+discrimination or untouchability or on  any act of disrespect of labour,
+defamation, contempt of court , incitement to an offence  or on any act
+which may be contrary to public decency or morality.', 2, 'The Constitution of Nepal, Part-3, Article 17, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(2)', '', NULL, 'Nothing in sub-clause (b) shall be deemed to  prevent the making of an Act
+to impose reasonable restrictions on any act which may undermine the
+sovereignty, territorial integrity, nationality and inde pendence of Nepal o r
+the harmonious relations between the Federal Units or public  law and
+order.', 3, 'The Constitution of Nepal, Part-3, Article 17, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(3)', '', NULL, 'Nothing in sub-clause (c) shall be deemed to prevent the making of an Act
+to impose reasonable restrictions on any act  which may  undermine the
+sovereignty, territorial integrity, nationality and independence of Nepal,
+constitute an espionage against the nation or divulge national secrecy or on
+any act of rendering assistance to  any foreign State, organization or
+representative in a manner to undermine the security of Nepal or on an act
+of sedition or on any act which may  undermine the harmonious relations
+between the Federal Units  or on any act of incitement to caste -based or
+communal hatred or on any act  which may undermine the harmonious
+relations between various castes, tribes, religions and communities, or on
+any act of acquisition of , or restriction on, membership of any political
+party on the basis solely of  tribe, language, religion, community or sex   or
+on any act of formation of a political party with discrimination between
+citizens or on incitement to violent acts or on any act whi ch may be
+contrary to public morality.', 4, 'The Constitution of Nepal, Part-3, Article 17, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(4)', '', NULL, 'Nothing in sub-clause (d) shall be deemed to prevent the making of an Act
+to impose reasonable restrictions on any act which may undermine the
+sovereignty, territorial integrity, nationality and independence of Ne pal, or
+on any act which may constitute espionage against the nation or on any act
+of divulgence of national secrecy or on any act assisting any foreign State,
+organization or representative in a manner to undermine the security of
+Nepal or on an act of sedition or on any act which may undermine the
+harmonious relations between the Federal Units or on any act of
+incitement to caste -based or communal hatred or on any act which may
+undermine the harmonious relations between various castes, tribes,
+religions and communities or on incitement to violent acts or on any act
+which may be contrary to public morality.', 5, 'The Constitution of Nepal, Part-3, Article 17, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(5)', '', NULL, 'Nothing in sub-clause (e) shall be deemed to prevent the making of an Act
+to impose reasonable restrictions on any act which may undermine  the
+interest of the pubic-in-general or which may undermine the harmonious
+relations between the Federal Units or the harmonious relations between
+the peoples of various castes, tribes, religions or communities or which
+may constitute or incite violent acts.', 6, 'The Constitution of Nepal, Part-3, Article 17, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.1', 3, 'clause', '(6)', '', NULL, 'Nothing in sub-clause (f) shall be deemed to prevent the making of an Act
+to prevent any act which may undermine the harmonious relations between
+the Federal Units or any act which may be contrary to public health,
+decency or morality of  pubic-in-general or to confer on the State the
+exclusive right to undertak e any specific industry, trade or service, or to
+prescribe any condition or qualification for carrying on any industry, trade,
+occupation, employment or business.', 7, 'The Constitution of Nepal, Part-3, Article 17, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 18', 'Right to Equality', 'Right to Equality', NULL, 2, 'The Constitution of Nepal, Part-3, Article 18 (Right to Equality)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.2', 3, 'clause', '(1)', '', NULL, 'All cit izens shall be equal before  law. No one shall be denied
+the equal protection of law.', 0, 'The Constitution of Nepal, Part-3, Article 18, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.2', 3, 'clause', '(2)', '', NULL, 'No discrimination shall be made in the application of general laws on
+grounds of origin, religion, race , caste, tribe, sex , physical condition,  disability,
+condition o f health,  marital status, pregnancy, economic condition, language or
+region, ideological conviction or on similar other grounds.', 1, 'The Constitution of Nepal, Part-3, Article 18, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.2', 3, 'clause', '(3)', '', NULL, 'The Sta te shall not discriminate among citizens on grounds of origin,
+religion, race , caste, tribe, sex, economic condition, langu age, region, ideolog ical
+conviction or on similar other grounds.
+Provided that nothing shall be deemed to prevent the making of spe cial
+provisions by law  for the protection, empowerment or  development of the citizens
+including the socially or culturally backward women, Dalit, indigenous  people,
+indigenous nationalities  (Aadibasi Janajati ), Madhesi, Tharu, Muslim, oppressed
+class, Pichhada class, minorities, the marginalized, farmers, labours, youths, children,
+senior citizens, gender and sex ual minorities, persons with disabilities,  pregnant
+persons, incapacitated or helpless, backward region and indigent Khas Arya.
+Explanation: For the purposes of thi s Part and Part 4, " indigent" means a person who
+earns income less than that specified by the federal law.', 2, 'The Constitution of Nepal, Part-3, Article 18, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.2', 3, 'clause', '(4)', '', NULL, 'No discrimination shall be made on the ground of gender with regard to
+remuneration and social security for the same work.', 3, 'The Constitution of Nepal, Part-3, Article 18, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.2', 3, 'clause', '(5)', '', NULL, 'All offspring shall have the equal  right to the ancestral property without
+discrimination on the ground of gender.', 4, 'The Constitution of Nepal, Part-3, Article 18, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 19', 'Right to Communication', 'Right to Communication', NULL, 3, 'The Constitution of Nepal, Part-3, Article 19 (Right to Communication)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.3', 3, 'clause', '(1)', '', NULL, 'No publication and broadcasting or dissemination or
+printing of any news item, editorial, feature article or other reading, audio and audio -
+visual material through any means whatsoever including electronic publication,
+broadcasting and printing shall be censored.
+Provided that nothing shall be deemed to prevent the making of Acts to impose
+reasonable restrictions on any act which may undermine the sovereignty, territorial
+integrity, nationality of Nepal or the harmonious relations between  the Federal Units
+or the harmonious relations between various castes, tribes, religions or communities,
+or on any act of sedition, defamation or contempt of court or incitement to an offence,
+or on any act which may be contr ary t o public decency or  morality, on any act of
+hatred to labour and on any act of incitement to caste-based untouchability as well as
+gender discrimination.', 0, 'The Constitution of Nepal, Part-3, Article 19, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.3', 3, 'clause', '(2)', '', NULL, 'No radio, television, online or other form of digital or electronic equipment,
+press or other means of communication publishing, broadcasting or printing any news
+item, feature, editorial, article, information or other material shall be closed or seized
+nor shall registration thereof be cancelled nor shall such material be seized by the
+reason of publication, broadcasting or printing of such material through any audio,
+audio-visual or electronic equipment or press.
+Provided that nothing contained in this clause shall be deemed to prevent the
+making of an Act to regulate radio, television, online or  any other form of digital or
+electronic equipment, press or other means of communication.', 1, 'The Constitution of Nepal, Part-3, Article 19, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.3', 3, 'clause', '(3)', '', NULL, 'No means of communication including the press, electronic broadcasting and
+telephone shall be interrupted except in accordance with law.', 2, 'The Constitution of Nepal, Part-3, Article 19, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 20', 'Rights r elating to  Justice', 'Rights r elating to  Justice', NULL, 4, 'The Constitution of Nepal, Part-3, Article 20 (Rights r elating to  Justice)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(1)', '', NULL, 'No person  shall be detained in custody without
+informing him or her of the ground for his or her arrest.', 0, 'The Constitution of Nepal, Part-3, Article 20, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(2)', '', NULL, 'Any person who is arrested shall have the right to consult a legal
+practitioner of his or her choice from the time of such arrest  and to be defended by
+such legal practitioner. Any consultation made by such person with, and advice given
+by, his or her legal practitioner shall be confidential.
+Provided this clause shall not apply to a citizen of an enemy State.
+Explanation: For the purpose of this clause, "legal practitioner"  means any
+person who is authorized by law to represent any person in any court.', 1, 'The Constitution of Nepal, Part-3, Article 20, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(3)', '', NULL, 'Any person who is arrested shall be produced before the adjudicating
+authority within a period of twenty -four hours of such arr est, excluding the time
+necessary for the journey from the place of arrest to such authority; and  no such
+person shall be detained in custody except on the order of such authority.
+Provided that this clause shall not apply to a person held in preventive de tention
+and to a citizen of an enemy State.', 2, 'The Constitution of Nepal, Part-3, Article 20, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(4)', '', NULL, 'No person shall be liable for punishment  for an act  which was not
+punishable by the law in force when the act was committed nor shall any person be
+subjected to a punishment greater than that prescribed by t he law in force at the time
+of the commission of the offence.', 3, 'The Constitution of Nepal, Part-3, Article 20, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(5)', '', NULL, 'Every person accused of an offence shall be presumed innocent until proved
+guilty of the offence.', 4, 'The Constitution of Nepal, Part-3, Article 20, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(6)', '', NULL, 'No person shall be tried and punished for the same offence in a court of law
+more than once.', 5, 'The Constitution of Nepal, Part-3, Article 20, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(7)', '', NULL, 'No person accused of an offence shall be compelled to testify against himself
+or herself.', 6, 'The Constitution of Nepal, Part-3, Article 20, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(8)', '', NULL, 'Every person shall have the right to be informed of any proceedings taken
+against him or her.', 7, 'The Constitution of Nepal, Part-3, Article 20, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(9)', '', NULL, 'Every person shall have the right to a fair trial by a n independent, impartial
+and competent court or judicial body.', 8, 'The Constitution of Nepal, Part-3, Article 20, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.4.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.4', 3, 'clause', '(10)', '', NULL, 'Any indigent party shall have the right to free legal aid in accordance with
+law.', 9, 'The Constitution of Nepal, Part-3, Article 20, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 21', 'Right of Victim of Crime', 'Right of Victim of Crime', NULL, 5, 'The Constitution of Nepal, Part-3, Article 21 (Right of Victim of Crime)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.5', 3, 'clause', '(1)', '', NULL, 'A victim of crime shall have the right to get information
+about the investigation and proceedings of a case in which he or she is the victim.', 0, 'The Constitution of Nepal, Part-3, Article 21, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.5', 3, 'clause', '(2)', '', NULL, 'A victim of crime  shall have the right to justice along with social
+rehabilitation and compensation in accordance with law.', 1, 'The Constitution of Nepal, Part-3, Article 21, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 22', 'Right against Torture', 'Right against Torture', NULL, 6, 'The Constitution of Nepal, Part-3, Article 22 (Right against Torture)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.6', 3, 'clause', '(1)', '', NULL, 'No person who is arrested or detained shall be subjected to
+physical or mental torture or to cruel, inhuman or degrading treatment.', 0, 'The Constitution of Nepal, Part-3, Article 22, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.6', 3, 'clause', '(2)', '', NULL, 'Any act referred to in clause (1) shall be punishable by law, and any person
+who is a victim of such treatment shall have the right to obtain com pensation in
+accordance with law.', 1, 'The Constitution of Nepal, Part-3, Article 22, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 23', 'Right against Preventive Detention', 'Right against Preventive Detention', NULL, 7, 'The Constitution of Nepal, Part-3, Article 23 (Right against Preventive Detention)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.7', 3, 'clause', '(1)', '', NULL, 'No person shall be held under preventive
+detention unless there is a sufficient ground of the existence of an immediate threat to
+the sovereignty, territorial integrity or public law and order of Nepal.', 0, 'The Constitution of Nepal, Part-3, Article 23, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.7', 3, 'clause', '(2)', '', NULL, 'Information about the situation of a person who is held under preventive
+detention pursuant to clause (1) shall be given  immediately to his or her family
+members or relatives.
+Provided that this clause shall not apply to a citizen of an enemy State.', 1, 'The Constitution of Nepal, Part-3, Article 23, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.7', 3, 'clause', '(3)', '', NULL, 'In case  the authority having power to hold a person under  preventive
+detention holds any person under preventi ve detention contrary to law or in bad faith,
+such person shall have the right to obtain compensation in accordance with law.', 2, 'The Constitution of Nepal, Part-3, Article 23, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 24', 'Right against Untouchability and Discrimination', 'Right against Untouchability and Discrimination', NULL, 8, 'The Constitution of Nepal, Part-3, Article 24 (Right against Untouchability and Discrimination)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.8', 3, 'clause', '(1)', '', NULL, 'No person shall be subjected to
+any form of untouchability or discrimination in any private and public places  on
+grounds of his or her origin, caste,  tribe, community , profession , occupation or
+physical condition.', 0, 'The Constitution of Nepal, Part-3, Article 24, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.8', 3, 'clause', '(2)', '', NULL, 'In producing or distributing any goods, services or facilities, no person
+belonging to any particular caste or tribe shall be prevented from purchasing or
+acquiring such goods, services or facilities nor shall such goods, services or facilities
+be sold, distributed or provided only to the persons belonging to any particular caste
+or tribe.', 1, 'The Constitution of Nepal, Part-3, Article 24, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.8', 3, 'clause', '(3)', '', NULL, 'No act purporting to demon strate any person or community as superior or
+inferior on grounds of origin, caste, tribe or physical condition or justifying social
+discrimination on grounds of caste , tribe or untouchability or propagating ideology
+based on untouchability and caste based superiority or hatred or encouraging caste -
+based discrimination in any manner whatsoever shall be allowed.', 2, 'The Constitution of Nepal, Part-3, Article 24, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.8', 3, 'clause', '(4)', '', NULL, 'No discrimination in any form shall be allowed at a workplace  with or
+without making untouchability on the ground of caste.', 3, 'The Constitution of Nepal, Part-3, Article 24, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.8.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.8', 3, 'clause', '(5)', '', NULL, 'All types of acts of untouchability and discrimination committed in
+contravention of this Article shall be punishable by law as a severe social offence, and
+the victim of such  act shall have the right to obtain compensation in accordance  with
+law.', 4, 'The Constitution of Nepal, Part-3, Article 24, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 25', 'Right relating to Property', 'Right relating to Property', NULL, 9, 'The Constitution of Nepal, Part-3, Article 25 (Right relating to Property)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.9', 3, 'clause', '(1)', '', NULL, 'Every citizen shall, subject to law, have the right to
+acquire, own, sell, dispose of, acquire business profits from, and otherwise deal with,
+property.
+Provided that the State may levy tax on property of a person, and tax on income
+of a person in accordance with the concept of progressive taxation.
+Explanation: For the purposes of this Article, "property" means any form  of
+property including movable and immovable property and the word includes
+intellectual property right as well.', 0, 'The Constitution of Nepal, Part-3, Article 25, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.9', 3, 'clause', '(2)', '', NULL, 'The State shall not, except  for public interest, requisition,  acquire, or
+otherwise create any encumbrance on, property of a person.
+Provided that this clause shall not apply to any property acquired by any  person
+illicitly.', 1, 'The Constitution of Nepal, Part-3, Article 25, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.9', 3, 'clause', '(3)', '', NULL, 'The basis of compensation  to be provided and procedures to be followed in
+the requisition by the State of property of any person for public interest pursuant to
+clause (2) shall be as provided for in the Act.', 2, 'The Constitution of Nepal, Part-3, Article 25, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.9', 3, 'clause', '(4)', '', NULL, 'The provisions of clauses (2) and (3) shall not prevent the State from making
+land reforms, management and regulation in accordance with law  for the purposes of
+enhancement of product and productivity of land, modernization and
+commercialization of agriculture, environment protection and planned housing and
+urban development.', 3, 'The Constitution of Nepal, Part-3, Article 25, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.9.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.9', 3, 'clause', '(5)', '', NULL, 'In case the State has requisitioned property of any person for public interest
+pursuant to clause (3), nothing shall prevent the  State from using such property for
+any other public interest instead of such public interest.', 4, 'The Constitution of Nepal, Part-3, Article 25, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 26', 'Right to Freedom of Religion', 'Right to Freedom of Religion', NULL, 10, 'The Constitution of Nepal, Part-3, Article 26 (Right to Freedom of Religion)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.10.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.10', 3, 'clause', '(1)', '', NULL, 'Every person  who has faith in religion  shall have
+the freedom to profess, practice and protect his or her religion in accordance with his
+or her conviction.', 0, 'The Constitution of Nepal, Part-3, Article 26, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.10.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.10', 3, 'clause', '(2)', '', NULL, 'Every religious denomination shall have the right to operate and protect its
+religious sites and religious Guthi (trusts).
+Provided that nothing shall be deemed to prevent the regulation, by making law,
+of the operation and protection of religious sites an d religious trusts and management
+of trust properties and land.', 1, 'The Constitution of Nepal, Part-3, Article 26, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.10.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.10', 3, 'clause', '(3)', '', NULL, 'No person shall, in the exercise of the right conferred by this Article, do, or
+cause to be done, any act which may be contrary to public health, de cency and
+morality or breach of public peace, or convert another person from one religion to
+another or any act or conduct that may jeopardize other''s religion and such act shall be
+punishable by law.', 2, 'The Constitution of Nepal, Part-3, Article 26, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 27', 'Right to Information', 'Right to Information', 'Every citizen shall have the right to demand and receive
+information on any matter of his or her interest or of public interest.
+Provided that no one shall be compelled to provide information on any matter
+which must be maintained confidential in accordance with law.', 11, 'The Constitution of Nepal, Part-3, Article 27 (Right to Information)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 28', 'Right to Privacy', 'Right to Privacy', 'The privacy of any person, his or her residence, property, document,
+data, correspondence and matters relating to his or her character shall , except in
+accordance with law, be inviolable.', 12, 'The Constitution of Nepal, Part-3, Article 28 (Right to Privacy)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 29', 'Right against Exploitation', 'Right against Exploitation', NULL, 13, 'The Constitution of Nepal, Part-3, Article 29 (Right against Exploitation)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.13', 3, 'clause', '(1)', '', NULL, 'Every person shall have the right against exploitation.', 0, 'The Constitution of Nepal, Part-3, Article 29, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.13', 3, 'clause', '(2)', '', NULL, 'No person shall be exploited in any manner on the ground s of religion,
+custom, tradition, usage, practice or on any other grounds.', 1, 'The Constitution of Nepal, Part-3, Article 29, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.13', 3, 'clause', '(3)', '', NULL, 'No one shall be subjected to trafficking nor shall one be held in slavery or
+servitude.', 2, 'The Constitution of Nepal, Part-3, Article 29, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.13', 3, 'clause', '(4)', '', NULL, 'No one shall be forced to work against his or her will.
+Provided that nothing shall be deemed to prevent the making of law by the State
+requiring citizens to perform compulsory service for public purposes.', 3, 'The Constitution of Nepal, Part-3, Article 29, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.13.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.13', 3, 'clause', '(5)', '', NULL, 'An act contrary to clauses (3) and (4) shall be punishable by law and the
+victim shall have the right to obtain compensation from the perpetrator in accordance
+with law.', 4, 'The Constitution of Nepal, Part-3, Article 29, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 30', 'Right to Clean Environment', 'Right to Clean Environment', NULL, 14, 'The Constitution of Nepal, Part-3, Article 30 (Right to Clean Environment)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.14.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.14', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right to live in a clean
+and healthy environment.', 0, 'The Constitution of Nepal, Part-3, Article 30, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.14.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.14', 3, 'clause', '(2)', '', NULL, 'The victim shall have the right to obtain  compensation, in accordance with
+law, for any damage caused by environmental pollution or degradation.', 1, 'The Constitution of Nepal, Part-3, Article 30, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.14.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.14', 3, 'clause', '(3)', '', NULL, 'This Article shall not be deemed to prevent the making of necessary legal
+provisions for a proper balance between  environment and development in
+development works of the nation.', 2, 'The Constitution of Nepal, Part-3, Article 30, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 31', 'Right relating to Education', 'Right relating to Education', NULL, 15, 'The Constitution of Nepal, Part-3, Article 31 (Right relating to Education)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.15', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right of access to basic
+education.', 0, 'The Constitution of Nepal, Part-3, Article 31, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.15', 3, 'clause', '(2)', '', NULL, 'Every citizen shall have the right to get compulsory and free education up
+to the basic level and free education up to the secondary level from the State.', 1, 'The Constitution of Nepal, Part-3, Article 31, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.15', 3, 'clause', '(3)', '', NULL, 'The citizens with disabilities and the indigent citizens shall have the right
+to get free higher education in accordance with law.', 2, 'The Constitution of Nepal, Part-3, Article 31, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.15', 3, 'clause', '(4)', '', NULL, 'The visually impaired citizens shall have the righ t to get free education
+through brail script and the citizens with hearing or speaking impairment, to get free
+education through sign language, in accordance with law.', 3, 'The Constitution of Nepal, Part-3, Article 31, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.15.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.15', 3, 'clause', '(5)', '', NULL, 'Every Nepali community residing in Nepal shall have the right to get
+education in its own mother tongue and, for that purpose, to open and operate schools
+and educational institutes, in accordance with law.', 4, 'The Constitution of Nepal, Part-3, Article 31, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 32', 'Right to Language and Culture', 'Right to Language and Culture', NULL, 16, 'The Constitution of Nepal, Part-3, Article 32 (Right to Language and Culture)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.16.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.16', 3, 'clause', '(1)', '', NULL, 'Every person and community shall have the right
+to use their own languages.', 0, 'The Constitution of Nepal, Part-3, Article 32, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.16.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.16', 3, 'clause', '(2)', '', NULL, 'Every person and community shall have the right to participate  in the
+cultural life of his/her/its community.', 1, 'The Constitution of Nepal, Part-3, Article 32, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.16.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.16', 3, 'clause', '(3)', '', NULL, 'Every Nepali community residing in Nepal shall have the right to preserve
+and promote its language, script, culture, cultural civilization and heritage.', 2, 'The Constitution of Nepal, Part-3, Article 32, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 33', 'Right to Employment', 'Right to Employment', NULL, 17, 'The Constitution of Nepal, Part-3, Article 33 (Right to Employment)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.17.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.17', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right to employment. The terms
+and conditions of employment , and unemployment benefit shall be as provided for in
+the federal law.', 0, 'The Constitution of Nepal, Part-3, Article 33, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.17.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.17', 3, 'clause', '(2)', '', NULL, 'Every citizen shall have the right to choose employment.', 1, 'The Constitution of Nepal, Part-3, Article 33, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 34', 'Right to Labour', 'Right to Labour', NULL, 18, 'The Constitution of Nepal, Part-3, Article 34 (Right to Labour)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.18.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.18', 3, 'clause', '(1)', '', NULL, 'Every labourer shall have the right to fair labour practice.
+Explanation: For the purposes of this Article, "labourer" means a labourer or
+worker who does physical or intellectual work for an employer in consideration for
+remuneration.', 0, 'The Constitution of Nepal, Part-3, Article 34, Clause (1)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:3.18.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.18', 3, 'clause', '(2)', '', NULL, 'Every labourer shall have the right to appropriate remuneration, facilities and
+contributory social security.', 1, 'The Constitution of Nepal, Part-3, Article 34, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.18.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.18', 3, 'clause', '(3)', '', NULL, 'Every labourer  shall have the right to form and join trade unions and to
+engage in collective bargaining, in accordance with law.', 2, 'The Constitution of Nepal, Part-3, Article 34, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 35', 'Right relating to Health', 'Right relating to Health', NULL, 19, 'The Constitution of Nepal, Part-3, Article 35 (Right relating to Health)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.19.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.19', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right to free basic health
+services from the State, and no one shall be deprived of emergency health services.', 0, 'The Constitution of Nepal, Part-3, Article 35, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.19.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.19', 3, 'clause', '(2)', '', NULL, 'Every person shall have the right to  get information about his or her medical
+treatment.', 1, 'The Constitution of Nepal, Part-3, Article 35, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.19.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.19', 3, 'clause', '(3)', '', NULL, 'Every citizen shall have equal access to health services.', 2, 'The Constitution of Nepal, Part-3, Article 35, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.19.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.19', 3, 'clause', '(4)', '', NULL, 'Every citi zen shall have the right of  access to clean drinking water and
+sanitation.', 3, 'The Constitution of Nepal, Part-3, Article 35, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.20', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 36', 'Right relating to Food', 'Right relating to Food', NULL, 20, 'The Constitution of Nepal, Part-3, Article 36 (Right relating to Food)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.20.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.20', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right relating to food.', 0, 'The Constitution of Nepal, Part-3, Article 36, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.20.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.20', 3, 'clause', '(2)', '', NULL, 'Every citizen shall have the right to be safe from the state of being in
+danger of life from the scarcity of food.', 1, 'The Constitution of Nepal, Part-3, Article 36, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.20.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.20', 3, 'clause', '(3)', '', NULL, 'Every citizen shall have the right to food sovereignty i n accordance with
+law.', 2, 'The Constitution of Nepal, Part-3, Article 36, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.21', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 37', 'Right to Housing', 'Right to Housing', NULL, 21, 'The Constitution of Nepal, Part-3, Article 37 (Right to Housing)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.21.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.21', 3, 'clause', '(1)', '', NULL, 'Every citizen shall have the right to an appropriate housing.', 0, 'The Constitution of Nepal, Part-3, Article 37, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.21.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.21', 3, 'clause', '(2)', '', NULL, 'No citizen shall be evicted from the residence owned by him or her  nor
+shall his or her residence be infringed except in accordance with law.', 1, 'The Constitution of Nepal, Part-3, Article 37, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 38', 'Rights of Women', 'Rights of Women', NULL, 22, 'The Constitution of Nepal, Part-3, Article 38 (Rights of Women)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(1)', '', NULL, 'Every woman shall have equal lineage right without  gender-
+based discrimination.', 0, 'The Constitution of Nepal, Part-3, Article 38, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(2)', '', NULL, 'Every woman shall have the right to safe motherhood and reproductive
+health.', 1, 'The Constitution of Nepal, Part-3, Article 38, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(3)', '', NULL, 'No woman shall be subjected to physical, mental, sexual, psychological or
+other form of violence or exploitation on grounds of religion, social, cultural tradition,
+practice or on any other grounds. Such  act shall be punishable by law, and the victim
+shall have the right to obtain compensation in accordance with law.', 2, 'The Constitution of Nepal, Part-3, Article 38, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(4)', '', NULL, 'Women shall have the right to participate in all bodies of the State on the
+basis of the principle of proportional inclusion.', 3, 'The Constitution of Nepal, Part-3, Article 38, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(5)', '', NULL, 'Women shall have the right to obtain special opportunity in education,
+health, employment and social security, on the basis of positive discrimination.', 4, 'The Constitution of Nepal, Part-3, Article 38, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.22.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.22', 3, 'clause', '(6)', '', NULL, 'The husband and wife  shall have the equal right to property  and family
+affairs.', 5, 'The Constitution of Nepal, Part-3, Article 38, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 39', 'Rights of Child', 'Rights of Child', NULL, 23, 'The Constitution of Nepal, Part-3, Article 39 (Rights of Child)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(1)', '', NULL, 'Every child shall have the right to name and birth registration
+along with his or her identity.', 0, 'The Constitution of Nepal, Part-3, Article 39, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(2)', '', NULL, 'Every child shall have the right to education, health, maintenance, proper
+care, sports, entertainment and overall personality development from the families and
+the State.', 1, 'The Constitution of Nepal, Part-3, Article 39, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(3)', '', NULL, 'Every child shall have the right to elementary child development  and child
+participation.', 2, 'The Constitution of Nepal, Part-3, Article 39, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(4)', '', NULL, 'No child shall be engaged in any factory, mine or similar other hazardous
+work.
+5) No child shall be subjected to child marriage, transported illegally and
+kidnapped or taken hostage.', 3, 'The Constitution of Nepal, Part-3, Article 39, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(6)', '', NULL, 'No child shall be recruited or used in army, police or any armed group, or be
+subjected, in the name of cultural or religious traditions, to abuse, exclusion or physical,
+mental, sexual or other form of exploitation or improper use by any means or in any
+manner.', 4, 'The Constitution of Nepal, Part-3, Article 39, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(7)', '', NULL, 'No child shall be subjected to physical, mental or any other form of torture
+in home, school or other place and condition whatsoever.', 5, 'The Constitution of Nepal, Part-3, Article 39, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(8)', '', NULL, 'Every child shall have the right to child-friendly justice.', 6, 'The Constitution of Nepal, Part-3, Article 39, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(9)', '', NULL, 'The child who is helpless, orphan, with disabilities, conflict victim, displaced
+or vulnerable shall have the right to special protection and facilities from the State.', 7, 'The Constitution of Nepal, Part-3, Article 39, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.23.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.23', 3, 'clause', '(10)', '', NULL, 'Any act contrary to in clauses (4), (5), (6) and (7 ) shall be punishable by
+law, and a child who is the victim of such act  shall have th e right to obtain
+compensation from the perpetrator, in accordance with law.', 8, 'The Constitution of Nepal, Part-3, Article 39, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 40', 'Rights of Dalit', 'Rights of Dalit', NULL, 24, 'The Constitution of Nepal, Part-3, Article 40 (Rights of Dalit)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(1)', '', NULL, 'The Dalit shall have the right to participate in all bodies of the
+State on the basis of the principle of proportional in clusion. Special provision shall be
+made by law for  empowerment, representation and participation of the Dalit
+community in public services as well as other sectors of employment.', 0, 'The Constitution of Nepal, Part-3, Article 40, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(2)', '', NULL, 'Provision of free education with scholarship, from primary to higher
+education, shall be made by law for the Dalit students. Special provision shall be
+made by law for the Dalit in technical and vocational education.', 1, 'The Constitution of Nepal, Part-3, Article 40, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(3)', '', NULL, 'Special provision shall be made by law in order to provide health and
+social security to the Dalit community.', 2, 'The Constitution of Nepal, Part-3, Article 40, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(4)', '', NULL, 'The Dalit community shall have the right to use, protect and develop their
+traditional occupation, knowledge, skill  and technology. The State shall accord
+priority to the Dalit community in modern business related with their traditional
+occupation and provide skills and resources required therefor.', 3, 'The Constitution of Nepal, Part-3, Article 40, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(5)', '', NULL, 'The State shall provide land  to the landless Dalit for one time in
+accordance with law.', 4, 'The Constitution of Nepal, Part-3, Article 40, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(6)', '', NULL, 'The State shall, in accordance with law,  make provision of settlement for
+the Dalit who do not have housing.', 5, 'The Constitution of Nepal, Part-3, Article 40, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.24.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.24', 3, 'clause', '(7)', '', NULL, 'The facilities conferred by this Article to the Dalit community shall be
+distributed in a just manner  so that the Dalit women, men and Dalit in all
+communities may obtain such facilities proportionately.', 6, 'The Constitution of Nepal, Part-3, Article 40, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.25', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 41', 'Rights of Senior Citizens', 'Rights of Senior Citizens', 'The senior citizens shall have the right to special protection
+and social security from the State.', 25, 'The Constitution of Nepal, Part-3, Article 41 (Rights of Senior Citizens)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.26', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 42', 'Right to Social Justice', 'Right to Social Justice', '(1) The economically, socially or educationally backward
+women, Dalit, indigenous nationalities  (Aadibasi Janajati ), Madhesi , Tharu,
+Muslims, backward classes, minorities, marginalized communities, persons with
+disabilities, gender and sexual minorities, farmers, labourers, oppressed or
+citizens of backward regions and indigent  Khas Arya  shall have the right to
+participate in the bodi es of the State on the basis of principle of proportional
+inclusion.', 26, 'The Constitution of Nepal, Part-3, Article 42 (Right to Social Justice)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.26.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.26', 3, 'clause', '(2)', '', NULL, 'The indigent citizens and citizens of the communities on the verge of
+extinction shall have the right to get special opportunities and benefits in education,
+ Amended by the First Amendment.
+health, housing, employment, food and social security for their protection, upliftment,
+empowerment and development.', 0, 'The Constitution of Nepal, Part-3, Article 42, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.26.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.26', 3, 'clause', '(3)', '', NULL, 'The citizens with disabilities shall have the right to live with dignity and
+honour, with the identity of their diversity , and have equal access to p ublic services
+and facilities.', 1, 'The Constitution of Nepal, Part-3, Article 42, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.26.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.26', 3, 'clause', '(4)', '', NULL, 'Every farmer shall, in accordance with law, have the right to have access to
+land for agro activities, select and protect local seeds and agro species which have
+been used and pursued traditionally.', 2, 'The Constitution of Nepal, Part-3, Article 42, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.26.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.26', 3, 'clause', '(5)', '', NULL, 'The families  of the martyrs who have sacrificed their life , and of the
+disappeared persons and those who became disabled and injured in all people''s
+movements, armed conflicts and revolutions that have been carried out for progressive
+democratic changes in Nepal, democracy fighters, conflict victims and displaced ones,
+persons with disabilities, the injured and victims shall have the right to get a
+prioritized opportunity, with justice and due respect, in education, health,
+employment, housing and social security, in accordance with law.', 3, 'The Constitution of Nepal, Part-3, Article 42, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.27', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 43', 'Right to Social Security', 'Right to Social Security', 'The indigent citizens, incapacitated and helpless citizens,
+helpless single women, citizens with disabilities, children, citizens who cannot take care
+themselves and citizens belonging to the tribes on the verge of extinction shall have
+the right to social security, in accordance with law.', 27, 'The Constitution of Nepal, Part-3, Article 43 (Right to Social Security)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.28', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 44', 'Rights of Consumer', 'Rights of Consumer', NULL, 28, 'The Constitution of Nepal, Part-3, Article 44 (Rights of Consumer)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.28.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.28', 3, 'clause', '(1)', '', NULL, 'Every consumer shall have the right to obtain quality goods
+and services.', 0, 'The Constitution of Nepal, Part-3, Article 44, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.28.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3.28', 3, 'clause', '(2)', '', NULL, 'A person who has suffered damage from any substandard goods or services
+shall have the right to obtain compensation in accordance with law.', 1, 'The Constitution of Nepal, Part-3, Article 44, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.29', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 45', 'Right against Exile', 'Right against Exile', 'No citizen shall be exiled.', 29, 'The Constitution of Nepal, Part-3, Article 45 (Right against Exile)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.30', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 46', 'Right to Constitutional Remedies', 'Right to Constitutional Remedies', 'There shall be a right to obtain constitutional
+remedies in the manner set forth in Article 133 or 144 for the enforcement of the
+rights conferred by this Part.', 30, 'The Constitution of Nepal, Part-3, Article 46 (Right to Constitutional Remedies)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.31', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 47', 'Implementation of Fundamental Rights', 'Implementation of Fundamental Rights', 'The State shall, as required, make legal
+provisions for the implementation of th e rights conferred by this Part, within three
+years of the commencement of this Constitution.', 31, 'The Constitution of Nepal, Part-3, Article 47 (Implementation of Fundamental Rights)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:3.32', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:3', 2, 'article', 'Article 48', 'Duties of Citizens', 'Duties of Citizens', 'Every citizen shall have the following duties:-
+(a) To safeguard the nationality, sovereignty and integrity of Nepal, while
+being loyal to the nation;
+(b) To abide by the Constitution and law;
+(c) To render compulsory service as and when the State so requires;
+(d) To protect and preserve public property.', 32, 'The Constitution of Nepal, Part-3, Article 48 (Duties of Citizens)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-4', 'Directive Principles, Policies and Obligations of the State', 'Directive Principles, Policies and Obligations of the State', NULL, 4, 'The Constitution of Nepal, Part-4 (Directive Principles, Policies and Obligations of the State)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 49', 'To be as Guidelines', 'To be as Guidelines', NULL, 0, 'The Constitution of Nepal, Part-4, Article 49 (To be as Guidelines)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.0', 3, 'clause', '(1)', '', NULL, 'The directive principles , policies and obligations set forth in
+this Part shall be guidelines for governance of the State.', 0, 'The Constitution of Nepal, Part-4, Article 49, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.0', 3, 'clause', '(2)', '', NULL, 'The State shall mobilize, or cause to be mobilized, means and resources, as
+required, to implement the principles, policies and obligations set forth in this Part.', 1, 'The Constitution of Nepal, Part-4, Article 49, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 50', 'Directive Principles', 'Directive Principles', NULL, 1, 'The Constitution of Nepal, Part-4, Article 50 (Directive Principles)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.1', 3, 'clause', '(1)', '', NULL, 'The political objective of the State shall be to establish a
+public welfare system of governance, by establishing a j ust system in all aspects of
+national life through the rule of law, values and norms of fundamental rights and
+human rights, gender equality, proportional inclusion, participation and social justice,
+while at the same time protecting the life, property , equality and liberties  of the
+people, in keeping with the vitality of freedom, sovereignty, territorial integrity and
+independence of Nepal; and to consolidate the federal democratic republic an system
+of governance in order t o ensure an atmosphere conducive to the enjoyment of fruits
+of democracy, while at the same time maintaining the relations between the Federal
+Units on the basis of cooperative federalism  and incorporating the principle of
+proportional participation in the system of governance on the basis of local autonomy
+and decentralization.', 0, 'The Constitution of Nepal, Part-4, Article 50, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.1', 3, 'clause', '(2)', '', NULL, 'The social and cultural objective of the State shall be to build a civilized
+and egalitarian society by eliminating all forms of discrimination, exploitation and
+injustice based on the grounds of religion, culture, tradition, usage, custom, practice or
+on any other similar grounds ; to develop social, cultural values founded on national
+pride, democracy, pro-people, respect  of labour, entrepreneurship, discipline, dignity
+and harmony; and to consolidate the national unity by maintaining social cohesion,
+solidarity and harmony, while recognizing cultural diversity.', 1, 'The Constitution of Nepal, Part-4, Article 50, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.1', 3, 'clause', '(3)', '', NULL, 'The economic objective of the State shall be to attain a sustainable
+economic development, while achieving rapid economic growth, by way of maximum
+mobilization of the available means and resources  through participation and
+development of public, private and cooperatives ; and to develop a socialism -oriented
+independent and prosperous economy while making the national economy
+independent, self-reliant and progressive in order to build an exploitation -free society
+by abolishing economic inequality through equitable distribution of the achievements
+made.', 2, 'The Constitution of Nepal, Part-4, Article 50, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.1', 3, 'clause', '(4)', '', NULL, 'The State shall direct its internatio nal relations towards enhancing the
+dignity of the nation in the world community by maintaining international relations on
+the basis of sovereign equality, while safeguarding the freedom, sovereignty, territorial
+integrity and independence and national interest of Nepal.', 3, 'The Constitution of Nepal, Part-4, Article 50, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 51', 'Policies of the State', 'Policies of the State', 'The State shall pursue the following policies:-
+(a) Policies relating to National Unity and National Security:', 2, 'The Constitution of Nepal, Part-4, Article 51 (Policies of the State)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To maintain national unity intact, while p rotecting the freedom,
+sovereignty, territorial integrity and independence of Nepal;', 0, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To promote national unity while developing mutual cooperative
+relations among the Federal U nits by maintaining mutual cohesion,
+harmony and solidarity among various castes, tribes, relig ions,
+languages, cultures and communities;', 1, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To maintain law and order by developing national security system;', 2, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To guarantee overall human security system;', 3, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To make all security organs , including the Nepal Army, Nepal Police
+and Armed Police Force  Nepal, com petent, strong,  professional,
+inclusive and accountable to people, on the basis of national security
+policies;', 4, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To make and keep citizens ready and competent to serve the n ation as
+and when the nation requires;', 5, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To make proper use, in nations'' interest, of knowled ge, skills and
+experiences of former public employees including former employees,
+military and police.
+(b) Policies relating to Political and Governance System of State:', 6, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To guarantee the best interests and prosperity of people through
+economic, social and cultural transformations, while safeguarding,
+consolidating and developing political achievements;', 7, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To maintain rule of law by protecting and promoting human rights;', 8, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To implement international treaties, agreements to which Nepal is a
+party;', 9, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To guarantee good governance by ensuring equal and easy access of
+people to services and facilities delivered by the State, while making
+public administration fair, competent, impartial, transparent, free from
+corruption, accountable and participatory;', 10, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To make necessary provisions to make mass media fair, healthy,
+impartial, decent, responsible and professional;', 11, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To develop and expand harmonious and cooperative relations between
+the Federal Units by way of sharing of responsibilities, resources and
+administration between them.
+(c) Policies relating to Social and Cultural Transformation:', 12, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To build a society founded on cordial social relations by developing  a
+healthy and civilized culture;', 13, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To carry out studies, research works, excavation and dissemination for
+the protection, promotion and development of historical,
+archaeological and cultural heritages;', 14, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To make community development through enhancement of local public
+participation, by promoting and mobilizing the creativity of local
+communities in social, cultural and service-oriented works;', 15, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To focus on development of arts, literature and music which form  part
+of national heritages;', 16, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To eliminate all forms of discrimination, inequality, exploitation and
+injustice in the name of religion, custom, usage, practice and tradition
+existing in society;', 17, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To protect and develop languages, scripts, culture , literature,  arts,
+motion pictures and heritages of various  castes, tribes,  and
+communities on the basis of equality and co -existence, while
+maintaining the cultural diversity of the country;', 18, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To pursue a multi-lingual policy.
+(d) Policies relating to Economy, Industry and Commerce:', 19, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.20', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To strengthen national economy through participation and independent
+development of the public, private and cooperative sectors;', 20, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.21', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To achieve economic prosperity by way of optimum mobilization of
+the available means and resources , while focusing on the role of
+private sector in economy;', 21, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.22', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To promote the cooperative sector and mobilize  it in national
+development to the maximum extent;', 22, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.23', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To encourage and mobilize the economic sector in the overall national
+development, while providing for regulation to maintain fairness,
+accountability and competition in all of its activities;', 23, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.24', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To make equitable distribution of the available means and resources
+and benefits of economic development;', 24, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.25', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To diversify and expand markets for goods and services, while
+promoting expo rts through development and expansion of industries
+upon identifying areas of comparative advantage;', 25, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.26', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To protect interests of consumers by maintaining trade fairness and
+discipline by making national economy competitive, while eliminating
+activities such as black marketing, monopoly, creating artificial
+scarcity and restricting competition;', 26, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.27', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(8)', '', NULL, 'To protect and promote national industries and resources and accord
+priority to domestic investment based on Nepali labour, skills and raw
+materials for development of national economy;', 27, 'The Constitution of Nepal, Part-4, Article 51, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.28', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(9)', '', NULL, 'To accord priority to domestic investment for development of national
+economy;', 28, 'The Constitution of Nepal, Part-4, Article 51, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.29', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(10)', '', NULL, 'To encourage foreign capital and technological investment in areas of
+import substitution and export promotion, in consonance wit h national
+interest, and encourage and mobilize such investment in  development
+of infrastructure;', 29, 'The Constitution of Nepal, Part-4, Article 51, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.30', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(11)', '', NULL, 'To make the receiving of foreign assistance transparent, while making
+the national needs and priorities as the bas es for obtaining foreign
+assistance, and incorporating amounts received in form of foreign
+assistance in the national budget,', 30, 'The Constitution of Nepal, Part-4, Article 51, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.31', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(12)', '', NULL, 'To utilize knowledge, skill, technology and capital of the non-resident
+Nepali in the national development;', 31, 'The Constitution of Nepal, Part-4, Article 51, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.32', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(13)', '', NULL, 'To make economic development dynamic by establishing coordination
+among Provinces and Provinces and the Federation in relation to
+industrial corridors, special economic zones, national projects and
+projects involving foreign investment.
+(e) Policies relating to Agriculture and Land Reforms:', 32, 'The Constitution of Nepal, Part-4, Article 51, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.33', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To introduce scientific land reforms  having regard to the interests of
+the farmers, while ending the dual ownership existing in the land;', 33, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.34', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To enhance product and productivity by carrying out land pooling,
+while discouraging absentee land ownership;', 34, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.35', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To carry out land management and commercialization,
+industrialization, diversification and modernizatio n of agriculture by
+pursuing land -use policies to  enhance agriculture product and
+productivity, while protecting and promoting the rights and interests of
+the farmers;', 35, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.36', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To make proper use of  land, while regulating and managing it on the
+basis of, inter alia, productivity, nature of land and ecological balance;', 36, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.37', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To make provisions for appropriate prices of agricultural inputs and
+agricultural products and for market access.
+(f) Policies relating to Development:', 37, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.38', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To formulate sustainable socio -economic development strategies and
+programs under the regional development plan for inclusive economic
+development with regional balance, and implement them in a
+coordinative manner;', 38, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.39', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To d evelop balanced, environment friendly , quality  standard and
+sustainable physical infrastructure s, wh ile according priority to the
+regions lagging behind from development perspective;', 39, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.40', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To enhance local public participation in the process of development
+works;', 40, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.41', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To enhance investment in scientific study, re search works and in
+invention, progress and d evelopment of science and technology, and
+protect scientists, technologists, intellectual and eminent talents;', 41, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.42', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To ensure easy and simple access of public-in-general to information
+technology by developing and expanding information technology in
+tune with national needs, and make optimum utilization of information
+technology in the national development;', 42, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.43', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To make provisions enabling public-in-public-in-general to enjoy fruits
+of development in just manner, while according priority to the indigent
+citizens in the distribution of such fruits;', 43, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.44', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To develop an integrated national identity management information
+system and manage all types of information and data of the citizens in
+an integrated manner, and link such system with the services and
+facilities provided by the State and with national development plans;', 44, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.45', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(8)', '', NULL, 'To update demographic statistics and link it with national development
+plans.
+(g) Policies relating to Protection, Promotion and Use of Natural Resources:', 45, 'The Constitution of Nepal, Part-4, Article 51, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.46', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To protect, promote, and make environmental friendly and sustainable
+use of, natural resources available in the country, in consonance with
+national interest and by adopting the concept of inter -generational
+equity, and make equitable distribution of  benefits, according priority
+and preferential right to the local communities;', 46, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.47', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To achieve multi-purpose development of water resources  having
+accorded priority to national investment based on public participation;', 47, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.48', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To ensure reliable supply of energy in an affordable , and easy manner,
+and make proper use of energy, for the fulfilment of the basic needs of
+citizens, by generating and developing renewable energy;', 48, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.49', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To develop sustainable and reliable irrigation by making control of
+water-induced disasters, and river management;', 49, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.50', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To conserve, promote, and make sustainable use of, forests, wildlife,
+birds, vegetation and bio -diversity, by mitigating possible risks t o
+environment from industrial and physical development, while raising
+awareness of public-in-general about environment cleanliness;', 50, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.51', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To maintain forest area in territory required for ecological balance;', 51, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.52', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To adopt appropriate measures to abolish or mi tigate existing or
+possible adverse environmental impacts on the nature, environment or
+biological diversity;', 52, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.53', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(8)', '', NULL, 'To pursue principles of environmental ly sustainable development such
+as the principles of polluter pay , of precaution in environmental
+protection and of prior informed consent;', 53, 'The Constitution of Nepal, Part-4, Article 51, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.54', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(9)', '', NULL, 'To make provisions of advance warning, preparedness, rescue, relief
+and rehabilitation in order to mitigate risks from natural disasters.
+(h) Policies relating to Basic Needs of Citizens:', 54, 'The Constitution of Nepal, Part-4, Article 51, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.55', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To prepare human resources that  are competent, competitive, ethical,
+and devoted to national interests, while making education scientific,
+technical, vocational, skill-oriented, employment and people-oriented;', 55, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.56', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To promote investment of the State in education sector and to make
+private sector investment in education service -oriented by regulation
+and management;', 56, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.57', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To make higher education easy, qualitative and accessible, and free
+gradually;', 57, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.58', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To establish and promote community information ce ntres and libraries
+for personality development of citizens;', 58, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.59', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To keep on increasing investment necessary in public health sector by
+the State in order to make the citizens healthy;', 59, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.60', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To ensure easy, convenient and equal access of all to quality health
+services;', 60, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.61', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To protect and promote health systems including Ayurveda, as a
+traditional medical system of Nepal, natural therapy and homeopathy
+system;', 61, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.62', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(8)', '', NULL, 'To make private sector investment in the health sector service-oriented
+by regulating and managing such investment, while enhanci ng the
+State''s investment in this sector;', 62, 'The Constitution of Nepal, Part-4, Article 51, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.63', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(9)', '', NULL, 'To focus on health research and keep on increasing the number of
+health institutions and health workers in order to make health services
+widely available and qualitative;', 63, 'The Constitution of Nepal, Part-4, Article 51, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.64', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(10)', '', NULL, 'To increase average life expectancy by reducing maternal and infant
+mortality rate s, while encouraging family planning for population
+management on the basis of Nepal''s capacity and need;', 64, 'The Constitution of Nepal, Part-4, Article 51, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.65', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(11)', '', NULL, 'To manage unplanned set tlement and develop planned and systematic
+settlement;', 65, 'The Constitution of Nepal, Part-4, Article 51, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.66', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(12)', '', NULL, 'To provide for sustainable production, supplies, storage, security, and
+easy and effective distribution of foods by encouraging food
+production in tune with climate and soil, in consonance with th e
+concept of food sovereignty , while  enhancing investment in the
+agriculture sector;', 66, 'The Constitution of Nepal, Part-4, Article 51, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.67', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(13)', '', NULL, 'To ensure planned supply system by according special priority to the
+remote and backward regions, while ensuring equal access of all
+citizens to basic goods and services;', 67, 'The Constitution of Nepal, Part-4, Article 51, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.68', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(14)', '', NULL, 'To enhance investment in the transportation sector, while ensuring
+simple, easy and equal access of the citizens to transportation facilities,
+and to  make the transportation sector safe, systematic and friendly to
+persons with disabilities by encouraging public transportation and
+regulating private transportation, while according priority to the
+environment friendly technologies;', 68, 'The Constitution of Nepal, Part-4, Article 51, Clause (14)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.69', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(15)', '', NULL, 'To arrange for access to medical treatment while ensuring citizen''s
+health insurance.
+(i) Policies relating to Labour and Employment:', 69, 'The Constitution of Nepal, Part-4, Article 51, Clause (15)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.70', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To make competent and professional the labour force that has remained
+as the main socio-economic strength of the country  and enhance
+employment within the country, while ensuring a condition enabling all
+to work;', 70, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.71', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To guarantee social security, while ensuring the basic rights of all
+labours, in consonance with the concept of decent labour;', 71, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.72', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To abolish all forms of labour exploitation including child labour;', 72, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.73', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To encourage participation of labour er in management, while
+maintaining cordial relations between the labourer and entrepreneurs;', 73, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.74', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To regulate and manage the foreign employment sector in order to
+make it free from exploitation, safe and systematic and to guarantee
+employment and rights of the labourer;', 74, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.75', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To encourage mobilizing the capital, skills, technology and experience
+gained from foreign employment in productive sectors in the country.
+(j) Policies relating to Social Justice and Inclusion:', 75, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.76', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To keep on making  appropriate arrangements for the livelihoods of
+helpless single women , while  according priority to them in
+employment on the basis of skills, competency and qualification;', 76, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.77', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To make self-reliant women who are at risks, subjected to social and
+family exc lusion and victims of violence by their rehabilitation,
+protection and empowerment;', 77, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.78', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To ensure enjoyment of requisite services and facilities  at the
+reproductive stage;', 78, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.79', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(4)', '', NULL, 'To evaluate economically the work and contribution  such as
+maintenance of children and care of families;', 79, 'The Constitution of Nepal, Part-4, Article 51, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.80', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(5)', '', NULL, 'To take into consideration primarily of the best interests of the child;', 80, 'The Constitution of Nepal, Part-4, Article 51, Clause (5)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:4.2.81', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(6)', '', NULL, 'To identify the freed bonded labours, Kamlari, Harawa, Charawa,
+tillers, landless, squatters and rehabilitate them by providing housing,
+housing plot for residence and cultivable land or employment for their
+livelihoods;', 81, 'The Constitution of Nepal, Part-4, Article 51, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.82', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(7)', '', NULL, 'To create an atmosphere conducive to the full enjoyment of the
+political, economic, social and cultural rights, while enhancing the
+participation of youths in national development, to make their
+personality development, while providing special opportunity in areas
+including education, health and employment for the empowerment and
+development of the youths and provide them with appropriate
+opportunities for the overall development of the State;', 82, 'The Constitution of Nepal, Part-4, Article 51, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.83', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(8)', '', NULL, 'To make the indigenous nationalities  (Aadibasi Janajati) participate in
+decisions concerning that community by making special provisions for
+opportunities and benefits in order to ensure the right of these
+nationalities to liv e with dignity, along with their identity, and protect
+and promote traditional knowledge, skill , culture,  social tradition and
+experience of the indigenous nationalities and local communities;', 83, 'The Constitution of Nepal, Part-4, Article 51, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.84', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(9)', '', NULL, 'To make special provisions for opportunities and benefits to minority
+communities to enjoy social and cultural rights, having maintained
+their identity;', 84, 'The Constitution of Nepal, Part-4, Article 51, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.85', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(10)', '', NULL, 'To make special provisions for equal distribution of economic, social
+and cultura l opportunities and benefits to the Madhesi community,
+Muslims and backward class, and for  opportunities and benefits to the
+indigent citizens within such communities for their protection,
+upliftment, empowerment and development;', 85, 'The Constitution of Nepal, Part-4, Article 51, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.86', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(11)', '', NULL, 'To make special provisions for opportunities and benefits for the
+protection, upliftment, empowerment and development of the citizens
+of the oppressed and backward regions and for the fulfilment of their
+basic needs;', 86, 'The Constitution of Nepal, Part-4, Article 51, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.87', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(12)', '', NULL, 'To accord priority to the indigent persons within all sexes, regions and
+communities while providing social security and social justice;', 87, 'The Constitution of Nepal, Part-4, Article 51, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.88', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(13)', '', NULL, 'To make planned investment in sports and sport -persons in order to
+prepare healthy, competent and disciplined citizens, and to develop
+sports as a mea ns of consolidating national unity and enhancing
+national prestige at the international level;', 88, 'The Constitution of Nepal, Part-4, Article 51, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.89', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(14)', '', NULL, 'To adopt a single door system for the establishment, approval, operation,
+regulation and management of community -based and national or
+international non -governmental organizations and to involve such
+organizations only in the sectors of national need and priority, while
+making investment and role of such organizations transparent and
+accountable.
+(k) Policies relating to Justice and Penal System:', 89, 'The Constitution of Nepal, Part-4, Article 51, Clause (14)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.90', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To make administration of justice speedy, efficient, widely available,
+cost-effective, impartial, effective, and accountable to people;', 90, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.91', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To pursue alternative means such as mediation and arbitration for the
+settlement of disputes of ordinary nature;', 91, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.92', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(3)', '', NULL, 'To adopt effective measures for control of corruption and irregularities
+in all sectors including political, ad ministrative, judicial  and social
+sectors.
+(l) Policies relating to Tourism: To develop eco-friendly tourism industries as an
+important base of national economy by way of identification, protection,
+promotion and publicity of the   historical, cultural, religious, archaeological
+and natural heritages of Nepal, to make environment and policy required for
+the development of tourism culture, and to accord priority to local people in
+the distribution of benefits of tourism industries.
+(m) Policies relating to International Relations:', 92, 'The Constitution of Nepal, Part-4, Article 51, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.93', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(1)', '', NULL, 'To conduct independent  foreign po licy based on the Charter of the
+United Nations, non-alignment, principles of Panchsheel, international
+law and the norms of world peace,  taking into consideration of the
+overall interest of  the nation, while remaining active in safeguarding
+the sovereignty, territorial integrity, independence and national interest
+of Nepal;', 93, 'The Constitution of Nepal, Part-4, Article 51, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.2.94', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4.2', 3, 'clause', '(2)', '', NULL, 'To review  treaties concluded in the past , and conclude treaties,
+agreements based on equality and mutual interest.', 94, 'The Constitution of Nepal, Part-4, Article 51, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 52', 'Obligations of the State', 'Obligations of the State', 'It shall be the obligation of the State to  make Nepal a
+prosperous and affluent country  by protecting and promoting  fundamental rights and
+human rights, pursuing  directive principles of the State and gradually implementing
+policies of the State, while keeping intact the freedom, sovereignty, territorial integrity
+and independence of Nepal.', 3, 'The Constitution of Nepal, Part-4, Article 52 (Obligations of the State)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 53', 'To Submit Report', 'To Submit Report', 'The Government of Nepal shall submit to the President an annual
+report containing the steps taken and achievements made in the implementation of the
+directive principles, policies and obligations of the State  set forth in this Part, and the
+President shall cause such  report to be laid through the Prime Minister before the
+Federal Parliament.', 4, 'The Constitution of Nepal, Part-4, Article 53 (To Submit Report)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 54', 'Provisions relating to Monitoring', 'Provisions relating to Monitoring', 'There shall be a committee, in accordance with
+law, in the Federal Parliament in order to monitor and evaluate whether  or not the
+directive principles, policies and obligations of the State set forth in this Part have
+been implemented progressively.', 5, 'The Constitution of Nepal, Part-4, Article 54 (Provisions relating to Monitoring)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:4.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:4', 2, 'article', 'Article 55', 'Questions not to be raised in Court', 'Questions not to be raised in Court', 'No question shall be raised in  any court as to
+whether or not any matter contained in this Part has been implemented.', 6, 'The Constitution of Nepal, Part-4, Article 55 (Questions not to be raised in Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-5', 'Structure of State and Distribution of State Power', 'Structure of State and Distribution of State Power', NULL, 5, 'The Constitution of Nepal, Part-5 (Structure of State and Distribution of State Power)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5', 2, 'article', 'Article 56', 'Structure of State', 'Structure of State', NULL, 0, 'The Constitution of Nepal, Part-5, Article 56 (Structure of State)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(1)', '', NULL, 'The main structure of the Federal Democratic Republic of
+Nepal shall be of three levels, namely the Federation, the Province and the Local
+Level.', 0, 'The Constitution of Nepal, Part-5, Article 56, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(2)', '', NULL, 'The Federation, Provinces and Local Levels shall exercise the State power
+of Nepal in accordance with this Constitution and law.', 1, 'The Constitution of Nepal, Part-5, Article 56, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(3)', '', NULL, 'There shall be Provinces consisting of the Districts referred to in Schedule-
+4 existing in Nepal at the time of commencement of this Constitution.', 2, 'The Constitution of Nepal, Part-5, Article 56, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(4)', '', NULL, 'There shall be Rural Municipalit y, Municipalit y and District Assembl y
+under the Local Level. The number of Wards in a Rural Municipality  and
+Municipality shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-5, Article 56, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(5)', '', NULL, 'Any Special,  Protected or Autonomous Region  may be set up by the
+federal law for social, cultural protection or economic development.', 4, 'The Constitution of Nepal, Part-5, Article 56, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.0', 3, 'clause', '(6)', '', NULL, 'The Federation, Provinces and Local Levels shall protect Nepal''s freedom,
+sovereignty, territorial integrity, independence, national interest, overall development,
+multi-party, competitive, democratic, republican, federal system of  governance,
+human rights and fundamental rights, rule of law, sepa ration of powers and check and
+balance, egalitarian society b ased on pluralism and equality, inclusive  representation
+and identity.', 5, 'The Constitution of Nepal, Part-5, Article 56, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5', 2, 'article', 'Article 57', 'Distribution of State Power', 'Distribution of State Power', NULL, 1, 'The Constitution of Nepal, Part-5, Article 57 (Distribution of State Power)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(1)', '', NULL, 'The powers of the Federation shall be vested o n the
+matters enumerated in Schedule -5 and such powers shall be exercised  in accordance
+with this Constitution and the federal law.', 0, 'The Constitution of Nepal, Part-5, Article 57, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(2)', '', NULL, 'The powers of a Province shall be vested o n the m atters enumerated in
+Schedule-6 and such powers shall be exercised in accordance with  this Constitution
+and the provincial law.', 1, 'The Constitution of Nepal, Part-5, Article 57, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(3)', '', NULL, 'The concurrent powers of the Federation and a Province shall be vested on
+the matters enumerated in  Schedule-7 and such powers shall be exercised in
+accordance with this Constitution, federal law and provincial law.', 2, 'The Constitution of Nepal, Part-5, Article 57, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(4)', '', NULL, 'The powers of the Local Level shall be vested o n the matters enumerated
+in Schedule-8 and such powers shall be exercised in accordance with this Constitution
+and law made by the Rural Municipal Assembly or Municipal Assembly, as the case
+may be.', 3, 'The Constitution of Nepal, Part-5, Article 57, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(5)', '', NULL, 'The concurrent powers of the Federation, Provinces and Local Levels shall
+be vested o n the matters enumerated in Schedule -9 and such powers shall be
+exercised in accordance with  this Constitution , federal law, provincial law  and law
+made by the Rural Municipal Assembly or Municipal Assembly, as the case may be.', 4, 'The Constitution of Nepal, Part-5, Article 57, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(6)', '', NULL, 'Any law to be made by a Provincial Assembly, Rural Municipal Assembly
+or Municipal Assembly pursuant to clause (3) or (5) shall be so made as not to be
+inconsistent with  the federal law ; and any law made by the Provincial Assembly,
+Rural Municipal Assembly  or Municipal Asse mbly which is inconsistent with the
+federal law shall be invalid to the extent of such inconsistency.', 5, 'The Constitution of Nepal, Part-5, Article 57, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.1', 3, 'clause', '(7)', '', NULL, 'Any law to be made by a Rural Municipal Assembly  or Municipal
+Assembly, as the case may be,  pursuant to clause (5) shall be so made as not to be
+inconsistent with a provincial law ; and any law made by the Rural Municipal
+Assembly or Municipal Assembly which is inconsistent with  a provincial law shall be
+invalid to the extent of such inconsistency.', 6, 'The Constitution of Nepal, Part-5, Article 57, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5', 2, 'article', 'Article 58', 'Residuary Powers', 'Residuary Powers', 'The Federation shall have power on any matter not enumerated in
+the list of powers of the Federation, Province and Local Level or Concurrent Lists or
+on any matter which is not so specified in this Constitution as to be exercised by any
+level.', 2, 'The Constitution of Nepal, Part-5, Article 58 (Residuary Powers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5', 2, 'article', 'Article 59', 'Exercise of Financial Powers', 'Exercise of Financial Powers', NULL, 3, 'The Constitution of Nepal, Part-5, Article 59 (Exercise of Financial Powers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(1)', '', NULL, 'The Federation, Province and Local Level  shall
+make laws, make annual budget, decisions, formulate and implement policie s and
+plans on any matters related to financial powers within their respective competence.', 0, 'The Constitution of Nepal, Part-5, Article 59, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(2)', '', NULL, 'The Federation may so make necessary policies, standards and laws on any
+of the matters enumerated in the Concurrent List and other areas of financial powers
+as to be applicable also to the Provinces.', 1, 'The Constitution of Nepal, Part-5, Article 59, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(3)', '', NULL, 'The Federation, Province and Local Level  shall make budget of the ir
+respective levels, and the time for submission of  budget by Province and Local Level
+shall be as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-5, Article 59, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(4)', '', NULL, 'The Federation, Province and Local Level  shall provide for equitable
+distribution of benefits  derived from the use of natural resources or development.
+Certain portions of such benefits shall be distributed, in accordance with  law, in the
+form of royalty, services or goods to the project affected regions and local
+communities.', 3, 'The Constitution of Nepal, Part-5, Article 59, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(5)', '', NULL, 'In case, in utilising natural reso urces, the local community desires to make
+investment therein, the Federation, Province and Local Level shall accord priority to
+such investment in such portion as provided by law on the basis of the nature and size
+of such investment.', 4, 'The Constitution of Nepal, Part-5, Article 59, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(6)', '', NULL, 'The Government of Nepal shall have power to obtain foreign assistance
+and borrow loan s. Such assistance or loan s shall be so obtained or borrowed as to
+have macro-economic stability of the country.', 5, 'The Constitution of Nepal, Part-5, Article 59, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.3.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.3', 3, 'clause', '(7)', '', NULL, 'Provisions relating to the management of budget deficits and other fiscal
+discipline of the Federation, Province and Local Level shall be as provided for in  the
+federal law.', 6, 'The Constitution of Nepal, Part-5, Article 59, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5', 2, 'article', 'Article 60', 'Distribution of Sources of Revenue', 'Distribution of Sources of Revenue', NULL, 4, 'The Constitution of Nepal, Part-5, Article 60 (Distribution of Sources of Revenue)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(1)', '', NULL, 'The Federation, Province and Local Lev el
+may impose taxes on matters falling within their respective  competence and collect
+revenue from these sources.
+Provided that provisions relating to the imposition of taxes and collection of
+revenue on matters enumerated in  the Concurrent List and on matters that are not
+contained in the List of any level shall be as determined by the Government of Nepal.', 0, 'The Constitution of Nepal, Part-5, Article 60, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(2)', '', NULL, 'The Government of Nepal shall make provisions for the equitable
+distribution of the collected revenue to the Federation, Province and Local Level.', 1, 'The Constitution of Nepal, Part-5, Article 60, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(3)', '', NULL, 'The amount of fiscal transfer receivable by Province and Local Level shall
+be as recommended by the National Natural Resources and Fiscal Commission.', 2, 'The Constitution of Nepal, Part-5, Article 60, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(4)', '', NULL, 'The Government of Nepal shall, on the basis of the need of expenditu re
+and revenue capacity, distribute fiscal equalization grants to Province and Local
+Level.', 3, 'The Constitution of Nepal, Part-5, Article 60, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(5)', '', NULL, 'Each Province shall, in accordance with the provincial law, distribute fiscal
+equalization grants out of the grants received from the Government of Nepal and
+revenues collected from its own sources, on the b asis of the need of expenditure  and
+revenue capacity of its subordinate Local Level.', 4, 'The Constitution of Nepal, Part-5, Article 60, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(6)', '', NULL, 'Provisions relating to distribution of conditional grants, complementary
+grants or special grants for other purposes to be provided by the Government of Nepal
+from the Federal Consolidated Fund shall be as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-5, Article 60, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(7)', '', NULL, 'While distributing revenues between the Federal, Provincial and Local
+Levels, it shall be made in a balanced and transparent manner.', 6, 'The Constitution of Nepal, Part-5, Article 60, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:5.4.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:5.4', 3, 'clause', '(8)', '', NULL, 'In making a federal Act on the distribution of revenues, regard shall be had
+to the matters of  national policies; national requirements; autonomy of the Province
+and Local Levels ; services to be r endered by the Province and Local Level  to the
+people and financial powers granted to them; capacity to collect revenues; potentiality
+and use of revenues ; assistance to be made in development and construction ;
+reduction of regional imbalances ; poverty and inequality ; end of deprivation ; and
+assistance to be made in the performance of contingent works and fulfilment of
+temporary needs.', 7, 'The Constitution of Nepal, Part-5, Article 60, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-6', 'President and Vice-President', 'President and Vice-President', NULL, 6, 'The Constitution of Nepal, Part-6 (President and Vice-President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 61', 'President', 'President', NULL, 0, 'The Constitution of Nepal, Part-6, Article 61 (President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.0', 3, 'clause', '(1)', '', NULL, 'There shall be a President of Nepal.', 0, 'The Constitution of Nepal, Part-6, Article 61, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.0', 3, 'clause', '(2)', '', NULL, 'The President shall be the Head of State of Nepal. He or she shall perform
+his or her functions in accordance with this Constitution and federal law.', 1, 'The Constitution of Nepal, Part-6, Article 61, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.0', 3, 'clause', '(3)', '', NULL, 'The President shall promote national unity of Nepal.', 2, 'The Constitution of Nepal, Part-6, Article 61, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.0', 3, 'clause', '(4)', '', NULL, 'The main duty of the President shall be to abide by and protect the
+Constitution.', 3, 'The Constitution of Nepal, Part-6, Article 61, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 62', 'Election of President', 'Election of President', NULL, 1, 'The Constitution of Nepal, Part-6, Article 62 (Election of President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(1)', '', NULL, 'The President shal l be elected by an electoral college
+consisting of the members of the Federal Parliament and members of the Provincial
+Assemblies. The voting weightage of the members of the Federal Parliament and of
+the Provincial Assemblies shall vary as provided for in the federal law.', 0, 'The Constitution of Nepal, Part-6, Article 62, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), nothing shall be deemed
+to bar the formation of an electoral college for the purpose of election to the President
+by the sole reason that election to Provincial Assembly has not been held in any
+Province.', 1, 'The Constitution of Nepal, Part-6, Article 62, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(3)', '', NULL, 'A person who secures a majority of the then existing total votes of the
+Electoral College referred to in clause (1) shall be elected as the President.', 2, 'The Constitution of Nepal, Part-6, Article 62, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(4)', '', NULL, 'In case none of the candidates secures a majority pursuant to  clause (3),
+there shall be the voting between the two candidates who have secured the highest
+number of votes, and a candidate who secures more than fifty percent of the total
+votes in such voting shall be elected as the President.', 3, 'The Constitution of Nepal, Part-6, Article 62, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(5)', '', NULL, 'In case none of the candidates secures more than fifty percent of the total
+votes even in the voting under clause (4), re -voting shall be held. A candidate who
+secures a majority of the t otal valid votes cast in such voting shall be elected as the
+President.', 4, 'The Constitution of Nepal, Part-6, Article 62, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(6)', '', NULL, 'In case  a person who holds a political office to be fulfilled by way of
+election, nomination or appointment is elected as the President under this Article, such
+office shall, ipso facto, fall vacant.', 5, 'The Constitution of Nepal, Part-6, Article 62, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.1', 3, 'clause', '(7)', '', NULL, 'Election to the President and other m atters related thereto shall be as
+provided for in the federal law.', 6, 'The Constitution of Nepal, Part-6, Article 62, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 63', 'Term of Office of President', 'Term of Office of President', NULL, 2, 'The Constitution of Nepal, Part-6, Article 63 (Term of Office of President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.2', 3, 'clause', '(1)', '', NULL, 'The term of office of the President shall be  five years
+from the date on which he or she is elected.', 0, 'The Constitution of Nepal, Part-6, Article 63, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.2', 3, 'clause', '(2)', '', NULL, 'The President whose term of office under clause (1) has expired shall
+continue to discharge the functions under this Constitution until another elected
+President assumes his or her office.', 1, 'The Constitution of Nepal, Part-6, Article 63, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 64', 'Qualification for President', 'Qualification for President', NULL, 3, 'The Constitution of Nepal, Part-6, Article 64 (Qualification for President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.3', 3, 'clause', '(1)', '', NULL, 'A person who has the following qualifications shall be
+eligible to become the President:-
+(a)   One who is eligible to become a member of the Federal Parliament;
+(b)   On who has completed the age of at least forty-five years; and
+(c)  One who is not disqualified by any law.', 0, 'The Constitution of Nepal, Part-6, Article 64, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.3', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), a person who has
+already been elected twice as the President shall not be eligible to be a candidate in
+the election to the President.', 1, 'The Constitution of Nepal, Part-6, Article 64, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 65', 'V acation of Office of President', 'V acation of Office of President', 'The office of the President shall fall vacant in any of the
+following circumstances:
+(a) In case he or she tenders resignation in writing to the Vice-President;
+(b) In case the motion of impeachment against him or her is adopted under
+Article 101;
+(c) In case his or her term of the office expires;
+(d) In case he or she dies.', 4, 'The Constitution of Nepal, Part-6, Article 65 (V acation of Office of President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 66', 'Functions, Duties and Powers of President', 'Functions, Duties and Powers of President', NULL, 5, 'The Constitution of Nepal, Part-6, Article 66 (Functions, Duties and Powers of President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.5', 3, 'clause', '(1)', '', NULL, 'The President shall exercise such
+powers and perform such duties as conferred on him or her in accordance with  this
+Constitution or the federal law.', 0, 'The Constitution of Nepal, Part-6, Article 66, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.5', 3, 'clause', '(2)', '', NULL, 'In exercising the powers or duties under clause (1), the President shall
+perform all other functions to be performed by him or her on recommendation and
+with the consent of the Council of Ministers than those functions specifically provided
+to be performed  on recommendation of any institution or official under this
+Constitution or federal law. Such recommendation and consent shall be submitted
+through the Prime Minister.', 1, 'The Constitution of Nepal, Part-6, Article 66, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.5.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.5', 3, 'clause', '(3)', '', NULL, 'Any decision or order to be issued in the name of the President under
+clause (2) an d other instrument of authorization pertaining thereto shall be
+authenticated as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-6, Article 66, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 67', 'Vice-President', 'Vice-President', NULL, 6, 'The Constitution of Nepal, Part-6, Article 67 (Vice-President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.6', 3, 'clause', '(1)', '', NULL, 'There shall be a Vice-president of Nepal.', 0, 'The Constitution of Nepal, Part-6, Article 67, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.6', 3, 'clause', '(2)', '', NULL, 'The functions to be performed by the President shall be performed by the
+Vice-president during the absence of the President.', 1, 'The Constitution of Nepal, Part-6, Article 67, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.6', 3, 'clause', '(3)', '', NULL, 'In case  a person who holds a political office to be fulfilled by way of
+election, nomination or appointment is elected as the Vice-president, such office shall,
+ipso facto, fall vacant.', 2, 'The Constitution of Nepal, Part-6, Article 67, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 68', 'V acation of Office of Vice-President', 'V acation of Office of Vice-President', 'The office of the Vice-president shall fall vacant
+in any of the following circumstances:-
+(a) In case he or she tenders resignation in writing to the President,
+(b) In case a motion of impeachment against him or her is adopted under
+Article 101,
+(c) In case his or her term of office expires,
+(d) In case he or she dies.', 7, 'The Constitution of Nepal, Part-6, Article 68 (V acation of Office of Vice-President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 69', 'Other provisions relating to Vice -President', 'Other provisions relating to Vice -President', 'Provisions relatin g to the qualification,
+procedures of election and   term of office of the Vic e-President shall be the same as
+that of the President.', 8, 'The Constitution of Nepal, Part-6, Article 69 (Other provisions relating to Vice -President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 70', 'President and Vice-President to Belong to Different Sex or Community', 'President and Vice-President to Belong to Different Sex or Community', 'Election to
+the President and the Vice -president under this Constitution shall be so made as to
+have representation of different sex or community.', 9, 'The Constitution of Nepal, Part-6, Article 70 (President and Vice-President to Belong to Different Sex or Community)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 71', 'Oath by President and Vice -President', 'Oath by President and Vice -President', 'Prior to assuming their respective office s, the
+President shall take an oath of office and secrecy before the Chief Justi ce, and the
+Vice-President, before the President, as provided for in the federal law.', 10, 'The Constitution of Nepal, Part-6, Article 71 (Oath by President and Vice -President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 72', 'Remuneration and Facilities of President and Vice -President', 'Remuneration and Facilities of President and Vice -President', 'The remuneration and
+other facilities of the President and the Vice -president shall be as provided  for in a
+Federal Act, and until such Act is enacted as specified by the Government of Nepal.', 11, 'The Constitution of Nepal, Part-6, Article 72 (Remuneration and Facilities of President and Vice -President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6', 2, 'article', 'Article 73', 'Office of President and Vice -President', 'Office of President and Vice -President', NULL, 12, 'The Constitution of Nepal, Part-6, Article 73 (Office of President and Vice -President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.12', 3, 'clause', '(1)', '', NULL, 'There shall be separate offices for the
+performance of the functions of the President and the Vice-President.', 0, 'The Constitution of Nepal, Part-6, Article 73, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:6.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:6.12', 3, 'clause', '(2)', '', NULL, 'The Government of Nepal shall make arrangements for employees and
+other provisions as required to perform the functions of the offices referred to in
+clause (1).', 1, 'The Constitution of Nepal, Part-6, Article 73, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-7', 'Federal Executive', 'Federal Executive', NULL, 7, 'The Constitution of Nepal, Part-7 (Federal Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 74', 'Form of Governance', 'Form of Governance', 'The form of governance of Nepal shall be multi -party
+competitive federal democratic republican parliamentary form of governance based
+on pluralism.', 0, 'The Constitution of Nepal, Part-7, Article 74 (Form of Governance)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 75', 'Executive Power', 'Executive Power', NULL, 1, 'The Constitution of Nepal, Part-7, Article 75 (Executive Power)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.1', 3, 'clause', '(1)', '', NULL, 'The executive power of Nepal shall, in accordance with  this
+Constitution and law, be vested in the Council of Ministers.', 0, 'The Constitution of Nepal, Part-7, Article 75, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.1', 3, 'clause', '(2)', '', NULL, 'The responsibility for issuing general directives, controlling and regulatin g
+the governance of Nepal shall, subje ct to this Constitution and law , lie in the Council
+of Ministers.', 1, 'The Constitution of Nepal, Part-7, Article 75, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.1', 3, 'clause', '(3)', '', NULL, 'All federal executive functions of Nepal shall be perf ormed in the name of
+the Government of Nepal.', 2, 'The Constitution of Nepal, Part-7, Article 75, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.1', 3, 'clause', '(4)', '', NULL, 'Any decision or order to be issued in the name of the Government of Nepal
+pursuant to clause (3) and other instruments of authorization pertaining thereto shall
+be authenticated as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-7, Article 75, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 76', 'Constitution of Council of Ministers', 'Constitution of Council of Ministers', NULL, 2, 'The Constitution of Nepal, Part-7, Article 76 (Constitution of Council of Ministers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(1)', '', NULL, 'The President shall appoint the leader of the
+parliamentary party that commands a majority in the House of Representatives as the
+Prime Minister, and the Council of Ministers shall be constituted under his or her
+chairpersonship.', 0, 'The Constitution of Nepal, Part-7, Article 76, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(2)', '', NULL, 'In cases where no party has a clear majority in the House of
+Representatives pursuant to  clause (1), the President shall appoint as the Prime
+Minister a member of the House of Representatives who is able to command a
+majority with the support of two or more parties representing to the House of
+Representatives.', 1, 'The Constitution of Nepal, Part-7, Article 76, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(3)', '', NULL, 'In cases where the Prime Minister cannot be appointed pursuant to clause', 2, 'The Constitution of Nepal, Part-7, Article 76, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(2)', '', NULL, 'within thirty days after the date of declaration of the final results of election to th e
+House of Representatives or where the Prime Minister so appointed fails to secure a
+vote of confidence pursuant to  clause (4), the President shall appoint as the Prime
+Minister the  leader of the parliamentary  party which has the highest number of
+members in the House of Representatives.', 3, 'The Constitution of Nepal, Part-7, Article 76, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(4)', '', NULL, 'The Prime Minister appointed pursuant to  clause (2) or (3) shall  be
+required to secure the vote of confidence from the House of Representatives within
+thirty days after the date of such appointment.', 4, 'The Constitution of Nepal, Part-7, Article 76, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(5)', '', NULL, 'In cases where the Prime Minister appointed pursuant to clause (3) fails to
+secure the vote of confidence pursuant to  clause (4) and any member referred to in
+clause (2) presents a ground on which he or she is able to secure the vote of
+confidence in the H ouse of Representatives, the  President shall appoint such  member
+as the Prime Minister.', 5, 'The Constitution of Nepal, Part-7, Article 76, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(6)', '', NULL, 'The Prime Minister appointed pursuant to clause (5) shall be required to
+secure the vote of confidence pursuant to clause (4).', 6, 'The Constitution of Nepal, Part-7, Article 76, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(7)', '', NULL, 'In cases where the Prime Minister appointed pursuant to clause (5) fails to
+secure a vote of confidence or the Prime Minister cannot be appointed, the President
+shall, on the recommendation of the Prime Minister, dissolve the House of
+Representatives and appoint a date of election so that the election to another House of
+Representatives is completed within six months.', 7, 'The Constitution of Nepal, Part-7, Article 76, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(8)', '', NULL, 'Procedures as to the appointment of the Prime Minister under this Article
+shall be required to be completed within thirty-five days after the date of declaration
+of the final results of election to the House of Representatives held under this
+Constitution or the date on which the office of the Prime Minister has fallen vacant.', 8, 'The Constitution of Nepal, Part-7, Article 76, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(9)', '', NULL, 'The President shall, on recommendation of the Prime Minister , constitute
+the Council of Ministers comprising a maximum of twenty -five Ministers including
+the Prime Minister, in accordan ce with the inclusive principle , from amongst the
+members of the Federal Parliament.
+Explanation: For the purposes of this Article,  "Minister" means a Deputy Prime
+Minister, Minister, Minister of State and Assistant Minister.', 9, 'The Constitution of Nepal, Part-7, Article 76, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.2.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.2', 3, 'clause', '(10)', '', NULL, 'The Prime Minister and Ministers shall be collectively responsible to the
+Federal Parliament, and the Ministers shall be individually responsible for the
+business of their respective Ministries to the Prime Minister and the Federal
+Parliament.', 10, 'The Constitution of Nepal, Part-7, Article 76, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 77', 'Vacation of O ffice of Prime Minister and Minister', 'Vacation of O ffice of Prime Minister and Minister', NULL, 3, 'The Constitution of Nepal, Part-7, Article 77 (Vacation of O ffice of Prime Minister and Minister)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.3', 3, 'clause', '(1)', '', NULL, 'The office of the Prime
+Minister shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case a resolution of confidence is not adopted or a resolution of no
+confidence is adopted against him or her pursuant to Article 100;
+(c) In case he or she ceases to be a member of the House of
+Representatives;
+(d) In case he or she dies.', 0, 'The Constitution of Nepal, Part-7, Article 77, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.3', 3, 'clause', '(2)', '', NULL, 'The office of a Minister shall fall vacant in any of the following
+circumstances: -
+(a) In case he or she tenders resignation in writing to the Prime Minister;
+(b) In case the Prime Minister removes him or her from the office;
+(c) In case the office of Prime Ministe r falls vacant pursuant to  sub-
+clause (a), (b) or (c) of clause (1);
+(d) In case he or she dies.', 1, 'The Constitution of Nepal, Part-7, Article 77, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.3', 3, 'clause', '(3)', '', NULL, 'In case the office of Prime Minister falls vacant pursuant to clause (1), the
+same Council of Ministers shall continue to act until another Council of Ministers is
+constituted.
+Provided that in case the Prime Minister dies, the senior -most Minister shall
+act as the Prime Minister until a new Prime Minister is appointed.', 2, 'The Constitution of Nepal, Part-7, Article 77, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 78', 'Non-Member of Federal Parliament to be come Minister', 'Non-Member of Federal Parliament to be come Minister', NULL, 4, 'The Constitution of Nepal, Part-7, Article 78 (Non-Member of Federal Parliament to be come Minister)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.4', 3, 'clause', '(1)', '', NULL, 'Notwithstanding
+anything contained in clause (9) of Article 76, the President may, on  the
+recommendation of the Prime Minister, appoint a  person who is not a member of the
+Federal Parliament as a Minister', 0, 'The Constitution of Nepal, Part-7, Article 78, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.4', 3, 'clause', '(2)', '', NULL, 'A Minister appointed pursuant to clause (1) shall be required to become a
+member of the Federal Parliament  within six months from the date of taking oath by
+him or her.', 1, 'The Constitution of Nepal, Part-7, Article 78, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.4', 3, 'clause', '(3)', '', NULL, 'In the event of failure to obtain membership of the Federal Parliament
+within the period referred to in clause (2), he or she shall not be qualified to be
+reappointed to the office of Minister during the term of the then House of
+Representatives.', 2, 'The Constitution of Nepal, Part-7, Article 78, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.4', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (1), a person who has  lost
+the election to the then House of Representatives shall not be eligible to be appointed
+to the office of Minister  as referred to  in clause (1) during the term of such House of
+Representatives.', 3, 'The Constitution of Nepal, Part-7, Article 78, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 79', 'Remuneration and other Facilities of Prime Minister and Ministers', 'Remuneration and other Facilities of Prime Minister and Ministers', 'The remuneration
+and other facilities of the Prime Minister and Ministers shall be as provided for in a
+Federal Act. It shall be as sp ecified by the Government of Nepal  until such Act is
+made.', 5, 'The Constitution of Nepal, Part-7, Article 79 (Remuneration and other Facilities of Prime Minister and Ministers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 80', 'Oath', 'Oath', 'The Prime Minister, Deputy Prime Minister and Ministers shall , prior to
+assuming their respective offices,  take an oath of office and secrecy before the
+President, and Ministers of State and Assistant Ministers, before the Prime Minister,
+as provided for in the federal law.', 6, 'The Constitution of Nepal, Part-7, Article 80 (Oath)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 81', 'To inform President', 'To inform President', 'The Prime Minister shall inform the President on the following
+matters:-
+(a) Resolutions of the Council of Ministers;
+(b) Bills to be introduced in the Federal Parliament;
+(c) Such other necessary information as commanded by the President on
+matters set forth in clauses (a) and (b); and
+(d) Current general state of affairs of Nepal and matters concerning foreign
+relations.', 7, 'The Constitution of Nepal, Part-7, Article 81 (To inform President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7', 2, 'article', 'Article 82', 'Transaction of Business of Government of Nepal', 'Transaction of Business of Government of Nepal', NULL, 8, 'The Constitution of Nepal, Part-7, Article 82 (Transaction of Business of Government of Nepal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.8', 3, 'clause', '(1)', '', NULL, 'The business of the Government
+of Nepal shall be allocated and transacted in accordance with the rules approved by
+the Government of Nepal.', 0, 'The Constitution of Nepal, Part-7, Article 82, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:7.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:7.8', 3, 'clause', '(2)', '', NULL, 'No question may be raised in any court as to whether or not the rules
+referred to in clause (1) have been observed.', 1, 'The Constitution of Nepal, Part-7, Article 82, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-8', 'Federal Legislature', 'Federal Legislature', NULL, 8, 'The Constitution of Nepal, Part-8 (Federal Legislature)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 83', 'Federal Legislature', 'Federal Legislature', 'There shall be a Federal Legislature consisting of two Houses to
+be known as the House of Representatives and the National Assembly , which shall be
+called as the Federal Parliament.', 0, 'The Constitution of Nepal, Part-8, Article 83 (Federal Legislature)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 84', 'Composition of House of Representatives', 'Composition of House of Representatives', NULL, 1, 'The Constitution of Nepal, Part-8, Article 84 (Composition of House of Representatives)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(1)', '', NULL, 'The House of Representatives shall
+consist of a total of two hundred and seventy five members, as follows :-
+(a) One hundred and sixty-five members to be elected through the first
+past the post electoral system, with one being elected from each of
+one hundred and sixty-five election constituencies delimited in
+Nepal on the basis  of population and geographical convenience
+and specificity ;
+(b) One hundred and ten members to be elected through the proportional
+electoral system where voters vote for political parties , with the whole
+country being considered as a single election constituency.', 0, 'The Constitution of Nepal, Part-8, Article 84, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(2)', '', NULL, 'The federal law shall provide that  in filing candidacy by political parties
+for the election to the House of Representatives under the proportional electoral
+system, representation shall be ensured on the basis of a closed list also from women ,
+Dalit, indigenous nationalities ( Aadibasi Janajati) Khas Arya , Madhesi, Tharu,
+Muslims and backward regions, on the basis of popul ation. In so filing candidacy,
+regard shall also be had to geography and regional balance.
+Explanation: For the purpose s of this clause, "Khas Arya " means Kshetri, Brahmin,
+Thakuri, Sanyasi (Dashnami) communities.', 1, 'The Constitution of Nepal, Part-8, Article 84, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(3)', '', NULL, 'In filing candidacy pursuant to clause (2), political parties shall provide for
+representation of the persons with disabilities as well.', 2, 'The Constitution of Nepal, Part-8, Article 84, Clause (3)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:8.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(4)', '', NULL, 'Election to the House of Representatives referred to in clause (1) shall be
+held through secret ballots in accordance with law.
+ Amended by the First Amendment.', 3, 'The Constitution of Nepal, Part-8, Article 84, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(5)', '', NULL, 'Each citizen of Nepal who has completed the age of eighteen years shall
+have the right to vote in any one election constitue ncy as provided for in the federal
+law.', 4, 'The Constitution of Nepal, Part-8, Article 84, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(6)', '', NULL, 'A person who is qualified pursuant to Article 87 and entitled to vote in an
+election to the members of the House of Representatives may, subject to  the federal
+law, be a candidate in any election constituency.
+Provided that a person shall not be a candidate in more than one election
+constituencies at the same time.', 5, 'The Constitution of Nepal, Part-8, Article 84, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(7)', '', NULL, 'In case  the seat of a ny member of the House of Representatives falls
+vacant while its term still remains for more than six months, the vacancy sh all be
+fulfilled in the same manner of electoral system as in which such seat was fulfilled.', 6, 'The Constitution of Nepal, Part-8, Article 84, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(8)', '', NULL, 'Notwithstanding anything contained elsewhere in this Part, at least one
+third of the total number of members elected from each political party representing in
+the Federal Parliament shall be women. In case  women are not so elected as to
+constitute one third of the elected members of any political party pursuant to  sub-
+clause (a) of clause (1) and sub -clause (a) of c lause (2) of Article 86, such political
+party m ust, in electing members under sub -clause (b) of clause (1), so elect that
+women members constitute at least one third of the total number of members elected
+to the Federal Parliament from that party.', 7, 'The Constitution of Nepal, Part-8, Article 84, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.1', 3, 'clause', '(9)', '', NULL, 'Election to the House of Representatives and othe r matters pertaining
+thereto shall be as provided for in the federal law.', 8, 'The Constitution of Nepal, Part-8, Article 84, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 85', 'Term of House of Representatives', 'Term of House of Representatives', NULL, 2, 'The Constitution of Nepal, Part-8, Article 85 (Term of House of Representatives)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.2', 3, 'clause', '(1)', '', NULL, 'Unless dissolved earlier in accordance with
+this Constitution, the term of the House of Representatives shall be five years.', 0, 'The Constitution of Nepal, Part-8, Article 85, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.2', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), the term of the House of
+Representatives may be extended by a Federal Act for a period not exceeding one
+year in cases where a proclamation or order of a state of emergency is in effect.', 1, 'The Constitution of Nepal, Part-8, Article 85, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.2', 3, 'clause', '(3)', '', NULL, 'The term of the  House of Representatives extended pursuant to clause (2)
+shall ipso facto expire upon the expiry of six months from the date of revocation of
+the proclamation or order of the state of emergency.', 2, 'The Constitution of Nepal, Part-8, Article 85, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 86', 'Composition of National Assembly and Term of Office of its Members', 'Composition of National Assembly and Term of Office of its Members', NULL, 3, 'The Constitution of Nepal, Part-8, Article 86 (Composition of National Assembly and Term of Office of its Members)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(1)', '', NULL, 'The
+National Assembly shall be a permanent House.', 0, 'The Constitution of Nepal, Part-8, Article 86, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(2)', '', NULL, 'The National Assembly shall consist of fifty-nine members as follows: -
+(a) Fifty six elected members consisting of at least three women, one
+Dalit and one from persons with disabilities or minorities, from each
+Province by an electoral college  consisting of members of the
+Provincial Assembly, chairpersons and vice-chairpersons of the Rural
+Municipalities, and Mayors and Deputy-Mayors of the Municipalities,
+with different weightage  of vote  by members of the Provincial
+Assembly, chairpersons and vice -chairpersons of the Rural
+Municipalities, and Mayors and Deputy-Mayors of the Municipalities,
+as provided for in the federal law,
+(b) Three members consisting of at least one woman nomin ated by the
+President on the recommendation of the Government of Nepal.', 1, 'The Constitution of Nepal, Part-8, Article 86, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(3)', '', NULL, 'The term of office of the members of the National Assembly shall be  six
+years. The term of office of one third of the members of the National Assembly shall
+expire in every two years.
+Provided that, for the first time after the commencement of this Constitution,
+arrangements shall be made by drawing lots to retire one -third of the members on the
+expiry of two years, another one -third on the expiry of four years, and the final one -
+third on the expiry of six years.', 2, 'The Constitution of Nepal, Part-8, Article 86, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(4)', '', NULL, 'In computing the term of office of the members of the National Assembly
+for the first time after the commencement of this Constitution, the term of office of all
+members shall be deemed to have commenced on the day on which the first session of
+the National Assembly is held.', 3, 'The Constitution of Nepal, Part-8, Article 86, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(5)', '', NULL, 'Any vacancy of seat in the National Assembly shall be fulfilled for the
+remainder of the term of office in the same manner of election or nomination as in
+which the seat of the vacating member was fulfilled.', 4, 'The Constitution of Nepal, Part-8, Article 86, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.3', 3, 'clause', '(6)', '', NULL, 'Other matters relating to election to the members of the National Assembly
+shall be as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-8, Article 86, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 87', 'Qualifications for Member', 'Qualifications for Member', NULL, 4, 'The Constitution of Nepal, Part-8, Article 87 (Qualifications for Member)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.4', 3, 'clause', '(1)', '', NULL, 'A person who has the following qualifications shall be
+eligible to become a member of the Federal Parliament:-
+(a) One who is a citizen of Nepal;
+(b) One who has completed the age of twenty -five years, for the House of
+Representatives, and of thirty-five years for the National Assembly;
+(c) One who has not been convicted of a criminal offense involving moral
+turpitude;
+(d) One who is not disqualified under any federal law; and
+(e) One who is not holding any office of profit.
+Explanation: For the purposes o f this clause, "office of profit" means any position,
+other than a political position which is to be fulfilled by election or nomination, for
+which a remuneration or financial benefit is paid out of a government fund.', 0, 'The Constitution of Nepal, Part-8, Article 87, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.4', 3, 'clause', '(2)', '', NULL, 'No person may be a member of both Houses at the same time.', 1, 'The Constitution of Nepal, Part-8, Article 87, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.4', 3, 'clause', '(3)', '', NULL, 'In case  a person who holds a political office to be fulfilled by way of
+election, nomination or appointment is elected or nominated as a member of the
+Federal Parliament under this Part, his or her office shall ipso facto fall vacant from
+the day on which he or s he takes an oath of office of member of the Federal
+Parliament.', 2, 'The Constitution of Nepal, Part-8, Article 87, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 88', 'Oath', 'Oath', 'Every me mber of each House of the Federal Parliament shall be required ,
+before taking part for the first time in the  meeting of the House or any of its
+committees, to take an oath as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-8, Article 88 (Oath)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 89', 'V acation of Seat', 'V acation of Seat', 'The seat of a member of the Federal  Parliament shall fall vacant in
+any of the following circumstances:-
+(a) In case he or she tenders resignation in writing to the Speaker or
+Chairperson;
+(b) In case he or she is no longer qualified or ceases to possess the
+qualification pursuant to Article 87;
+(c) In case the term of the House of Representatives or the term of office of
+the member of the National Assembly expires;
+(d) In case he or she is absent   in ten consecutive meetings without
+providing information to the concerned House;
+(e) In case the political party of which he or she was a member when elected
+provides a notification in accordance with the federal law that he or she
+has defected from the party,
+(f) In case he or she dies.', 6, 'The Constitution of Nepal, Part-8, Article 89 (V acation of Seat)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 90', 'Decision as to Disqualification of Member', 'Decision as to Disqualification of Member', 'In case question arises as to whether any
+member of the Federal Parliament is disqualified or has become disqualified pursuant
+to Article 87, the Constitutional Bench of the Supreme Court shall finally decide that
+question.', 7, 'The Constitution of Nepal, Part-8, Article 90 (Decision as to Disqualification of Member)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 91', 'Speaker and Deputy Speaker of House of Representatives', 'Speaker and Deputy Speaker of House of Representatives', NULL, 8, 'The Constitution of Nepal, Part-8, Article 91 (Speaker and Deputy Speaker of House of Representatives)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(1)', '', NULL, 'The members of the
+House of Representatives shall, within fifteen days of the date of holding of the first
+meeting of the House of Representatives , elect a Speaker and a Deputy Speaker from
+amongst themselves.', 0, 'The Constitution of Nepal, Part-8, Article 91, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(2)', '', NULL, 'Election pursuant to clause (1) shall be so held that there is one woman o ut
+of the Speaker and the  Deputy Speaker, and the Speaker and the Deputy Speaker of
+the House of Representatives shall be representatives from different parties.
+Provided that in case there is no representation of more than one party in the
+House of Representatives or no candidacy is filed by more than one party in spite of
+representation, nothing shall prevent the members of the same party from being the
+Speaker and the Deputy Speaker of the House of Representatives.', 1, 'The Constitution of Nepal, Part-8, Article 91, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(3)', '', NULL, 'In case the office of the Speaker or the Deputy Speaker falls vacant,  the
+members of the House of Representatives  shall fulfil the vacancy by electing the
+Speaker or Deputy Speaker from amongst themselves.', 2, 'The Constitution of Nepal, Part-8, Article 91, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(4)', '', NULL, 'The Deputy Speaker shall, in the absence of the Speaker , preside over the
+House of Representatives.', 3, 'The Constitution of Nepal, Part-8, Article 91, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(5)', '', NULL, 'In case election to the Speaker and the Deputy Speaker is not held or in
+case both the positions  fall vacant, the attending member who is by age the senior -
+most shall preside over the meeting of the House of Representatives.', 4, 'The Constitution of Nepal, Part-8, Article 91, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(6)', '', NULL, 'The office of the Speaker o r Deputy Speaker of the House of
+Representatives shall fall vacant in any of the following circumstances:-
+(a) In case he or she  ceases to be a member of the House of
+Representatives;
+Provided that, in the event of dissolution of the House of
+Representatives, the Speaker and the Deputy Speaker of the House of
+Representatives holding their respective offices shall continue in
+office until the previous day of the filing of nominations for another
+election to the House of Representatives;
+(b) In case he or she tenders resignation in writing;
+(c) In case a resolution is adopted by a majority of two -thirds of the total
+number of the then members of the House of Representatives that his
+or her conduct is not compatible with his or her office.', 5, 'The Constitution of Nepal, Part-8, Article 91, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.8.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.8', 3, 'clause', '(7)', '', NULL, 'The Deputy Speaker shall preside over  a meeting at which deliberations
+are to be held on a resolution that the conduct of the Speaker of the House of
+Representatives is not compatible with his or her office. The Speaker of the House of
+Representatives may take part and vote in the deliberations on such resolution.', 6, 'The Constitution of Nepal, Part-8, Article 91, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 92', 'Chairperson and Vice-Chairperson of National Assembly', 'Chairperson and Vice-Chairperson of National Assembly', NULL, 9, 'The Constitution of Nepal, Part-8, Article 92 (Chairperson and Vice-Chairperson of National Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(1)', '', NULL, 'The members of the
+National Assembly shall, within fifteen days of the date of holding of its first meeting,
+elect the Chairperson and the Vice-Chairperson of the Nationa l Assembly from
+amongst themselves.', 0, 'The Constitution of Nepal, Part-8, Article 92, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(2)', '', NULL, 'Election pursuant to clause (1) shall be so held that there is one woman out
+of the Chairperson and the Vice-Chairperson of the National Assembly.', 1, 'The Constitution of Nepal, Part-8, Article 92, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(3)', '', NULL, 'In case the office of the Chairperson or Vice-Chairperson of the National
+Assembly falls vacant, the members of the National Assembly shall  fulfil the vacancy
+by electing its Chairperson or Vice-Chairperson from amongst themselves.', 2, 'The Constitution of Nepal, Part-8, Article 92, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(4)', '', NULL, 'The Vice-Chairperson of the National Assembly shall, in the absence of its
+Chairperson, preside over the National Assembly.', 3, 'The Constitution of Nepal, Part-8, Article 92, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(5)', '', NULL, 'In case the election to the Chairperson and the Vice -Chairperson of the
+National Assembly is not held or in case both the positions fall vacant, the member
+who is by age the senior -most out of the attendin g members  shall preside over  the
+meeting of the National Assembly.', 4, 'The Constitution of Nepal, Part-8, Article 92, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(6)', '', NULL, 'The office of the Chairperson  or Vice-Chairperson of the National
+Assembly shall fall vacant in any of the following circumstances:-
+(a) In case he or she ceases to be a member of the National Assembly;
+(b) In case he or she tenders resignation in writing;
+(c) In case a resolution is adopted by a majority of two -thirds of the total
+number of the then members of the National Assembly that his or her
+conduct is not compatible with the office.', 5, 'The Constitution of Nepal, Part-8, Article 92, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.9.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.9', 3, 'clause', '(7)', '', NULL, 'The Vice-Chairperson of the National Assembly shall preside over  a
+meeting at which deliberations are to be held on a reso lution that the conduct of the
+Chairperson of the National Assembly  is not compatible with his or her office. The
+Chairperson of the National Assembly may take part and vot e in the deliberations on
+such resolution.', 6, 'The Constitution of Nepal, Part-8, Article 92, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 93', 'Summoning and Prorogation of Session', 'Summoning and Prorogation of Session', NULL, 10, 'The Constitution of Nepal, Part-8, Article 93 (Summoning and Prorogation of Session)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.10.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.10', 3, 'clause', '(1)', '', NULL, 'The President shall summon a session of
+the Federal Parliament within thirty days of the declaration of final  results of  the
+election to the House of Representatives. Thereafter, the President shall , from time to
+time, summon sessions of both or either of the Houses in accordance with  this
+Constitution.
+Provided that the interval between the two consecutive sessions shall not
+exceed six months.', 0, 'The Constitution of Nepal, Part-8, Article 93, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.10.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.10', 3, 'clause', '(2)', '', NULL, 'The President may prorogue the sessions of both or either of the Houses of
+the Federal Parliament.', 1, 'The Constitution of Nepal, Part-8, Article 93, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.10.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.10', 3, 'clause', '(3)', '', NULL, 'In case, during the prorogation or recess of the session of the House of
+Representatives, one-fourth of the total number of its members submit a requisition in
+writing that it is  appropriate to convene a session or meeting, the President shall
+specify the date and time for such session or meeting. The House of Representatives
+shall meet or commence its session at the date and time so specified.', 2, 'The Constitution of Nepal, Part-8, Article 93, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 94', 'Quorum', 'Quorum', 'Except as otherwise provided for in this Constitution, no question or motion
+shall be presented for a decision in a meeting of either House of the Federal
+Parliament unless one-fourth of the total number of its members are present.', 11, 'The Constitution of Nepal, Part-8, Article 94 (Quorum)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 95', 'Address by President', 'Address by President', NULL, 12, 'The Constitution of Nepal, Part-8, Article 95 (Address by President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.12', 3, 'clause', '(1)', '', NULL, 'The President may address either a meeting of any House or
+a joint sitting of both Houses of the  Federal Parliament, and may summon the
+members for that purpose.', 0, 'The Constitution of Nepal, Part-8, Article 95, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.12', 3, 'clause', '(2)', '', NULL, 'The President shall ad dress the first s ession after election to the House  of
+Representatives and a joint sitting of both Houses of the Federal Parliament after the
+commencement of the first session of each year.', 1, 'The Constitution of Nepal, Part-8, Article 95, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 96', 'Deputy Prime Minister, Minister, Minister o f State and Assistant Minister e ntitled to take part in both Houses', 'Deputy Prime Minister, Minister, Minister o f State and Assistant Minister e ntitled to take part in both Houses', 'The Deputy Prime Minister, Minister, Minister of State and
+Assistant Minister  shall be entitled to attend and take part in the proceedings and
+deliberations of either House of the Federal Parliament or its committees.
+Provided that he or she shall not be entitled to vote in a House or its committee
+of which he or she is not a member.', 13, 'The Constitution of Nepal, Part-8, Article 96 (Deputy Prime Minister, Minister, Minister o f State and Assistant Minister e ntitled to take part in both Houses)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 97', 'Constitution of Committees', 'Constitution of Committees', NULL, 14, 'The Constitution of Nepal, Part-8, Article 97 (Constitution of Committees)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.14.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.14', 3, 'clause', '(1)', '', NULL, 'The House of Representatives and the National
+Assembly may constitute committees as provided for in the federal law.', 0, 'The Constitution of Nepal, Part-8, Article 97, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.14.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.14', 3, 'clause', '(2)', '', NULL, 'In case  a resolution is adopted by either House demanding that a joint
+committee of both the Houses be constituted for the purpose of managing the working
+procedures between the two Houses of the Federal Parliament, resolving disagreement
+on any Bill or for any other specified function,  a joint committee thereon shall be
+constituted. The joint committee shall consist of a maximum of  twenty-five members
+in the ratio of five members from the House of Representatives to one member from
+the National Assembly on the basis of inclusion.', 1, 'The Constitution of Nepal, Part-8, Article 97, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 98', 'Transaction of Business In case of Vacancy of Seat of a Member', 'Transaction of Business In case of Vacancy of Seat of a Member', 'Either House of the
+Federal Parliament shall have the power to transact its business notwithstanding any
+vacancy in a seat of its member. No proceedings of either House of the Federal
+Parliament shall become invalid even in case  it is subsequently discovered that a
+person who was not so entitled took part in such proceedings.', 15, 'The Constitution of Nepal, Part-8, Article 98 (Transaction of Business In case of Vacancy of Seat of a Member)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 99', 'Voting', 'Voting', 'Except as otherwise provided  for in this Constitution, any motion submitted
+for decision in either House of the Federal Parliament shall be decided by a majority
+vote of the members present and voting. The member presiding over the meeting shall
+not have the right to vote.
+Provided that he or she may exercise the casting vote in case of a tie of votes.', 16, 'The Constitution of Nepal, Part-8, Article 99 (Voting)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 100', 'Provisions r elating to Vote of Confidence and  Motion of No C onfidence', 'Provisions r elating to Vote of Confidence and  Motion of No C onfidence', NULL, 17, 'The Constitution of Nepal, Part-8, Article 100 (Provisions r elating to Vote of Confidence and  Motion of No C onfidence)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(1)', '', NULL, 'The
+Prime Minister may, whenever he or she considers necessary or appropriate to  show
+that he or she has confidence from the House of Representatives, table a motion in the
+House of Representatives for the vote of confidence.', 0, 'The Constitution of Nepal, Part-8, Article 100, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(2)', '', NULL, 'In case the political party, which the Prime Minister represents , is divided
+or a political party in coalition government withdraws its support, the Prime Minister
+shall table a motion in the House of Representatives for a vote of confidence within
+thirty days.', 1, 'The Constitution of Nepal, Part-8, Article 100, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(3)', '', NULL, 'In case a motion tabled pursuant to clauses (1) and (2) is not adopted by a
+majority of the total number of the then members of the House of Representatives, the
+Prime Minister shall be relieved of his or her office.', 2, 'The Constitution of Nepal, Part-8, Article 100, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(4)', '', NULL, 'One-fourth of the total number of the then members of the House  of
+Representatives may table a motion of no confidence in writing that the House has no
+confidence in the Prime Minister.
+Provided that a motion of no confidence shall  not be tabled until the first two
+years after the appointment of the Prime Minister and until another one year after the
+date of failure of the motion of no confidence once tabled.', 3, 'The Constitution of Nepal, Part-8, Article 100, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(5)', '', NULL, 'A motion of no confidence to be tabled pursuant to  clause (4) shall also
+mention the name of a member proposed for the Prime Minister.', 4, 'The Constitution of Nepal, Part-8, Article 100, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(6)', '', NULL, 'In case a motion of no confidence tabled pursuant to clause (4) is adopted
+by a majority of the total number of the then members of the House of
+Representatives, the Prime Minister shall be relieved of his or her office.', 5, 'The Constitution of Nepal, Part-8, Article 100, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.17.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.17', 3, 'clause', '(7)', '', NULL, 'In case the office of Prime Minister falls vacant because  of the adoption of
+a motion of no confidence pursuant to  clause (6), the President shall , pursuant to
+Article 76, appoint as the Prime Minister the member of the House of Representatives
+proposed pursuant to clause (5).', 6, 'The Constitution of Nepal, Part-8, Article 100, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 101', 'Impeachment', 'Impeachment', NULL, 18, 'The Constitution of Nepal, Part-8, Article 101 (Impeachment)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(1)', '', NULL, 'One fourth of the total number of the then members of the House of
+Representatives may move a motion of impeachment against the President or Vice -
+President on the ground of serious violation of this Constitution and law.  In case the
+motion is adopted by at least two thirds majority of the total number of the then
+members of both Houses of the Federal Parliament, he or she shall  be relieved of his
+or her office.', 0, 'The Constitution of Nepal, Part-8, Article 101, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(2)', '', NULL, 'One fourth of the total number of the then members of the House of
+Representatives may move a motion of impeachment against the Chief Justice  of
+Nepal or a Justice of Supreme Court, member of the Judicial Council, chief or official
+of a Constitutional Body on the ground of his or her failure to fulfil his or her duties
+of the office because of serious violation of this Constitution and law,  incompetence
+or misconduct or failure to discharge the duties of the office honestly or serious
+violation of the code of conduct . In case the motion is adopted by at least two thirds
+majority of the total number of the then members of the House of Representatives, the
+concerned person shall be relieved of his or her office.', 1, 'The Constitution of Nepal, Part-8, Article 101, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(3)', '', NULL, 'There shall be an impeachment recommendation committee in the House
+of Representatives for the purpose of making recommendation after inquiring into
+whether or not there exists ground and reason for moving a motion of impeachment
+against any person referred to in clause (2).', 2, 'The Constitution of Nepal, Part-8, Article 101, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(4)', '', NULL, 'The committee referred to in clause (3) shall consist of eleven members of
+the House of Representatives.', 3, 'The Constitution of Nepal, Part-8, Article 101, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(5)', '', NULL, 'In case at least three members of the House of Representatives certi fy and
+submit that the received information, notice or complaint is admissible on the ground
+of serious violation of the Constitution or incompetence or misconduct or failure to
+discharge the dut ies of office honestly or serious violation of the code of conduct by
+the person relieving of office on impeachment  pursuant to  clause (2) , and the
+committee referred to in clause (3) makes recommendation, upon inquiring into such
+complaint in accordance w ith federal law , to the House of Representatives for
+impeachment proceedings , a motion of impeachment may be moved pursuant to
+clause (2).', 4, 'The Constitution of Nepal, Part-8, Article 101, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(6)', '', NULL, 'After the commencement of impeachment proceedings pursuant to clause', 5, 'The Constitution of Nepal, Part-8, Article 101, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(2)', '', NULL, ', the Chief Justice  of Nepal or the Justice of Supreme Court , the member of the
+Judicial Council, the chief or official of the Constitutional Body shall not be allowed
+to discharge the duties of his or her office pending the settlement of such proceedings.', 6, 'The Constitution of Nepal, Part-8, Article 101, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(7)', '', NULL, 'A person who is charged with im peachment pursuant to clause (1) or (2)
+shall be provided with a reasonable opportunity to defend himself or herself.', 7, 'The Constitution of Nepal, Part-8, Article 101, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(8)', '', NULL, 'Nothing shall bar the taking of action under the federal law  in relation to
+the offence, if any, committed while in office by the President or Vice-President, the
+Chief Justice of Nepal or a Justice of Supreme Court  of Nepal, the member of the
+Judicial Council, the chief or official of a Constitutional Body  who is relieved of
+office upon the adoption of a motion of impeachment under this Article.', 8, 'The Constitution of Nepal, Part-8, Article 101, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(9)', '', NULL, 'A person who is relieved of the office on the adoption of a motion of
+impeachment pursuant to clause (1) or (2) shall not be entitled  to obtain any facility
+accruing from such office and to be appointed or nominated to any public office in the
+future.', 9, 'The Constitution of Nepal, Part-8, Article 101, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.18.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.18', 3, 'clause', '(10)', '', NULL, 'Other matters  relating to impeachment shall be as provided for in the
+federal law.', 10, 'The Constitution of Nepal, Part-8, Article 101, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 102', 'Penalty for Unauthorized Presence or Voting', 'Penalty for Unauthorized Presence or Voting', 'In case a person who has not taken oath
+pursuant to Article 88 or who is not a member of the Federal Parliament is present or
+casts vote in the capacity of a member in a meeting of either House of the Federal
+Parliament or of its committee, the person shall, by order of the person presiding over
+the meeting, be fined with a sum of five thousand rupees fo r each instance of such
+presence or voting, and such fine shall be recovered as a government due.', 19, 'The Constitution of Nepal, Part-8, Article 102 (Penalty for Unauthorized Presence or Voting)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 103', 'Privileges', 'Privileges', NULL, 20, 'The Constitution of Nepal, Part-8, Article 103 (Privileges)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(1)', '', NULL, 'There shall be full freedom of speech in both Houses of the Federal
+Parliament; and no member shall be arrested, detained or prosecuted in any court for
+anything expressed or any vote cast by him or her in the House.', 0, 'The Constitution of Nepal, Part-8, Article 103, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(2)', '', NULL, 'Each House of t he Federal Parliament shall, subject to this Constitution,
+have full power to regulate and decide its internal business, and the concerned House
+shall have the exclusive right to decide whether or not any of its proceedings is
+regular or irregular. No question shall be raised in any court in this regard.', 1, 'The Constitution of Nepal, Part-8, Article 103, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(3)', '', NULL, 'No comment shall be made about good faith concerning any proceeding of
+any House of the Federal Parliament, and no publication and broadcasting of any type
+shall be made about anything said by any member, intentionally distorting or
+misinterpreting the meaning of the speech.', 2, 'The Constitution of Nepal, Part-8, Article 103, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(4)', '', NULL, 'The provisions of clauses (1) and (3) shall apply also to persons, other than
+the members of the Federal Parliament, who are entitled to participate in the meetings
+of the House.', 3, 'The Constitution of Nepal, Part-8, Article 103, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(5)', '', NULL, 'No proceedings shall be initiated in any court against any person in respect
+of the publication , under the authority granted by any House of the Federal
+Parliament, of any document, report, vote or proceeding.
+Explanation: For the purposes of  this clause and clauses (1), (2), (3) and (4), " House"
+means the House of Representatives or the National Assembly, and includes a joint
+sitting or committee or joint committee of the Federal Parliament.', 4, 'The Constitution of Nepal, Part-8, Article 103, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(6)', '', NULL, 'No member of the Federal Parliament shall be arrested during the period
+from the issuance of a notice summoning the session to its prorogation.
+Provided that nothing in this clause shall be deemed to prevent the arrest under
+the federal law  of any member on a criminal charge. In case  any member is so
+arrested, the authority ma king such arrest shall forthwith give information ther eof to
+the person presiding over the concerned House.', 5, 'The Constitution of Nepal, Part-8, Article 103, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(7)', '', NULL, 'Any breach of the privileges shall be deemed to constitute the contempt of
+the Federal Parliament, and  the concerned House  shall have the exclusive right to
+decide whether or not any privilege has been breached.', 6, 'The Constitution of Nepal, Part-8, Article 103, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(8)', '', NULL, 'In case any person is in contempt of any House, the person presiding over
+the concerned House may, after a decision by the House to that effect, admonish, warn
+or impose a sentence of imprisonment for a term not exceeding three months or of a
+fine not exceeding ten  thousand rupees on such  person, and  such fine  shall be
+recovered as a government due.
+Provided that in case  such person apologies  to the satisfaction of the
+concerned House, the House may pardon, remit or commute the sentence imposed on
+him or her.', 7, 'The Constitution of Nepal, Part-8, Article 103, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.20.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.20', 3, 'clause', '(9)', '', NULL, 'Other matters relating to the privileges of the Federal Parliament shall be
+as provided for in the federal law.', 8, 'The Constitution of Nepal, Part-8, Article 103, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.21', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 104', 'Procedures relating to Conduct of Business', 'Procedures relating to Conduct of Business', NULL, 21, 'The Constitution of Nepal, Part-8, Article 104 (Procedures relating to Conduct of Business)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.21.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.21', 3, 'clause', '(1)', '', NULL, 'Each House of the Federal Parliament
+shall frame rules to conduct its business, maintain order du ring its meetings and
+regulate the constitution, functions and procedures of the committees  and procedures
+of the  House or its committee.  Until such rules are framed, the Federal Parliament
+shall regulate its procedures on its own.', 0, 'The Constitution of Nepal, Part-8, Article 104, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.21.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.21', 3, 'clause', '(2)', '', NULL, 'The conduct of business of the joint sitting of the Federal Parliament and
+constitution and proceedings of the joint committee of the  Federal Parliament shall be
+regulated by the rules or procedures approved by the joint sitting of both Houses of
+the Federal Parliament.', 1, 'The Constitution of Nepal, Part-8, Article 104, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.22', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 105', 'Restriction on Discussion', 'Restriction on Discussion', 'No discussion shall be held in either House of the Federal
+Parliament on any matters that may cause adverse effect on the dispensation of justice
+in cases which are sub judice in any court of Nepal and in any judicial act carried out
+by Judges in the course of performance of their duties.
+Provided that nothing in this Artic le shall be deemed to bar the expression of
+opinions about the conduct of a Judge during deliberations held on a motion of
+impeachment.', 22, 'The Constitution of Nepal, Part-8, Article 105 (Restriction on Discussion)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.23', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 106', 'Secretary General and Secretary of Federal Parliament', 'Secretary General and Secretary of Federal Parliament', NULL, 23, 'The Constitution of Nepal, Part-8, Article 106 (Secretary General and Secretary of Federal Parliament)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.23.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.23', 3, 'clause', '(1)', '', NULL, 'The President shall
+appoint the Secretary General of the House of Representatives on recommendation of
+both the Speaker of the House of Representatives and the Chairperson of the National
+Assembly, the Secretary of the House of Representatives on recommend ation of the
+Speaker, and the Secretary of the National Assembly on recommendation of the
+Chairperson.', 0, 'The Constitution of Nepal, Part-8, Article 106, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.23.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8.23', 3, 'clause', '(2)', '', NULL, 'The qualification, functions, duties, powers and other conditions of service
+of the Secretary General of the Federal Parliament, Secretary of the Hou se of
+Representatives and Secretary of the National Assembly shall be as provided  for in
+the federal law.', 1, 'The Constitution of Nepal, Part-8, Article 106, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.24', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 107', 'Secretariat of Federal Parliament', 'Secretariat of Federal Parliament', 'There shall be a Secretariat for conducting and
+managing the business of the Federal Parliament. The establish ment of such
+Secretariat and other matters related thereto shall be as provided for in the federal law.', 24, 'The Constitution of Nepal, Part-8, Article 107 (Secretariat of Federal Parliament)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:8.25', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:8', 2, 'article', 'Article 108', 'Remuneration', 'Remuneration', 'The remuneration and facilities of the Speaker and the Deputy Speaker
+of the House of Representatives, the Chairperson and the Vice-Chairperson of the
+National Assembly , chairpersons of the committees and members of the Federal
+Parliament shall be as provided for in the federal law, and shall be as specified by the
+Government of Nepal until such law is made.', 25, 'The Constitution of Nepal, Part-8, Article 108 (Remuneration)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-9', 'Federal Legislative Procedures', 'Federal Legislative Procedures', NULL, 9, 'The Constitution of Nepal, Part-9 (Federal Legislative Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 109', 'Legislative Powers of Federal Parliament', 'Legislative Powers of Federal Parliament', 'The legislative powers of the Federal
+Parliament shall be as enumerated  in the lists of Schedule -5, Schedule -7 and
+Schedule-9.', 0, 'The Constitution of Nepal, Part-9, Article 109 (Legislative Powers of Federal Parliament)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 110', 'Procedures for Introduction of Bills', 'Procedures for Introduction of Bills', NULL, 1, 'The Constitution of Nepal, Part-9, Article 110 (Procedures for Introduction of Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.1', 3, 'clause', '(1)', '', NULL, 'A Bill may, subject to this Constitution, be
+introduced in any House of the Federal Parliament.
+Provided that a Money Bill shall be introduced only in t he House of
+Representatives.', 0, 'The Constitution of Nepal, Part-9, Article 110, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.1', 3, 'clause', '(2)', '', NULL, 'A Money Bill and a Bill concerning a security institution including the
+Nepal Army, Nepal Police and Armed Police Force, Nepal shall be introduced only as
+a Government Bill.', 1, 'The Constitution of Nepal, Part-9, Article 110, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.1', 3, 'clause', '(3)', '', NULL, '"Money Bill" means a Bill concerning any or all of the following matters: -
+(a) Matters concerning Imposition, collection, abolition, re mission,
+alteration or regulation of taxes;
+(b) Matters concerning preservation of the Federal Consolidated Fund or
+any other Federal Government Fund, the deposit of moneys into or
+the appropriation or the withdrawal of moneys from such Funds, or
+the reduction, increment or cancellation of appropriations of propos ed
+expenditures from such Funds;
+(c)  Regulation of matters relating to the borrowing of money or the
+guarantee to be given  by the Government of Nepal, or any matter
+pertaining to the amendmen t of the law with respect to any financial
+obligations undertaken or to be undert aken by the Government of
+Nepal,
+(d) Matters concerning custody of all revenues received by  the Federal
+Government Fund, moneys acquired through the repayment of loans,
+and grant moneys, investments to be made or accounts or audits of the
+accounts of the Government of Nepal; and
+(e) Other incidental matters  directly related to any of the matters
+specified in clause (a), (b), (c) or (d).
+Provided that any Bill shall not be deemed to be a Money Bill only by
+the reason that it provides for the levying of any charges , fees or tariff such as
+license fee, application fee, renewal fee or for the imposition of fines or
+penalty of imprisonment.', 2, 'The Constitution of Nepal, Part-9, Article 110, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.1', 3, 'clause', '(4)', '', NULL, 'In case any question arises as to whether or not a Bill is a Money Bill, the
+decision of the Speaker shall be final.', 3, 'The Constitution of Nepal, Part-9, Article 110, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 111', 'Procedures for Adoption of Bills', 'Procedures for Adoption of Bills', NULL, 2, 'The Constitution of Nepal, Part-9, Article 111 (Procedures for Adoption of Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(1)', '', NULL, 'A Bill adopted by one House of the Federal
+Parliament shall be transmitted to the other Hous e as soon as possible and such  Bill
+shall, if adopted by the receiving House, be submitted to the President for
+authentication.', 0, 'The Constitution of Nepal, Part-9, Article 111, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(2)', '', NULL, 'A Money Bill adopted by the House of Representatives shall be
+transmitted to the National Assembly.  The National Assembly  shall, after
+deliberations on such  Bill, send the Bill back to the House  of Representatives within
+fifteen days from the date of receipt of the Bill, with suggestions, if any.', 1, 'The Constitution of Nepal, Part-9, Article 111, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(3)', '', NULL, 'The House of Representatives shall, upon deliberations on a Bill returned
+with suggestion s pursuant to clause (2), present the Bill  incorporating such
+suggestions as it may deem appropriate to the President for authentication.', 2, 'The Constitution of Nepal, Part-9, Article 111, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(4)', '', NULL, 'In case  the National Assembly  does not return a Money Bill received
+pursuant to clause (2) for more  than fifteen days, the House of Representatives may
+present the Bill to the President for authentication.', 3, 'The Constitution of Nepal, Part-9, Article 111, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(5)', '', NULL, 'Any Bill, except for a Money Bill, adopted by the House  of
+Representatives and transmitted to the National Assembly shall be returned with
+approval or suggestions within two months from the date of receipt. In case  the
+National Assembly  does not return the Bill within that period, the House  of
+Representatives may, by a resolution adopted by a majority of the total number of its
+the then existing members, present the Bill to the President for authentication.', 4, 'The Constitution of Nepal, Part-9, Article 111, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(6)', '', NULL, 'In case any Bill, other than a Money Bill, adopted by one House is rejected
+or is accepted with amendments by the other House, the  Bill shall be returned to the
+House where it was originated.', 5, 'The Constitution of Nepal, Part-9, Article 111, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(7)', '', NULL, 'In case the House of Representatives, in considering a Bill which has been
+rejected or amended and returned by the National Assembly pursuant to  clause (6),
+adopts it again as it was or with amendments, by a majority of the total number of the
+then existing members, the Bill shall be submitted to the President for authentication.', 6, 'The Constitution of Nepal, Part-9, Article 111, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(8)', '', NULL, 'In case a Bill which has been returned with amendments by the House of
+Representatives to the National Assembly pursuant to clause (6) is also again adopted,
+with such amendments, by a majority of the number of the then existing members of
+the National Assembly, the Bill shall be submitted to the President for authentication.', 7, 'The Constitution of Nepal, Part-9, Article 111, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(9)', '', NULL, 'The following Bills shall be referred to a joint sitting of the both Houses,
+and in case the joint sitting adopts the Bill as it was or with amendments, the House in
+which the Bill originated shall present it to the President for authentication:-
+(a) A Bill which, though adopted by the National Assembly, ha s been
+rejected by the House of Representatives; or
+(b) A Bill which has  been sent back  to the National Assembly  with
+amendments by the House  of Representatives , but the National
+Assembly has not agreed on such amendments.', 8, 'The Constitution of Nepal, Part-9, Article 111, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.2.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.2', 3, 'clause', '(10)', '', NULL, 'Even though a session of a House is prorogued  while a Bill is under its
+consideration, deliberations on the Bill may continue at the succeeding session.
+Provided that in case the House of Representatives  is dissolved or its term
+expires when any Bill introduced in the  House of Representatives  is under its
+consideration or when any Bill adopted by the  House of Representatives is under
+consideration in the National Assembly, such Bill shall lapse.', 9, 'The Constitution of Nepal, Part-9, Article 111, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 112', 'Withdrawal of Bills', 'Withdrawal of Bills', 'A Bill may be withdrawn by the member introducing it with the
+approval of the House.', 3, 'The Constitution of Nepal, Part-9, Article 112 (Withdrawal of Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 113', 'Authentication on Bills', 'Authentication on Bills', NULL, 4, 'The Constitution of Nepal, Part-9, Article 113 (Authentication on Bills)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:9.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.4', 3, 'clause', '(1)', '', NULL, 'The Bill to be presented to the President for
+authentication pursuant to Article 111  shall be certified by the Speaker or the
+Chairperson of the House in which the Bill originated and so presented.
+Provided that in case of a Money Bill, the Speaker shall so certify.', 0, 'The Constitution of Nepal, Part-9, Article 113, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.4', 3, 'clause', '(2)', '', NULL, 'A Bill presented to the President for his or her authentication in accordance
+with this Article shall be authenticated within fifteen days, and both Houses shall be
+informed thereof as soon as possible.', 1, 'The Constitution of Nepal, Part-9, Article 113, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.4', 3, 'clause', '(3)', '', NULL, 'In case the President is of the opinion that any Bill , except a Money Bill,
+presented for authentication needs reconsideration, he or she may, within fifteen days
+from the date of submission of such Bill,  send back  the Bill along with his or her
+message to the House in which the Bill originated.', 2, 'The Constitution of Nepal, Part-9, Article 113, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.4', 3, 'clause', '(4)', '', NULL, 'In case any Bill is sent back along with a message by the President , and
+both Houses reconsider and adopt such Bill as it was or with amendments and present
+it again, the President shall authenticate that Bill within fifteen days of such
+presentation.', 3, 'The Constitution of Nepal, Part-9, Article 113, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.4', 3, 'clause', '(5)', '', NULL, 'A Bill shall become an Act after the President authenticates it.', 4, 'The Constitution of Nepal, Part-9, Article 113, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9', 2, 'article', 'Article 114', 'Provisions relating to Ordinance', 'Provisions relating to Ordinance', NULL, 5, 'The Constitution of Nepal, Part-9, Article 114 (Provisions relating to Ordinance)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.5', 3, 'clause', '(1)', '', NULL, 'In case, at any time, except when both Houses of
+the Federal Parliament are in session, circumstances exist which render it necessary to
+take immediate action, the President may, on recommendation of the Council of
+Ministers, promulgate an Ordinance.', 0, 'The Constitution of Nepal, Part-9, Article 114, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:9.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:9.5', 3, 'clause', '(2)', '', NULL, 'The Ordinance promulgated pursuant to  clause (1) shall have the same
+force and effect as an Act.
+Provided that every such Ordinance,-
+(a) Shall be tabled at the session of both Houses of the Federal
+Parliament held after the promulgation, and in case not adopted by
+both Houses, it shall, ipso facto, cease to be effective;
+(b) May be repealed at any time by the President; and
+(c) Shall, unless rendered ineffective or repealed pursuant to sub-clause
+(a) or (b), ipso facto cease to be effective at the expiration of sixty
+days after the day on which a meeting of both Houses is held.
+Explanation: For the purposes of this clause, "day on which a meeting of both
+Houses is held" means the day on which a session or meeting of both Houses
+of the Federal Parliament commences or is held , and this term means  the later
+day on which a meeting of the House is held in case the Houses of the Federal
+Parliament meet on different dates.', 1, 'The Constitution of Nepal, Part-9, Article 114, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-10', 'Federal Financial Procedures', 'Federal Financial Procedures', NULL, 10, 'The Constitution of Nepal, Part-10 (Federal Financial Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 115', 'No tax to be levied or Loan to be raised', 'No tax to be levied or Loan to be raised', NULL, 0, 'The Constitution of Nepal, Part-10, Article 115 (No tax to be levied or Loan to be raised)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.0', 3, 'clause', '(1)', '', NULL, 'No tax shall be levied and collected
+except in accordance with law.', 0, 'The Constitution of Nepal, Part-10, Article 115, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.0', 3, 'clause', '(2)', '', NULL, 'No loan shall be raised and guarantee be given by the Government of
+Nepal except as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-10, Article 115, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 116', 'Federal Consolidated Fund', 'Federal Consolidated Fund', 'Except for the revenues of trusts ( Guthi), all revenues
+received by the Government of Nepal, all loans raised on the security of reven ues, all
+amounts received in repayment of any loan made under the authority of any Act and
+any other mo neys received by the Government of Nepal shall , except as otherwise
+provided by a Federal Act, be credited to a Government Fund to be known as the
+Federal Consolidated Fund.', 1, 'The Constitution of Nepal, Part-10, Article 116 (Federal Consolidated Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 117', 'Expenditures from  Federal Consolidated Fund or Federal Government Fund', 'Expenditures from  Federal Consolidated Fund or Federal Government Fund', 'No
+expenditure shall be incurred out of the Federal Consolidated Fund or any other
+Federal Government Fund except the following:-
+(a) Moneys charged on the Federal Consolidated Fund;
+(b) Moneys required to  meet the expenditure under a Federal
+Appropriation Act;
+(c) Advance moneys authorized by a Federal Act required to meet
+expenditures, when an Appropriation Bill is under consideration; or
+(d) Expenditures to be incurred in extraordinary circumstances under a
+Federal V ote of Credit Act, which  contains only a description of
+expenditures.
+Provided that matters relating to the Federal Contingency Fund
+shall be governed by Article 124.', 2, 'The Constitution of Nepal, Part-10, Article 117 (Expenditures from  Federal Consolidated Fund or Federal Government Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 118', 'Expenditures Chargeable on Federal Consolidated Fund', 'Expenditures Chargeable on Federal Consolidated Fund', 'The expenditures relating to
+the following matters shall be charged on the Federal Consolidated Fund, and
+approval of the Federal Parliament shall not be required for such expenditures:-
+(a) The amount required as remuneration and facilities of the P resident and
+the Vice-president;
+(b) The amount required as remuneration and  facilities payable to the Chief
+Justice of Nepal, Justices of the Su preme Court, and  members of the
+Judicial Council;
+(c) The amount required as remuneratio n and facilities payable to the
+Speaker and the Deputy Speaker of the House of Representatives, and
+the Chairperson and the Vice Chairperson of the National Assembly;
+(d) The amount required as remuneration and facilities payable to the chiefs
+and officials of the Constitutional Bodies,
+(e) The amount required as remuneration and facilities of the Chiefs of
+Provinces,
+(f) The administrative expenses of the Office of the President or the Vice
+President, the Supreme Court, the Judicial Counci l, the Constitutional
+Bodies, and the offices of Chiefs of Provinces;
+(g) All charges relating to debts for which th e Government of Nepal is
+liable;
+(h) Any sum required to satisfy any judgment or decree made by a court
+against the Government of Nepal; and
+(i) Any other sum to be chargeable  by the federal law  on the Federal
+Consolidated Fund.', 3, 'The Constitution of Nepal, Part-10, Article 118 (Expenditures Chargeable on Federal Consolidated Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 119', 'Estimates of Revenues and Expenditures', 'Estimates of Revenues and Expenditures', NULL, 4, 'The Constitution of Nepal, Part-10, Article 119 (Estimates of Revenues and Expenditures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.4', 3, 'clause', '(1)', '', NULL, 'The Minister for Finance of the
+Government of Nepal shall, in respect of every fiscal year, lay before the joint sitting
+of both Houses of the Federal Parliament an annual estimate setting out, inter alia, the
+following matters:-
+(a) Estimate of revenues;
+(b) Moneys required to meet the charges on the Federal Consolidated
+Fund; and
+(c) Moneys required to meet the expe nditure to be provided for  in the
+Federal Appropriation Act.', 0, 'The Constitution of Nepal, Part-10, Article 119, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.4', 3, 'clause', '(2)', '', NULL, 'The annual estimate to be laid pursuant to clause (1) shall also be
+accompanied by a statement of the expenses allocated to every Ministry in the
+previous fiscal year and particulars of whether or not the objectives of the expenses
+have been achieved.', 1, 'The Constitution of Nepal, Part-10, Article 119, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.4', 3, 'clause', '(3)', '', NULL, 'The Minister for Finance of the Government of Nepal shall lay before the
+Federal Parliament an estimate of revenues and expenditures referred to in clause (1)
+on the 15th of Jeshta (mid May) each year.', 2, 'The Constitution of Nepal, Part-10, Article 119, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 120', 'Appropriation Act', 'Appropriation Act', 'The moneys to b e spent under an  Appropriation Act shall be
+specified under concerned heads in the Appropriation Bill.', 5, 'The Constitution of Nepal, Part-10, Article 120 (Appropriation Act)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 121', 'Supplementary Estimate', 'Supplementary Estimate', NULL, 6, 'The Constitution of Nepal, Part-10, Article 121 (Supplementary Estimate)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.6', 3, 'clause', '(1)', '', NULL, 'The Minister for Finance of the Government of Nepal
+may lay before the House of Representatives  a supplementary estimate in case it is
+found in any fiscal year:-
+(a) That the sum authorized to be spent for a particular service by the
+Appropriation Act for the current fiscal year is insufficient, or that a
+need has arisen for expenditures on some new  service not provided
+for in the Appropriation Act for that year; or
+(b) That the expenditures made during that fiscal year are in excess of the
+amount authorized by the Appropriation Act.', 0, 'The Constitution of Nepal, Part-10, Article 121, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.6', 3, 'clause', '(2)', '', NULL, 'The sums included in the supplementary estimate  shall be specified under
+the related heads in a Supplementary Appropriation Bill.', 1, 'The Constitution of Nepal, Part-10, Article 121, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 122', 'V otes on Account', 'V otes on Account', NULL, 7, 'The Constitution of Nepal, Part-10, Article 122 (V otes on Account)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.7', 3, 'clause', '(1)', '', NULL, 'Notwithstanding anything contained elsewhere in this Part, a
+portion of the expenditure estimated for the fiscal year may, when an Appropriation
+Bill is under consideration, be incurred in advance, as provided for in Federal Act.', 0, 'The Constitution of Nepal, Part-10, Article 122, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.7', 3, 'clause', '(2)', '', NULL, 'No V ote on Account Bill shall be introduced until the estimates of revenues
+and expenditures have been laid pursuant to Article 119, and the sums involved in the
+V ote on Account shall not exceed one -third of the estimate of expenditures for the
+fiscal year.', 1, 'The Constitution of Nepal, Part-10, Article 122, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.7', 3, 'clause', '(3)', '', NULL, 'The expenditures incurred in accordance with the Federal V ote on Account
+Act shall be included in the Appropriation Bill.', 2, 'The Constitution of Nepal, Part-10, Article 122, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 123', 'V otes of Credit', 'V otes of Credit', 'Notwithstanding anything contained elsew here in this Part, in case
+owing to an emergency due to either natural causes or a threat of external aggression
+or internal disturbances or other reasons, it appears to be impractical or inexpedient in
+view of the security or inter est of the State to specify the d etails required pursuant to
+clause (1) of Article 119, the Minister for Finance of the Government of Nepal may
+lay before the House of Representatives a V ote of Credit Bill giving only a statement
+of expenditures.', 8, 'The Constitution of Nepal, Part-10, Article 123 (V otes of Credit)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 124', 'Federal Contingency Fund', 'Federal Contingency Fund', NULL, 9, 'The Constitution of Nepal, Part-10, Article 124 (Federal Contingency Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.9', 3, 'clause', '(1)', '', NULL, 'A Federal Act may create a fund to be known as the
+contingency fund into which such moneys as may be determined by  the Federal Act
+shall be deposited from time to time.', 0, 'The Constitution of Nepal, Part-10, Article 124, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.9', 3, 'clause', '(2)', '', NULL, 'The fund referred to in the clause (1) shall be under the control of the
+Government of Nepal and may meet any unforeseen expenditure out of such fund.', 1, 'The Constitution of Nepal, Part-10, Article 124, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10.9', 3, 'clause', '(3)', '', NULL, 'The amount of the expenditure referred to in  clause (2) shall be
+reimbursed as soon as possible as provided for in the Federal Act.', 2, 'The Constitution of Nepal, Part-10, Article 124, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:10.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:10', 2, 'article', 'Article 125', 'Act relating to Financial Procedures', 'Act relating to Financial Procedures', 'Matters relating to the transfer of moneys
+appropriated by a Federal Act from one head to another and other financial procedures
+shall be as provided for in the Federal Act.', 10, 'The Constitution of Nepal, Part-10, Article 125 (Act relating to Financial Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-11', 'Judiciary', 'Judiciary', NULL, 11, 'The Constitution of Nepal, Part-11 (Judiciary)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 126', 'Courts to Exercise Powers relating to Justice', 'Courts to Exercise Powers relating to Justice', NULL, 0, 'The Constitution of Nepal, Part-11, Article 126 (Courts to Exercise Powers relating to Justice)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.0', 3, 'clause', '(1)', '', NULL, 'Powers relating to justice in Nepal
+shall be exercised by courts and other judicial  institutions in ac cordance with this
+Constitution, other laws and recognized principles of justice.', 0, 'The Constitution of Nepal, Part-11, Article 126, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.0', 3, 'clause', '(2)', '', NULL, 'All shall abide by the orders or deci sions made by courts in the course of
+hearing of lawsuit.', 1, 'The Constitution of Nepal, Part-11, Article 126, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 127', 'Courts', 'Courts', NULL, 1, 'The Constitution of Nepal, Part-11, Article 127 (Courts)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.1', 3, 'clause', '(1)', '', NULL, 'There shall be the following courts in Nepal:-
+(a) Supreme Court;
+(b) High Court; and
+(c) District Court.', 0, 'The Constitution of Nepal, Part-11, Article 127, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.1', 3, 'clause', '(2)', '', NULL, 'In addition to the c ourts referred to in clause (1), judicial institutions may
+be constituted at the local level to tr y cases under law or other institutions as required
+may be formed to pursue alternative dispute resolution methods.', 1, 'The Constitution of Nepal, Part-11, Article 127, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 128', 'Supreme Court', 'Supreme Court', NULL, 2, 'The Constitution of Nepal, Part-11, Article 128 (Supreme Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.2', 3, 'clause', '(1)', '', NULL, 'There shall be a Supreme Court of Nepal.', 0, 'The Constitution of Nepal, Part-11, Article 128, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.2', 3, 'clause', '(2)', '', NULL, 'The Supreme Co urt shall be a court of record. All courts and judicial
+institutions shall, except as otherwise provided in this Constitution, be under the
+Supreme Court.  The Supreme Court shall have the final authority to interpret this
+Constitution and laws.', 1, 'The Constitution of Nepal, Part-11, Article 128, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.2', 3, 'clause', '(3)', '', NULL, 'The Supreme Court may inspect, supervise an d give necessary directives
+to, itself and courts, specialized courts or other judicial institutions under its
+jurisdiction, on matters relating to administration of justice or management.', 2, 'The Constitution of Nepal, Part-11, Article 128, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.2', 3, 'clause', '(4)', '', NULL, 'All shall abide by any interpretation of the Constitution or a law made by
+or any legal principle laid down by the Supreme Court in the course of hearing a
+lawsuit. In case anyone makes obstruction in the dispensation of justice or disregard
+any order or judgment handed down  by it or any of its subordinate courts, the
+Supreme Court may , in accordance with law,  initiate proceedings of contempt and
+impose punishment therefor.', 3, 'The Constitution of Nepal, Part-11, Article 128, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 129', 'Appointment and Qualification of Chief Justice of Nepal and Justices of Supreme Court', 'Appointment and Qualification of Chief Justice of Nepal and Justices of Supreme Court', NULL, 3, 'The Constitution of Nepal, Part-11, Article 129 (Appointment and Qualification of Chief Justice of Nepal and Justices of Supreme Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(1)', '', NULL, 'The Supreme Court shall consist of a maximum of twenty Justices, in
+addition to the Chief Justice of Nepal.', 0, 'The Constitution of Nepal, Part-11, Article 129, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(2)', '', NULL, 'The President shall appoint the Chief Justice  on recommendation of the
+Constitutional Council and other Justices of the Supreme Court  on recommendation
+of the Judicial Council.', 1, 'The Constitution of Nepal, Part-11, Article 129, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(3)', '', NULL, 'Any person who has served as a Justice of the Supreme Court for at least
+three years shall be eligible for appointment as the Chief Justice.', 2, 'The Constitution of Nepal, Part-11, Article 129, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(4)', '', NULL, 'The term of office of the Chief Justice shall be six years.', 3, 'The Constitution of Nepal, Part-11, Article 129, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(5)', '', NULL, 'Any citizen of Nepal  who has  obtained a bachelor ''s degree in law and
+served as the Chief Judge or a Judge of a High Court for at least five years or who has
+obtained a bachelor''s degree in law and constantly practised law as a senior  advocate
+or advocate for at least fifteen years or who is a distinguished jurist having constantly
+worked for at least fifteen years in the judicial or legal field or who has served in the
+post of Gazetted first class or a higher post of the Judicial Service  for at least twelv e
+years shall be deemed  to be eligible for appointment as a Justice of the Supreme
+Court.
+Explanation: The period during which one has served as the Chief Judge or Judge of
+an Appellate Court prior to the commencement of this Constitution shall, for the
+purposes of this clause, be deemed to be the period of service in the capacity of the
+Chief Judge or Judge of the High Court.', 4, 'The Constitution of Nepal, Part-11, Article 129, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.3', 3, 'clause', '(6)', '', NULL, 'In case the office of the Chief Justice f alls vacant or the Chief Justice is
+unable to carry out the duties of his or her office by reason of illness or otherwise or
+he or she cannot be present in the Supreme Court by reason of a leave of absence or
+his or her being outside of Nepal, the senior -most Justice of Supreme Court  shall act
+as the Acting Chief Justice.', 5, 'The Constitution of Nepal, Part-11, Article 129, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 130', 'Conditions of Service and Facilities of Chief Justice and Justices', 'Conditions of Service and Facilities of Chief Justice and Justices', NULL, 4, 'The Constitution of Nepal, Part-11, Article 130 (Conditions of Service and Facilities of Chief Justice and Justices)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.4', 3, 'clause', '(1)', '', NULL, 'In case the Chief
+Justice or a Justice of the Supreme Court who has served for at least five years resigns
+or undergoes compulsory retirement or dies, he or she shall be entitled to such pension
+as may be provided for in the federal law.', 0, 'The Constitution of Nepal, Part-11, Article 130, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.4', 3, 'clause', '(2)', '', NULL, 'Except otherwise provided for in this Constitution, the remuneration and
+other conditions of service of the Chief Justice an d Justices of the Sup reme Court
+shall be as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-11, Article 130, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.4', 3, 'clause', '(3)', '', NULL, 'Notwithstanding anything contained in clauses (1) a nd (2), the Chief
+Justice or a  Justice of the Supreme Court who has been removed from the office by
+way of impeachment or who has been punished by a court for a criminal offence
+involving moral turpitude shall not be entitled to gratuity or pension.', 2, 'The Constitution of Nepal, Part-11, Article 130, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.4', 3, 'clause', '(4)', '', NULL, 'The remuneration and other conditions of service of the Chief Justice or a
+Justice of the Supreme Court shall not be altered to his or her disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 3, 'The Constitution of Nepal, Part-11, Article 130, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 131', 'V acation of office of Chief Justice or Justice of Supreme Court', 'V acation of office of Chief Justice or Justice of Supreme Court', 'The office of t he
+Chief Justice or a Justice of the Supreme Court shall fall vacant  in any of the
+following circumstances:-
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case a motion of impeachment is adopted against him or her pursuant
+to Article 101;
+(d)  In case the Chief Justice or a Justice of Supreme Court is relieved of his
+or her office by the President, in the case of Chief Justice on
+recommendation of the Constitutional Council, and in the case of Justice
+of Supreme Court, on  recommendation of the Judicial Council, on the
+ground that he or she is unable to discharge hi s or her duties because of
+physical or mental illness;
+(e) In case he or she is punished by a court for a criminal offence involving
+moral turpitude;
+(f) In case he or she dies.', 5, 'The Constitution of Nepal, Part-11, Article 131 (V acation of office of Chief Justice or Justice of Supreme Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 132', 'Chief Justice and Justice of Supreme Court not to be engaged in Any Other Office', 'Chief Justice and Justice of Supreme Court not to be engaged in Any Other Office', NULL, 6, 'The Constitution of Nepal, Part-11, Article 132 (Chief Justice and Justice of Supreme Court not to be engaged in Any Other Office)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.6', 3, 'clause', '(1)', '', NULL, 'No Chief Justice or Justice of the Supreme Court shall be engaged in or deputed to
+any office other than that of a Judge.
+Provided that the Government of Nepal may, in consultation with the Judicial
+Council, depute a Justice of the Supreme Court to work concerning judicial inquiry, or
+to legal or judicial investigation or research for a specified period.', 0, 'The Constitution of Nepal, Part-11, Article 132, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.6', 3, 'clause', '(2)', '', NULL, 'No person who has once held the office of Chief Justice or a Justice of the
+Supreme Court shall be eligible for appoi ntment to any government office, except as
+otherwise provided for in this Constitution.', 1, 'The Constitution of Nepal, Part-11, Article 132, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 133', 'Jurisdiction of Supreme Court', 'Jurisdiction of Supreme Court', NULL, 7, 'The Constitution of Nepal, Part-11, Article 133 (Jurisdiction of Supreme Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(1)', '', NULL, 'Any citizen of Nepal may file a petition in the
+Supreme Court to have any law or any part thereof declared void on the ground of
+inconsistency with this Con stitution because it imposes unreasonable rest riction on
+the enjoyment of any fundamental right conferred by this Constitution or on any other
+ground; or to have  any law or any part thereof made by a Provincial Assembly
+declared void because it is inconsistent with any law made by the Federal Parliament ;
+or to have any law or any part thereof made by a Municipal Assembly or Rural
+Municipal Assembly declared void because it is inconsistent with a law made by the
+Federal Parliament or the Provincial Assembly; the Supreme Court shall have  an
+extra-ordinary power to declare such law to be void either ab initio or from the date of
+its decision in case the law in question  appears to be so inconsistent.', 0, 'The Constitution of Nepal, Part-11, Article 133, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(2)', '', NULL, 'The Supreme Court shall, for the enforcement of the fundamental rights
+conferred by this Cons titution or of any other legal right for which no other remedy
+has been provided for or for which the remedy even though provided appears to be
+inadequate or ineffective or for the settlement of a ny constitutional or legal question
+involved in any dispute of public interest or concern ; have the extraordinary power to
+issue necessary and appropriate orders , provide appropriate remedies, enforce such
+right or settle such dispute.', 1, 'The Constitution of Nepal, Part-11, Article 133, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(3)', '', NULL, 'Under the extra-ordinary jurisdiction referred to in clause (2), the Supreme
+Court may issue appropriate orders and writs including the writs of habeas corpus,
+mandamus, certiorari, prohibition and quo warranto.
+Provided that  except on the ground of absence of juris diction, the Supreme
+Court shall not under this clause interfere with any internal proceedings of the Federal
+Parliament or Provincial Assembly, and with any proceedings instituted by the Federal
+Parliament or Provincial Assembly concerning violation of its privileges and penalties
+imposed therefor.', 2, 'The Constitution of Nepal, Part-11, Article 133, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(4)', '', NULL, 'Subject to this Constitution, the Supreme Court shall, as provided for in the
+federal law , have the power to originally try and settle cases, hear appeals, test
+judgments referred for confirmation, revise cases, hear petitions or review its
+judgments or final orders.  While so reviewing the judgements,  Justices other than
+those having handed down the previous judgment shall make such review.', 3, 'The Constitution of Nepal, Part-11, Article 133, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(5)', '', NULL, 'The Supreme Court shall  have the power to settle  appeals from cases
+originally heard and settled by a High Court and matters of public importance
+involving questions of interpretation of the Constitution and law or cases
+recommended by a High Cou rt, accompanied by its opinion that it is reasonable that
+decision be made by the Supreme Court.', 4, 'The Constitution of Nepal, Part-11, Article 133, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.7.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.7', 3, 'clause', '(6)', '', NULL, 'Other powers and procedures of the Supreme Court shall be as provided
+for in the federal law.', 5, 'The Constitution of Nepal, Part-11, Article 133, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 134', 'Power to Transfer Cases', 'Power to Transfer Cases', NULL, 8, 'The Constitution of Nepal, Part-11, Article 134 (Power to Transfer Cases)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.8', 3, 'clause', '(1)', '', NULL, 'In case the cases which involve substantially the same
+questions are sub judice before the Supreme Court and a High Court, and the Supreme
+Court is satisfied on  its own or on application by the Attorney General or parties to
+such cases that such questions are of public importance, the Supreme Court shall have
+the power to procure and adjudge the cases together.', 0, 'The Constitution of Nepal, Part-11, Article 134, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.8', 3, 'clause', '(2)', '', NULL, 'In case there exists a special circumstance where judicial impartiality may
+be questioned if a case filed in a High Court is heard by that Court, the Supreme Court
+may, stating the reasons and grounds thereof, order such case to be transferred from
+such High Court to another High Court and be heard by the latter High Court , in
+accordance with law.', 1, 'The Constitution of Nepal, Part-11, Article 134, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 135', 'Not to be engaged in Practice of Law', 'Not to be engaged in Practice of Law', 'No Chief Justice or Justice of the Supreme
+Court shall, after retirement from office , be engaged in the practice of law, mediation
+or arbitration proceedings before any office or court.', 9, 'The Constitution of Nepal, Part-11, Article 135 (Not to be engaged in Practice of Law)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 136', 'Responsibility of Chief Justice', 'Responsibility of Chief Justice', 'The Chief Justice shall have the ultimate
+responsibility to make effective the administration of justice by the Supr eme Court,
+subordinate courts, specialized courts or other judicial institution.', 10, 'The Constitution of Nepal, Part-11, Article 136 (Responsibility of Chief Justice)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 137', 'Constitution of Constitutional Bench', 'Constitution of Constitutional Bench', NULL, 11, 'The Constitution of Nepal, Part-11, Article 137 (Constitution of Constitutional Bench)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.11.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.11', 3, 'clause', '(1)', '', NULL, 'There shall be a Constitutional Bench in the
+Supreme Court. The Constitutional Bench shall consist of the Chief Justice and other
+four Justices designated by the Chief Justice on recommendation of the Judicial
+Council.', 0, 'The Constitution of Nepal, Part-11, Article 137, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.11.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.11', 3, 'clause', '(2)', '', NULL, 'The Bench referred to in clause (1) shall originally hear and settle the
+following cases, in addition to the petitions filed pursuant to clause (1) of Article
+133:-
+(a) Disputes relating to jurisdiction between the Federation and a
+Province, between Provinces, between a Province and a Local Level
+and between Local Levels;
+(b) Disputes relating to election to members of the Federal Parliament or
+Provincial Assembly and matters  relating to disqualification of a
+member of the Federal Parliament or of the Provincial Assembly.', 1, 'The Constitution of Nepal, Part-11, Article 137, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.11.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.11', 3, 'clause', '(3)', '', NULL, 'Notwithstanding anything contained in Article 133, in case it appears that
+any case sub judice in the Supreme Court involves a question of serious constitutional
+interpretation, the Chief Justice may appoint such case to be heard by the Bench
+referred to in clause (1).', 2, 'The Constitution of Nepal, Part-11, Article 137, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.11.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.11', 3, 'clause', '(4)', '', NULL, 'Other provisions relating to the functioning of the Constitutional Bench
+shall be as determined by the Supreme Court.', 3, 'The Constitution of Nepal, Part-11, Article 137, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 138', 'Annual Report', 'Annual Report', NULL, 12, 'The Constitution of Nepal, Part-11, Article 138 (Annual Report)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.12', 3, 'clause', '(1)', '', NULL, 'The Supreme Court,  Judicial Council and Judicial Service
+Commission shall submit every year annual reports to the President, and the President
+shall submit such reports to the Federal Parliament through the Prime Minister.', 0, 'The Constitution of Nepal, Part-11, Article 138, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.12', 3, 'clause', '(2)', '', NULL, 'In case  the Federal Parliament, upon deliberating on the annual reports
+submitted pursuant to clause (1), deems it necessary to give any suggestion, it may
+give such suggestion to the concerned institution through the Government of Nepal,
+Ministry of Law and Justice.', 1, 'The Constitution of Nepal, Part-11, Article 138, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.12.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.12', 3, 'clause', '(3)', '', NULL, 'Other provisions relating to annual reports referred to in clause (1) shall be
+as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-11, Article 138, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 139', 'High Courts', 'High Courts', NULL, 13, 'The Constitution of Nepal, Part-11, Article 139 (High Courts)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.13.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.13', 3, 'clause', '(1)', '', NULL, 'There shall be a High Court in each Province.', 0, 'The Constitution of Nepal, Part-11, Article 139, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.13.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.13', 3, 'clause', '(2)', '', NULL, 'In case  anyone makes obstruction in the dispensation of justice by, or
+disregard any order or judgment handed down by, it or any of its subordinate courts or
+judicial institutions, the High Court may initiate proceedings on and impose
+punishment for contempt, as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-11, Article 139, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.13.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.13', 3, 'clause', '(3)', '', NULL, 'Each High Court shall consist of such number of Judges, in addition to t he
+Chief Judge, as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-11, Article 139, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 140', 'Appointment and Qualification of Chief Judge and J udges of High Court', 'Appointment and Qualification of Chief Judge and J udges of High Court', NULL, 14, 'The Constitution of Nepal, Part-11, Article 140 (Appointment and Qualification of Chief Judge and J udges of High Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.14', 3, 'clause', '(1)', '', NULL, 'The
+Chief Justice shall, on recommendation of the Judicial Council, appoint the Chief
+Judge and Judges of the High Court.', 0, 'The Constitution of Nepal, Part-11, Article 140, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.14', 3, 'clause', '(2)', '', NULL, 'Any citizen of Nepal who has obtained a bachelor ''s degree in law and
+served as a Judge of a District Court for at least five years or w ho has obtained a
+bachelor''s degree in law and constantly practised law as a senior advocate or advocate
+for at least ten years or who has constantly been engaged in the teaching or research
+of law or in any other field relation to law or justice for at le ast ten years or who has
+served in the post of at least Gazetted first class of the Judicial Service for at least five
+years shall be deemed to be eligible for appointment as the Chief Judge or a Judge of
+the High Court.', 1, 'The Constitution of Nepal, Part-11, Article 140, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.14', 3, 'clause', '(3)', '', NULL, 'Appointments to the Chief Judge and Judges of a High Court shall be made
+from amongst the persons who have possessed the qualification s referred to in clause', 2, 'The Constitution of Nepal, Part-11, Article 140, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.14', 3, 'clause', '(2)', '', NULL, 'on the basis of the proportion of cases settled by him or her annually and of
+evaluation of cases upheld, quashed or reversed  by superior court s in the course of
+final decision thereof, in the case of a District Judge, and of his or her seniority,
+qualification and evaluation of standard of performance of business , in the case of a
+person who has served in the post of at least G azetted first class of the Judicial
+Service, and of evaluation of seniority, professional continu ity, honesty, professional
+conduct and contribution made to the field of law and justice, in the case of others.', 3, 'The Constitution of Nepal, Part-11, Article 140, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.14.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.14', 3, 'clause', '(4)', '', NULL, 'In case  the office of the Chief Judge falls vacant or the Chief Judge is
+otherwise unable to carry out the duties of his or her office or cannot be present in the
+High Court by reason of a leave of absence or his or her being outside of the Province,
+the senior-most Judge of the High Court shall act as the Acting Chief Judge.', 4, 'The Constitution of Nepal, Part-11, Article 140, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 141', 'Conditions of Service and Facilities o f C hief Judge and Judges', 'Conditions of Service and Facilities o f C hief Judge and Judges', NULL, 15, 'The Constitution of Nepal, Part-11, Article 141 (Conditions of Service and Facilities o f C hief Judge and Judges)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.15.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.15', 3, 'clause', '(1)', '', NULL, 'Except  as
+otherwise provided for in this Constitution, the remuneration and other conditions of
+service of the Chief Judge and Judges of the High Court shall be as provided for in the
+federal law.', 0, 'The Constitution of Nepal, Part-11, Article 141, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.15.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.15', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), the Chief Judge or a
+Judge of a High Court who has been removed from office  upon action taken by the
+Judicial Council or upon punishment by a court for a criminal offence involving moral
+turpitude shall not be entitled to gratuity or pension.
+Provided that this provision shall not apply in cases where the Judicial Council
+has removed him or her from office on the ground of inability to perform the duties of
+his or her office because of physical or mental illness.', 1, 'The Constitution of Nepal, Part-11, Article 141, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.15.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.15', 3, 'clause', '(3)', '', NULL, 'The remuneration and other conditions of service of the Chief Judge or a
+Judge of the High Court shall not be altered to his or her disadvantage.
+Provided that this p rovision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 2, 'The Constitution of Nepal, Part-11, Article 141, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 142', 'V acation of office of Chief Judge or Judge', 'V acation of office of Chief Judge or Judge', NULL, 16, 'The Constitution of Nepal, Part-11, Article 142 (V acation of office of Chief Judge or Judge)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.16.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.16', 3, 'clause', '(1)', '', NULL, 'The office of Chief Judge or Judge of a
+High Court shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the Chief Justice;
+(b) In case he or she attains the age of sixty-three years;
+(c) In case he or she is relieved of  office by the Chief Justice on
+recommendation of the Judicial Council, on the ground of his or her
+incompetence, misconduct, failure to perform his or her duties
+honestly, performance of business with mala fide intention or serious
+violation by him or her of the code of conduct required to be observed
+by him or her;
+(d) In case he or she is removed from office by the Chief Justice on
+recommendation of the Judicial Council on the ground that he or she
+is unable to discharge his or her duties becaus e of physical or mental
+illness;
+(e) In case he or she is convicted and punished by a court for a criminal
+offence involving moral turpitude;
+(f) In case he or she dies.', 0, 'The Constitution of Nepal, Part-11, Article 142, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.16.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.16', 3, 'clause', '(2)', '', NULL, 'A Judge who is facing a charge shall be provided with a reasonable
+opportunity to defend himself or herself prior to removing him or her from the office
+pursuant to  sub-clause ( c) of clause (1). The Judge against whom the proceedings
+have been so instituted shall not be allowed to perform the duties of his or her office
+until the proceedings are completed.', 1, 'The Constitution of Nepal, Part-11, Article 142, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.16.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.16', 3, 'clause', '(3)', '', NULL, 'Nothing shall bar the institution of action in accordance with the federal
+law against the Chief Judge or Judge who has been removed from office for an
+offence which he or she has committed while in office.', 2, 'The Constitution of Nepal, Part-11, Article 142, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 143', 'Chief Judge and Judges not to be engaged in any Other Office and Provisions relating to Transfer', 'Chief Judge and Judges not to be engaged in any Other Office and Provisions relating to Transfer', NULL, 17, 'The Constitution of Nepal, Part-11, Article 143 (Chief Judge and Judges not to be engaged in any Other Office and Provisions relating to Transfer)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.17.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.17', 3, 'clause', '(1)', '', NULL, 'No Chief Judge or Judge of a High  Court shall be engaged in or
+deputed to any office other than that of Judge.
+Provided that the Government of Nepal may, in consultation with the Judicial
+Council, depute a Judge of the High Court to work concerning judicial inquiry, or to
+legal or judicia l investigation or research or to any work of national interest for any
+specific period.', 0, 'The Constitution of Nepal, Part-11, Article 143, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.17.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.17', 3, 'clause', '(2)', '', NULL, 'The Chief Justice may, on recommendation of the Judicial Council,
+transfer a Judge of a High Court to another High Court.', 1, 'The Constitution of Nepal, Part-11, Article 143, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 144', 'Jurisdiction of High Court', 'Jurisdiction of High Court', NULL, 18, 'The Constitution of Nepal, Part-11, Article 144 (Jurisdiction of High Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.18.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.18', 3, 'clause', '(1)', '', NULL, 'The High Court shall  have the power to issue
+necessary and appropriate orders , for the enforcement of the fundamental rights
+conferred by this Constitution or for the enforcement of any other legal right for
+which no other remedy has been provided or for whic h the remedy even though
+provided appears to be inadequate or ineffective or for the settlement of any legal
+question involved in any dispute of public interest or concern.', 0, 'The Constitution of Nepal, Part-11, Article 144, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.18.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.18', 3, 'clause', '(2)', '', NULL, 'For the purposes of clause (1), the High Court may issue appropriate orders
+and writs including the writs of habeas corpus, mandamus, certiorari, prohibition and
+quo warranto.
+Provided that except on the ground of absence of jurisdiction, the High Court
+shall not under this clause interfere with  any internal proceedings of the Federal
+Parliament or Provincial Assembly, and with any proceedings instituted by the Federal
+Parliament or Provincial Assembly concerning violation of its privileges and penalties
+imposed therefor.', 1, 'The Constitution of Nepal, Part-11, Article 144, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.18.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.18', 3, 'clause', '(3)', '', NULL, 'The High Court shall, in accordance with the federal law, have the power
+to originally hear and settle cases, hear appeals and  test judgments referred fo r
+confirmation.', 2, 'The Constitution of Nepal, Part-11, Article 144, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.18.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.18', 3, 'clause', '(4)', '', NULL, 'Other powers and procedures of the High Court shall be as provided for in
+the federal law.', 3, 'The Constitution of Nepal, Part-11, Article 144, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 145', 'Power to Transfer Cases', 'Power to Transfer Cases', NULL, 19, 'The Constitution of Nepal, Part-11, Article 145 (Power to Transfer Cases)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.19.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.19', 3, 'clause', '(1)', '', NULL, 'In case a High Court is of the opinion that a case which
+is sub judice in a subordinate court within its jurisdiction involves a question relating
+to a provincial law and it is essential to settle that question in order to decide the case,
+the High Court may procure the case and dispose the case wholly or decide only such
+question and remand the case to the court of first instance.', 0, 'The Constitution of Nepal, Part-11, Article 145, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.19.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.19', 3, 'clause', '(2)', '', NULL, 'In case it is satisfied with the reason that there exists a situatio n where
+judicial impartiality may be questioned if a case filed in a District Court is heard by
+that Court, the High Court may, stating the reasons and grounds thereof, order such
+case to be transferred from such  District Court to another District Court under its
+jurisdiction and heard by the latter District Court, as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-11, Article 145, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.20', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 146', 'Allowed to be engaged in Practice of Law', 'Allowed to be engaged in Practice of Law', 'A person who has retired from the office
+of a Judge of a High Court may be engaged in the practice of law before the Supreme
+Court and a High Court, other than the High Court and subordinate courts where he or
+she has served as a Judge.', 20, 'The Constitution of Nepal, Part-11, Article 146 (Allowed to be engaged in Practice of Law)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.21', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 147', 'Responsibility of Chief Judge', 'Responsibility of Chief Judge', 'The Chief Judge shall have the ultimate  responsibility
+to make effective the administration of justice by the High Court and the Courts or
+other judicial institutions which are subordinate to it . For that purpose, the Chief
+Judge may, subject to this Constitution and the federal law, give necessary direction to
+the subordinate Courts and judicial institutions', 21, 'The Constitution of Nepal, Part-11, Article 147 (Responsibility of Chief Judge)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.22', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 148', 'District Court', 'District Court', NULL, 22, 'The Constitution of Nepal, Part-11, Article 148 (District Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.22.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.22', 3, 'clause', '(1)', '', NULL, 'There shall be a District Court in each District.', 0, 'The Constitution of Nepal, Part-11, Article 148, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.22.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.22', 3, 'clause', '(2)', '', NULL, 'The Local Level  judicial institutions established in accordance with the
+provincial law  shall be subordinate to the District Court. The District Court may
+inspect as well as supervise and give necessary direction to its subordinate judicial
+institutions.', 1, 'The Constitution of Nepal, Part-11, Article 148, Clause (2)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:11.23', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 149', 'Appointment, Qualification, Remuneration and Other Conditions of Service of Judges of District Courts', 'Appointment, Qualification, Remuneration and Other Conditions of Service of Judges of District Courts', NULL, 23, 'The Constitution of Nepal, Part-11, Article 149 (Appointment, Qualification, Remuneration and Other Conditions of Service of Judges of District Courts)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(1)', '', NULL, 'The Chief Justice shall, on recommendation of the Judicial
+Council, appoint Judges of the District Courts.', 0, 'The Constitution of Nepal, Part-11, Article 149, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(2)', '', NULL, 'The vacant posts of Judges of the  District Court shall be fulfilled as
+follows:-
+(a) Twenty percent of the total vacant posts, on the basis of evaluation of
+seniority, qualification and competency, from amongst the officers
+who have obtained bachelor''s degree in law and served for at least
+three years in the post of Gazetted Second Class of the Judicial
+Service;
+(b) Forty percent of the total vacant posts , on the basis of open
+competitive examination, from amongst the officers who have
+obtained bachelor''s degree in law and served for at least three years in
+the post of Gazetted Second Class of the Judicial Service;
+(c) The remaining forty percent of the total vacant posts, on the basis of
+open competitive examination, from amongst the citizens of Nepal
+who, having obtained bachelor''s degree in law, have constantly
+practised law for at least eight years as an advocate or who,  having
+obtained bachelor''s degree in law, have served  in a Gazetted post of
+the Judicial Service for at least eight years or have constantly been
+engaged in the teaching or research of law or served in any other field
+of law or justice for at least eight years.', 1, 'The Constitution of Nepal, Part-11, Article 149, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(3)', '', NULL, 'The Judicial Service Commission shall, in accordance with the federal law,
+hold written and oral competitive examinations for the persons who have possessed
+the qualification s referred to in  sub-clauses (b) and (c) of clause (2), and make
+recommendation, in order of merit, to  the Judicial Council for appointment as District
+Judges.', 2, 'The Constitution of Nepal, Part-11, Article 149, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(4)', '', NULL, 'The remuneration and other conditions of service of the Judges of the
+District Court shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-11, Article 149, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(5)', '', NULL, 'The remuneration and other conditions of service of a Judge of the District
+Court shall not be altered to his or her disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 4, 'The Constitution of Nepal, Part-11, Article 149, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(6)', '', NULL, 'The office of a Judge of the District Court shall fall vacant in any of the
+following circumstances:-
+(a) In case he or she tenders resignation in writing to the Chief Justice;
+(b) In case he or she attains the age of sixty-three years;
+(c) In case he or she is removed from office by the Chief Justice on
+recommendation of the Judicial Council, on the ground of his or her
+incompetence, misconduct, failure to perform his or her duties
+honestly, performance of business with malafide intention or se rious
+violation by him or her of the code of conduct required to be observed
+by him or her;
+(d) In case  he or she is removed from  office by the Chief Justice on
+recommendation of the Judicial Council on the ground that he or she
+is unable to continue service and discharge his or her duties becaus e
+of physical or mental illness;
+(e) In case he or she is convicted and punished by a court for a criminal
+offence involving moral turpitude;
+(f) In case he or she dies.', 5, 'The Constitution of Nepal, Part-11, Article 149, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(7)', '', NULL, 'A District Judge who is accused shall be given a reasonable opportunity to
+defend himself or herself  before removing him or her from office pursuant to  sub-
+clause (c) of clause (6).  The District Judge against whom the proceedings are so
+initiated shall not perform the dut ies of his or her office until the proceedings are
+completed.', 6, 'The Constitution of Nepal, Part-11, Article 149, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.23.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.23', 3, 'clause', '(8)', '', NULL, 'Nothing shall prevent the instituting of an action, in accordance with the
+federal law, against a District Judge who is removed from office for the offence which
+he or she has committed while in office.', 7, 'The Constitution of Nepal, Part-11, Article 149, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.24', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 150', 'District Judges not to be engaged in any Other Office and Provisions r elating to Transfer', 'District Judges not to be engaged in any Other Office and Provisions r elating to Transfer', NULL, 24, 'The Constitution of Nepal, Part-11, Article 150 (District Judges not to be engaged in any Other Office and Provisions r elating to Transfer)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.24.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.24', 3, 'clause', '(1)', '', NULL, 'No District Judge shall be engaged in or deputed to any office other than
+that of Judge.
+Provided that the Government of Nepal may, in consultation with the Judicial
+Council, depute a District Judge to work concerning judicial inquiry, or to legal or
+judicial investigation or research and to any election related work  for a specified
+period.', 0, 'The Constitution of Nepal, Part-11, Article 150, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.24.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.24', 3, 'clause', '(2)', '', NULL, 'The Chief Justice may, on recommendation of the Judicial Council,
+transfer a District Judge from one District Court to another District Court.', 1, 'The Constitution of Nepal, Part-11, Article 150, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.25', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 151', 'Jurisdiction of District Court', 'Jurisdiction of District Court', NULL, 25, 'The Constitution of Nepal, Part-11, Article 151 (Jurisdiction of District Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.25.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.25', 3, 'clause', '(1)', '', NULL, 'Except as otherwise provided for in the federal law,
+a District Court shall have the power to initially hear and settle all cases under its
+jurisdiction, to hear petitions under law, including petitions of habeas corpus  and
+injunction, hear appeals under law from decisions made by quasi -judicial institutions,
+hear appeals from decisions made by Local Level judicial institutions formed under
+the provincial law, institute contempt proceedings  and punish for contempt under the
+federal law  in case  anyone makes obstruction in the dispensation of justice by , or
+disregards any order or judgment by, it or any of its subordinate courts.', 0, 'The Constitution of Nepal, Part-11, Article 151, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.25.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.25', 3, 'clause', '(2)', '', NULL, 'Other provisions relating to the jurisdiction and procedures of the District
+Courts shall be as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-11, Article 151, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.26', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 152', 'Specialized Courts', 'Specialized Courts', NULL, 26, 'The Constitution of Nepal, Part-11, Article 152 (Specialized Courts)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.26.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.26', 3, 'clause', '(1)', '', NULL, 'Other specialized courts, judicial institutions or tribunals may
+be constituted to initiate and settle specific types and nature of cases other than those
+referred to in Article 127, as provided for in the federal law.
+Provided that no specialized court, judicial institutions or tribunal  shall be
+constituted for any specific case.', 0, 'The Constitution of Nepal, Part-11, Article 152, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.26.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.26', 3, 'clause', '(2)', '', NULL, 'No criminal offence involving imprisonment for a term of more than one
+year shall fall under the jurisdiction of a n institution other than a court, specialized
+court, military court or judicial institution.', 1, 'The Constitution of Nepal, Part-11, Article 152, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 153', 'Judicial Council', 'Judicial Council', NULL, 27, 'The Constitution of Nepal, Part-11, Article 153 (Judicial Council)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(1)', '', NULL, 'There shall be a Judicial Council to make recommendation or
+give advice, in accordance with this Constitution, on the appointment of, transfer of,
+disciplinary action against, and dismissal of, Judges, and other matters relating to the
+administration of justice, which shall consist of the following as its chairperson and
+members:
+(a) The Chief Justice - Chairperson
+(b) The Federal Minister for Law and Justice - Member
+(c) The senior-most Justice of Supreme Court  - Member
+(d) One jurist appointed by the President on
+recommendation of the Prime Minister
+- Member
+(e) A senior advocate or advocate who has gained at least
+twenty years of experience, appointed by the President
+on recommendation of the Nepal Bar Association
+- Member', 0, 'The Constitution of Nepal, Part-11, Article 153, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(2)', '', NULL, 'The term of office of the members referred to in sub-clauses (d) and (e) of
+clause (1) shall be four years, and their remuneration and facilities shall be equivalent
+to those of a Justice of the Supreme Court.', 1, 'The Constitution of Nepal, Part-11, Article 153, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(3)', '', NULL, 'The members referred to in  sub-clauses (d) and (e) of clause (1) shall be
+removed from office in the same manner and on the same grounds as a Justice of the
+Supreme Court.', 2, 'The Constitution of Nepal, Part-11, Article 153, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(4)', '', NULL, 'The chairperson and a member of the Judicial Council may study the case
+associated with a complaint filed in respect of any Judge, and make a report thereof to
+the Judicial Council.', 3, 'The Constitution of Nepal, Part-11, Article 153, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(5)', '', NULL, 'In case a preliminary inquiry of a complaint filed in respect of any Judge
+reveals a need to have a detailed inquiry by an expert, the Judicial Council may form
+an inquiry committee.', 4, 'The Constitution of Nepal, Part-11, Article 153, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(6)', '', NULL, 'In case a Judge, other than a  Judge who may be removed from the office
+by way of impeachment in accordance with this Constitution, commits an abuse of
+authority by way of corruption, the Judicial Council may investigate into the matter
+and institute a case in accordance with law.', 5, 'The Constitution of Nepal, Part-11, Article 153, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(7)', '', NULL, 'The Judicial Council shall be required to prepare updated records of the
+persons who are qualified for appointment to offices of the Chief Justice , Justices of
+the Supreme Court, Chief Judges and Judges of the High Courts.', 6, 'The Constitution of Nepal, Part-11, Article 153, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.27.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.27', 3, 'clause', '(8)', '', NULL, 'Other functions, duties and p owers of the Judicial Council shall  be as
+provided for in the federal law.', 7, 'The Constitution of Nepal, Part-11, Article 153, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.28', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 154', 'Judicial Service Commission', 'Judicial Service Commission', NULL, 28, 'The Constitution of Nepal, Part-11, Article 154 (Judicial Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.28.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.28', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal shall , in appointing,
+transferring or promoting gazetted officers of the Federal Judicial Service or taking
+departmental action concerning such officers in accordance with law, act on
+recommendation of the Judicial Service Commission.
+Provided that the Government of Nepal shall consult the  Public Service
+Commission for new permanent appointments to gazetted posts of the Federal Judicial
+Service from persons who are not already in the Federal Government Service or  for
+promotions from non -gazetted posts of the Federal Judicial Service to gazetted ones
+of that Service.
+Explanation: For the purposes of this Article, the Public Service Commission
+shall hold open and internal competitive examinations to be held for appointment s to
+Gazetted posts of the Federal Judicial Service.', 0, 'The Constitution of Nepal, Part-11, Article 154, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.28.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.28', 3, 'clause', '(2)', '', NULL, 'The Judicial Service Commission shall consist of the following as its
+chairperson and members:-
+(a) The Chief Justice - Chairperson
+(b) The Federal Minister for Law and Justice - Member
+(c) The senior most Justice of Supreme Court - Member
+(d) The Chairperson of the Public Service
+Commission
+- Member
+(e) The Attorney General - Member', 1, 'The Constitution of Nepal, Part-11, Article 154, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.28.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11.28', 3, 'clause', '(3)', '', NULL, 'Other functions, duties, powers and procedures of the Judicial Service
+Commission shall be as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-11, Article 154, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.29', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 155', 'Provisions relating to Conditions of Service and Facilities', 'Provisions relating to Conditions of Service and Facilities', 'Provisions relating to the
+remuneration, facilities and conditi ons of s ervice of the employees of the Federal
+Judicial Service shall be as provided for in a Federal Act.', 29, 'The Constitution of Nepal, Part-11, Article 155 (Provisions relating to Conditions of Service and Facilities)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:11.30', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:11', 2, 'article', 'Article 156', 'Provisions relating to Provincial Judicial Service Commission', 'Provisions relating to Provincial Judicial Service Commission', 'Provisions relating to
+the formation of a Provincial Judicial Service Commission and the remuneration,
+facilities and conditions of service of the employees of a Provincial Judicial Service
+shall be as provided for in the federal law.', 30, 'The Constitution of Nepal, Part-11, Article 156 (Provisions relating to Provincial Judicial Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-12', 'Attorney General', 'Attorney General', NULL, 12, 'The Constitution of Nepal, Part-12 (Attorney General)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12', 2, 'article', 'Article 157', 'Attorney General', 'Attorney General', NULL, 0, 'The Constitution of Nepal, Part-12, Article 157 (Attorney General)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.0', 3, 'clause', '(1)', '', NULL, 'There shall be an Attorney General of Nepal.', 0, 'The Constitution of Nepal, Part-12, Article 157, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on recommendation of the Prime Minister, appoint the
+Attorney General.  The Attorney General shall hold his or her office during the
+pleasure of the Prime Minister.', 1, 'The Constitution of Nepal, Part-12, Article 157, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.0', 3, 'clause', '(3)', '', NULL, 'A person who i s eligible   to be ap pointed as a Justice of the Supreme
+Court shall be eligible to be appointed as the Attorney General.', 2, 'The Constitution of Nepal, Part-12, Article 157, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.0', 3, 'clause', '(4)', '', NULL, 'The office of the Attorney General shall fall vacant in any of the following
+circumstances:
+(a) In case he or she tenders resignation in writing to the President
+through the Prime Minister;
+(b) In case he or she is relieved of the office by the President on
+recommendation of the Prime Minister;
+(c) In case he or she dies.', 3, 'The Constitution of Nepal, Part-12, Article 157, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.0', 3, 'clause', '(5)', '', NULL, 'The remuneration and other facilities of the Attorney General shall be
+similar to those of a Justice of Supreme Court . Other conditions of service of the
+Attorney General shall be in accordance with law.', 4, 'The Constitution of Nepal, Part-12, Article 157, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12', 2, 'article', 'Article 158', 'Functions, Duties and Powers of Attorney General', 'Functions, Duties and Powers of Attorney General', NULL, 1, 'The Constitution of Nepal, Part-12, Article 158 (Functions, Duties and Powers of Attorney General)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(1)', '', NULL, 'The Attorney General shall be
+the chief legal advisor to the Government of Nepal. It shall be the duty of the
+Attorney General to give opinions and advices on constitutional and legal matters to
+the Government of Nepal and such other authorities as  the Government of Nepal may
+specify.', 0, 'The Constitution of Nepal, Part-12, Article 158, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(2)', '', NULL, 'The Attorney General or government attorneys subordinate to him or her
+shall represent the Government of Nepal in lawsuits wherein the rights, interests or
+concerns of the Government of Nepal are involved. Except as provided otherwise in
+this Constitution, the Attorney General shall have the right to make a final decision as
+to whether or not to institute any case on behalf of the Government of Nepal in any
+court, judicial institution or authority.', 1, 'The Constitution of Nepal, Part-12, Article 158, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(3)', '', NULL, 'Opinion of the Attorney General shall be required for withdrawing a case
+filed on behalf of the Government of Nepal.', 2, 'The Constitution of Nepal, Part-12, Article 158, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(4)', '', NULL, 'The Attorney General may, upon in vitation by the Federal  Parliament or
+any of its committees, appear and express his or her opinion on any legal question in
+such meeting.', 3, 'The Constitution of Nepal, Part-12, Article 158, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(5)', '', NULL, 'In the course of discharging the duties of his or her office, the Attorney
+General shall have the right to appear in any Court, office and authority of Nepal.', 4, 'The Constitution of Nepal, Part-12, Article 158, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(6)', '', NULL, 'The Attorney General shall, in the course of performi ng his or her duties,
+in addition to that set forth in clause (2)  have the power to carry out the following
+acts:-
+(a) To defend, on behalf of the Government of Nepal, any lawsuit in
+which the Government of Nepal is a plaintiff or a defendant;
+(b) To monitor, or cause to be monitored, whether any interpretation
+given to a law or any legal principle laid down by the Supreme Court
+in the course of hearing of lawsuits has been implemented;
+(c) In case a complaint is made alleging that any person held in c ustody
+has not been treated humanely subject to this Constitution or such
+person has not been allowed to meet his or her relative or through his
+or her legal practitioner or in case  information of such  matter is
+received, to inquire there  into and give nec essary directive to the
+concerned authority to prevent such act.', 5, 'The Constitution of Nepal, Part-12, Article 158, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(7)', '', NULL, 'The Attorney General may so delegate his or her functions, duties and
+powers referred to in this Article to his or her subordinate government attorneys as to
+be exercised and complied with subject to the specified conditions.', 6, 'The Constitution of Nepal, Part-12, Article 158, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.1', 3, 'clause', '(8)', '', NULL, 'In addition to the functions, duties and powers referred to in this Article,
+other functions, duties and powers of th e Attorney General shall be in accordance
+with this Constitution and the federal law.', 7, 'The Constitution of Nepal, Part-12, Article 158, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12', 2, 'article', 'Article 159', 'Annual Report', 'Annual Report', NULL, 2, 'The Constitution of Nepal, Part-12, Article 159 (Annual Report)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.2', 3, 'clause', '(1)', '', NULL, 'The Attorney General shall, every year, submit to the President an
+annual report on the works which he or she has performed in accordance with thi s
+Constitution and the federal law , and the President shall cause such report to be laid
+before the Federal Parliament through the Prime Minister.', 0, 'The Constitution of Nepal, Part-12, Article 159, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.2', 3, 'clause', '(2)', '', NULL, 'The annual report to be submitted pursuant to clause (1) shall set out, inter
+alia, the number of advices and opinions on constitutional and legal matters rendered
+by him or her throughout the year, along with short description of such advices and
+opinions, details of cases instituted as State cases, details of defence made in lawsuits
+in which the Government of Nepal is a plaintiff or defendant, details of reforms to be
+made in the future in relation to cases to be instituted as State cases and information
+relating to crime trends.', 1, 'The Constitution of Nepal, Part-12, Article 159, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12', 2, 'article', 'Article 160', 'Chief Attorney', 'Chief Attorney', NULL, 3, 'The Constitution of Nepal, Part-12, Article 160 (Chief Attorney)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(1)', '', NULL, 'There shall be a Chief Attorne y in every Province, who shall be
+subordinate to the Attorney General.', 0, 'The Constitution of Nepal, Part-12, Article 160, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(2)', '', NULL, 'The Chief of Province  shall, on recommendation of the concerned Chief
+Minister, appoint the Chief Attorney . The Chief Attorney shall hold office during the
+pleasure of the Chief Minister.', 1, 'The Constitution of Nepal, Part-12, Article 160, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(3)', '', NULL, 'A person who is qualified to be appointed as a Judge of High Court shall
+be eligible to be appointed as the Chief Attorney.', 2, 'The Constitution of Nepal, Part-12, Article 160, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(4)', '', NULL, 'The office of the Chief Attorney shall fall vacant in any of the following
+circumstances: -
+(a) In case he or she tenders resignation in writing to the Chief of
+Province through the Chief Minister;
+(b) In case he or she is removed from office by the Chief of Province on
+recommendation of the Chief Minister;
+(c) In case he or she dies.', 3, 'The Constitution of Nepal, Part-12, Article 160, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(5)', '', NULL, 'The Chief Attorney shall be the chief legal advisor to the Provincial
+Government. It shall be the duty of the Chief Attorney to give opinions and advices
+on constitutional and legal matters to the Provincial Government and such other
+authorities as the Provincial Government may specify.', 4, 'The Constitution of Nepal, Part-12, Article 160, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(6)', '', NULL, 'The Office of Attorney General shall manage the employees under the
+Office of Chief Attorney.', 5, 'The Constitution of Nepal, Part-12, Article 160, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.3.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12.3', 3, 'clause', '(7)', '', NULL, 'The remuneration and other facilities of the Chief Attorney shall be similar
+to those of a Judge of High Court. The fun ctions, duties and powers and o ther
+conditions of service of the Chief Attorney shall be as provided for in the provincial
+law.', 6, 'The Constitution of Nepal, Part-12, Article 160, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:12.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:12', 2, 'article', 'Article 161', 'Provisions relating to Conditions of Service and Facilities', 'Provisions relating to Conditions of Service and Facilities', 'Provisions relating to the
+remuneration, facilities and conditions of service of the government attorneys and
+other employees under the Attorney General shall be as provided for in a Federal Act.', 4, 'The Constitution of Nepal, Part-12, Article 161 (Provisions relating to Conditions of Service and Facilities)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-13', 'Provincial Executive', 'Provincial Executive', NULL, 13, 'The Constitution of Nepal, Part-13 (Provincial Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 162', 'Executive P ower of Province', 'Executive P ower of Province', NULL, 0, 'The Constitution of Nepal, Part-13, Article 162 (Executive P ower of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.0', 3, 'clause', '(1)', '', NULL, 'The executive power of a Province shall, in
+accordance with  this Constitution and provincial law , be vested in the Provincial
+Council of Ministers.
+Provided that in case  a Provincial Executive does not exist because of
+enforcement of Federal rule, the Chief of Province shall exercise the executive power
+of the Province as directed by the Government of Nepal.', 0, 'The Constitution of Nepal, Part-13, Article 162, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.0', 3, 'clause', '(2)', '', NULL, 'The responsibility for issuing general directives, controlling and regulating
+the governance of the Province shall, subject to this Constitution and other laws, lie in
+the Provincial Council of Ministers.', 1, 'The Constitution of Nepal, Part-13, Article 162, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.0', 3, 'clause', '(3)', '', NULL, 'All Provincial Executive functions shall be performed in the name of the
+Provincial Government.', 2, 'The Constitution of Nepal, Part-13, Article 162, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.0', 3, 'clause', '(4)', '', NULL, 'The executive power of the Province shall be as referred to in Schedule-6,
+Schedule-7 and Schedule-9 subject to this Constitution.
+Provided that the Provincial Council of Ministers shall exercise the executive
+powers in coordination with the Government of Nepal, except as explicitly provided
+for in this Constitution and in the federal law in relation to concurrent powers of the
+Federation and the Province.', 3, 'The Constitution of Nepal, Part-13, Article 162, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.0', 3, 'clause', '(5)', '', NULL, 'Any decision or order to be issued in the name of the Provincial
+Government pursuant to clause (3) and other instruments of authorization pertaining
+thereto shall be authenticated as provided for in the provincial law.', 4, 'The Constitution of Nepal, Part-13, Article 162, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 163', 'Provisions r elating to Chief of Province', 'Provisions r elating to Chief of Province', NULL, 1, 'The Constitution of Nepal, Part-13, Article 163 (Provisions r elating to Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.1', 3, 'clause', '(1)', '', NULL, 'There shall be a Chief of Province  in
+each Province as a representative of the Government of Nepal.', 0, 'The Constitution of Nepal, Part-13, Article 163, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.1', 3, 'clause', '(2)', '', NULL, 'The President shall appoint one Chief of Province for each Province.', 1, 'The Constitution of Nepal, Part-13, Article 163, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.1', 3, 'clause', '(3)', '', NULL, 'The term of office of a Chief of Province shall be five years except where
+the President removes him or her from the office prior to the expiration of his or her
+term of office.', 2, 'The Constitution of Nepal, Part-13, Article 163, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.1', 3, 'clause', '(4)', '', NULL, 'The same person may not be the Chief of Province for more than once in
+the same Province.', 3, 'The Constitution of Nepal, Part-13, Article 163, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 164', 'Qualification for Chief of Province', 'Qualification for Chief of Province', 'A person who has the following qualification
+shall be eligible to become the Chief of Province:-
+(a) One who is eligible to become a member of the Federal Parliament;
+(b) One who has completed the age of thirty-five years; and
+(c) One who is not disqualified by any law.', 2, 'The Constitution of Nepal, Part-13, Article 164 (Qualification for Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 165', 'V acation of Office of Chief of Province', 'V acation of Office of Chief of Province', NULL, 3, 'The Constitution of Nepal, Part-13, Article 165 (V acation of Office of Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.3', 3, 'clause', '(1)', '', NULL, 'The office of the Chief of Province shall
+fall vacant in any of the following circumstances:-
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case his or her term of office expires or he or she is removed from
+office by the President prior to expiration of the term;
+(c) In case he or she dies.', 0, 'The Constitution of Nepal, Part-13, Article 165, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.3', 3, 'clause', '(2)', '', NULL, 'In case the office of the Chief of Province of any Province falls vacant, the
+President may so designate the Chief of Province  of another Province to act as such
+also for such Province.', 1, 'The Constitution of Nepal, Part-13, Article 165, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 166', 'Functions, Duties and Powers of Chief of Province', 'Functions, Duties and Powers of Chief of Province', NULL, 4, 'The Constitution of Nepal, Part-13, Article 166 (Functions, Duties and Powers of Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.4', 3, 'clause', '(1)', '', NULL, 'The Chief of Province  shall
+exercise such powers and perform such duties as conferred to him or her in
+accordance with this Constitution or law.', 0, 'The Constitution of Nepal, Part-13, Article 166, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.4', 3, 'clause', '(2)', '', NULL, 'In exercising the powers o r fulfilling the duties pursuant to clause (1), the
+Chief of Province shall perform all other functions to be performed by him or her on
+recommendation and with the consent of the Provincial Council of Ministers than
+those functions specifically provided to be performed on recommendation  of any
+institution or official in accordance with  this Constitution or  law. Such
+recommendation and consent shall be submitted through the Chief Minister.', 1, 'The Constitution of Nepal, Part-13, Article 166, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.4', 3, 'clause', '(3)', '', NULL, 'Any decision or order to be issued in the name of the Chief of Province
+pursuant to clause (2) and other instrument of authorization pertaining thereto shall be
+authenticated as provided for in the provincial law.', 2, 'The Constitution of Nepal, Part-13, Article 166, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 167', 'Oath by Chief of Province', 'Oath by Chief of Province', 'The Chief of Province shall, prior to assuming office, take
+an oath of office and secrecy before the President as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-13, Article 167 (Oath by Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 168', 'Constitution of Provincial Council of Ministers', 'Constitution of Provincial Council of Ministers', NULL, 6, 'The Constitution of Nepal, Part-13, Article 168 (Constitution of Provincial Council of Ministers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(1)', '', NULL, 'The Chief of Province  shall
+appoint the leader of the parliamentary party commanding a majority in the Provincial
+Assembly as the Chief Minister and the Provincial   Council of Ministers shall be
+constituted under his or her chairpersonship.', 0, 'The Constitution of Nepal, Part-13, Article 168, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(2)', '', NULL, 'In cases where no party has a clear majority in the Provincial Assembly
+pursuant to  clause (1), the Chief of Province  shall appoint as the Chief Minister a
+member of the Provincial Assembly who is able to command majority with the
+support of two or more parties representing to the Provincial Assembly.', 1, 'The Constitution of Nepal, Part-13, Article 168, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(3)', '', NULL, 'In cases where the Chief Minister cannot be appointed pursuant to clause', 2, 'The Constitution of Nepal, Part-13, Article 168, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(2)', '', NULL, 'within thirty days after the date of declaration of the final results of election to the
+Provincial Assembly the Chief Minister so appointed fails to secure a vote of
+confidence pursuant to clause (4), the Chief of Province  shall appoint as the Chief
+Minister the parliamentary party leader of the party which has the highest number of
+members in the Provincial Assembly.', 3, 'The Constitution of Nepal, Part-13, Article 168, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(4)', '', NULL, 'The Chief Minister appointed pursuant to clause (2) or (3) shall secure a
+vote of confidence from the Provincial Assembly within thirty days after the date of
+such appointment.', 4, 'The Constitution of Nepal, Part-13, Article 168, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(5)', '', NULL, 'In cases where the Chief  Minister appointed pursuant to clause (3) fails to
+secure a vote of confidence under clause (4) and any member referred to in clause (2)
+presents a ground on which he or she is able to secure a vote of confidence in the
+Provincial Assembly, the Chief of Province  shall appoint such member as the Chief
+Minister.', 5, 'The Constitution of Nepal, Part-13, Article 168, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(6)', '', NULL, 'The Chief Minister appointed pursuant to clause (5) shall secure a vote of
+confidence pursuant to clause (4).', 6, 'The Constitution of Nepal, Part-13, Article 168, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(7)', '', NULL, 'In cases where the Chief Minister appointed pursuant to clause (5) fails to
+secure a vote of confidence or the Chief Minister cannot be appointed, the Chief of
+Province shall, on recommendation of the Chief Minister, dissolve the Provincial
+Assembly and appoint a date of election so that the election to another Provincial
+Assembly is completed within six months.', 7, 'The Constitution of Nepal, Part-13, Article 168, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(8)', '', NULL, 'Procedures on the appointment of the Chief Minister pursuant to  this
+Article shall be required to be completed within thirty-five days after the date of
+declaration of the final results of election to the Provincial Assembly held in
+accordance with this Constitution or the date on which the office of the Chief Minister
+has fallen vacant.', 8, 'The Constitution of Nepal, Part-13, Article 168, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(9)', '', NULL, 'The Chief of Province  shall, on recommend ation of the Chief Minister,
+constitute the Provincial Council of Ministers consisting of a maximum of twenty
+percent of the total number of members of the Provincial Assembly, including the
+Chief Minister, in accordance with the inclusive principle, from amongst the members
+of the Provincial Assembly.
+Explanation: For the purposes of this Article, "Minister" means a Minister,
+Minister of State and Assistant Minister.', 9, 'The Constitution of Nepal, Part-13, Article 168, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.6.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.6', 3, 'clause', '(10)', '', NULL, 'The Chief Minister and Ministers shall be collectively responsible to
+Provincial Assembly, and the Ministers shall be individually responsible for the
+business of their respective Ministries to the Chief Minister and the Provincial
+Assembly.', 10, 'The Constitution of Nepal, Part-13, Article 168, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 169', 'Vacation of Office of Chief Minister and Minister', 'Vacation of Office of Chief Minister and Minister', NULL, 7, 'The Constitution of Nepal, Part-13, Article 169 (Vacation of Office of Chief Minister and Minister)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.7', 3, 'clause', '(1)', '', NULL, 'The office of the Chief
+Minister shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the Chief of
+Province;
+(b) In case a vote of no confidence is adopted against him or her or a vote
+of confidence is not adopted pursuant to Article 188;
+(c) In case he or she ceases to be a member of the Provincial Assembly;
+(d) In case he or she dies.', 0, 'The Constitution of Nepal, Part-13, Article 169, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.7', 3, 'clause', '(2)', '', NULL, 'The office of a Minister shall fall vacant  in any of the following
+circumstances: -
+(a) In case he or she tenders resignation in writing to the Chief Minister;
+(b) In case the Chief Minister removes him or her from the office;
+(c) In case the office of the Chief Minister falls vacant pursuant to sub-
+clause (a), (b) or (c) of clause (1);
+(d) In case he or she dies.', 1, 'The Constitution of Nepal, Part-13, Article 169, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.7', 3, 'clause', '(3)', '', NULL, 'Even though the office of the Chief Minister falls vacant pursuant to clause', 2, 'The Constitution of Nepal, Part-13, Article 169, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.7.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.7', 3, 'clause', '(1)', '', NULL, ', the same Council of Ministers shall continue to act until another Provincial
+Council of Ministers is constituted.
+Provided that in case the Chief Minister dies, the senior -most Minister shall
+act as the Chief Minister until a new Chief Minister is appointed.', 3, 'The Constitution of Nepal, Part-13, Article 169, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 170', 'Non-Member of Provincial Assembly may B ecome Minister', 'Non-Member of Provincial Assembly may B ecome Minister', NULL, 8, 'The Constitution of Nepal, Part-13, Article 170 (Non-Member of Provincial Assembly may B ecome Minister)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.8', 3, 'clause', '(1)', '', NULL, 'Notwithstanding
+anything contained in clause (9) of Article 168 , the Chief of Province may, on the
+recommendation of the Chief Minister, appoint any person who is not a member of
+the Provincial Assembly as a Minister.', 0, 'The Constitution of Nepal, Part-13, Article 170, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.8', 3, 'clause', '(2)', '', NULL, 'A Minister appointed pursuant to clause (1) shall be required to become a
+member of the Provincial Assembly within six months from the date of taking an oath
+by him or her.', 1, 'The Constitution of Nepal, Part-13, Article 170, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.8', 3, 'clause', '(3)', '', NULL, 'In the event of failure to become a member of the Provincial Assembly
+within the period referred to in clause (2), he or she shall not be eligible to be
+reappointed to the office of Minister during the term of the then Provincial Assembly.', 2, 'The Constitution of Nepal, Part-13, Article 170, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.8.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.8', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (1), a person who has lost
+the election to the then Provincial Assembly shall not be eligible to be appointed to
+the office of Minister pursuant to clause (1) during the term of such Provincial
+Assembly.', 3, 'The Constitution of Nepal, Part-13, Article 170, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 171', 'Remuneration and o ther Facilities of Chief Minister and Minister', 'Remuneration and o ther Facilities of Chief Minister and Minister', 'The remuneration
+and other facilities of the Chief Minister and Ministers shall be as provided for in a
+provincial Act , and until such Act is made, shall be as specified by the Provincial
+Government.', 9, 'The Constitution of Nepal, Part-13, Article 171 (Remuneration and o ther Facilities of Chief Minister and Minister)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 172', 'Oath', 'Oath', 'The Chief Minister a nd Ministers shall , before assuming their respective
+offices, take an oath of office and secrecy before the Chief of Province, and Ministers
+of State and Assistant Ministers, before the Chief Minister, as provided for in the
+provincial law.', 10, 'The Constitution of Nepal, Part-13, Article 172 (Oath)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 173', 'To Give Information to Chief of Province', 'To Give Information to Chief of Province', 'The Chief Minister shall inform the Chief
+of Province about the following matters:-
+(a) Resolutions of the Provincial Council of Ministers;
+(b) Bills to be introduced in the Provincial Assembly;
+(c) Such other necessary information as commanded by the Chief of
+Province on matters set forth in clauses (a) and (b); and
+(d) Current general state of affairs of the Province.', 11, 'The Constitution of Nepal, Part-13, Article 173 (To Give Information to Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13', 2, 'article', 'Article 174', 'Transaction of Business of Provincial Government', 'Transaction of Business of Provincial Government', NULL, 12, 'The Constitution of Nepal, Part-13, Article 174 (Transaction of Business of Provincial Government)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.12', 3, 'clause', '(1)', '', NULL, 'The allocation and transaction
+of business of the Provincial Government shall be carried out in accordance with the
+rules approved by the Provincial Government.', 0, 'The Constitution of Nepal, Part-13, Article 174, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:13.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:13.12', 3, 'clause', '(2)', '', NULL, 'No question shall be raised in any court as to whether or not the rules
+referred to in clause (1) have been observed.', 1, 'The Constitution of Nepal, Part-13, Article 174, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-14', 'Provincial Legislature', 'Provincial Legislature', NULL, 14, 'The Constitution of Nepal, Part-14 (Provincial Legislature)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 175', 'Provincial Legislature', 'Provincial Legislature', 'The legislature of a Province shall be unicameral  which shall
+be called as the Provincial Assembly.', 0, 'The Constitution of Nepal, Part-14, Article 175 (Provincial Legislature)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 176', 'Composition of Provincial Assembly', 'Composition of Provincial Assembly', NULL, 1, 'The Constitution of Nepal, Part-14, Article 176 (Composition of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(1)', '', NULL, 'Each Provincial Assembly shall consist of a
+number of members as follows:-
+(a) Members in a number that is twice as many as the number of
+members elected to the House of Representatives from the concer ned
+Province, through the first past the post electoral system;
+(b) The number of members to be set pursuant to  clause (a) shall be
+considered to be sixty percent, and the rest forty percent members to
+be elected, through the proportional electoral system.', 0, 'The Constitution of Nepal, Part-14, Article 176, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(2)', '', NULL, 'Election constituencies shall  be set on the ba sis of geography and
+population as provided for in  the federal law for the election to members pursuant to
+sub-clause (a) of clause (1).', 1, 'The Constitution of Nepal, Part-14, Article 176, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(3)', '', NULL, 'Sixty percent members of the Provincial Assembly shall be electe d in
+accordance with the first past the post electoral system and the forty percent members
+in accordance with the proportional electoral system.', 2, 'The Constitution of Nepal, Part-14, Article 176, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(4)', '', NULL, 'Election to the members of the Provincial Assembly pursuant to clause (3)
+shall be held through adult suffrage by secret ballots in accordance with law.', 3, 'The Constitution of Nepal, Part-14, Article 176, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(5)', '', NULL, 'Each citizen of Nepal  who resides within the territory of the Province and
+who has completed the age of eighteen years shall have a right to vote in any one
+election constituency in accordance with law.', 4, 'The Constitution of Nepal, Part-14, Article 176, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(6)', '', NULL, 'A federal law shall provide that in filing candidacy by political parties for
+the election to the Provincial Assembly under the proportional electoral system,
+representation shall be ensured on the basis of a c losed list also from women, Dalit,
+indigenous nationalities (Aadibasi Janajati ), Khas Arya , Madhesi, Tharu, Muslims
+and backward regions, minority communities, on the basis of popul ation. In so  filing
+candidacy, regar d shall also be had to geographical  balance of the concerned
+Province.
+Explanation: For the purposes of this clause, " Khas Arya " means Kshetri,
+Brahmin, Thakuri, Sanyasi (Dashnami) community.', 5, 'The Constitution of Nepal, Part-14, Article 176, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(7)', '', NULL, 'In filing candidacy pursuant to clause (6), political parties shall provide for
+representation of the persons with disabilities as well.', 6, 'The Constitution of Nepal, Part-14, Article 176, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(8)', '', NULL, 'In case the seat of a member of the Provincial Assembly falls vacant while
+its term still remains for more than six months, the vacancy shall be fulfilled through
+the same electoral system as through which such seat was fulfilled.', 7, 'The Constitution of Nepal, Part-14, Article 176, Clause (8)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:14.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(9)', '', NULL, 'Notwithstanding anything contained elsewhere in this Article, at least one
+third of the total number of members elected from each political party representing in
+the Provincial Assembly shall be women. In case  women are not so elected as to
+constitute one third of the elected members of any political party pursuant to  sub-
+clause (a) of clause (1), such  political party shall, in electing members pursuant to
+sub-clause (b) of that clause , so elect  that women members constitute at least one
+third of the total number of members electe d to the Provincial Assembly from that
+party.', 8, 'The Constitution of Nepal, Part-14, Article 176, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(10)', '', NULL, 'A person who is qualified pursuant to Article 178 and entitled to vote in
+an election to the members of the Provincial Assembly may, su bject to law, be a
+candidate in any election constituency of the Province.
+Provided that a person shall not be a candidate in more than one election
+constituencies at the same time.', 9, 'The Constitution of Nepal, Part-14, Article 176, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.1.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.1', 3, 'clause', '(11)', '', NULL, 'Other provisions relating to election to the Provincial Assembly shall be
+as provided for in the federal law.', 10, 'The Constitution of Nepal, Part-14, Article 176, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 177', 'Term of Provincial Assembly', 'Term of Provincial Assembly', NULL, 2, 'The Constitution of Nepal, Part-14, Article 177 (Term of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.2', 3, 'clause', '(1)', '', NULL, 'Unless dissolved earlier in accordance with this
+Constitution, the term of the Provincial Assembly shall be five years.', 0, 'The Constitution of Nepal, Part-14, Article 177, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.2', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), the term of the
+Provincial Assembly may be extended by a provincial Act for a period not exceeding
+one year in cases where a proclamation or order of a state of emergency is in effect.', 1, 'The Constitution of Nepal, Part-14, Article 177, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.2', 3, 'clause', '(3)', '', NULL, 'The term of the Provincial Assembly extended pursuant to clause (2) shall,
+ipso facto, be terminated after the expiry of six months from the date of  revocation of
+the proclamation or order of the state of emergency in the concerned Province.', 2, 'The Constitution of Nepal, Part-14, Article 177, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 178', 'Qualification for a Member of Provincial Assembly', 'Qualification for a Member of Provincial Assembly', NULL, 3, 'The Constitution of Nepal, Part-14, Article 178 (Qualification for a Member of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.3', 3, 'clause', '(1)', '', NULL, 'A person who has the
+following qualification s shall be eligible to become a member of the Provincial
+Assembly:-
+(a) One who is a citizen of Nepal;
+(b) One who is a voter of the concerned Province;
+(c) One who has completed the age of twenty-five years;
+(d) One who is not convicted of a cr iminal offense involving moral
+turpitude;
+(e) One who is not disqualified by any law; and
+(f) One who is not holding any office of profit.
+Explanation: For the purposes  of this clause, "office of profit" mean s any
+position, other than a political position which is to be fulfilled by election or
+nomination, for which a remuneration or financial benefit is paid out of a government
+fund.', 0, 'The Constitution of Nepal, Part-14, Article 178, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.3', 3, 'clause', '(2)', '', NULL, 'In case  a person who holds a political office to be fulfilled by way of
+election, nomination or appointment is elected as a member of the Provincial
+Assembly under this Part, such office shall, ipso facto, fall vacant with effect from the
+day on which he or she takes an oath of such office.', 1, 'The Constitution of Nepal, Part-14, Article 178, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 179', 'Oath of Member of Provincial Assembly', 'Oath of Member of Provincial Assembly', 'Every member of the Provincial Assembly
+shall be required, before taking part for the first time in the meeting of the Assembly
+or any of its committees, to take an oath as provided for in the provincial law.', 4, 'The Constitution of Nepal, Part-14, Article 179 (Oath of Member of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 180', 'V acation of Seat of a Member of Provincial Assembly', 'V acation of Seat of a Member of Provincial Assembly', 'The seat of a member of the
+Provincial Assembly shall fall vacant in any of the following circumstances:-
+(a) In case he or she tenders resignation in writing to the Speaker of
+Province;
+(b) In case he or she is no longer qualified or ceases to possess th e
+qualifications referred to in Article 178;
+(c) In case the term of the Provincial Assembly expires or it is dissolved;
+(d) In case he or she is absent in ten consecutive meetings  without giving
+information to the Provincial Assembly;
+(e) In case the political party of which he or she was a member when elected
+provides a notification as provided  for in the federal law that he or she
+has defected from the party;
+(f) In case he or she dies.', 5, 'The Constitution of Nepal, Part-14, Article 180 (V acation of Seat of a Member of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 181', 'Decision as to Disqualification of Member', 'Decision as to Disqualification of Member', 'In case question arises as to whether any
+member of the Provincial Assembly is disqualified or has ceased to possess any of the
+qualifications referred to in  Article 178 , the Constitutional Bench of the Supreme
+Court shall make the final decision of such question.', 6, 'The Constitution of Nepal, Part-14, Article 181 (Decision as to Disqualification of Member)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 182', 'Speaker and Deputy Speaker of Provincial Assembly', 'Speaker and Deputy Speaker of Provincial Assembly', NULL, 7, 'The Constitution of Nepal, Part-14, Article 182 (Speaker and Deputy Speaker of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(1)', '', NULL, 'The members of the
+Provincial Assembly  shall, within fifteen days of the date of holding of the first
+meeting of the Provincial Assembly, elect a Speaker of Province  and a Deputy
+Speaker of Province from amongst themselves.', 0, 'The Constitution of Nepal, Part-14, Article 182, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(2)', '', NULL, 'Election pursuant to clause (1) shall be so held that there is one woman out
+of the Speaker of Province  and the Deputy Speaker of Province , and the Speaker of
+Province and the Deputy Speaker of Province  shall be representatives from different
+parties.
+Provided that in case there is no representation of more than one party in the
+Provincial Assembly or no candidacy is filed by more than one party despite
+representation, nothing shall prevent the members of the same party from being the
+Speaker of Province and the Deputy Speaker of Province.', 1, 'The Constitution of Nepal, Part-14, Article 182, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(3)', '', NULL, 'In case  the office of the Speaker of Province  or the Deputy Speaker of
+Province falls vacant, the members of the Provincial Assembly shall fulfil the vacancy
+through election to the Speaker of Province or the Deputy Speaker of Province  from
+amongst themselves.', 2, 'The Constitution of Nepal, Part-14, Article 182, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(4)', '', NULL, 'The Deputy Speaker of Province  shall, in the absence of the Speaker of
+Province, preside over the Provincial Assembly.', 3, 'The Constitution of Nepal, Part-14, Article 182, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(5)', '', NULL, 'In case the election to the Speaker of Province and the Deputy Speaker of
+Province has not taken place, or in case  both the positions have fallen vacant , the
+attending member who is by age the senior -most shall preside over the meeting of the
+Provincial Assembly.', 4, 'The Constitution of Nepal, Part-14, Article 182, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(6)', '', NULL, 'The office of the Speaker of Province  or the Deputy Speaker of Province
+shall fall vacant in any of the following circumstances:-
+(a) In case he or she ceases to be a member of the Provincial Assembly;
+Provided that, in the event of the dissolution of the Provincial
+Assembly, the Speaker of Province  and the Deputy Speaker holding
+their respective offices shall continue in office until the previous day
+of the filing of nominations for another election to the Provincial
+Assembly;
+(b) In case he or she tenders resignation in writing;
+(c) In case a resolution is adopted by a majority of two -thirds of the total
+number of the then members of the Provincial Assembly to the effect
+that his or her conduct is not compatible with his or her office.', 5, 'The Constitution of Nepal, Part-14, Article 182, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.7.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.7', 3, 'clause', '(7)', '', NULL, 'The Deputy Speaker  of Province shall preside over a meeting at which
+deliberations are to be held on a motion that the conduct of the Speaker of Province is
+not compatible with his or her office. The Speaker of Province shall be entitled to take
+part and vote in the deliberations on such motion.', 6, 'The Constitution of Nepal, Part-14, Article 182, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 183', 'Summoning and Prorogation of Session of Provincial Assembly', 'Summoning and Prorogation of Session of Provincial Assembly', NULL, 8, 'The Constitution of Nepal, Part-14, Article 183 (Summoning and Prorogation of Session of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.8', 3, 'clause', '(1)', '', NULL, 'The Chief of
+Province shall summon a session of the Provincial Assembly within twenty days of
+the declaration of final results of the election to the Provincial Assembly. Thereafter,
+the Chief of Province shall, from time to time, summon other sessions in accordance
+with this Constitution.
+Provided that the interval between the two consecutive sessions shall not
+exceed six months.', 0, 'The Constitution of Nepal, Part-14, Article 183, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.8', 3, 'clause', '(2)', '', NULL, 'The Chief of Province  may prorogue the sessions of the Provincial
+Assembly.', 1, 'The Constitution of Nepal, Part-14, Article 183, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.8', 3, 'clause', '(3)', '', NULL, 'In case, during the prorogation or recess of the session of the Provincial
+Assembly, one-fourth of the total number of its members make a requisition in writing
+that it is expedient  to convene a session or meeting, the Chief of Province  shall
+specify the date and time for such  session or meeting. The Provincial Assembly shall
+meet or commence its session at the date and time so specified.', 2, 'The Constitution of Nepal, Part-14, Article 183, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 184', 'Address by Chief of Province', 'Address by Chief of Province', NULL, 9, 'The Constitution of Nepal, Part-14, Article 184 (Address by Chief of Province)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.9', 3, 'clause', '(1)', '', NULL, 'The Chief of Province may address a sitting of the
+Provincial Assembly and summon the members for that purpose.', 0, 'The Constitution of Nepal, Part-14, Article 184, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.9', 3, 'clause', '(2)', '', NULL, 'The Chief of Province shall address the first session after an election to the
+Provincial Assembly and a sitting of the Provincial Assembly after the
+commencement of the first session of each year.', 1, 'The Constitution of Nepal, Part-14, Article 184, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 185', 'Quorum of Provincial Assembly', 'Quorum of Provincial Assembly', 'Except as otherwise provided for in this
+Constitution, no question or motion shall be submitted for a decision in the Provincial
+Assembly unless one-fourth of the total number of its members are present.', 10, 'The Constitution of Nepal, Part-14, Article 185 (Quorum of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 186', 'Voting in Provincial Assembly', 'Voting in Provincial Assembly', 'All questions submitted for a decision in the
+Provincial Assembly shall be decided by a majority vote of the members present and
+participate in voting. T he member presiding over the meeting shall not have the right
+to vote.
+Provided that he or she may exercise his or her casting vote in the case of a tie.', 11, 'The Constitution of Nepal, Part-14, Article 186 (Voting in Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 187', 'Privileges of Provincial Assembly', 'Privileges of Provincial Assembly', NULL, 12, 'The Constitution of Nepal, Part-14, Article 187 (Privileges of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(1)', '', NULL, 'Subject to this Constitution , there shall be full
+freedom of speech in the Provincial Assembly and no member shall be arrested,
+detained or prosecuted in any court for anything expressed or any vote cast by him or
+her in the Provincial Assembly.', 0, 'The Constitution of Nepal, Part-14, Article 187, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(2)', '', NULL, 'Subject to this Constitution, the Provincial Assembly shall have full power
+to regulate and decide its internal business  and it shall be the exclusive right of the
+Provincial Assembly to decide whether or not any of its proceedings is regular or
+irregular. No question shall be raised in any court in this regard.', 1, 'The Constitution of Nepal, Part-14, Article 187, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(3)', '', NULL, 'No comment shall be made about the good faith concerning any
+proceeding of the Provincial Assembly, and no publication an d broadcasting of any
+type shall be made about anything said by any member, intentionally distorting or
+misinterpreting the meaning of the speech.', 2, 'The Constitution of Nepal, Part-14, Article 187, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(4)', '', NULL, 'The provisions of clauses (1) and (3) shall also apply to other persons who
+are entitled to participate i n the meetings of the Provincial Assembly other than the
+members of the Provincial Assembly.', 3, 'The Constitution of Nepal, Part-14, Article 187, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(5)', '', NULL, 'No proceedings shall be initiated in any court against any person in respect
+of the publication, un der the authority granted by  the Provincial Assembly , of any
+document, report, vote or proceeding.
+Explanation: For the purposes of this clause and clauses (1), (2), (3) and (4),
+"Provincial Assembly" means and includes a meeting of a committee of the Provincial
+Assembly.', 4, 'The Constitution of Nepal, Part-14, Article 187, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(6)', '', NULL, 'No member of the Provincial Assembly may be arrested during the period
+from the issuance of a notice summoning the session to its prorogation.
+Provided that nothing in this clause shall be deemed to prevent the arrest under
+the law of any member on a criminal charge. In case any member is so arrested, the
+authority making such  arrest shall forthwith give information thereof to the person
+presiding over the Provincial Assembly.', 5, 'The Constitution of Nepal, Part-14, Article 187, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(7)', '', NULL, 'Any breach of the privileges shall be deemed to constitute  the contempt of
+the Provincial Assembly, and the Provincial Assembly shall have the exclusive right
+to decide whether or not any breach of its privileges has taken place.', 6, 'The Constitution of Nepal, Part-14, Article 187, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(8)', '', NULL, 'In case any person is in contempt of the Provincial Assembly, the person
+presiding over the Provincial Assembly may, a fter a decision by the Provincial
+Assembly to that effect, admonish, warn or impose a sentence of imprisonment for a
+term not exceeding three months or of a fine not exceeding ten thousand rupees on
+such person, and such fine shall be recovered as a government due.
+Provided that in case  such person apolog ies to the satisfaction of the
+Provincial Assembly, it may either pardon him or her or remit or commute the
+sentence imposed on him or her.', 7, 'The Constitution of Nepal, Part-14, Article 187, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.12.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.12', 3, 'clause', '(9)', '', NULL, 'Other matters relating to privileges of the Provincial Assembly shall be as
+provided for in a provincial law.', 8, 'The Constitution of Nepal, Part-14, Article 187, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 188', 'Provisions relating to Vote of Confidence and Motion of No confidence', 'Provisions relating to Vote of Confidence and Motion of No confidence', NULL, 13, 'The Constitution of Nepal, Part-14, Article 188 (Provisions relating to Vote of Confidence and Motion of No confidence)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(1)', '', NULL, 'The
+Chief Minister may, whenever he or she considers necessary or appropriate to show
+that he or she has confidence from the Provincial Assembly, table a resolution to that
+effect in the Provincial Assembly for the vote of confidence.', 0, 'The Constitution of Nepal, Part-14, Article 188, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(2)', '', NULL, 'In case the political party which the Chief Minister represents is divided or
+a political party  in coalition Provincial Government withdraws its support, the Chief
+Minister shall table a resolution in the Provincial Assembly for a vote of confidence
+within thirty days.', 1, 'The Constitution of Nepal, Part-14, Article 188, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(3)', '', NULL, 'In case a resolution tabled pursuant to clauses (1) and (2) is not adopted by
+a majority of the total number of then members of the Provincial Assembly, the Chief
+Minister shall relieve of his or her office.', 2, 'The Constitution of Nepal, Part-14, Article 188, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(4)', '', NULL, 'One-fourth of the total number of then members of the Provincial
+Assembly may table in writing a motion of no confidence against the Chief Minister.
+Provided that a motion of no confidence may not be tabled until the first two
+years after the appointment of the Chief Minister and until another one year after the
+date of failure of the motion of no confidence once tabled.', 3, 'The Constitution of Nepal, Part-14, Article 188, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(5)', '', NULL, 'A motion of no confidence to be tabled pursuant to  clause (4) shall also
+mention the name of a member proposed for the Chief Minister.', 4, 'The Constitution of Nepal, Part-14, Article 188, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(6)', '', NULL, 'In case a motion of no confidence tabled pursuant to clause (4) is adopted
+by a majority of the total number of then members of the Provincial Assembly, the
+Chief Minister shall be relieved of his or her office.', 5, 'The Constitution of Nepal, Part-14, Article 188, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.13.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.13', 3, 'clause', '(7)', '', NULL, 'In case the office of the Chief Minister falls vacant because of the adoption
+of a vote of no confidence pursuant to clause (6), the Chief of Province shall, pursuant
+to Article 168, appoint as the Chief Minister the member of the Provincial Assembly
+proposed pursuant to clause (5).', 6, 'The Constitution of Nepal, Part-14, Article 188, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 189', 'Minister, Minister of State and Assistant Minister entitled to Take part in Meetings of Provincial Assembly', 'Minister, Minister of State and Assistant Minister entitled to Take part in Meetings of Provincial Assembly', 'The Minister, Minister of State and Assistant Minister shall be
+entitled to attend, and take part in the proceedings and deliberations of , the Provincial
+Assembly or its committees.
+Provided that a Minister, Minister of State or Assistant Minister  who is not a
+member of the Provincial Assembly shall not be entitled to cast a vote in a meeting of
+the Provincial Assembly or its committee, and a Minister, Minister of State or
+Assistant Minister shall not be entitled to vote in a meeting of a committee of which
+he or she is not a member.', 14, 'The Constitution of Nepal, Part-14, Article 189 (Minister, Minister of State and Assistant Minister entitled to Take part in Meetings of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 190', 'Penalty for unauthorized Presence or Voting in Provincial Assembly', 'Penalty for unauthorized Presence or Voting in Provincial Assembly', 'In case a person
+who has not taken oath pursuant to  Article 179 or who is not a member of the
+Provincial Assembly is present or votes in a meeting of the Provincial Assembly or of
+its committee as a member, the person shall, by order of the person presiding over the
+meeting, be fined with a sum of five thousand rupees for each instance of such
+presence or voting, and such fine shall be recovered as a government due.', 15, 'The Constitution of Nepal, Part-14, Article 190 (Penalty for unauthorized Presence or Voting in Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 191', 'Restriction on Discussion', 'Restriction on Discussion', 'No discussion shall be held in the Provincial Assembly on
+any matters that may cause adverse effect on the dispensation of justice on any cases
+which are sub judice in any court of Nepal and on any judicial acts carried out by
+Judges in the course of performance of their duties.', 16, 'The Constitution of Nepal, Part-14, Article 191 (Restriction on Discussion)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 192', 'Transaction of Business i n Case of Vacancy in Seat of Member', 'Transaction of Business i n Case of Vacancy in Seat of Member', 'The Provincial
+Assembly shall have the power to transact its business notwithstanding any va cancy
+in the seat of its member; and n o proceedings of the Provincial Assembly already
+conducted shall become invalid even in case it is subsequently discovered that a
+person who was not so entitled took part in such proceedings.', 17, 'The Constitution of Nepal, Part-14, Article 192 (Transaction of Business i n Case of Vacancy in Seat of Member)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 193', 'Power of Provincial Assembly to Constitute Committees', 'Power of Provincial Assembly to Constitute Committees', 'The Provincial Assembly
+may, in accordance with its rules,  constitute committees or special committees, as
+required, in order to manage its working procedures.', 18, 'The Constitution of Nepal, Part-14, Article 193 (Power of Provincial Assembly to Constitute Committees)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 194', 'Procedures relating to Conduct of Business of Provincial Assembly', 'Procedures relating to Conduct of Business of Provincial Assembly', 'The Provincial
+Assembly shall frame rules to conduct its business, maintain order during its meetings
+and regulate the constitution, functions and procedures of , and other matters relating
+to, its committees. Until such rules are framed, the Provincial Assembly shall regulate
+its procedures on its own.', 19, 'The Constitution of Nepal, Part-14, Article 194 (Procedures relating to Conduct of Business of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.20', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 195', 'Secretary and Secretariat of Provincial Assembly', 'Secretary and Secretariat of Provincial Assembly', NULL, 20, 'The Constitution of Nepal, Part-14, Article 195 (Secretary and Secretariat of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.20.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.20', 3, 'clause', '(1)', '', NULL, 'The Chief of Province  shall
+appoint the Secretary of the Provincial Assembly on recommendation of the Speaker
+of Province.', 0, 'The Constitution of Nepal, Part-14, Article 195, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.20.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.20', 3, 'clause', '(2)', '', NULL, 'There shall be a Secretariat for conducting and managing the business of
+the Provincial Assembly. The establishment of such Secretariat and other matters
+related thereto shall be as provided for in the provincial law.', 1, 'The Constitution of Nepal, Part-14, Article 195, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.20.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14.20', 3, 'clause', '(3)', '', NULL, 'The qualification, functions, duties, powers and other conditions of service
+of the Secretary of the Provincial Assembly shall be as provided for in the   provincial
+law.', 2, 'The Constitution of Nepal, Part-14, Article 195, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:14.21', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:14', 2, 'article', 'Article 196', 'Remuneration', 'Remuneration', 'The remuneration and facilities of the Speaker , Deputy Speaker and
+members of the Provincial Assembly shall be as provided  for in the provincial law,
+and until such law is made, as specified by the Provincial Government.', 21, 'The Constitution of Nepal, Part-14, Article 196 (Remuneration)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-15', 'Provincial Legislative Procedures', 'Provincial Legislative Procedures', NULL, 15, 'The Constitution of Nepal, Part-15 (Provincial Legislative Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 197', 'Legislative Powers of Provincial Assembly', 'Legislative Powers of Provincial Assembly', 'The legislative powers of the Provincial
+Assembly shall be as enumerated in lists of Schedule-6, Schedule-7 and Schedule-9.', 0, 'The Constitution of Nepal, Part-15, Article 197 (Legislative Powers of Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 198', 'Procedures for Introduction of Bills in Provincial Assembly', 'Procedures for Introduction of Bills in Provincial Assembly', NULL, 1, 'The Constitution of Nepal, Part-15, Article 198 (Procedures for Introduction of Bills in Provincial Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.1', 3, 'clause', '(1)', '', NULL, 'A Bill may, subject
+to this Constitution, be introduced in the Provincial Assembly.', 0, 'The Constitution of Nepal, Part-15, Article 198, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.1', 3, 'clause', '(2)', '', NULL, 'A Money Bill and a Bill concerning law and order may be introduced only
+as a Government Bill.', 1, 'The Constitution of Nepal, Part-15, Article 198, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.1', 3, 'clause', '(3)', '', NULL, '"Money Bill" means a Bill concerning any or all of the following subjects:-
+(a) Matters concerning imposition, collection, abolition, remission,
+alteration or regulation of taxes in the Province;
+(b) Matters concerning preservation of the Provincial Consolidated Fund
+or any other Provincial Government Fund, the deposit of moneys into
+and the appropriation or the withdrawal of moneys from such Funds,
+or the reduction, increment or cancellation of appropriations  of
+proposed expenditures from such Funds;
+(c) Regulation of matters relating to the borrowing of money or the
+guarantee to be given by the Provincial Government, or any matter
+pertaining to the amendment of the law with respect to any financial
+obligations undertaken or to be undertaken by the Provincial
+Government,
+(d) Matters concerning custody of all revenues received by Provincial
+Government Fund, moneys acquired through the repayment of loans,
+and grant moneys, investments to be made or account or audits of the
+accounts of the Provincial Government, or
+(e) Other incidental matters directly related to any of the subjects
+specified in clause (a), (b), (c) or (d).
+Provided that any Bill shall not be deemed to be a Money Bill only by the
+reason that it provides for the levying of any charges, fees or tariff such as license fee,
+application fee, renewal fee or for the imposition of fines or penalty of imprisonment.', 2, 'The Constitution of Nepal, Part-15, Article 198, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.1', 3, 'clause', '(4)', '', NULL, 'In case any question arises as to whether or not a Bill is a Money Bill, the
+decision of the Speaker of Provincial Assembly shall be final.', 3, 'The Constitution of Nepal, Part-15, Article 198, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 199', 'Procedures for Adoption of Bills', 'Procedures for Adoption of Bills', NULL, 2, 'The Constitution of Nepal, Part-15, Article 199 (Procedures for Adoption of Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.2', 3, 'clause', '(1)', '', NULL, 'A Bill adopted by the Provincial Assembly shall
+be submitted to the Chief of Province for authentication.', 0, 'The Constitution of Nepal, Part-15, Article 199, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.2', 3, 'clause', '(2)', '', NULL, 'In case a session of the Provincial Assembly is prorogued while a Bill is
+under consideration, deliberations on the Bill may continue at the succeeding session.
+Provided that in case the Provincial Assembly is dissolved or its term expires
+when any Bill is under its consideration, such Bill shall lapse.', 1, 'The Constitution of Nepal, Part-15, Article 199, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 200', 'Withdrawal of Bills', 'Withdrawal of Bills', 'A Bill may be withdrawn by the member introducing it with the
+approval of the Provincial Assembly.', 3, 'The Constitution of Nepal, Part-15, Article 200 (Withdrawal of Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 201', 'Authentication on Bills', 'Authentication on Bills', NULL, 4, 'The Constitution of Nepal, Part-15, Article 201 (Authentication on Bills)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.4', 3, 'clause', '(1)', '', NULL, 'The Bill to be presented to the Chief of Province for
+authentication pursuant to Article 199 shall be certified by the Speaker of Provincial
+Assembly and so presented.
+Provided that in the case of a Money Bill, the Speaker of Province  shall so
+certify.', 0, 'The Constitution of Nepal, Part-15, Article 201, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.4', 3, 'clause', '(2)', '', NULL, 'A Bill presented to the Chief of Province  for the authentication shall be
+authenticated within fifteen days, and the Provincial Assembly shall be informed
+thereof as soon as possible.', 1, 'The Constitution of Nepal, Part-15, Article 201, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.4', 3, 'clause', '(3)', '', NULL, 'Except for a Money Bill, in case the Chief of Province  is of the opi nion
+that any Bill needs further deliberations, he or she may send back the Bill along with
+his or her message to the Provincial Assembly within fifteen  days from the date of
+presentation of the Bill to him or her.', 2, 'The Constitution of Nepal, Part-15, Article 201, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.4', 3, 'clause', '(4)', '', NULL, 'In case any Bill is sent back along with his or her message by the Chief of
+Province pursuant to clause (3), it shall be reconsidered by the Provincial Assembly
+and in case the Bill so reconsidered is again adopted as it was or with amendments,
+and is again submitted to him or her, the Chief of Province shall authenticate that Bill
+within fifteen days of such submission.', 3, 'The Constitution of Nepal, Part-15, Article 201, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.4', 3, 'clause', '(5)', '', NULL, 'A Bill shall become an Act after the Chief of Province authenticates it.', 4, 'The Constitution of Nepal, Part-15, Article 201, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15', 2, 'article', 'Article 202', 'Ordinance', 'Ordinance', NULL, 5, 'The Constitution of Nepal, Part-15, Article 202 (Ordinance)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.5', 3, 'clause', '(1)', '', NULL, 'In case , at any time, except when the Provincial Assembly is in
+session, a circumstance exists which renders it necessary to take immediate action, the
+Chief of Province  may, on the recommendation of the Provincial Council of
+Ministers, promulgate an Ordinance.', 0, 'The Constitution of Nepal, Part-15, Article 202, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:15.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:15.5', 3, 'clause', '(2)', '', NULL, 'An Ordinance promulgated pursuant to clause (1) shall have the same force
+and effect as an Act.
+Provided that every such Ordinance,-
+(a) Shall be tabled at the session of the Provincial Assembly held after
+the promulgation, and in case  not adopted by the Provincial
+Assembly, it shall ipso facto cease to be effective;
+(b) May be repealed at any time by the Chief of Province; and
+(c) Shall, unless rendered ineffective or repealed pursuant to  sub-clause
+(a) or (b), ipso facto cease to be effective at the expiration of sixty
+days after the day on which a meeting of the Provincial Assembly is
+held.', 1, 'The Constitution of Nepal, Part-15, Article 202, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-16', 'Province Financial Procedures', 'Province Financial Procedures', NULL, 16, 'The Constitution of Nepal, Part-16 (Province Financial Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 203', 'No Tax to be levied or Loan to be raised', 'No Tax to be levied or Loan to be raised', NULL, 0, 'The Constitution of Nepal, Part-16, Article 203 (No Tax to be levied or Loan to be raised)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.0', 3, 'clause', '(1)', '', NULL, 'No tax shall be levied and collected in a
+Province except in accordance with law.', 0, 'The Constitution of Nepal, Part-16, Article 203, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.0', 3, 'clause', '(2)', '', NULL, 'No loan shall be raised and guarantee be given by the Provincial
+Government except as provided for in the federal law.', 1, 'The Constitution of Nepal, Part-16, Article 203, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 204', 'Provincial Consolidated Fund', 'Provincial Consolidated Fund', 'Except for the revenues of trusts ( Guthi), all revenues
+received by the Provincial Government, all loans raised on the security of revenues,
+all moneys received in repayment of any loans made under the authority of any
+provincial Act and any amounts of grants or loans received from the Government of
+Nepal shall, except as otherwise provided for in the provincial Act, be credited to a
+Provincial Government Fund to be known as the Provincial Consolidated Fund.', 1, 'The Constitution of Nepal, Part-16, Article 204 (Provincial Consolidated Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 205', 'Expenditures from Provincial Consolidated Fund or Provincial Government Fund', 'Expenditures from Provincial Consolidated Fund or Provincial Government Fund', 'No
+expenditure shall be incurred out of the Provincial Consolidated Fund or any other
+Provincial Government Fund except the following:-
+(a) Moneys charged on the Provincial Consolidated Fund;
+(b) Moneys required to meet the expenditure under an Appropriation Act;
+(c) Advance moneys authorized by a n Act required to meet expenditures,
+when an Appropriation Bill is under consideration; or
+(d) Expenditures to be incurred in extraordin ary circumstances under a
+V ote of Credit Act which contains only a description of expenditures.
+Provided that matters relating to the Provincial Contingency Fund shall
+be pursuant to Article 212.', 2, 'The Constitution of Nepal, Part-16, Article 205 (Expenditures from Provincial Consolidated Fund or Provincial Government Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 206', 'Expenditures Chargeable on Province Consolidated Fund', 'Expenditures Chargeable on Province Consolidated Fund', 'The expenditures relating
+to the following matters shall be charged on the Provincial Consolidated Fund, and
+approval of the Provincial Assembly shall not be required for such expenditures:-
+(a) The amount required as remuneration and  facilities payable to the
+Speaker of Province and the Deputy Speaker of Province;
+(b) The amount required as remuneration and  facilities payable to the
+Chairperson and m embers of the Provincial Public Service
+Commission;
+(c) All charges relating to debts to  which the Provincial Government is
+liable;
+(d) Any sum required to satisfy any judgment or decree made by a court
+against the Provincial Government; and
+(e) Any other sum specified by the provincial law to be chargeable on the
+Province Consolidated Fund.', 3, 'The Constitution of Nepal, Part-16, Article 206 (Expenditures Chargeable on Province Consolidated Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 207', 'Estimates of Revenues and Expenditures', 'Estimates of Revenues and Expenditures', NULL, 4, 'The Constitution of Nepal, Part-16, Article 207 (Estimates of Revenues and Expenditures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.4', 3, 'clause', '(1)', '', NULL, 'The Provincial Minister for Finance
+shall, in respect of every fiscal year, lay before the Provincial Assembly an annual
+estimate setting out, inter alia, the following matters:-
+(a) An estimate of revenues;
+(b) The moneys required to meet the charges on the Provincial
+Consolidated Fund; and
+(c) The moneys required to  meet the expenditure to be provided for by a
+Provincial Appropriation Act.', 0, 'The Constitution of Nepal, Part-16, Article 207, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.4', 3, 'clause', '(2)', '', NULL, 'The annual estimate to be laid pursuant to clause (1) shall also be
+accompanied by a statement of the expenses allocated to every Ministry in the
+previous fiscal year and particulars of whether or not the objectives of the expenses
+have been achieved.', 1, 'The Constitution of Nepal, Part-16, Article 207, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 208', 'Provincial Appropriation Act', 'Provincial Appropriation Act', 'The moneys required to meet the expenditure to be
+provided for by the Provincial Appropriation Act shall be specified under appropriate
+heads in an Appropriation Bill.', 5, 'The Constitution of Nepal, Part-16, Article 208 (Provincial Appropriation Act)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 209', 'Supplementary Estimates', 'Supplementary Estimates', NULL, 6, 'The Constitution of Nepal, Part-16, Article 209 (Supplementary Estimates)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.6', 3, 'clause', '(1)', '', NULL, 'The Provincial Minister for Finance may lay before the
+Provincial Assembly a supplementary estimate in case it is found in any fiscal year,-
+(a) That the sum authorized to be spent for a particular service by the
+Provincial Appropriation Act for the current financial year is
+insufficient, or that a need has arisen for expenditures upon some new
+service not provided for in the Provincial Appropriation Act for that
+year; or
+(b) That the expenditures made during that fiscal year are in excess of the
+amount authorized by the Provincial Appropriation Act.', 0, 'The Constitution of Nepal, Part-16, Article 209, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.6', 3, 'clause', '(2)', '', NULL, 'The sums included in the supplementary estimates shall be specified under
+the heads in a Supplementary Appropriation Bill.', 1, 'The Constitution of Nepal, Part-16, Article 209, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 210', 'V otes on Account', 'V otes on Account', NULL, 7, 'The Constitution of Nepal, Part-16, Article 210 (V otes on Account)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.7', 3, 'clause', '(1)', '', NULL, 'Notwithstanding anything contained elsewhere in this Part, a
+portion of the expenditure estimated for the fiscal year may, w hen a  Provincial
+Appropriation Bill is under consideration, be incurred in advance in accordance with a
+Province Act.', 0, 'The Constitution of Nepal, Part-16, Article 210, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.7', 3, 'clause', '(2)', '', NULL, 'No V ote on Account Bill shall be introduced until the estimates of revenues
+and expenditures have been laid pursuant to Article 207, and the sums involved in the
+V ote on Account shall not exceed one -third of the estimate of expenditures for the
+fiscal year.', 1, 'The Constitution of Nepal, Part-16, Article 210, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.7', 3, 'clause', '(3)', '', NULL, 'The expenditures incurred i n accordance with the Provincial V ote on
+Account Act shall be included in the Provincial Appropriation Bill.', 2, 'The Constitution of Nepal, Part-16, Article 210, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 211', 'V otes of Credit', 'V otes of Credit', 'Notwithstanding anything contained elsewhere in this Part, in case
+owing to an emergency due  to natural cause  or other reasons, it appears to be
+impractical or inexpedient in view of the security or interest of the Province to specify
+the details required pursuant to clause (1) of Article 207 , the Provincial Minister for
+Finance may lay before the Provincial Assembly a V ote of Credit Bill giving only a
+statement of expenditures.', 8, 'The Constitution of Nepal, Part-16, Article 211 (V otes of Credit)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 212', 'Provincial Contingency Fund', 'Provincial Contingency Fund', NULL, 9, 'The Constitution of Nepal, Part-16, Article 212 (Provincial Contingency Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.9', 3, 'clause', '(1)', '', NULL, 'A provincial Act may create a Fund to be known as
+the Provincial Contingency Fund into which shall be paid from time to time such
+moneys as may be determined by a provincial Act.', 0, 'The Constitution of Nepal, Part-16, Article 212, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.9', 3, 'clause', '(2)', '', NULL, 'The Fund referred to in clause (1) shall be under the control of the
+Provincial Government. Any unforeseen expenditure may be met out of such Fund by
+the Provincial Government.', 1, 'The Constitution of Nepal, Part-16, Article 212, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16.9', 3, 'clause', '(3)', '', NULL, 'The amount of the exp enditure referred to in  clause (2)  shall be
+reimbursed as soon as possible by a provincial Act.', 2, 'The Constitution of Nepal, Part-16, Article 212, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:16.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:16', 2, 'article', 'Article 213', 'Act r elating to Financial Procedures', 'Act r elating to Financial Procedures', 'Matters relating to the transfer of moneys
+appropriated by a provincial Act  from one head to another and other financial
+procedures shall be as provided for in the provincial Act.', 10, 'The Constitution of Nepal, Part-16, Article 213 (Act r elating to Financial Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-17', 'Local Executive', 'Local Executive', NULL, 17, 'The Constitution of Nepal, Part-17 (Local Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 214', 'Executive Power of Local Level', 'Executive Power of Local Level', NULL, 0, 'The Constitution of Nepal, Part-17, Article 214 (Executive Power of Local Level)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.0', 3, 'clause', '(1)', '', NULL, 'The executive power of the Local Level shall, in
+accordance with  this Constitution and the federal law , be vested in the Rural
+Municipal Executive or the Municipal Executive.', 0, 'The Constitution of Nepal, Part-17, Article 214, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.0', 3, 'clause', '(2)', '', NULL, 'The local executive power shall be as referred to  in Schedule -8 and
+Schedule-9.', 1, 'The Constitution of Nepal, Part-17, Article 214, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.0', 3, 'clause', '(3)', '', NULL, 'The responsibility for issuing general directives, controlling an d regulating
+the governance of the Rural Municipality and the Municipal ity shall, subject to this
+Constitution and other laws, lie in the Rural Municipal Executive and the Municipal
+Executive.', 2, 'The Constitution of Nepal, Part-17, Article 214, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.0', 3, 'clause', '(4)', '', NULL, 'The e xecutive functions of the Rural Municipality and the Municipality
+shall be performed in the name of the Rural Municipal Executive  and the Municipal
+Executive.', 3, 'The Constitution of Nepal, Part-17, Article 214, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.0', 3, 'clause', '(5)', '', NULL, 'Any decision or order to be issued in the n ame of the Rural Municipal
+Executive and the Municipal Executive pursuant to clause (4 ) and other instruments
+of authorization pertaining thereto shall be authenticated as provided for in the  Local
+law.', 4, 'The Constitution of Nepal, Part-17, Article 214, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 215', 'Provisions r elating to Chairperson and Vice -Chairperson of Rural Municipal Executive', 'Provisions r elating to Chairperson and Vice -Chairperson of Rural Municipal Executive', NULL, 1, 'The Constitution of Nepal, Part-17, Article 215 (Provisions r elating to Chairperson and Vice -Chairperson of Rural Municipal Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(1)', '', NULL, 'There shall be a Chairperson of Rural Municipal Executive  in each
+Rural Municipality. The Rural Municipal Executive shall be formed under his or her
+chairpersonship.', 0, 'The Constitution of Nepal, Part-17, Article 215, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(2)', '', NULL, 'The Rural Municipal Executive referred to in clause (1) shall consist of one
+Vice-Chairperson, Ward Chairperson elected from each Ward and members elected
+pursuant to clause (4).', 1, 'The Constitution of Nepal, Part-17, Article 215, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(3)', '', NULL, 'The Chairperson and the Vice -Chairperson shall be elected by the voters
+residing within the concerned Rural Municipality area by secret ballots on the basis of
+one person one vote, in accordance with the first past the post electoral system.
+Explanation: For the purp oses of this Article, "Chairperson" and "Vice-Chairperson"
+mean the Chairperson and the Vice-Chairperson of the Rural Municipal Executive.', 2, 'The Constitution of Nepal, Part-17, Article 215, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(4)', '', NULL, 'The members of the Rural Municipal Executive  shall also include  four
+women members elected by the members of the Rural Municipal Assembly  from
+amongst themselves and two members elected by the Rural Municipal Assembly from
+the Dalit or minority communit ies, having possessed the qualifications referred to in
+clause (5), within fifteen days after receipt of the final results of the election to the
+Rural Municipal Assembly referred to in Article 222.', 3, 'The Constitution of Nepal, Part-17, Article 215, Clause (4)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:17.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(5)', '', NULL, 'A person who has the following  qualifications shall be qualified to be
+elected to the office of the Chairperson, Vice -Chairperson, Ward Chairperson and
+member: -
+(a) One who is a citizen of Nepal;
+(b) One who has completed the age of twenty-one years;
+(c) One whose name is included in the electo ral rolls of the Rural
+Municipality;
+(d) One who is not disqualified by any law.', 4, 'The Constitution of Nepal, Part-17, Article 215, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(6)', '', NULL, 'The term of office of the Chairperson, Vice -Chairperson, Ward
+Chairperson and member shall be five years after the date of being elected.', 5, 'The Constitution of Nepal, Part-17, Article 215, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(7)', '', NULL, 'A person who has been elected as the Chairperson for two terms shall not
+be eligible to be a candidate in an election to the Rural Municipality.', 6, 'The Constitution of Nepal, Part-17, Article 215, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(8)', '', NULL, 'The office of the Chairperson, Vice -Chairperson, Ward Chairperson or
+member shall fall vacant in any of the following circumstances: -
+(a) In case the Chairperson tenders resignation in writing to the Vice-
+Chairperson, and in case the Vice-Chairperson tenders resignation to
+the Chairperson;
+(b) In case his or her term of office expires;
+(c) In case he or she dies.', 7, 'The Constitution of Nepal, Part-17, Article 215, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.1', 3, 'clause', '(9)', '', NULL, 'In case the seat falls vacant pursuant to clause (7) while the term of office
+of the Chairperson or Vice -Chairperson still remains for more than one year , the
+vacancy shall be fulfilled through by-election for the remaining term.', 8, 'The Constitution of Nepal, Part-17, Article 215, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 216', 'Provisions relating to Mayor and Deputy Mayor of Municipal Executive', 'Provisions relating to Mayor and Deputy Mayor of Municipal Executive', NULL, 2, 'The Constitution of Nepal, Part-17, Article 216 (Provisions relating to Mayor and Deputy Mayor of Municipal Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(1)', '', NULL, 'There
+shall be a Mayor in e ach Municipality  as Head of the Municipal Executive. The
+Municipal Executive shall be formed under his or her chairpersonship.', 0, 'The Constitution of Nepal, Part-17, Article 216, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(2)', '', NULL, 'The Municipal Executive referred to in  clause (1) shall consist of one
+Deputy Mayor , Ward Chairper son elected from each Ward and m embers elected
+pursuant to clause (4).', 1, 'The Constitution of Nepal, Part-17, Article 216, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(3)', '', NULL, 'The Mayor and the Deputy Mayor shall be elected by the voters residing
+within the concerned Municipal area by secret ballots on the basis of one person one
+vote, in accordance with the first past the post electoral system.
+Explanation: For the purposes of this Article, "Mayor" and "Deputy Mayor" mean the
+Mayor and the Deputy Mayor of the Municipal Executive.', 2, 'The Constitution of Nepal, Part-17, Article 216, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(4)', '', NULL, 'The members of the Municipal Executive shall also include five women
+members elected by the members of the Municipal Assembly from amongst
+themselves and t hree members elected b y the Municipal Assembly from the Dalit or
+minority communities, in possession of the qualification s referred to in  clause (5)
+within fifteen days after the final results of the election to the Municipal Assembly
+pursuant to Article 223.', 3, 'The Constitution of Nepal, Part-17, Article 216, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(5)', '', NULL, 'A person who has the following qualification s shall be qualified to be
+elected to the office of the Mayor, Deputy Mayor, Ward Chairperson and member:-
+(a) One who is a citizen of Nepal;
+(b) One who has completed the age of twenty-one years;
+(c) One whose name is included in the electoral rolls of the Municipality;
+(d)  One who is not disqualified by any law.', 4, 'The Constitution of Nepal, Part-17, Article 216, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(6)', '', NULL, 'The term of office of the Mayor, Deputy Mayor, Ward Chairperson and
+member shall be five years after the date of being elected.', 5, 'The Constitution of Nepal, Part-17, Article 216, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(7)', '', NULL, 'A person who has been elected as the Mayor for two terms shall not be
+eligible to be a candidate in an election to the Municipality.', 6, 'The Constitution of Nepal, Part-17, Article 216, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(8)', '', NULL, 'The office of the Mayor, Deputy Mayor,  Ward Chairperson or Member
+shall fall vacant in any of the following circumstances:-
+(a) In case the Mayor tenders resignation in writing to the Deputy Mayor,
+and in case  the Deputy Mayor  tenders resignation  in writing to the
+Mayor;
+(b) In case his or her term of office expires;
+(c) In case he or she dies.', 7, 'The Constitution of Nepal, Part-17, Article 216, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.2.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.2', 3, 'clause', '(9)', '', NULL, 'In case the seat falls vacant pursuant to clause (8) while the term of office
+of the Mayor or Deputy Mayor still remains for more than one year, the vacancy shall
+be fulfilled through by-election for the remaining term of office.', 8, 'The Constitution of Nepal, Part-17, Article 216, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 217', 'Judicial Committee', 'Judicial Committee', NULL, 3, 'The Constitution of Nepal, Part-17, Article 217 (Judicial Committee)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.3', 3, 'clause', '(1)', '', NULL, 'Ther e shall be a three -member judicial committee to be
+coordinated by its Vice-Chairperson in case of a Rural Municipality and by its Deputy
+Mayor in  case of a Municipality , in order to settle disputes under their respective
+jurisdictions in accordance with law.', 0, 'The Constitution of Nepal, Part-17, Article 217, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.3', 3, 'clause', '(2)', '', NULL, 'The judicial committee referred to in  clause (1) shall consist of two
+members elected by th e members of the Rural Municipal Assembly or the Municipal
+Assembly from amongst themselves.', 1, 'The Constitution of Nepal, Part-17, Article 217, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 218', 'Conduct of Business of Rural Municipal Executive  and Municipal Executive', 'Conduct of Business of Rural Municipal Executive  and Municipal Executive', 'Allocation and conduct of business of the Rural Municipal Executive  and the
+Municipal Executive shall be carried out in accordance with the rules approved by the
+Rural Municipal Executive and the Municipal Executive, respectively.', 4, 'The Constitution of Nepal, Part-17, Article 218 (Conduct of Business of Rural Municipal Executive  and Municipal Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 219', 'Other Provisions relating to Local Level Executive', 'Other Provisions relating to Local Level Executive', 'Other provisions relating to the
+Local Level Executive, except those contained in this Part, shall be as provided  for in
+the federal law subject to this Constitution.', 5, 'The Constitution of Nepal, Part-17, Article 219 (Other Provisions relating to Local Level Executive)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17', 2, 'article', 'Article 220', 'District Assembly and District Coordination Committee', 'District Assembly and District Coordination Committee', NULL, 6, 'The Constitution of Nepal, Part-17, Article 220 (District Assembly and District Coordination Committee)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(1)', '', NULL, 'There shall be a District
+Assembly to make coordinat ion between the Rural Municipalities and Municipalities
+within a district.', 0, 'The Constitution of Nepal, Part-17, Article 220, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(2)', '', NULL, 'The District Assembly shall consist of Chairpersons and Vice-Chairpersons
+of Rural Mun icipal Executive s, and Mayors and Deputy Mayors of Municipal
+Executives within the district. The first meeting of the District Assembly shall be held
+within thirty days of the date of final results of the election to the Village Assemblies
+and the Municipal Assemblies.', 1, 'The Constitution of Nepal, Part-17, Article 220, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(3)', '', NULL, 'The District Assembly shall elect the District Coordination Committee
+consisting of a maximum of nine Members including one C hief, one Deputy Chief, at
+least three women and at least one Dalit or minority.  The District  Coordination
+Committee shall discharge all functions require d to be discharged by the District
+Assembly.', 2, 'The Constitution of Nepal, Part-17, Article 220, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(4)', '', NULL, 'A Member of a Rural Municipal Assembly or Municipal Assembly within the
+concerned district shall be eligible to be a candidate for the office o f Chief, Deputy
+Chief or Member of the District Coordination Committee. In case a member is elected
+to the office of Chief, Deputy Chief or Member of the District Coordination
+Committee, his or her office of Member of Rural Municipal Assembly  or of
+Municipal Assembly, as the case may be, shall ipso facto fall vacant.', 3, 'The Constitution of Nepal, Part-17, Article 220, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(5)', '', NULL, 'The term of office of the Ch ief, Deputy Chief and m ember of the District
+Coordination Committee shall be five years after the date of being elected.', 4, 'The Constitution of Nepal, Part-17, Article 220, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(6)', '', NULL, 'The office of the Chief,  Deputy Chief and m ember of the District
+Coordination Committee shall fall vacant in any of the following circumstances:-
+(a) In case the Chief tenders resignation in writing to the Deputy Chief,
+and in case  the Deputy Chief or m ember tenders resignation in
+writing to the Chief;
+(b) In case his or her term of office expires;
+(c) In case he or she dies.', 5, 'The Constitution of Nepal, Part-17, Article 220, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(7)', '', NULL, 'The functions, duties and powers of the District Assembly shall be as
+follows: -
+(a) To make coordination between the Rural Municipalities and
+Municipalities within the district;
+(b) To monitor development and construction works to make balance of
+such works;
+(c) To make coordination between the Federal  and the Provincial
+Government offices and Rural Municipalities  and Municipa lities in
+the district;
+(d) To perform such other functions as provided for in the provincial law.', 6, 'The Constitution of Nepal, Part-17, Article 220, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:17.6.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:17.6', 3, 'clause', '(8)', '', NULL, 'Provisions relating to the conduct of the District Assembly, facilities of
+Members of the District Coordination Committee and other matters relating to the
+District Assembly shall be as provided for in the provincial law.', 7, 'The Constitution of Nepal, Part-17, Article 220, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-18', 'Local Legislature', 'Local Legislature', NULL, 18, 'The Constitution of Nepal, Part-18 (Local Legislature)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 221', 'Legislative Powers of Local Level', 'Legislative Powers of Local Level', NULL, 0, 'The Constitution of Nepal, Part-18, Article 221 (Legislative Powers of Local Level)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.0', 3, 'clause', '(1)', '', NULL, 'Subject to this Constitution, t he legislative
+powers of the Local Level shall be vested in the Rural Municipal Assembly  and the
+Municipal Assembly.', 0, 'The Constitution of Nepal, Part-18, Article 221, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.0', 3, 'clause', '(2)', '', NULL, 'The legislative powers of the Rural Municipal Assembly  and the
+Municipal Assembly shall be as enumerated in the lists contained in Sc hedule-8 and
+Schedule-9.', 1, 'The Constitution of Nepal, Part-18, Article 221, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 222', 'Composition of Rural Municipal Assembly', 'Composition of Rural Municipal Assembly', NULL, 1, 'The Constitution of Nepal, Part-18, Article 222 (Composition of Rural Municipal Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(1)', '', NULL, 'There shall be a Rural Municipal
+Assembly in each Rural Municipality.', 0, 'The Constitution of Nepal, Part-18, Article 222, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(2)', '', NULL, 'A Rural Municipal Assembly referred to in clause (1) shall consist of the
+Chairperson and Vice -Chairperson of the Rural Municipal Executive , Ward
+Chairpersons, and four m embers elected from each ward and Members of the Rural
+Municipal Executive elected from Dalit and minority communities pursuant to clause', 1, 'The Constitution of Nepal, Part-18, Article 222, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(4)', '', NULL, 'of Article 215.', 2, 'The Constitution of Nepal, Part-18, Article 222, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(3)', '', NULL, 'A Rural Municipal Assembly  to be formed pursuant to clause (1)  shall
+have representation of at least two women from each ward.', 3, 'The Constitution of Nepal, Part-18, Article 222, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(4)', '', NULL, 'Each ward of a Rural Municipality  shall have a  Ward Committee
+composed of the Ward Chairperson and four m embers in accordance with the federal
+law. Such Ward Chairperson and Ward m embers shall be elected in accordance with
+the first past the post electoral system.', 4, 'The Constitution of Nepal, Part-18, Article 222, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(5)', '', NULL, 'Every person who has completed the age of eighteen years and whose
+name is included in the electo ral rolls of the Rural Municipality shall have a right to
+vote as provided for in the federal law.', 5, 'The Constitution of Nepal, Part-18, Article 222, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(6)', '', NULL, 'A person who has the following qualifications shall be eligible to become a
+candidate for the office of the Member of the Rural Municipal Assembly:-
+(a) One who is a citizen of Nepal;
+(b) One who has completed the age of twenty-one years;
+(c) One whose name is included as a voter in the electo ral rolls of the
+Rural Municipality; and
+(d) One who is not disqualified by any law.', 6, 'The Constitution of Nepal, Part-18, Article 222, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.1', 3, 'clause', '(7)', '', NULL, 'Matters relating to the election to the Rural Municipal Assembly and other
+matters pertaining thereto shall be as provided for in the federal law.', 7, 'The Constitution of Nepal, Part-18, Article 222, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 223', 'Composition of Municipal Assembly', 'Composition of Municipal Assembly', NULL, 2, 'The Constitution of Nepal, Part-18, Article 223 (Composition of Municipal Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(1)', '', NULL, 'Each Municipality shall have a Municipal
+Assembly.', 0, 'The Constitution of Nepal, Part-18, Article 223, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(2)', '', NULL, 'A Municipal Assembly referred to in clause (1) shall consist of the Mayor
+and the Deputy Mayor of the Municipal Executive, Ward Chairpersons, and four
+members elected from each Ward and m embers of the Municipal Executive elected
+from Dalit or minority communities pursuant to clause (4) of Article 216.', 1, 'The Constitution of Nepal, Part-18, Article 223, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(3)', '', NULL, 'A Municipal Assembly to be formed pursuant to  (1) shall have
+representation of at least two women from each Ward.', 2, 'The Constitution of Nepal, Part-18, Article 223, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(4)', '', NULL, 'Each ward of a Municipality shall have a Ward Committee composed of
+one Ward Chairperson and four m embers as provided for  in the federal law. Such
+Ward Chairperson and Ward m embers shall be elected in accordance with the first
+past the post electoral system.', 3, 'The Constitution of Nepal, Part-18, Article 223, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(5)', '', NULL, 'Every person who has completed the age of eighteen years and whose
+name is included in the electoral rolls of the Municipality shall have a right to vote as
+provided for in federal law.', 4, 'The Constitution of Nepal, Part-18, Article 223, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(6)', '', NULL, 'A person who has the following qualification s shall be qualified to be a
+candidate for the office of member of the Municipal Assembly:-
+(a) One who is a citizen of Nepal;
+(b) One who has completed the age of twenty-one years;
+(c) One whose name included in the electoral rolls of the Municipality;
+and
+(d)  One who is not disqualified by any law.', 5, 'The Constitution of Nepal, Part-18, Article 223, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.2', 3, 'clause', '(7)', '', NULL, 'Matters relating to the election to the Municipal Assembly and other
+matters pertaining thereto shall be as provided for in the federal law.', 6, 'The Constitution of Nepal, Part-18, Article 223, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 224', 'Chairperson and Vice -Chairperson of Rural Municipal Assembly  and Municipal Assembly', 'Chairperson and Vice -Chairperson of Rural Municipal Assembly  and Municipal Assembly', 'The Chairperson and Vice -Chairperson of a Rural Municipal Executive
+and the Mayor and Deputy Mayor of a Municipal Executive shall ipso facto  be the
+Chairperson and Vice -Chairperson of the Rural Municipal Assembly  and the
+Municipal Assembly, respectively, and perform functions as such.', 3, 'The Constitution of Nepal, Part-18, Article 224 (Chairperson and Vice -Chairperson of Rural Municipal Assembly  and Municipal Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 225', 'Term of Rural Municipal Assembly  and Municipal Assembly', 'Term of Rural Municipal Assembly  and Municipal Assembly', 'T he term of a Rural
+Municipal Assembly and of a Municipal Assembly shall be five years from the date of
+election. Election to a nother Rural Municipal Assembly  and Municipal Assembly
+shall be completed within six months of the expiration of such term.', 4, 'The Constitution of Nepal, Part-18, Article 225 (Term of Rural Municipal Assembly  and Municipal Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 226', 'Powers to Make Law', 'Powers to Make Law', NULL, 5, 'The Constitution of Nepal, Part-18, Article 226 (Powers to Make Law)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.5', 3, 'clause', '(1)', '', NULL, 'A Rural Municipal Assembly and Municipal Assembly may
+make necessary laws on the matters enumerated in the l ists contained in Schedule -8
+and Schedule-9.', 0, 'The Constitution of Nepal, Part-18, Article 226, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18.5', 3, 'clause', '(2)', '', NULL, 'The process for making laws referred to in clause (1) shall be as provided
+for in a provincial law.', 1, 'The Constitution of Nepal, Part-18, Article 226, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:18.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:18', 2, 'article', 'Article 227', 'Other Matters relating to Rural Municipal Assembly and Municipal Assembly', 'Other Matters relating to Rural Municipal Assembly and Municipal Assembly', 'Other
+matters relating to the conduct of business of a Rural Municipal Assembly  and
+Municipal Assembly, rules of proce dures of meetings, formation of committees,
+conditions in which the office of m ember falls va cant, facilities to be entitled to
+members of the Rural Municipal Assembly  and Municipal Assembly and employees
+and offices of the Rural Municipality and Municipality, as the case may be, shall be as
+provided for in a provincial law.', 6, 'The Constitution of Nepal, Part-18, Article 227 (Other Matters relating to Rural Municipal Assembly and Municipal Assembly)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-19', 'Local Financial Procedures', 'Local Financial Procedures', NULL, 19, 'The Constitution of Nepal, Part-19 (Local Financial Procedures)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19', 2, 'article', 'Article 228', 'No Tax to be levied or Loan to be r aised', 'No Tax to be levied or Loan to be r aised', NULL, 0, 'The Constitution of Nepal, Part-19, Article 228 (No Tax to be levied or Loan to be r aised)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.0', 3, 'clause', '(1)', '', NULL, 'No tax shall be levied and collected and
+no loan raised in the Local Level except in accordance with law.', 0, 'The Constitution of Nepal, Part-19, Article 228, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.0', 3, 'clause', '(2)', '', NULL, 'The Local Level may levy tax by making a law on matters falling within its
+jurisdiction without prejudice to national economic policies,  carriage of goods and
+services, capital and labour market, and the neighbouring Province or Local Level.', 1, 'The Constitution of Nepal, Part-19, Article 228, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19', 2, 'article', 'Article 229', 'Local Consolidated Fund', 'Local Consolidated Fund', NULL, 1, 'The Constitution of Nepal, Part-19, Article 229 (Local Consolidated Fund)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.1', 3, 'clause', '(1)', '', NULL, 'There shall be a Local Consolidate Fund in e ach Rural
+Municipality and Municipality under the Local Level. All revenues received by the Rural
+Municipality or Municipality, any amounts of grants received from the Government of
+Nepal and the Provincial Government, all loans raised by the Rural Municipality and
+Municipality, and amounts received from other sources shall be credited to such Fund.', 0, 'The Constitution of Nepal, Part-19, Article 229, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.1', 3, 'clause', '(2)', '', NULL, 'Matters relating to expenditures from the Local Consolidated Fund referred
+to in clause (1) shall be as provided for in a Local law.', 1, 'The Constitution of Nepal, Part-19, Article 229, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19', 2, 'article', 'Article 230', 'Estimates of Revenues and Expenditures of Rural Municipality and Municipality', 'Estimates of Revenues and Expenditures of Rural Municipality and Municipality', NULL, 2, 'The Constitution of Nepal, Part-19, Article 230 (Estimates of Revenues and Expenditures of Rural Municipality and Municipality)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.2', 3, 'clause', '(1)', '', NULL, 'The Rural Municipal Executive  and the Municipal Executive sh all, subject to this
+Constitution, lay an estimate of revenues and expenditures of every fiscal year before, and
+have the estimate adopted by, the Rural Municipal Assembly  and the  Municipal
+Assembly, respectively, as provided for in the Local law.', 0, 'The Constitution of Nepal, Part-19, Article 230, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:19.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:19.2', 3, 'clause', '(2)', '', NULL, 'In case , in laying an estimate of revenues and expenditures pursuant to
+clause (1), the Rural Municipal Executive or Municipal Executive is required to make
+a deficit budget, it shall also propose the sources to meet the deficit as provided for in
+the federal law and provincial law.', 1, 'The Constitution of Nepal, Part-19, Article 230, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-20', 'Interrelations between Federation, Province and Local Level', 'Interrelations between Federation, Province and Local Level', NULL, 20, 'The Constitution of Nepal, Part-20 (Interrelations between Federation, Province and Local Level)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 231', 'Legislative Interrelations between Federation and Provinces', 'Legislative Interrelations between Federation and Provinces', NULL, 0, 'The Constitution of Nepal, Part-20, Article 231 (Legislative Interrelations between Federation and Provinces)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.0', 3, 'clause', '(1)', '', NULL, 'A federal law may be
+made to be applicable to the whole of, or, if required, to any part of, the territory of
+Nepal.', 0, 'The Constitution of Nepal, Part-20, Article 231, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.0', 3, 'clause', '(2)', '', NULL, 'A provincial law  may be made to be applicable to the whole of, or as
+required, to any part of the territory of the Province.', 1, 'The Constitution of Nepal, Part-20, Article 231, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.0', 3, 'clause', '(3)', '', NULL, 'In case two or more Provinces make a request to the Government of Nep al
+to make laws on any matter enumerated in Schedule -6, the Federal Parliament may
+make necessary laws. Such laws shall be applicable to the concerned Provinces only.', 2, 'The Constitution of Nepal, Part-20, Article 231, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 232', 'Relations between Federation, Province and Local Level', 'Relations between Federation, Province and Local Level', NULL, 1, 'The Constitution of Nepal, Part-20, Article 232 (Relations between Federation, Province and Local Level)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(1)', '', NULL, 'Th e relations between
+the Federation, Provinces and Local Levels  shall be based on the principles of
+cooperation, co-existence and coordination.', 0, 'The Constitution of Nepal, Part-20, Article 232, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(2)', '', NULL, 'The Government of Nepal may, in accordance with  this Constitution and
+federal law, give necessary directions to any Provincial Council of Ministers on
+matters of national importance and on matters to be coordinated among the Provinces,
+and it shall be the duty of the concerned Provincial Council of Ministers to abide by
+such directions.', 1, 'The Constitution of Nepal, Part-20, Article 232, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(3)', '', NULL, 'In case  any type of act that may seriously undermine the  sovereignty,
+territorial integrity, nationality or independence  of Nepal  is carried out in any
+Province, the President may, as required, warn such Provincial Council of Ministers ,
+suspend the Provincial Council of Ministers and the Provincial Assembly for a period
+not exceeding six months or dissolve them.', 2, 'The Constitution of Nepal, Part-20, Article 232, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(4)', '', NULL, 'Any suspension or dissolution of any Provincial Council of Ministers and
+the Provincial Assembly shall be approved by a majority of the total number of the
+then members of the Federal Parliament within thirty-five days.', 3, 'The Constitution of Nepal, Part-20, Article 232, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(5)', '', NULL, 'In case dissolution made pursuant to clause (3) is approved by the Federal
+Parliament, election to the Provincial Assembly shall be held in such  Province within
+six months.
+Provided that such suspension or dissolution  shall, ipso facto  be ceased to
+operate in case the Federal Parliament does not approve it.', 4, 'The Constitution of Nepal, Part-20, Article 232, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(6)', '', NULL, 'The Federal Rule shall apply to such Province during the period of such
+suspension in case the suspension made pursuant to clause (3) is approved pursuant to
+clause (4) and until the election to the Provincial Assembly is held pursuant to clause', 5, 'The Constitution of Nepal, Part-20, Article 232, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(5)', '', NULL, '.', 6, 'The Constitution of Nepal, Part-20, Article 232, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(7)', '', NULL, 'During the continuance of the Federal Rule, the Federal Parliament may
+make laws with respect to any matter enumerated in the List contained in Schedule-6.
+Such laws shall continue to apply until repealed by another laws made by the
+concerned Provincial Assembly.', 7, 'The Constitution of Nepal, Part-20, Article 232, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.1', 3, 'clause', '(8)', '', NULL, 'The Government of Nepal may, directly or  through the Provincial
+Government, render necessary assistance and give necessary directives to any Rural
+Municipal Executive or Municipal Executive in accordance with this Constitution and
+the federal law . It shall be the duty of the Rural Municipal Executive  or Municipal
+Executive to abide by such directives.', 8, 'The Constitution of Nepal, Part-20, Article 232, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 233', 'Relations between Provinces', 'Relations between Provinces', NULL, 2, 'The Constitution of Nepal, Part-20, Article 233 (Relations between Provinces)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.2', 3, 'clause', '(1)', '', NULL, 'One Province shall render assistance in the
+execution of legal provisions or judicial and administrative decisions or orders of
+another Province.', 0, 'The Constitution of Nepal, Part-20, Article 233, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.2', 3, 'clause', '(2)', '', NULL, 'A Province may exchange information and consult with another Province
+on matters of common concern and interest, coordinate each other on their activities
+and legislations and extend mutual assistance.', 1, 'The Constitution of Nepal, Part-20, Article 233, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.2', 3, 'clause', '(3)', '', NULL, 'A Province shall, in accordance with its provincial law , provide equal
+security, treatment and facility to residents of another Province.', 2, 'The Constitution of Nepal, Part-20, Article 233, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 234', 'Inter-Province Council', 'Inter-Province Council', NULL, 3, 'The Constitution of Nepal, Part-20, Article 234 (Inter-Province Council)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.3', 3, 'clause', '(1)', '', NULL, 'There shall be an Inter -Province Council as follows to
+settle political disputes arising out between the Federation and a Province and
+between Provinces:-
+(a) Prime Minister               - Chairperson
+(b) Minister for Home Affairs of the Government of Nepal     - Member
+(c) Minister for Finance of the Government of Nepal    - Member
+(d) Chief Ministers of the concerned Province               - Member', 0, 'The Constitution of Nepal, Part-20, Article 234, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.3', 3, 'clause', '(2)', '', NULL, 'The Inter-Province Council may meet as required.', 1, 'The Constitution of Nepal, Part-20, Article 234, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.3', 3, 'clause', '(3)', '', NULL, 'The Inter -Province Council may invite to its meeting a  Minister of the
+Government of Nepal and a Minister of the concerned Province who is responsible for
+the matter of dispute and a concerned expert.', 2, 'The Constitution of Nepal, Part-20, Article 234, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.3', 3, 'clause', '(4)', '', NULL, 'The rules of procedures of the meeting of the Inter -Province Council shall
+be as determined by the Council itself.', 3, 'The Constitution of Nepal, Part-20, Article 234, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 235', 'Coordination between Federation, Province and Local  Level', 'Coordination between Federation, Province and Local  Level', NULL, 4, 'The Constitution of Nepal, Part-20, Article 235 (Coordination between Federation, Province and Local  Level)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.4', 3, 'clause', '(1)', '', NULL, 'The Federal
+Parliament shall make necessary laws in order to maintain coordination between the
+Federation, Province and Local Level.', 0, 'The Constitution of Nepal, Part-20, Article 235, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.4', 3, 'clause', '(2)', '', NULL, 'The Provincial Assembly may maintain coordination between the Province
+and Rural Municipalities  or Municipalities and settle political disputes, if any, that
+have arisen, in coordination with the conc erned Rural Municipality, Municipality and
+the District Coordination Committee.', 1, 'The Constitution of Nepal, Part-20, Article 235, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20.4', 3, 'clause', '(3)', '', NULL, 'The processes and procedures for the settlement of disputes referred to in
+clause (2) shall be as provided for in the provincial law.', 2, 'The Constitution of Nepal, Part-20, Article 235, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 236', 'Inter-Province Commerce', 'Inter-Province Commerce', 'Notwithstanding anything contained elsewhere in this
+Constitution, it is prohibited to make  any type of obstruction to the carriage of goods
+or extension of services by a Province or Local Level to another Province or Local
+Level or to the carriage of goods or extension of services to any Province or Local
+Level or to levy tax, fee or charge thereon or to make any type of discrimination on
+the carriage or extension of such services or goods.', 5, 'The Constitution of Nepal, Part-20, Article 236 (Inter-Province Commerce)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:20.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:20', 2, 'article', 'Article 237', 'Not to Affect Jurisdiction of Constitutional Bench of Supreme Court', 'Not to Affect Jurisdiction of Constitutional Bench of Supreme Court', 'Nothing
+contained in this Part shall affect the jurisdiction of the Constitutional Bench of th e
+Supreme Court referred to in Article 137.', 6, 'The Constitution of Nepal, Part-20, Article 237 (Not to Affect Jurisdiction of Constitutional Bench of Supreme Court)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-21', 'Commission for the Investigation of Abuse of Authority', 'Commission for the Investigation of Abuse of Authority', NULL, 21, 'The Constitution of Nepal, Part-21 (Commission for the Investigation of Abuse of Authority)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21', 2, 'article', 'Article 238', 'Commission for the Investigation of Abuse of Authority', 'Commission for the Investigation of Abuse of Authority', NULL, 0, 'The Constitution of Nepal, Part-21, Article 238 (Commission for the Investigation of Abuse of Authority)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(1)', '', NULL, 'There shall be a
+Commission for the Investigation of Abuse of Authority  of Nepal consisting of the
+Chief Commissioner and four other Commissioners. The Chief Commissioner shall
+act as the Chairperson of the Commission for the Investigation of Abuse of Authority.', 0, 'The Constitution of Nepal, Part-21, Article 238, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on recommendation of the Constitutional Council,
+appoint the Chief Commissioner and Commissioners.', 1, 'The Constitution of Nepal, Part-21, Article 238, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chief Commissioner and Commissioners shall be
+six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-21, Article 238, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the Chief
+Commissioner or a Commissioner shall fall vacant  in any o f the following
+circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years,
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case  he or she is removed from office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge  the functions due to
+physical or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-21, Article 238, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(5)', '', NULL, 'The Chief Commissioner and Commissioners appointed pursuant to clause', 4, 'The Constitution of Nepal, Part-21, Article 238, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(2)', '', NULL, 'shall not be eligible for reappointment.
+Provided that a Commissioner may be appointed to the office of Chief
+Commissioner, and when a Commissioner is so appointed as the Chief Commissioner,
+his or her term of office shall be so computed as to include his or her term as the
+Commissioner.', 5, 'The Constitution of Nepal, Part-21, Article 238, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chief Commissioner or a
+Commissioner of the Commission for the Investigation of Abuse of Authority in case
+he or she possesses the following qualifications:-
+(a) One who has acquired a bachelor''s degree from a recognized
+university;
+(b) One who is not a member of any political party at the time of
+appointment;
+(c) One who has gained at least twenty years of experiences in the field
+of either accounting, revenue, engineering, law, development or
+research and being a distinguished person;
+(d) One who has attained the age of forty-five years; and
+(e) One who bears high moral character.', 6, 'The Constitution of Nepal, Part-21, Article 238, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and other terms and conditions of service of the Chief
+Commissioner and the Commissioners shall be as provided for in the federal law. The
+remuneration and terms and conditions of service of the Chief Commissioner and the
+Commissioners shall not, so long as they hold office, be altered to their disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 7, 'The Constitution of Nepal, Part-21, Article 238, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.0.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.0', 3, 'clause', '(8)', '', NULL, 'A p erson once appointed as the Chief Commissioner or Commissioner
+shall not be eligible for appointment in other government service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 8, 'The Constitution of Nepal, Part-21, Article 238, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21', 2, 'article', 'Article 239', 'Functions, Duties and Powers of Commission for the Investigation of Abuse of Authority', 'Functions, Duties and Powers of Commission for the Investigation of Abuse of Authority', NULL, 1, 'The Constitution of Nepal, Part-21, Article 239 (Functions, Duties and Powers of Commission for the Investigation of Abuse of Authority)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(1)', '', NULL, 'The Commission for the Investigation of Abuse of Authority may, in
+accordance with law, conduct, or cause to be conducted investigations of any abuse of
+authority committed through corruption by any person holding public office.
+Provided that this clause shall not apply to any official in relation to whom this
+Constitution itself separately provides for such action and to any official in relation to
+whom other law provides for a separate special provision.', 0, 'The Constitution of Nepal, Part-21, Article 239, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(2)', '', NULL, 'In the case of the persons who may be removed from the office by the
+virtue of adoption of a motion of impeachment pursuant to  Article 101, the Judges
+who may be removed by the Judicial Council and the persons who are liable to action
+in accordance with  the Army Act, it may conduct , or cause to be conducted,
+investigations in accordance with the federal law after they have been  removed from
+office.', 1, 'The Constitution of Nepal, Part-21, Article 239, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(3)', '', NULL, 'In case the Commission for the Investigation of Abuse of Authority finds,
+on investigation conducted pursuant to clause (1) or (2), that a person holding public
+office has committed an act which is defined by law as corruption, it may file, or
+cause to be filed, a  case against that person and other person involved in that offense
+in the competent court in accordance with law.', 2, 'The Constitution of Nepal, Part-21, Article 239, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(4)', '', NULL, 'In case, on investigation conducted pursuant to clause (1) or (2), any act or
+action done or taken by a person holding public office appe ars to be of such nature as
+to be falling under the jurisdiction of another official or institution, the Commission
+for the Investigation of Abuse of Authority may write to the concerned official or
+institution for necessary action.', 3, 'The Constitution of Nepal, Part-21, Article 239, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(5)', '', NULL, 'The Commission for the Investigation of Abuse of Authority may delegate
+any of its functions, duties and powers on the conducting of investigations or filing
+cases, to the Chief Commissioner, a Commissioner or an officer employee of the
+Government of Nepal to be exercised an d complied with subject to the specified
+conditions.', 4, 'The Constitution of Nepal, Part-21, Article 239, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:21.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:21.1', 3, 'clause', '(6)', '', NULL, 'Other functions, duties and powers and rules of procedure of the
+Commission for the Investigation of Abuse of Authority shall  be as provided for in
+the federal law.', 5, 'The Constitution of Nepal, Part-21, Article 239, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-22', 'Auditor General', 'Auditor General', NULL, 22, 'The Constitution of Nepal, Part-22 (Auditor General)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22', 2, 'article', 'Article 240', 'Auditor General', 'Auditor General', NULL, 0, 'The Constitution of Nepal, Part-22, Article 240 (Auditor General)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(1)', '', NULL, 'There shall be an Auditor General of Nepal.', 0, 'The Constitution of Nepal, Part-22, Article 240, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Auditor General.', 1, 'The Constitution of Nepal, Part-22, Article 240, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Auditor General shall be six years from the date
+of appointment.', 2, 'The Constitution of Nepal, Part-22, Article 240, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the Auditor
+General shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case he or she is removed from office by the President on
+recommendation of the Constitutional Council on grou nds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-22, Article 240, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(5)', '', NULL, 'The Auditor General appointed pursuant to clause (2) shall not be eligible
+for reappointment.', 4, 'The Constitution of Nepal, Part-22, Article 240, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Auditor General in case he
+or she possesses the following qualifications:-
+(a) One who has served in the Special Class of the Government of Nepal
+or having at least twenty years of experiences in audit related work ,
+after having obtained a bachelor''s degree in management, commerce
+or accounting from a recognized university or having passed a
+chartered accountancy examination;
+(b) One who is not  a member of any political party at the time of
+appointment;
+(c) One who has attained the age of forty-five years; and
+(d) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-22, Article 240, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and terms and conditions of service of the Auditor
+General shall be as provided for in the federal law . The remuneration and conditions
+of service of the Auditor General  shall not, so long as he or she  holds office, be
+altered to his or her disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-22, Article 240, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.0', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Auditor General shall not be eligible for
+appointment in another government service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-22, Article 240, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22', 2, 'article', 'Article 241', 'Functions, Duties and Powers of Auditor-General', 'Functions, Duties and Powers of Auditor-General', NULL, 1, 'The Constitution of Nepal, Part-22, Article 241 (Functions, Duties and Powers of Auditor-General)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:22.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.1', 3, 'clause', '(1)', '', NULL, 'The accounts of all Federal and
+Provincial Government Offices including the Office of the President, Office of the
+Vice-President, Supreme Court, Federal Parliament, Provincial Assembly, Provincial
+Government, Local Level, Constitutional Bod ies and Offices thereof, Courts, Office
+of the Attorney General , Nepal Army, Nepal Police and Armed Police Force, Nepal
+shall be audited by the Auditor -General in accordance with  law, having regard to ,
+inter alia, the regularity, economy, efficiency, effectiveness and the propriety thereof.', 0, 'The Constitution of Nepal, Part-22, Article 241, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.1', 3, 'clause', '(2)', '', NULL, 'The Auditor General shall be consulted in the matter of appointment of an
+auditor to carry out the  audit of a corporate body of which the Government of Nepal
+or Provincial Government owns more than fifty percent of  the shares or assets. The
+Auditor General may also issue necessary directives setting forth the principles for
+carrying out the audit of such corporate body.', 1, 'The Constitution of Nepal, Part-22, Article 241, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.1', 3, 'clause', '(3)', '', NULL, 'The Auditor General shall, at all times,  have power to examine any books
+of accounts for the purpose of carrying out the functions referred to in  clause (1). It
+shall be the duty of the concerned chief of office to provide all such documents and
+information as may be demanded by the Auditor Gene ral or any of his or her
+employees.', 2, 'The Constitution of Nepal, Part-22, Article 241, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.1', 3, 'clause', '(4)', '', NULL, 'The accounts to be audited pursuant to clause (1) shall be maintained in the
+form prescribed by the Auditor General, as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-22, Article 241, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:22.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:22.1', 3, 'clause', '(5)', '', NULL, 'In addition to the accounts of the offices referred to in clause (1), federal
+law may also require the accounts of any other office s or bodies to be audited by the
+Auditor General.', 4, 'The Constitution of Nepal, Part-22, Article 241, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-23', 'Public Service Commission', 'Public Service Commission', NULL, 23, 'The Constitution of Nepal, Part-23 (Public Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23', 2, 'article', 'Article 242', 'Public Service Commission', 'Public Service Commission', NULL, 0, 'The Constitution of Nepal, Part-23, Article 242 (Public Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(1)', '', NULL, 'There shall be a Public Service Commission of Nepal,
+consisting of the Chairperson and four other Members.', 0, 'The Constitution of Nepal, Part-23, Article 242, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and Members.', 1, 'The Constitution of Nepal, Part-23, Article 242, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(3)', '', NULL, 'At least fifty percent of the total number of Members of the Public Service
+Commission shall be appointed from amongst the persons who have worked for
+twenty years or more in any government service, and the rest of the Members shall be
+appointed from among st the persons who hold reputation after having conducted
+research, studies, teaching or any other significant work in the field of science,
+technology, art, literature, law, public a dministration, sociology or other sphere of
+national life.', 2, 'The Constitution of Nepal, Part-23, Article 242, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(4)', '', NULL, 'The term o f office of the Ch airperson and Members of the Public Service
+Commission shall be six years from the date of appointment.', 3, 'The Constitution of Nepal, Part-23, Article 242, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(5)', '', NULL, 'The Chairperson and Members appointed pursuant to clause (2) shall not
+be eligible for reappointment.
+Provided that a Member may be appointed to the office of Chairperson, and
+when a Member is so appointed as the Chairperson, his or her term of office shall be
+so computed as to include his or her term as the Member.', 4, 'The Constitution of Nepal, Part-23, Article 242, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(6)', '', NULL, 'Notwithstanding anything contained in clause (4 ), the office of  the
+Chairperson or a Member of the Public Service Commission shall fall vacant in any of
+the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case he or she is removed from the office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 5, 'The Constitution of Nepal, Part-23, Article 242, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(7)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a m ember
+of the Public Service Commission in case  he or she possesses the following
+qualifications:-
+(a) One who has  acquired a Master''s degree from a recognized
+university;
+(b) One who is not  a member of any political party at the time of
+appointment;
+(c) One who has attained the age of forty-five years; and
+(d) One who bears high moral character.', 6, 'The Constitution of Nepal, Part-23, Article 242, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(8)', '', NULL, 'The remuneration and other conditions of service of the Chairperson and
+the members of the Public Service Commission  shall be as provided for in the federal
+law. The remuneration and conditions of service of the Chairperson and the Members
+of the Public Service Commission shall not be altered to their disadvantage, so long as
+they hold office.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 7, 'The Constitution of Nepal, Part-23, Article 242, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.0.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.0', 3, 'clause', '(9)', '', NULL, 'A person once appointed as the Chairperson and the members of the Public
+Service Commission  shall not be eligible for appointment in other government
+service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 8, 'The Constitution of Nepal, Part-23, Article 242, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23', 2, 'article', 'Article 243', 'Functions, Duties and Powers of Public Service Commission', 'Functions, Duties and Powers of Public Service Commission', NULL, 1, 'The Constitution of Nepal, Part-23, Article 243 (Functions, Duties and Powers of Public Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(1)', '', NULL, 'It shall be the duty
+of the Public Service Commission to conduct examinations for the selection of
+suitable candidates to be appointed to the positions in the Civil Service.
+Explanation: For the p urposes of this Article, "positions in the Civil Service" mean s
+all positions in the services of the Government of Nepal, other than the positions in
+the services of Army personnel, Nepal Police or Armed Police Force, Nepal and such
+other positions in the services as are excluded by an Act from the Civil Service.', 0, 'The Constitution of Nepal, Part-23, Article 243, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(2)', '', NULL, 'The Public Service Commission shall conduct written examinations to be
+held for appointment to the offices of the Nepal Army, Nepal Police, Armed Police
+Force, Nepal, other federal governmental services and of bodies corporate, other than
+the positions in the Civil Service.
+Explanation: For the pur poses of this Article, "body corporate" means a corporation,
+company, bank or board of which more than fifty percent or more of the shares or
+assets is owned or controlled by the Government of Nepal , except a University or
+Teacher Service Commission, or a Commission, Corporation, Authority, Body,
+Academy, Board, Centre, C ouncil and other body corporate of similar nature
+established under federal law or formed by the Government of Nepal.', 1, 'The Constitution of Nepal, Part-23, Article 243, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(3)', '', NULL, 'The Public Service Commission shall be consulted on the general
+principles to be followed in the course of making appointment and promotio n to any
+position of the Nepal A rmy, Nepal Police, Armed Poli ce Force, Nepal and other
+federal government services.', 2, 'The Constitution of Nepal, Part-23, Article 243, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(4)', '', NULL, 'The Public Service Commission shall be consulted on the laws relating to
+the conditions of service of the  employees in the service of a  body corporate and on
+the general principles to be followed in the course of making promotion to any
+position of such service and taking departmental action against any such employee.', 3, 'The Constitution of Nepal, Part-23, Article 243, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(5)', '', NULL, 'No permanent appointment to any pensionable position  chargeable on the
+Government of Nepal  shall be made except in consultation with the Public Service
+Commission.', 4, 'The Constitution of Nepal, Part-23, Article 243, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(6)', '', NULL, 'The Public Service Commission shall be consulted on the following
+subjects: -
+(a) Matters concerning the law relating to the conditions of service of
+the Federal Civil Service;
+(b) Principles to be followed in making appointments to, promotions to,
+the Federal Civil Service or positions thereof and taking
+departmental action;
+(c) Matters concerning the suitability of an y candidate for appointment
+to the Federal Civil Service position for a period of more than six
+months;
+(d) Matters concerning the suitability of any candidate  for transfer or
+promotion from a position in one type of Federal Civil Service to  a
+position in other type of Federal Civil Service or transfer or
+promotion from other government service to the Federal Civil
+Service or for a change in service or transfer from a position in a
+Provincial Civil Service to a position in the Federal Civil Service or
+from a position in the Fed eral Civil Service to a Provincial Civil
+Service;
+(e) Matters concerning the permanent transfer or promotion of an
+employee working in any position which does not require
+consultation with the Public Service Commission to any position
+which requires consul tation with the Public Service Commission;
+and
+(f) Matters relating to departmental action against any employee of the
+Federal Civil Service.', 5, 'The Constitution of Nepal, Part-23, Article 243, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(7)', '', NULL, 'Notwithstanding anything contained in clause (6), matters falling within the
+jurisdiction of the Judicial Service Commission referred to in Article 154 shall be as
+provided for in that Article.', 6, 'The Constitution of Nepal, Part-23, Article 243, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(8)', '', NULL, 'The Public Service Commission may delegate any of its functions, duties
+and powers to its Chairperson or Member, an employee of the Government of Nepal
+as to be exercised and complied with subject to the specified conditions.', 7, 'The Constitution of Nepal, Part-23, Article 243, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.1.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.1', 3, 'clause', '(9)', '', NULL, 'Other functions, duties and powers and rules of procedure of the Public
+Service Commission shall be as provided for in the federal law.', 8, 'The Constitution of Nepal, Part-23, Article 243, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23', 2, 'article', 'Article 244', 'Provisions relating to Provincial Public Service Commission', 'Provisions relating to Provincial Public Service Commission', NULL, 2, 'The Constitution of Nepal, Part-23, Article 244 (Provisions relating to Provincial Public Service Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.2', 3, 'clause', '(1)', '', NULL, 'Each Province shall
+have a Provincial Public Service Commission.', 0, 'The Constitution of Nepal, Part-23, Article 244, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.2', 3, 'clause', '(2)', '', NULL, 'The f unctions, duties and powers of the Provincial Public Service
+Commission shall be as provided for in the provincial law.', 1, 'The Constitution of Nepal, Part-23, Article 244, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:23.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:23.2', 3, 'clause', '(3)', '', NULL, 'The Federal Parliament shall by a law determine grounds and standards for
+the purposes of clause (2).', 2, 'The Constitution of Nepal, Part-23, Article 244, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-24', 'Election Commission', 'Election Commission', NULL, 24, 'The Constitution of Nepal, Part-24 (Election Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24', 2, 'article', 'Article 245', 'Election Commission', 'Election Commission', NULL, 0, 'The Constitution of Nepal, Part-24, Article 245 (Election Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(1)', '', NULL, 'There shall be an Election Commission of Nepal, consisting
+of a Chief Commissioner and four other Commissioners. The Chief Commissioner
+shall act as the chairperson of the Election Commission.', 0, 'The Constitution of Nepal, Part-24, Article 245, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Const itutional Council,
+appoint the Chief Election Commissioner and Commissioners.', 1, 'The Constitution of Nepal, Part-24, Article 245, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chief Election Commissioner and Commissioners
+of the Election Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-24, Article 245, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3 ), the office of the Chief
+Election Commissioner or Election Commissioner shall fall vacant in any of the
+following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case  he or she is removed from office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e)  In case he or she dies.', 3, 'The Constitution of Nepal, Part-24, Article 245, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(5)', '', NULL, 'The Chief Election Commissioner and Commissioners appointed pursuant
+to clause (2) shall not be eligible for reappointment.
+Provided that a Commissioner may be appointed to the office of Chief
+Election Commissioner , and when a Commissioner is so appointed as the Chief
+Election Commissioner, his or her term of office shall be so computed as to include
+his or her term as the Commissioner.', 4, 'The Constitution of Nepal, Part-24, Article 245, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chief Election
+Commissioner or an Election Commissioner in case he or she possesses the following
+qualifications:-
+(a) One who has  attained a bachelor''s degree from a recognized
+university;
+(b) One who is not  a member of any political party at the time of
+appointment;
+(c)  One who has attained the age of forty-five years; and
+(d) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-24, Article 245, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and other conditions of service of the Chief Election
+Commissioner and Election Commissioners shall be as provided for in the federal
+law. The remuneration and conditions of service of the Chief Election Commissioner
+and the Commissioners shall not be altered to their disadvantage  so long as they hold
+office.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-24, Article 245, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.0', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chief Election Commissioner and a
+Commissioner of the Election Commission shall not be eligible for appointment in
+other government service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-24, Article 245, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24', 2, 'article', 'Article 246', 'Functions, Duties and Powers of Election Commission', 'Functions, Duties and Powers of Election Commission', NULL, 1, 'The Constitution of Nepal, Part-24, Article 246 (Functions, Duties and Powers of Election Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.1', 3, 'clause', '(1)', '', NULL, 'The Election Commission
+shall, subject to this Constitution and federal  law, conduct, supervise, direct and
+control the election to the President, Vice -President, members of the Federal
+Parliament, members of Provincial Assemblies and members of Local Level . The
+Election Commission shall, for these purposes, prepare electoral rolls.', 0, 'The Constitution of Nepal, Part-24, Article 246, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.1', 3, 'clause', '(2)', '', NULL, 'The Election Commission shall hold a referendum on a matter of national
+importance in accordance with this Constitution and federal law', 1, 'The Constitution of Nepal, Part-24, Article 246, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.1', 3, 'clause', '(3)', '', NULL, 'In case, after nomination of candidacy for the President, Vice-President,
+member of the Federal  Parliament, member of Provincial Assemblies or member of
+Local Level  has been filed but before the election  results are declared , a question
+arises about the qualification of a candidate, the Election Commission shall decide
+that question.', 2, 'The Constitution of Nepal, Part-24, Article 246, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.1', 3, 'clause', '(4)', '', NULL, 'The Election Commission may so delegate any of its functions, duties and
+powers to the Chief Election Commissioner, Election Commissioner or any
+government employee as to be exercised and complied with subject to the specified
+conditions.', 3, 'The Constitution of Nepal, Part-24, Article 246, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24.1', 3, 'clause', '(5)', '', NULL, 'Other functions, duties and powers and rules of procedure of the Election
+Commission shall be as provided for in federal law.', 4, 'The Constitution of Nepal, Part-24, Article 246, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:24.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:24', 2, 'article', 'Article 247', 'To provide Necessary Assistance to Election Commission', 'To provide Necessary Assistance to Election Commission', 'The Government of Nepal,
+Provincial Government and Local Government s hall provide such employees and
+other assistance to  the Election Commission as may be required to perform its
+functions in accordance with this Constitution.', 2, 'The Constitution of Nepal, Part-24, Article 247 (To provide Necessary Assistance to Election Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-25', 'National Human Rights Commission', 'National Human Rights Commission', NULL, 25, 'The Constitution of Nepal, Part-25 (National Human Rights Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25', 2, 'article', 'Article 248', 'National Human Rights  Commission', 'National Human Rights  Commission', NULL, 0, 'The Constitution of Nepal, Part-25, Article 248 (National Human Rights  Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(1)', '', NULL, 'There shall be a  National Human Rights
+Commission of Nepal, consisting of a Chairperson and four other members.', 0, 'The Constitution of Nepal, Part-25, Article 248, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the National Human Rights Commission.', 1, 'The Constitution of Nepal, Part-25, Article 248, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the National Human
+Rights Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-25, Article 248, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(4)', '', NULL, 'The Chairperson and m embers appointed pursuant to  clause (2) shall not
+be eligible for reappointment.
+Provided that a Member may be appointed to the off ice of Chairperson, and
+when a member is so appointed as the Chairperson, his or her term of office shall be
+so computed as to include his or her term as the Member.', 3, 'The Constitution of Nepal, Part-25, Article 248, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(5)', '', NULL, 'Notwithstanding anything contained in clause (3 ), the office of the
+Chairperson or m ember of the National Human Rights Commission shall fall vacant
+in any of the following circumstances:-
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(c) In case  he or she is removed from office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(d)  In case he or she dies.', 4, 'The Constitution of Nepal, Part-25, Article 248, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Ch airperson or a member
+of the National Human Rights Commission  in case he or she possesses the following
+qualifications:-
+(a) In the case of the Chairperson,  one who is a retired Chief Justice or
+a retired Justice of Supreme Court  and has rendered outstanding
+contribution to the protection and promotion of human rights or
+being a renowned person  having been active for at least twenty
+years in and rendered outstanding contribution to the protection and
+promotion of human rights or to various fields of national life;
+(b) In the case of a Member, one who is  involved in the field of the
+protection and promotion of human rights or rights and interests of
+the child or being a renowned person having been active for at least
+twenty years in and rendered outstanding contribution to various
+fields of national life;
+(c) One who has  acquired a Bachelor''s degree from a recognized
+university;
+(d) One who has attained the age of forty-five years;
+(e) One who is not  a member of any political party at the time of
+appointment;
+(f) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-25, Article 248, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and other conditions of s ervice of the Chairperson and
+members of the National Human Rights Commission shall be as provided for in  the
+federal law . The remuneration and conditions of service of  the Chairperson and
+members of the National Human Rights Commission  shall not, so long as they hold
+office, be altered to their disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-25, Article 248, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.0', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chairperson or a member of the National
+Human Rights Commission shall not be eligible for appointment in other government
+service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-25, Article 248, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25', 2, 'article', 'Article 249', 'Functions, Duties and Powers of National Human Rights Commission', 'Functions, Duties and Powers of National Human Rights Commission', NULL, 1, 'The Constitution of Nepal, Part-25, Article 249 (Functions, Duties and Powers of National Human Rights Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.1', 3, 'clause', '(1)', '', NULL, 'It shall be
+the duty of the National Hum an Rights Commission to respect, protect and promote
+human rights and ensure effective enforcement thereof.', 0, 'The Constitution of Nepal, Part-25, Article 249, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.1', 3, 'clause', '(2)', '', NULL, 'For the accomplishment of the duty referred to in clause (1), the National
+Human Rights Commission shall perform the following functions:
+(a) To inquire, on its own initiative or on petition or complaint presented
+in or sent to the Commission by a victim or any person on his or her
+behalf or on informatio n received by the Commission from any
+source, into and investigate complaints of violations of human rights
+of an individual or group  or abetment thereof, and make
+recommendation for action against the perpetrators;
+(b) In case  any official who has the res ponsibility or duty to prevent
+violations of human rights fails to fulfil or perform his or her
+responsibility or duty or shows reluctance in the fulfilment or
+performance of his or her responsibility or duty, to make
+recommendation to the concerned author ity to take department al
+action against such official;
+(c) In case  it is required to institute a case against any person or
+organization who has violated human rights, to make
+recommendation to file a case in the court in accordance with law;
+(d) To coordinate and collaborate with civil society in order to en hance
+awareness on human rights;
+(e) To make recommendation, accompanied by the reasons and grounds,
+to the concerned body for taking departmental action against and
+imposing punishment on those who are violators of human rights;
+(f) To carry out periodic reviews of the relevant laws relating to human
+rights and make recommendation to the Government of Nepal for
+necessary improvements in and amendments to such laws;
+(g)  In case  Nepal has to become a party to any international treaty or
+agreement on human rights, to make recommendation, accompanied
+by the reasons therefor, to the Government of Nepal; and monitor
+whether any such treaty or an agreement to which Nepal is already a
+party has been implemented, and in case it is found not to have been
+implemented, to make recommendation to the Government of Nepal
+for its implementation;
+(h) To publish, in accordance with law, the names of the officials,
+persons or bodies who have faile d to observe or implement any
+recommendations or directives made or given by the National Human
+Rights Commission in relation to the violations of human rights, and
+record them as violators of human rights.', 1, 'The Constitution of Nepal, Part-25, Article 249, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.1', 3, 'clause', '(3)', '', NULL, 'In discharging its functions or performing i ts duties, the National Human
+Rights Commission may exercise the following powers: -
+(a) To exercise all such powers as of a court in respect of the summoning
+and requiring the presence of any person before the Commission and
+seeking and recording his or h er information or statements or
+depositions, examining evidence and producing exhibits and proofs;
+(b) On receipt of information by the Commission in any manner that a
+serious violation of human rights has already been committed or is
+going to be committed, to search any person or his or her residence or
+office, enter such residence or office without notice, and, in the course
+of making such search, take possession of any document, evidence or
+proof related with the violation of human rights;
+(c) In the event of necessity to take action immediately on receipt of
+information that the human rights of any person are being violated, to
+enter any government office or any other place withou t notice and
+rescue such person;
+(d) To order for the provision of compensation in accordance with law to
+any person who is a victim of the violations of human rights.', 2, 'The Constitution of Nepal, Part-25, Article 249, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.1', 3, 'clause', '(4)', '', NULL, 'The National Human Rights  Commission may so delegate any of its
+functions, duties and powers to the Chairperson of the Commission, any of its
+Members or a government employee as to be exercised and complied with subject to
+the specified conditions.', 3, 'The Constitution of Nepal, Part-25, Article 249, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:25.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:25.1', 3, 'clause', '(5)', '', NULL, 'Other functions, duties and powers and rules of procedure of the National
+Human Rights Commission shall be as provided for in the federal law.', 4, 'The Constitution of Nepal, Part-25, Article 249, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-26', 'National Natural Resources and Fiscal Commission', 'National Natural Resources and Fiscal Commission', NULL, 26, 'The Constitution of Nepal, Part-26 (National Natural Resources and Fiscal Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26', 2, 'article', 'Article 250', 'National Natural Resources and Fiscal Commission', 'National Natural Resources and Fiscal Commission', NULL, 0, 'The Constitution of Nepal, Part-26, Article 250 (National Natural Resources and Fiscal Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(1)', '', NULL, 'There  shall be a National
+Natural Resources and Fiscal Commission of Nepal, consisting of a maximum of five
+members including a Chairperson.', 0, 'The Constitution of Nepal, Part-26, Article 250, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the  National Natural Resources and Fiscal
+Commission.', 1, 'The Constitution of Nepal, Part-26, Article 250, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the National Natural
+Resources and Fiscal Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-26, Article 250, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the
+Chairperson or m ember of the National Natural Resources and Fiscal Commission
+shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case  he or she is removed from office b y the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-26, Article 250, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(5)', '', NULL, 'The Chairperson and m embers appointed pursuant to clause (2) shall not
+be eligible for reappointment.
+Provided that a m ember may be appointed to the off ice of Chairperson, and
+when a member is so appointed as the Chairperson, his or her term of office shall be
+so computed as to include his or her term as the member.', 4, 'The Constitution of Nepal, Part-26, Article 250, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a m ember
+of the National Natural Resources and Fiscal Commission in case he or she possesses
+the following qualifications:-
+(a) One who has  expertise upon being active for at least twenty years in
+the field of natural resources or fiscal management, economic s, law,
+management, after holding a bachelor''s degree in the relevant subject
+from a recognized university;
+(b) One who is not  a member of  any political party at the time of
+appointment,
+(c) One who has attained the age of forty-five years,
+(d) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-26, Article 250, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and other conditions of service of the Chairperson and
+members of the National Natural Resources and Fiscal Commission s hall be as
+provided for in the federal law, and their remuneration and conditions of service shall
+not, so long as they hold office, be altered to their disadvantage.
+Provided that this provision shall not apply in cases where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-26, Article 250, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.0', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chairperson or a m ember of the National
+Natural Resources and Fiscal Commission shall not be eligible for appointment in
+other government service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-26, Article 250, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26', 2, 'article', 'Article 251', 'Functions, Duties and Powers of National Natural Resources and Fiscal Commission', 'Functions, Duties and Powers of National Natural Resources and Fiscal Commission', NULL, 1, 'The Constitution of Nepal, Part-26, Article 251 (Functions, Duties and Powers of National Natural Resources and Fiscal Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.1', 3, 'clause', '(1)', '', NULL, 'The functions, duties and powers of the National Natural Resources and Fiscal
+Commission shall be as follows:-
+(a) To determine detailed basis  and modality for the distribution of
+revenues between the Federal , Provinces and Local Governments out
+of the Federal Consolidated Fund in accordance  with the Constitution
+and law;
+(b) To make a recommendation about equalization grants to be provided to
+the Province and Local Governments out of the Federal  Consolidated
+Fund;
+(c) To conduct study and research work and prepare parameters as to
+conditional grants to be provided to the Province and Local
+Governments in accordance with national policies and programs,
+norms and condition of infrastructures;
+(d) To determine detai led basi s and modality for the distribution of
+revenues between the Province and Local Governments out of the
+Provincial Consolidated Fund;
+(e) To recommend measures to meet expenditures of the Federal, Province
+and Local Governments, and to reform revenue collection;
+(f) To analyse macro-economic indicators and recommend ceiling of
+internal loans that the Federal , Province and Local Governments can
+borrow;
+(g) To review the bases for th e distribution between the Federal  and
+Provincial Governments of revenues and recommend for revision;
+(h) To set bases for the determination of shares of the Government of
+Nepal, Provincial Government and Local Level  in investments and
+returns, in the mobilization of natural resources;
+(i) To do study and research work on possible disputes that may arise
+between the Federation and the Provinces, between Provinces, between
+a Province and a Local Level, and between Local Levels , and make
+suggestions to act in a coordinated manner for the preven tion of such
+disputes.', 0, 'The Constitution of Nepal, Part-26, Article 251, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.1', 3, 'clause', '(2)', '', NULL, 'The National Natural Resources and Fiscal Commission shall carry out
+necessary study and research work about environmental impact assessment required
+in the course of distribution of natural resources, and make recommendations  to the
+Government of Nepal.', 1, 'The Constitution of Nepal, Part-26, Article 251, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:26.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:26.1', 3, 'clause', '(3)', '', NULL, 'Other functions, duties and powers and rules of procedure of the National
+Natural Resources and Fiscal  Commission, detailed bases required to be followed in
+the mobilization of natural resources or distribution of revenues, a nd other matters
+including conditions of service of the officials of the Commission shall be as provided
+for in the federal law.', 2, 'The Constitution of Nepal, Part-26, Article 251, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-27', 'Other Commissions', 'Other Commissions', NULL, 27, 'The Constitution of Nepal, Part-27 (Other Commissions)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 252', 'National Women Commission', 'National Women Commission', NULL, 0, 'The Constitution of Nepal, Part-27, Article 252 (National Women Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(1)', '', NULL, 'There shall be a National Women Commission of
+Nepal, consisting of a Chairperson and four other members.', 0, 'The Constitution of Nepal, Part-27, Article 252, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the National Women Commission.', 1, 'The Constitution of Nepal, Part-27, Article 252, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the National Women
+Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 252, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the
+Chairperson or member of the National Women Commission shall fall vacant in any
+of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d)  In case  he or she is removed from office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-27, Article 252, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(5)', '', NULL, 'The Chairperson and members appointed pursuant to  clause (2) shall not
+be eligible for reappointment.
+Provided that a member may be appointed to the office of Chairperson, and
+when a member is so appointed as th e Chairperson, his or her term of office shall be
+so computed as to include his or her term as the member.', 4, 'The Constitution of Nepal, Part-27, Article 252, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a member
+of the National Women Commission in case  he or she possesses the follow ing
+qualifications:-
+(a) A woman who has rendered outstanding contribution , for at least ten
+years, in the field of rights and interests of women or gender justice or
+women development or human rights and law;
+(b) In the case of the Chairperson, one who has acquired a Bachelor''s
+degree from a recognized university;
+(c) One who has attained the age of forty-five years;
+(d) One who is not  a member of any political party at the time of
+appointment, and
+(e) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-27, Article 252, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(7)', '', NULL, 'The remuneration and conditions of service of the Chairperson and
+members of the National Women Commission shall be as provided for in  the federal
+law, and their remuneration and conditions of service shall not, so long as they hold
+office, be altered to their disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-27, Article 252, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.0', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chairperson or a member of the National
+Women Commission shall not be eligible for appointment in other government
+service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findi ngs on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-27, Article 252, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 253', 'Functions, Duties and Powers of National Women Commission', 'Functions, Duties and Powers of National Women Commission', NULL, 1, 'The Constitution of Nepal, Part-27, Article 253 (Functions, Duties and Powers of National Women Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.1', 3, 'clause', '(1)', '', NULL, 'The functions,
+duties and powers of the National Women Commission shall be as follows:-
+(a) To formulate policies and programs concerning the rights and interests of
+the women and submit them to the Government of Nepal for
+implementation;
+(b) To monitor as to whether or not laws concerning the rights and interests of
+the women and obligations under the international treaties to which Nepal
+is a party have been implemented, and make suggestions, accompanied by
+the measures for their effective compliance and implementation  to the
+Government of Nepal;
+(c) In order to have the women included in the mainstream of national
+development and ensure proportional participation in all organs of the
+State, to assess, monitor and evaluate the existing policies and programs,
+and make recommendation to the Government of Nepal for their effective
+implementation;
+(d) To carry out study and research work on the legal provisions relating to
+gender equality, empowerment of women and relating to women, make
+recommendations to the concerned bodies on reforms to be made on such
+laws, and monitor the same;
+(e) To make suggestions to the Government of Nepal about the preparation of
+reports to be submitted by Nepal in accordance with the provisions
+contained in the international treaties or agreements concerning women''s
+rights, to which Nepal is a party;
+(f) In case it is necessary to file cases against any persons or bodies on matters
+of violence against women or being subjected to social ill -practices or
+infringement of or deprivation of enjoyment of women''s rights, to make
+recommendations to the concerned bodies t o file such cases in courts in
+accordance with the law.', 0, 'The Constitution of Nepal, Part-27, Article 253, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.1', 3, 'clause', '(2)', '', NULL, 'The National Women Commission may so delegate any of its functions,
+duties and powers to the Chairperson of the Commission, any of its members or any
+employee of the Government of Nepal as to be exercised and complied with subject to
+the specified conditions.', 1, 'The Constitution of Nepal, Part-27, Article 253, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.1', 3, 'clause', '(3)', '', NULL, 'Other functions, duties and powers and other relevant matters of the
+National Women Commission shall be as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-27, Article 253, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 254', 'Powers to Establish Offices in Provinces', 'Powers to Establish Offices in Provinces', 'The National Women Rights Commission
+may, as required, establish its offices in Provinces.', 2, 'The Constitution of Nepal, Part-27, Article 254 (Powers to Establish Offices in Provinces)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 255', 'National Dalit Commission', 'National Dalit Commission', NULL, 3, 'The Constitution of Nepal, Part-27, Article 255 (National Dalit Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(1)', '', NULL, 'There shall be a National Dalit Commission of Nepal,
+consisting of a Chairperson and four other members.', 0, 'The Constitution of Nepal, Part-27, Article 255, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the National Dalit Commission.', 1, 'The Constitution of Nepal, Part-27, Article 255, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the National Dalit
+Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 255, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the
+Chairperson or member of the National Dalit Commission shall fall vacant in any of
+the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d) In case  he or she is removed from office b y the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-27, Article 255, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(5)', '', NULL, 'The Chairperson and members appointed pursuant to clause (2) shall not
+be eligible for reappointment.
+Provided that a member may be appointed to the office of Chairperson, and
+when a member is so appointed as the Chairperson, his or her term of office shall be
+so computed as to include his or her term as the member.', 4, 'The Constitution of Nepal, Part-27, Article 255, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a member
+of the National Dalit Commission in case  he or she possesses the following
+qualifications:
+(a) One who has rendered outstanding contribution to the field of rights
+and interests of the Dalit community or human rights and law , for at
+least ten years;
+(b) In the case of the Chairperson, one who has acquired at least a
+bachelor''s degree from a recognized university;
+(c) One who has attained the age of forty-five years;
+(d) One who is not a member of any political party at the time of
+appointment; and
+(e) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-27, Article 255, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.3.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(7)', '', NULL, 'The remuneration and conditions of service of the Chairperson and
+members of the National Dalit Commission shall be as provided for in  the federal
+law, and their remuneration and conditions of service shall not, so long as they hold
+office, be altered to their disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-27, Article 255, Clause (7)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:27.3.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.3', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chairperson or a member of the National
+Dalit Commission shall not be eligible for appointment in other government service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carryi ng
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-27, Article 255, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 256', 'Functions, Duties and Powers of National Dalit Commission', 'Functions, Duties and Powers of National Dalit Commission', NULL, 4, 'The Constitution of Nepal, Part-27, Article 256 (Functions, Duties and Powers of National Dalit Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.4', 3, 'clause', '(1)', '', NULL, 'The functions,
+duties and powers of the National Dalit Commission shall be as follows:-
+(a) To conduct study and research as to the overall situation of the Dalit
+community, identify areas of necessary policy, legal and institutional
+reforms in that field, and make recommendations to the Government of
+Nepal;
+(b) To formulate national policies and programs concerning the interests of the
+Dalit for the upliftment and development of the Dalit, putting an end to
+caste-based discrimination, oppression and discrimination, and submit
+such policies and programs to the Government of Nepal for their
+implementation;
+(c) To monitor as to whether laws concerning the interests of the Dalit,
+including the special provisions made for the upliftment and interests of
+the Dalit community have been effectively implemented, and in the event
+of absence of observance or implementation , to make suggestions to the
+Government of Nepal for the observance or implementation thereof;
+(d) To make suggestions to the Government of Nepal about the preparation of
+reports to be submitted by Nepal in accordance with the provisions
+contained in the i nternational treaties or agreements concerning the rights
+of the Dalit community, to which Nepal is a party;
+(e) In order to have the Dalit community included in the mainstream of
+national development and ensure proportional participation in all organs of
+the State, to assess, monitor and evaluate the existing policies and
+programs, and make recommendation to the Government of Nepal for their
+effective implementation;
+(f) In case it is necessary to file a case against any person or institution on
+matters of being a victim of caste-based discrimination and untouchability
+or social ill-practices or infringement of or deprivation of enjoyment of the
+rights of the Dalit, to make recommendations to the concerned bodies to
+file such case in courts in accordance with the law.', 0, 'The Constitution of Nepal, Part-27, Article 256, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.4', 3, 'clause', '(2)', '', NULL, 'The National Dalit Commission may so delegate any of its functions,
+duties and powers to the Chairperson of the Commission, any of its members or any
+employee of the Government of Nepal as to be exercised and complied with subject to
+the specified conditions.', 1, 'The Constitution of Nepal, Part-27, Article 256, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.4', 3, 'clause', '(3)', '', NULL, 'Other functions, duties and powers and other relevant matters of the
+National Dalit Commission shall be as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-27, Article 256, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 257', 'Powers to Establish O ffices in Provinces', 'Powers to Establish O ffices in Provinces', 'The National  Dalit Commission may, as
+required, establish its offices in Provinces.', 5, 'The Constitution of Nepal, Part-27, Article 257 (Powers to Establish O ffices in Provinces)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 258', 'National Inclusion Commission', 'National Inclusion Commission', NULL, 6, 'The Constitution of Nepal, Part-27, Article 258 (National Inclusion Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(1)', '', NULL, 'There shall be a National Inclusion Commission
+of Nepal, consisting of a Chairperson and four other members in the maximum.', 0, 'The Constitution of Nepal, Part-27, Article 258, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the National Inclusion Commission.', 1, 'The Constitution of Nepal, Part-27, Article 258, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the National
+Inclusion Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 258, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clause (3), the office of the
+Chairperson or member of the National Inclusion Commission shall fall vacant in any
+of the following circumstances: -
+(a) In case he or she tenders resignation in writing to the President;
+(b) In case he or she attains the age of sixty-five years;
+(c) In case  a motion of impeachment is adopted against him or her
+pursuant to Article 101;
+(d)  In case  he or she is removed from office by the President on
+recommendation of the Constitutional Council on grounds of his or
+her inability to hold office and discharge the functions due to physical
+or mental illness;
+(e) In case he or she dies.', 3, 'The Constitution of Nepal, Part-27, Article 258, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(5)', '', NULL, 'The Chairperson and members appointed pursuant to  clause (2) shall not
+be eligible for reappointment.
+Provided that a member may be appointed to the office of Chairperson, and
+when a member is so appointed as the Chairperson, his or her term of office shall be
+so computed as to include his or her term as the member.', 4, 'The Constitution of Nepal, Part-27, Article 258, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(6)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a member
+of the National Inclusion Commission in case  he or she possesses the following
+qualifications:-
+(a) One who has rendered outstanding contribution, for at least ten years,
+to the field of social inclusion, rights and interests or development of
+persons with disabilities, minority and marginalized communities and
+backward areas and classes or human rights;
+(b) In the case of the Chairperson, one who has  acquired a bachelor''s
+degree from a recognized university;
+(c) One who has attained the age of forty-five years;
+(d) One who is not  a member of any political party at the time of
+appointment; and
+(e) One who bears high moral character.', 5, 'The Constitution of Nepal, Part-27, Article 258, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(7)', '', NULL, 'The remuneration and conditions of service of the Chairperson and
+members of the National Inclusion Commission shall be as provided for in the federal
+law, and their remuneration and conditions of service shall not, so long as th ey hold
+office, be altered to their disadvantage.
+Provided that this provision shall not apply in case s where a state of
+emergency is declared because of extreme economic disarrays.', 6, 'The Constitution of Nepal, Part-27, Article 258, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.6.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.6', 3, 'clause', '(8)', '', NULL, 'A person once appointed as the Chairperson or a member of the National
+Inclusion Commission shall not be eligible for appointment in other government
+service.
+Provided that nothing in this clause shall be deemed to be a bar to the
+appointment to any political position or to any position which has the responsibility of
+making investigations, inquiries or findings on any subject, or to any position which
+has the responsibility of submitting advice, opinion or recommendation after carrying
+out a study or research on any subject.', 7, 'The Constitution of Nepal, Part-27, Article 258, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 259', 'Functions, Duties and Powers of National Inclusion Commission', 'Functions, Duties and Powers of National Inclusion Commission', NULL, 7, 'The Constitution of Nepal, Part-27, Article 259 (Functions, Duties and Powers of National Inclusion Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.7', 3, 'clause', '(1)', '', NULL, 'The functions,
+duties and powers of the National Inclusion Commission shall be as follows:-
+(a) To conduct study and research works for the protection of the rights
+and interests of the communities, including Khas Arya, Pichhada
+class, persons with disabilities, senior citizens, labours, peasants,
+minorities and marginalize d community, backward class, people of
+Karnali and the indigent class;
+(b) To study the status of implementation of the policies and laws
+adopted by the Government of Nepal for the inclusion of the
+community, class and region referred to  in sub-clause (a) and make
+suggestions to the Government for reforms;
+(c) To study as to whether  or not there has been appropriate
+representation of the community, class and region referred to in sub-
+clause (a) in the organs of the State  and make suggestions to the
+Government of Nepal to review the special provisions made for the
+representation of such community, class and region;
+(d) To study as to whether  or not the protection, empowerment  and
+development of the community, class and region referred to  in sub-
+clause (a) has  been satisfactory and make recommendations to the
+Government of Nepal about policies to be pursued in the future;
+(e) To make suggestions to the Government of Nepal about policies and
+programs to be pursued for the development and prosperity of the
+Karnali and backward regions;
+(f) To make recommendations for timely revisions of laws concerning
+minority and marginalized communities;
+(g) To monitor the status of implementation of rights and interests
+guaranteed for minority and marginalized communities and make
+recommendations for revision upon necessary review on the basis of
+periodic national census and human development index.', 0, 'The Constitution of Nepal, Part-27, Article 259, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.7', 3, 'clause', '(2)', '', NULL, 'The National Inclusion Commission may so delegate any of its functions,
+duties and powers to the Chairperson of the Commission, any of its members or any
+employee of the Government of Nepal as to be exercised and complied with subject to
+the specified conditions.', 1, 'The Constitution of Nepal, Part-27, Article 259, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.7', 3, 'clause', '(3)', '', NULL, 'Other func tions, duties and powers and other relevant matters of the
+National Inclusion Commission shall be as provided for in the federal law.', 2, 'The Constitution of Nepal, Part-27, Article 259, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 260', 'Powers to Establish Offices in Provinces', 'Powers to Establish Offices in Provinces', 'The National Inclusion Commission may, as
+required, establish its offices in Provinces.', 8, 'The Constitution of Nepal, Part-27, Article 260 (Powers to Establish Offices in Provinces)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 261', 'Indigenous Nationalities Commission', 'Indigenous Nationalities Commission', NULL, 9, 'The Constitution of Nepal, Part-27, Article 261 (Indigenous Nationalities Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.9', 3, 'clause', '(1)', '', NULL, 'There shall be an Indigenous Nationalities
+Commission of Nepal, consisting of a Chairperson and four other members  in
+maximum.', 0, 'The Constitution of Nepal, Part-27, Article 261, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.9', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of  the Constitutional Council,
+appoint the Chairperson and members of the Indigenous Nationalities Commission.', 1, 'The Constitution of Nepal, Part-27, Article 261, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.9', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the Indigenous
+Nationalities Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 261, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.9.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.9', 3, 'clause', '(4)', '', NULL, 'Other matters relating to t he qualification  for the Chairperson and
+members of the Indigenous Nationalities Commission, circumstances in which their
+offices fall vacant, their remuneration and conditions of service and the functions,
+duties and powers of this Commission shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-27, Article 261, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 262', 'Madhesi Commission', 'Madhesi Commission', NULL, 10, 'The Constitution of Nepal, Part-27, Article 262 (Madhesi Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.10.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.10', 3, 'clause', '(1)', '', NULL, 'There shall be a Madhesi Commission of Nepal, consisting
+of a Chairperson and four other members in the maximum.', 0, 'The Constitution of Nepal, Part-27, Article 262, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.10.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.10', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the Madhesi Commission.', 1, 'The Constitution of Nepal, Part-27, Article 262, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.10.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.10', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the Madhesi
+Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 262, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.10.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.10', 3, 'clause', '(4)', '', NULL, 'Other matters relating to the qualification for the Chairperson and
+members of the Madhesi Commission, circumstances in which their offices fall
+vacant, their remuneration and conditions of service and the functions, duties and
+powers of this Commission shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-27, Article 262, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 263', 'Tharu Commission', 'Tharu Commission', NULL, 11, 'The Constitution of Nepal, Part-27, Article 263 (Tharu Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.11.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.11', 3, 'clause', '(1)', '', NULL, 'There shall be a Tharu Commission of Nepal, consisting of a
+Chairperson and four other members in the maximum.', 0, 'The Constitution of Nepal, Part-27, Article 263, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.11.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.11', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the Tharu Commission.', 1, 'The Constitution of Nepal, Part-27, Article 263, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.11.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.11', 3, 'clause', '(3)', '', NULL, 'The term of office of  the Chairperson and members of the Tharu
+Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 263, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.11.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.11', 3, 'clause', '(4)', '', NULL, 'Other matters relating to the qualification for the Chairperson and
+members of the Tharu Commission, circumstances in which their offices fall vacant ,
+their remuneration and conditions of service and the functions, duties and powers of
+this Commission shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-27, Article 263, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 264', 'Muslim Commission', 'Muslim Commission', NULL, 12, 'The Constitution of Nepal, Part-27, Article 264 (Muslim Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.12', 3, 'clause', '(1)', '', NULL, 'There shall be a Muslim Commission of Nepal, consisting of
+a Chairperson and four other members in the maximum.', 0, 'The Constitution of Nepal, Part-27, Article 264, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.12', 3, 'clause', '(2)', '', NULL, 'The President shall, on the recommendation of the Constitutional Council,
+appoint the Chairperson and members of the Muslim Commission.', 1, 'The Constitution of Nepal, Part-27, Article 264, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.12.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.12', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the Muslim
+Commission shall be six years from the date of appointment.', 2, 'The Constitution of Nepal, Part-27, Article 264, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.12.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27.12', 3, 'clause', '(4)', '', NULL, 'Other matters relating to the qualification for the Chairperson and
+members of the Muslim Commission, circumstances in which their offices fall vacant,
+their remuneration and conditions of service and th e functions, duties and powers of
+this Commission shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-27, Article 264, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:27.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:27', 2, 'article', 'Article 265', 'Review of Commissions', 'Review of Commissions', 'The Federal Parliament shall, after ten years of the
+commencement of this Constitution, review the Commissions  constituted under this
+Part.', 13, 'The Constitution of Nepal, Part-27, Article 265 (Review of Commissions)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-28', 'Provisions Relating to National Security', 'Provisions Relating to National Security', NULL, 28, 'The Constitution of Nepal, Part-28 (Provisions Relating to National Security)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28', 2, 'article', 'Article 266', 'National Security Council', 'National Security Council', NULL, 0, 'The Constitution of Nepal, Part-28, Article 266 (National Security Council)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.0', 3, 'clause', '(1)', '', NULL, 'There shall be a National Security Council for making
+recommendation to the Government of Nepal, Council of Ministers for the
+formulation of a policy on overall national interest, security and defence of Nepal, and
+for the mobilization or control of the Nepal Army, which shall consist of the following
+as the Chairperson and members:-
+(a) The Prime Minister       - Chairperson
+(b) Minister for Defence, Government of Nepal        - Member
+(c) Minister for Home, Government of Nepal         - Member
+(d) Minister for Foreign Affairs, Government of Nepal     -Member
+(e) Minister for Finance, Government of Nepal          - Member
+(f) Chief Secretary to Government of Nepal          - Member
+(g) Chief of the Army Staff, Nepal Army          - Member', 0, 'The Constitution of Nepal, Part-28, Article 266, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.0', 3, 'clause', '(2)', '', NULL, 'The secretary at the Ministry of Defence shall act as the member secretary
+to the National Security Council.', 1, 'The Constitution of Nepal, Part-28, Article 266, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.0', 3, 'clause', '(3)', '', NULL, 'The National Security Council shall submit its annual report to the
+President, and the President shall cause the report  to be laid through the Prime
+Minister before the Federal Parliament.', 2, 'The Constitution of Nepal, Part-28, Article 266, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.0', 3, 'clause', '(4)', '', NULL, 'Other matters relating to the National Security Council shall be as provided
+for in the federal law.', 3, 'The Constitution of Nepal, Part-28, Article 266, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28', 2, 'article', 'Article 267', 'Provisions relating to Nepal Army', 'Provisions relating to Nepal Army', NULL, 1, 'The Constitution of Nepal, Part-28, Article 267 (Provisions relating to Nepal Army)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(1)', '', NULL, 'There shall be an organization of the Nepal
+Army, which shall  be inclusive and  committed to this Constitution , in order to
+safeguard of independence, sovereignty, territorial integrity and freedom and national
+unity of Nepal.', 0, 'The Constitution of Nepal, Part-28, Article 267, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(2)', '', NULL, 'The President shall be the Supreme Commander of the Nepal Army.', 1, 'The Constitution of Nepal, Part-28, Article 267, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(3)', '', NULL, 'Entry of women, Dalit, indigenous people, indigenous nationalities
+(Aadibasi Janajati), Khas Arya, Madhesi, Tharu, Pichhada class and backward region
+citizens into the Nepal Army shall, on the basis of principles of equality and inclusion,
+be ensured by the federal law.', 2, 'The Constitution of Nepal, Part-28, Article 267, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(4)', '', NULL, 'The Government of Nepal may also mobilize the Nepal Army in other
+works including development, construction and disaster management works, as
+provided for in the federal law.', 3, 'The Constitution of Nepal, Part-28, Article 267, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(5)', '', NULL, 'The President shall, on recommendation of the Council of Ministers,
+appoint the Chief of the Army Staff and remove him or her from office.', 4, 'The Constitution of Nepal, Part-28, Article 267, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(6)', '', NULL, 'The President shall, in accordance with a decision of the Government of
+Nepal, Council of Ministers on recommendation of the National Security Council ,
+declare the mobilization of the Nepal Army in cases where a grave emergency arises
+in regard to the sovereignty or territorial integrity of Nepal or the security of any part
+thereof, by war, external aggression, armed rebellion or extreme economic disarray s.
+A declaration of the mobilization of the Nepal Army shall be required to be approved
+by the House of Representatives within one month after the date of such declaration.', 5, 'The Constitution of Nepal, Part-28, Article 267, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.1.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.1', 3, 'clause', '(7)', '', NULL, 'Other matters pertaining to the Nepal Army shall be in accordance with
+law.', 6, 'The Constitution of Nepal, Part-28, Article 267, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28', 2, 'article', 'Article 268', 'Provisions Relating to Nepal Police, Armed Police Force, Nepal and  National Investigation Department', 'Provisions Relating to Nepal Police, Armed Police Force, Nepal and  National Investigation Department', NULL, 2, 'The Constitution of Nepal, Part-28, Article 268 (Provisions Relating to Nepal Police, Armed Police Force, Nepal and  National Investigation Department)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.2', 3, 'clause', '(1)', '', NULL, 'The Federation shall have Nepal Police, Armed Police
+Force, Nepal and National Investigation Department.', 0, 'The Constitution of Nepal, Part-28, Article 268, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.2', 3, 'clause', '(2)', '', NULL, 'Each Province shall have a Provincial Police Organization.', 1, 'The Constitution of Nepal, Part-28, Article 268, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.2', 3, 'clause', '(3)', '', NULL, 'Matters relating to the operation, supervision and coordination of functions
+to be discharged by the Nepal Police and the Provincial police shall be as provided for
+in federal law.', 2, 'The Constitution of Nepal, Part-28, Article 268, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:28.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:28.2', 3, 'clause', '(4)', '', NULL, 'Other matters relating to the Nepal Police, Armed Po lice Force, Nepal and
+National Investigation Department shall be as provided for in the by federal law.', 3, 'The Constitution of Nepal, Part-28, Article 268, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-29', 'Provisions Relating to Political Parties', 'Provisions Relating to Political Parties', NULL, 29, 'The Constitution of Nepal, Part-29 (Provisions Relating to Political Parties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29', 2, 'article', 'Article 269', 'Formation, Registration and Operation of Political Parties', 'Formation, Registration and Operation of Political Parties', NULL, 0, 'The Constitution of Nepal, Part-29, Article 269 (Formation, Registration and Operation of Political Parties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(1)', '', NULL, 'Persons who are
+committed to common political ideology, philosophy and program may, subject to
+laws made pursuant to  sub-clause (c) of clause (2) of Article 17 , form and operate
+political parties, and generate, or cause to be generated, publicity in order to secure
+support and cooperation from  public-in-general for their ideolog y, philosophy and
+program or carry out other necessary activity for this purpose.', 0, 'The Constitution of Nepal, Part-29, Article 269, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(2)', '', NULL, 'A political party formed in a ccordance with clause (1)  shall be required to
+be registered the party with the Election Commission upon fulfilment of the
+procedures as laid down by law.', 1, 'The Constitution of Nepal, Part-29, Article 269, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(3)', '', NULL, 'A petition to be filed for the purpose of registration of a party pursuant to
+clause (2) shall be accompanied by the constitution and manifesto of the concer ned
+political party and such other documents as required by federal law.', 2, 'The Constitution of Nepal, Part-29, Article 269, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(4)', '', NULL, 'For a petition to be filed for the registration of a party pursuant to clause', 3, 'The Constitution of Nepal, Part-29, Article 269, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(2)', '', NULL, ', the political party shall fulfil the following conditions:-
+(a) Its constitution and rules shall be required  be democratic;
+(b) Its constitution shall provide for election of each of the office-
+bearers of the party at the Federal and Provincial levels at least once
+in every five years;
+Provided that nothing shall bar the making of provision in the
+constitution of a political party to hold such election within six
+months in the event of failure to hold election of its office -bearers
+within five years because of occurrence a special circumstance;
+(c) There shall be a  provision of such inclusive representation in  its
+executive committees at various levels as may be reflecting the
+diversity of Nepal.', 4, 'The Constitution of Nepal, Part-29, Article 269, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.0', 3, 'clause', '(5)', '', NULL, 'In case the name, objective, insignia or flag of a political party is of such a
+nature as to jeopardize the religious and communal unity of the country or to fragment
+the country, that party shall not be registered.', 5, 'The Constitution of Nepal, Part-29, Article 269, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29', 2, 'article', 'Article 270', 'Restrictions on Imposition of  Prohibition on Political Parties', 'Restrictions on Imposition of  Prohibition on Political Parties', NULL, 1, 'The Constitution of Nepal, Part-29, Article 270 (Restrictions on Imposition of  Prohibition on Political Parties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.1', 3, 'clause', '(1)', '', NULL, 'Any law,
+arrangement or decision so made as to impose any restriction on the formation and
+operation of a polit ical party and on the generation of publicity in order to secure
+support and cooperation from  public-in-general for the ideology, philosophy and
+program of the party pursuant to Article 269 shall be deemed to be inconsistent with
+this Constitution and shall, ipso facto, be void.', 0, 'The Constitution of Nepal, Part-29, Article 270, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.1', 3, 'clause', '(2)', '', NULL, 'Any law, arrangement or decision so made as to allow for participation or
+involvement of only a single political party or persons having similar political
+ideology, philosophy or program in the elections or in the political system of, or in the
+conduct of governance of the State shall be deemed to be inconsistent with this
+Constitution and shall, ipso facto, be void.', 1, 'The Constitution of Nepal, Part-29, Article 270, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29', 2, 'article', 'Article 271', 'Registration required for Securing Recognition for the Purpose of Contesting Elections as Political Party', 'Registration required for Securing Recognition for the Purpose of Contesting Elections as Political Party', NULL, 2, 'The Constitution of Nepal, Part-29, Article 271 (Registration required for Securing Recognition for the Purpose of Contesting Elections as Political Party)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.2', 3, 'clause', '(1)', '', NULL, 'Every political party  that is registered pursuant to
+Article 269 and  intends to secure recognition from the Election Commission for the
+purposes of elections shall be registered with the Election Commission in fulfilment of
+the procedures set forth in the federal law.', 0, 'The Constitution of Nepal, Part-29, Article 271, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29.2', 3, 'clause', '(2)', '', NULL, 'The political party shall be required to  submit a yearly audit report in
+addition to the matters set forth in clause (3) of Article 269 a petition to be filed for the
+purpose of clause (1) and also fulfil the terms set forth in clause (4) of that Article.', 1, 'The Constitution of Nepal, Part-29, Article 271, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:29.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:29', 2, 'article', 'Article 272', 'Other Provisions relating to Political Parties', 'Other Provisions relating to Political Parties', 'Provisions relating to  the formation,
+registration, operation and facilities of political parties and other matter s pertaining
+thereto shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-29, Article 272 (Other Provisions relating to Political Parties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-30', 'Emergency Powers', 'Emergency Powers', NULL, 30, 'The Constitution of Nepal, Part-30 (Emergency Powers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30', 2, 'article', 'Article 273', 'Emergency Provisions', 'Emergency Provisions', NULL, 0, 'The Constitution of Nepal, Part-30, Article 273 (Emergency Provisions)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(1)', '', NULL, 'In case a grave emergency arises in sovereignty , territorial
+integrity or the security of any part of Nepal by the reason of war, external aggression,
+armed rebellion, extreme economic disarray s, natural disaster or epidemic ; the
+President may, by Proclamation, declare or order a state of emergency in respect of the
+whole of Nepal or of any particular part thereof.', 0, 'The Constitution of Nepal, Part-30, Article 273, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(2)', '', NULL, 'Notwithstanding anything contained in clause (1), in case  there arises a
+grave emergency in a Province by the reason of a natural disaster or epidemic, the
+concerned Provincial Government may request the Government of Nepal to declare a
+Proclamation or order a state of emergency in respect of the whole of the Province or
+of any specified part thereof, in accordance with this Article.', 1, 'The Constitution of Nepal, Part-30, Article 273, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(3)', '', NULL, 'The Proclamation or order issued pursuant to clause (1) shall be laid before
+both Houses of the Federal Parliament for approval within one month from the date of
+issuance of such proclamation or order.', 2, 'The Constitution of Nepal, Part-30, Article 273, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(4)', '', NULL, 'In case the Proclamation or order laid for approval pursuant to clause (3) is
+approved by at least a two-thirds majority of the total number of the then members of
+both Houses of the  Federal Parliament, the Proclamation or order shall continue in
+force for a period of three months from the date of its issuance.', 3, 'The Constitution of Nepal, Part-30, Article 273, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(5)', '', NULL, 'In case the Proclamation or an order laid for approval pursuant to clause (3)
+is not approve d pursuant to clause (4), the Proclamation or order shall ipso facto be
+inoperative.', 4, 'The Constitution of Nepal, Part-30, Article 273, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(6)', '', NULL, 'Notwithstanding anything contained elsewhere in this Article, prior to
+expiration of the period referred to in clause (4), a motion to extend the period of the
+Proclamation or order of state of emergency as referred to  in clause (1)  for another
+period not exceeding three months may be submitted to the Federal Parliament.', 5, 'The Constitution of Nepal, Part-30, Article 273, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(7)', '', NULL, 'In case a motion referred to in  clause (6) is adopted by at least two -thirds
+majority of the total number of the then members of both Houses of the Federal
+Parliament, the Proclamation or order shall continue in force for the period  referred to
+in that motion.', 6, 'The Constitution of Nepal, Part-30, Article 273, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(8)', '', NULL, 'In the event of dissolution of the House of Representatives, the powers
+exercisable by the Federal Parliament pursuant to clauses (3), (4), (6) and (7) shall be
+exercised by the National Assembly.', 7, 'The Constitution of Nepal, Part-30, Article 273, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(9)', '', NULL, 'The President may, a fter the issuance of a Proclamation or order of a state
+of emergency pursuant to clause (1), issue such orders as are necessary to meet the
+exigencies. Orders so issued shall be operative with the same force and effect as  law
+so long as the state of emergency is in operation.', 8, 'The Constitution of Nepal, Part-30, Article 273, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(10)', '', NULL, 'At the time of issuance of the  Proclamation or order  of a state of
+emergency pursuant to  clause (1), the fundame ntal rights as provided for in Part -3
+may be suspended until the proclamation or order is in operation.
+Provided that Article 16, sub -clauses (c) and (d) of clause (2) of Article 17,
+Article 18, clause (2) of Article 19 , Articles 20, 21, 22 and  24, clause (1) of Article
+26, Articles 29, 30, 31, 32, 35, clauses (1) and (2 ) of Article 36, Articles 38, 39,
+clauses (2) and (3) of Article 40, Articles 41, 42, 43, 45, and the right to constitutional
+remedy in relation to such  Articles pursuant to Article 46  and the right to  seek the
+remedy of habeas corpus shall not be suspended.', 9, 'The Constitution of Nepal, Part-30, Article 273, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(11)', '', NULL, 'In case any Article of this Constitution is suspended pursuant to clause', 10, 'The Constitution of Nepal, Part-30, Article 273, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(10)', '', NULL, ', no petition may lie in any court for the enforcement of the fun damental right
+conferred by that Article nor may a question be raised in any Court in that respect.', 11, 'The Constitution of Nepal, Part-30, Article 273, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(12)', '', NULL, 'In case, during the continuance of a Proclamation or order pursuant to this
+Article, any damage is caused to a  person from any ac t carried out by any official in
+bad faith, the victim may, within three months fro m the date of termination of that
+Proclamation or order, file a petition for c ompensation for such damage. In case such
+petition is made, the court may order for compensation by, and punish, the perpetrator
+as provided for in the federal law.', 12, 'The Constitution of Nepal, Part-30, Article 273, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:30.0.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:30.0', 3, 'clause', '(13)', '', NULL, 'The President may, at any time, withdraw a  Proclamation or order of a
+state of emergency issuance pursuant to this Article.', 13, 'The Constitution of Nepal, Part-30, Article 273, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-31', 'Amendment to Constitution', 'Amendment to Constitution', NULL, 31, 'The Constitution of Nepal, Part-31 (Amendment to Constitution)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31', 2, 'article', 'Article 274', 'Amendment to Constitution', 'Amendment to Constitution', NULL, 0, 'The Constitution of Nepal, Part-31, Article 274 (Amendment to Constitution)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(1)', '', NULL, 'No amendment shall be made to this Constitution in
+manner to be prejudicial to sovereignty, territorial integrity, independence of Nepal
+and sovereignty vested in the people.', 0, 'The Constitution of Nepal, Part-31, Article 274, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(2)', '', NULL, 'Subject to clause (1) and other Articles of th is Constitution, a Bill to
+amend to or repeal any Article of this Constitution may be introduced in either House
+of the Federal Parliament.
+Provided that clause (1) shall not be amended.', 1, 'The Constitution of Nepal, Part-31, Article 274, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(3)', '', NULL, 'A Bill introduced pursuant to clause ( 2) shall be publicly published for
+information to public-in-general within thirty days of its introduction in the concerned
+House.', 2, 'The Constitution of Nepal, Part-31, Article 274, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(4)', '', NULL, 'In case a Bill introduced pursuant to clause ( 2) is related with the alteration
+in the borders of any Province or matters set forth in Schedule -6, the Speaker or the
+Chairperson of the concerned House shall send that Bill  to the Provincial Assembly
+for its consent, within thirty days after its introduction in the Federal Parliament.', 3, 'The Constitution of Nepal, Part-31, Article 274, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(5)', '', NULL, 'The concerned Provincial Assembly shall, by a majority of the total
+number of its the then members, approve or reject the Bill presented for its consent
+pursuant to clause (4 ) and give information thereof to the Federal Parliament within
+three months.
+Provided that in case any Provincial Assembly is not in existence , such  Bill
+shall be either approved or rejected within three months after the date of holding of the
+first meeting following the formation of that Provincial Assembly.', 4, 'The Constitution of Nepal, Part-31, Article 274, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(6)', '', NULL, 'In the event of failure to give information of approval or rejection of such
+Bill within the period set forth in clause (5), nothing shall prevent the House of the
+Federal Parliament in which the Bill was originated from proceeding with the Bill.', 5, 'The Constitution of Nepal, Part-31, Article 274, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(7)', '', NULL, 'In case a majority of the Provincial Assemblies gives a notice of rejection
+of such  Bill to the concerned House of the Federal Parliament within the period
+referred to in clause (5), the Bill shall be inoperative.', 6, 'The Constitution of Nepal, Part-31, Article 274, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(8)', '', NULL, 'A Bill which does not require th e consent of the Provincial Assembly or a
+Bill accepted by a majority of  the Provincial Assemblies pursuant to  clause (5) shall
+be adopted by at least two-thirds majority of the total number of the then members of
+both Houses of the Federal Parliament.', 7, 'The Constitution of Nepal, Part-31, Article 274, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(9)', '', NULL, 'A Bill adopted pursuant to clause (8) shall be submitted to the President for
+authentication.', 8, 'The Constitution of Nepal, Part-31, Article 274, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:31.0.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:31.0', 3, 'clause', '(10)', '', NULL, 'The President shall authenticate the Bill submitted pursuant to clause (9)
+within fifteen days from the date of its receipt and the Constitution shall get amended
+from the date of authentication.', 9, 'The Constitution of Nepal, Part-31, Article 274, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-32', 'Miscellaneous', 'Miscellaneous', NULL, 32, 'The Constitution of Nepal, Part-32 (Miscellaneous)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 275', 'Provisions relating to Referendum', 'Provisions relating to Referendum', NULL, 0, 'The Constitution of Nepal, Part-32, Article 275 (Provisions relating to Referendum)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.0', 3, 'clause', '(1)', '', NULL, 'In case  a decision is made by a two -thirds
+majority of the total number of the then members of the Federal  Parliament that it is
+necessary to hold a referendum with respect to any matter of national importance, a
+decision on that matter may be taken by way of referendum.', 0, 'The Constitution of Nepal, Part-32, Article 275, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.0', 3, 'clause', '(2)', '', NULL, 'Matters relating to referendum and other relevant matters shall be as
+provided for in the federal law.', 1, 'The Constitution of Nepal, Part-32, Article 275, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 276', 'Pardons', 'Pardons', 'The President may, in accordance with law, grant pardons, suspend,
+commute or re mit any sentence passed by any C ourt, judicial or quasi -judicial
+institution or administrative authority or institution.', 1, 'The Constitution of Nepal, Part-32, Article 276 (Pardons)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 277', 'Titles, Honours and  Decorations', 'Titles, Honours and  Decorations', NULL, 2, 'The Constitution of Nepal, Part-32, Article 277 (Titles, Honours and  Decorations)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.2', 3, 'clause', '(1)', '', NULL, 'The President shall confer titles, hono urs and
+decorations to be conferred on behalf of the State.', 0, 'The Constitution of Nepal, Part-32, Article 277, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.2', 3, 'clause', '(2)', '', NULL, 'No citizen of Nepal may, without the approval of the Government of
+Nepal, accept any title, honour or decoration from any foreign government.', 1, 'The Constitution of Nepal, Part-32, Article 277, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 278', 'Power to Conclude Treaty', 'Power to Conclude Treaty', NULL, 3, 'The Constitution of Nepal, Part-32, Article 278 (Power to Conclude Treaty)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.3', 3, 'clause', '(1)', '', NULL, 'The Federation shall have the power to conclude
+treaties or agreements.', 0, 'The Constitution of Nepal, Part-32, Article 278, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.3', 3, 'clause', '(2)', '', NULL, 'In concluding a treaty or agreement on a matter falling within the list of
+powers of Province, the Government of Nepal  shall be required to  consult the
+concerned Province.', 1, 'The Constitution of Nepal, Part-32, Article 278, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.3', 3, 'clause', '(3)', '', NULL, 'A Provincial Council of Ministers may, with the consent of the
+Government of Nepal, enter into contractual agreements on financial and industrial
+matters.', 2, 'The Constitution of Nepal, Part-32, Article 278, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 279', 'Ratification of, Accession to, Acceptance or Approval of, Treaties or Agreements', 'Ratification of, Accession to, Acceptance or Approval of, Treaties or Agreements', NULL, 4, 'The Constitution of Nepal, Part-32, Article 279 (Ratification of, Accession to, Acceptance or Approval of, Treaties or Agreements)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.4', 3, 'clause', '(1)', '', NULL, 'The ratification of, accession to, acceptance or approval of, treaties or agreements to
+which Nepal or the Government of Nepal is to become a party shall be as provided for
+in the federal law.', 0, 'The Constitution of Nepal, Part-32, Article 279, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.4', 3, 'clause', '(2)', '', NULL, 'Any law to be made pursuant to clause (1) shall, inter alia, require that the
+ratification of, accession to, acceptance or approval of, treaties or agreements on the
+following subjects shall be made by a majority of two-thirds of the total number of the
+then members of both Houses of the Federal Parliament:-
+(a) Peace and friendship;
+(b) Defence and strategic alliance;
+(c) Boundaries of the Nepal; and
+(d) Natural resources, and the distribution of their uses.
+Provided that, out of the treaties or agreements referred to in  sub-clauses (a)
+and (d), in case any treaty or agreement is of an ordinary nature, which does not affect
+the nation extensively, seriously or in the long term, the ratification of, accession to,
+acceptance or approval of, such treaty or agre ement may be made by a simple
+majority of the members present in a meeting of the House of Representatives.', 1, 'The Constitution of Nepal, Part-32, Article 279, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.4', 3, 'clause', '(3)', '', NULL, 'After the commencement of this Constitution, unless a treaty or agreement
+is ratified, acceded to, accepted or approved pursuant to  this Article, such  treaty or
+agreement shall not be binding to the Government of Nepal or Nepal.', 2, 'The Constitution of Nepal, Part-32, Article 279, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.4', 3, 'clause', '(4)', '', NULL, 'Notwithstanding anything contained in clauses  (1) and (2), no treaty or
+agreement that is detrimental to the territorial integrity of Nepal may be concluded.', 3, 'The Constitution of Nepal, Part-32, Article 279, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 280', 'Special provision relating to Discharge of Functions of President', 'Special provision relating to Discharge of Functions of President', 'In case the offices
+of both  the President and the Vice-President fall vacant in accordance with this
+Constitution, the Speaker of the House of Representatives shall discharge the
+functions required to be performed by the President under this Constitution until
+election to the President or Vice-President is held and he or she assumes office.', 5, 'The Constitution of Nepal, Part-32, Article 280 (Special provision relating to Discharge of Functions of President)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:32.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 281', 'Appraisal and Review of Special Rights', 'Appraisal and Review of Special Rights', 'The Government of Nepal shall make
+appraisal and review of the implementation of special rights of the women and Dalit
+community and impacts thereof, on the basis of human development index,
+concurrently with a national census to be held in every ten years.', 6, 'The Constitution of Nepal, Part-32, Article 281 (Appraisal and Review of Special Rights)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 282', 'Ambassadors and Special Emissaries', 'Ambassadors and Special Emissaries', NULL, 7, 'The Constitution of Nepal, Part-32, Article 282 (Ambassadors and Special Emissaries)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.7', 3, 'clause', '(1)', '', NULL, 'The President may, on the basis of the
+principle of inclusion, appoint Nepali ambassadors, and special emissaries for any
+specific purposes.', 0, 'The Constitution of Nepal, Part-32, Article 282, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.7', 3, 'clause', '(2)', '', NULL, 'The President shall receive letters of credentials from for eign ambassadors
+and diplomatic representatives.', 1, 'The Constitution of Nepal, Part-32, Article 282, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 283', 'Appointments to be made  in accordance with Inclusive Principle', 'Appointments to be made  in accordance with Inclusive Principle', 'Appointments to
+offices of Constitutional Organs and B odies shall be made in accordance with the
+inclusive principle.', 8, 'The Constitution of Nepal, Part-32, Article 283 (Appointments to be made  in accordance with Inclusive Principle)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 284', 'Provisions relating to Constitutional Council', 'Provisions relating to Constitutional Council', NULL, 9, 'The Constitution of Nepal, Part-32, Article 284 (Provisions relating to Constitutional Council)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.9', 3, 'clause', '(1)', '', NULL, 'There shall be a Constitutional
+Council for making recommendations for appointment of the Chief Justice and Chiefs
+and officials of the Constitutional Bodies in accordance with this Constitution, which
+shall consist of the following as the Chairperson and members:-
+(a) The Prime Minister - Chairperson
+(b) The Chief Justice - Member
+(c) The Speaker of the House of Representatives  - Member
+(d) The Chairperson of the National Assembly  - Member
+(e) Leader of Opposition Party in the House of Representatives  - Member
+(f) Deputy Speaker of the House of Representatives    - Member', 0, 'The Constitution of Nepal, Part-32, Article 284, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.9', 3, 'clause', '(2)', '', NULL, 'While making a recommendation for appointment to the office of the Chief
+Justice, the Constitutional Council shall include th e Minister for Law and Justice of
+the Government of Nepal, as its member.', 1, 'The Constitution of Nepal, Part-32, Article 284, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.9', 3, 'clause', '(3)', '', NULL, 'The Constitutional Council shall make a recommendation for appointment
+under this Constitution before one month of the vacation of the of fice of the Chief
+Justice or a chief or official of a Constitutional Body.
+Provided that in case such office falls vacant because of death or resignation, it
+may so make recommendation for appointment that the office is fulfilled within one
+month after the date of vacancy.', 2, 'The Constitution of Nepal, Part-32, Article 284, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.9', 3, 'clause', '(4)', '', NULL, 'Other functions, duties and powers of the Constitutional Council and rules
+of procedures on the appointment of the Chief Justice or chiefs or officials of
+Constitutional Bodies shall be as provided for in the federal law.', 3, 'The Constitution of Nepal, Part-32, Article 284, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.9.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.9', 3, 'clause', '(5)', '', NULL, 'The Chief Secretary to the Government of Nepal shall act as the secretary
+to the Constitutional Council.', 4, 'The Constitution of Nepal, Part-32, Article 284, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 285', 'Constitution of Government Service', 'Constitution of Government Service', NULL, 10, 'The Constitution of Nepal, Part-32, Article 285 (Constitution of Government Service)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.10.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.10', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal may, in order to
+run the administration of the country, constitute the federal civil service and such other
+federal government s ervices as may be required. The constitution, operation and
+conditions of service of such services shall be as provided for in a Federal Act.', 0, 'The Constitution of Nepal, Part-32, Article 285, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.10.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.10', 3, 'clause', '(2)', '', NULL, 'Positions in the federal civil service as well as all federal government
+services shall be fulfilled through competitive examinations, on the basis of open and
+proportional inclusive principle.', 1, 'The Constitution of Nepal, Part-32, Article 285, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.10.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.10', 3, 'clause', '(3)', '', NULL, 'The Provincial Council of Ministers, Rural Municipal Executive  and
+Municipal Executive may by law constitute and operate  various government ser vices
+as required for the operation of their administration.', 2, 'The Constitution of Nepal, Part-32, Article 285, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 286', 'Election Constituency Delimitation Commission', 'Election Constituency Delimitation Commission', NULL, 11, 'The Constitution of Nepal, Part-32, Article 286 (Election Constituency Delimitation Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal may
+constitute an Election Constituency Delimitation Commission, to determine election
+constituencies for the purpose of election to the members of the Federal Parliament
+and members of the Provincial Assemblies in accordance with this Constitution, which
+shall consist of the following as the Chairperson and members:-
+(a) A retired Justice of Supreme Court                        -Chairperson
+(b) One Geographer      -Member
+(c) One Sociologist or Demographer                                      -Member
+(d) One Administration Expert or Jurist                        -Member
+(e) Gazetted spec ial class officer of the
+Government of Nepal.
+-Member-secretary', 0, 'The Constitution of Nepal, Part-32, Article 286, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(2)', '', NULL, 'The term of office of the Election Constituency Delimitation Co mmission
+shall be as prescribed at the time of its constitution.', 1, 'The Constitution of Nepal, Part-32, Article 286, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(3)', '', NULL, 'A person shall be eligible to be appointed as the C hairperson or a member
+of the Election Constituency Delimitation Commission in case he or she possesses the
+following qualifications:-
+(a) One who has acquired  at least bachelor’s degree in related subject
+from a recognized university;
+(b) One who has attained the age of forty-five years; and
+(c) One who bears high moral character.', 2, 'The Constitution of Nepal, Part-32, Article 286, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(4)', '', NULL, 'The office of the C hairperson or a member of the Election Constituency
+Delimitation Commission shall fall vacant in any of the following circumstances: -
+(a) In case he or she tenders resignation in writing;
+(b) In case he or she is removed by the Government of Nepal , Council of
+Ministers;
+(c) In case he or she dies.
+(5) While determining election constituencies pursuant to this Article,
+the Election Constituency Delimitation Commission shall, subject to sub -clause
+(a) of clause (1) of Article 84, determine the constituencies in a Province in
+accordance with the federal la w, having regard to the population as the main
+basis and geography as the second basis for representation, and there shall be at
+least one election constituency in each district within the Province .', 3, 'The Constitution of Nepal, Part-32, Article 286, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(6)', '', NULL, 'While delimitating election constituencies pursuant t o clause (5),
+attention shall be required to be given , inter alia , the population and
+geographical convenience , density of population, geographical specificity,
+administrative and transportation convenience, community and cultural aspects of the
+constituencies.', 4, 'The Constitution of Nepal, Part-32, Article 286, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(7)', '', NULL, 'No question may be raised in any court on any matter of the determination,
+or review, of election constituencies made by the Election Constituency Delimitation
+Commission.', 5, 'The Constitution of Nepal, Part-32, Article 286, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(8)', '', NULL, 'The Election Constituency Delimitation Commission shall subm it a report
+on the works it has performed to the Government of Nepal.', 6, 'The Constitution of Nepal, Part-32, Article 286, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(9)', '', NULL, 'The Government of Nepal, Council of Ministers, shall lay the report
+received pursuant to clause (8 ) before the Federal Parliament and shall also send it to
+the Election Commission for implementation.', 7, 'The Constitution of Nepal, Part-32, Article 286, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(10)', '', NULL, 'The Election Constituency Delimitation Commission shall determine its
+rules of procedures itself.
+ Amended by the First Amendment.
+ Inserted by the First Amendment.', 8, 'The Constitution of Nepal, Part-32, Article 286, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(11)', '', NULL, 'The remuneration and facilities  of the C hairperson and the members of
+the Election Constituency Delimitation Commission shall be similar to those of the
+Chief Election Commissioner and the Election Commissioners  of the Election
+Commission, respectively.', 9, 'The Constitution of Nepal, Part-32, Article 286, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(12)', '', NULL, 'The election constituencies delimited pursuant to  clause (5) shall be
+reviewed in every twenty years.', 10, 'The Constitution of Nepal, Part-32, Article 286, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.11.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.11', 3, 'clause', '(13)', '', NULL, 'The Government of Nepal shall provide such employees as may be
+required for the Election Constituency Delimitation Commission.', 11, 'The Constitution of Nepal, Part-32, Article 286, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 287', 'Language Commission', 'Language Commission', NULL, 12, 'The Constitution of Nepal, Part-32, Article 287 (Language Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal shall, within one year of the
+commencement of this Constitution, constitute a Language Commis sion comprising
+representation of Provinces.', 0, 'The Constitution of Nepal, Part-32, Article 287, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(2)', '', NULL, 'The Language Commission shall consist of one Chairperson and a required
+number of members.', 1, 'The Constitution of Nepal, Part-32, Article 287, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(3)', '', NULL, 'The term of office of the Chairperson and members of the  Language
+Commission shall be six years from the dat e of their appointment . They may not be
+reappointed.', 2, 'The Constitution of Nepal, Part-32, Article 287, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(4)', '', NULL, 'A person shall be eligible to be appointed as the Chairperson or a member
+of the Language Commission in case  he or she possesses the following
+qualifications:-
+(a) One who has acquired  Master’s degree in related subjec t from a
+recognized university;
+(b) One who has gained at least twenty years of experience in the fields
+of study, teaching and research on various languages of Nepal;
+(c) One who has completed the age of forty-five years; and
+(d) One who bears high moral character.', 3, 'The Constitution of Nepal, Part-32, Article 287, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(5)', '', NULL, 'The office of the Chairperson or a member of the Language Commission
+shall fall vacant in any of the following circumstances:-
+(a) In case he or she tenders resignation in writing;
+(b) In case he or she is removed by  the Government of Nepal , Council
+of Ministers;
+(c) In case he completes the age of sixty-five years;
+(d) In case he or she dies.', 4, 'The Constitution of Nepal, Part-32, Article 287, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(6)', '', NULL, 'The functions, duties and powers of the Language Commission shall
+be as follows:-
+(a) To determine the criteria to be fulfilled for the recognition as the
+official language and make recommendations on languages to the
+Government of Nepal;
+(b) To make recommendations to the Government of Nepal, on the
+measures to be adopted for the protection,  promotion and
+development of languages;
+(c) To measure the levels of development of mother tongues and make
+suggestions to the Government of Nepal, on the potentiality of their
+use in education;
+(d) To conduct study and research on languages and monitor them.', 5, 'The Constitution of Nepal, Part-32, Article 287, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(7)', '', NULL, 'The Language Commission shall complete its task s referred to in  sub-
+clause (a) of clause (6) within five years after the date of its constitution.', 6, 'The Constitution of Nepal, Part-32, Article 287, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(8)', '', NULL, 'The Government of Ne pal may, in coordination with the Provincial
+Government, establish a branch of the Language Commission in the Province.', 7, 'The Constitution of Nepal, Part-32, Article 287, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.12.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.12', 3, 'clause', '(9)', '', NULL, 'The other functions, duties, powers and rules of procedures of the
+Language Commission shall be as provided for in federal law.', 8, 'The Constitution of Nepal, Part-32, Article 287, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 288', 'Capital', 'Capital', NULL, 13, 'The Constitution of Nepal, Part-32, Article 288 (Capital)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.13.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.13', 3, 'clause', '(1)', '', NULL, 'The capital of Nepal shall be located in Kathmandu.', 0, 'The Constitution of Nepal, Part-32, Article 288, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.13.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.13', 3, 'clause', '(2)', '', NULL, 'The capital of a Province in accordance with  this Constitution shall be as
+decided by a two-thirds majority of the number of the then members of the concerned
+Provincial Assembly.', 1, 'The Constitution of Nepal, Part-32, Article 288, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.13.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.13', 3, 'clause', '(3)', '', NULL, 'The business of a Province shall be conducted through the place as
+specified by the Government of Nepal until a decision is made pursuant to clause (2).', 2, 'The Constitution of Nepal, Part-32, Article 288, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 289', 'Special Provision relating to Citizenship of Officials', 'Special Provision relating to Citizenship of Officials', NULL, 14, 'The Constitution of Nepal, Part-32, Article 289 (Special Provision relating to Citizenship of Officials)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.14.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.14', 3, 'clause', '(1)', '', NULL, 'In order for a person to be
+elected, nominated  or appointed to the office of President, Vice-President, Prime
+Minister, Chief Justice , of  the Speaker of House of Representatives, Chief of
+Province, Chief Minister , Speaker of a Provincial Assembly and Chief of a security
+body, a person shall have to obtain the citizenship of Nepal by descent.', 0, 'The Constitution of Nepal, Part-32, Article 289, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.14.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.14', 3, 'clause', '(2)', '', NULL, 'A person who has obtained the citizenship of Nepal by descent, a person
+who has obtained the naturalized citizenship of Nepal or a person who has obtained
+the citizenship of Nepal by birth shall also be eligible for the office of a constitutional
+body other than those referred to in clause (1).
+Provided that a person shall have resided in Nepal for at least ten years in the
+case of a person who has obtained the naturalized citizenship of Nepal, and for at least
+five years in the case of a person who has obtained the citizenship of Nepal by birth or
+who has obtained the naturalized citizenship of Nepal pursuant to clause (6) of Article
+11.', 1, 'The Constitution of Nepal, Part-32, Article 289, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 290', 'Provisions relating to Guthi (trusts)', 'Provisions relating to Guthi (trusts)', NULL, 15, 'The Constitution of Nepal, Part-32, Article 290 (Provisions relating to Guthi (trusts))', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.15.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.15', 3, 'clause', '(1)', '', NULL, 'The Federal Parliament shall make necessary
+laws in relation to the rights of the trust and the farmers  enjoying possessory rights
+over trust land in a manner not to be prejudicial to the basic norms of the trusts.', 0, 'The Constitution of Nepal, Part-32, Article 290, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.15.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.15', 3, 'clause', '(2)', '', NULL, 'Other matters relating to trusts shall be as provided by the federal law.', 1, 'The Constitution of Nepal, Part-32, Article 290, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.16', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 291', 'Not to be Eligible for Appointment', 'Not to be Eligible for Appointment', NULL, 16, 'The Constitution of Nepal, Part-32, Article 291 (Not to be Eligible for Appointment)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.16.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.16', 3, 'clause', '(1)', '', NULL, 'Notwithstanding anything contained
+elsewhere in this Constitution, a citizen of Nepal who has obtained a foreign
+permanent residence permit shall not be eligible for election, nomination or
+appointment to an office to be elected, nominated or appointed in accordance with this
+Constitution.
+Provided that nothing shall prevent electing, nominating or appointing a
+person who has renounced such foreign permanent residence permit to such office
+after the expiry of a period of at least three months.', 0, 'The Constitution of Nepal, Part-32, Article 291, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.16.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.16', 3, 'clause', '(2)', '', NULL, 'Other matters relating to the citizens of Nepal who have obtained foreign
+permanent residence permits as referred to  in clause (1) shall be as provided for in
+federal law.', 1, 'The Constitution of Nepal, Part-32, Article 291, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.17', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 292', 'Provisions relating to Parliamentary Hearings', 'Provisions relating to Parliamentary Hearings', NULL, 17, 'The Constitution of Nepal, Part-32, Article 292 (Provisions relating to Parliamentary Hearings)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.17.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.17', 3, 'clause', '(1)', '', NULL, 'Parliamentary hearings shall be
+conducted as to appointments to the offices of the Chief Justice and Justices of the
+Supreme Court, members of the Judicial Council, chiefs and members of
+Constitutional Bodies, who are appointed on the recommendation  of the
+Constitutional Council under this Constitution, and to the offices of ambas sadors, as
+provided for in the federal law.', 0, 'The Constitution of Nepal, Part-32, Article 292, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.17.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.17', 3, 'clause', '(2)', '', NULL, 'For the purposes of clause  (1), there shall be constituted a fifteen-member
+joint committee consisting of members of both Houses of the Federal Parliament, in
+accordance with the federal law.', 1, 'The Constitution of Nepal, Part-32, Article 292, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.17.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.17', 3, 'clause', '(3)', '', NULL, 'No member of the joint committee referred to in  clause (2) shall practice
+law in the Supreme Court during that term of the Federal Parliament.', 2, 'The Constitution of Nepal, Part-32, Article 292, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.18', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 293', 'Monitoring of Functioning of Constitutional Bodies', 'Monitoring of Functioning of Constitutional Bodies', 'The chiefs and officials of the
+Constitutional Bodies shall be accountable and responsible to the Federal Parliament.
+The committees of the House of Representatives may monitor an d evaluate the
+functioning, including reports, of the Constitutional Bodies, other than the National
+Human Rights Commission, and give necessary direction or advice.', 18, 'The Constitution of Nepal, Part-32, Article 293 (Monitoring of Functioning of Constitutional Bodies)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.19', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32', 2, 'article', 'Article 294', 'Annual Reports of Constitutional Bodies', 'Annual Reports of Constitutional Bodies', NULL, 19, 'The Constitution of Nepal, Part-32, Article 294 (Annual Reports of Constitutional Bodies)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.19.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.19', 3, 'clause', '(1)', '', NULL, 'Every Constitut ional Body in
+accordance with this Constitution shall submit an annual report of its functioning to
+the President, and the President shall cause that report to be laid through the Prime
+Minister before the Federal Parliament.', 0, 'The Constitution of Nepal, Part-32, Article 294, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.19.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.19', 3, 'clause', '(2)', '', NULL, 'The matters to be set out in the annual report referred to in clause (1) shall
+be as provided for in federal law.', 1, 'The Constitution of Nepal, Part-32, Article 294, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:32.19.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:32.19', 3, 'clause', '(3)', '', NULL, 'Notwithstanding anything contained in clause (1), a Constitutional Body
+may prepare a separate report in relation to the functioning of each Province and
+submit it to the Chief of Province.', 2, 'The Constitution of Nepal, Part-32, Article 294, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-33', 'Transitional Provisions', 'Transitional Provisions', NULL, 33, 'The Constitution of Nepal, Part-33 (Transitional Provisions)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 295', 'Constitution of Federal Commission', 'Constitution of Federal Commission', NULL, 0, 'The Constitution of Nepal, Part-33, Article 295 (Constitution of Federal Commission)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.0', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal may constitute a
+Federal Commission for making suggestions on matters relating to the boundaries of
+Provinces.', 0, 'The Constitution of Nepal, Part-33, Article 295, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.0', 3, 'clause', '(2)', '', NULL, 'The names of the Provinces referred to in clause (3) of Article 56 shall be
+set by a two thirds majority of the total number of member s of the concerned
+Provincial Assemblies.', 1, 'The Constitution of Nepal, Part-33, Article 295, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.0.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.0', 3, 'clause', '(3)', '', NULL, 'The Government of Nepal shall constitute a Commission for the
+determination of the n umber and boundar ies of Rural Municipalities, Municipalities
+and Special, Protected or Autonomous Regions to be formed pursuant to  clauses (4)
+and (5) of Article 56. T he Commission shall determine the number and boundaries of
+the Rural Municipalities , Municipalities and Special, Protected or Autonomous
+Regions in accordance with the criteria set by the Government of Nepal.', 2, 'The Constitution of Nepal, Part-33, Article 295, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.0.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.0', 3, 'clause', '(4)', '', NULL, 'The Commission referred to in  clause (3) shall be constituted within six
+months of the date of commencement of this Constitution. The term of suc h
+Commission shall be one year.', 3, 'The Constitution of Nepal, Part-33, Article 295, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 296', 'Constituent Assembly to be converted into Legislature -Parliament', 'Constituent Assembly to be converted into Legislature -Parliament', NULL, 1, 'The Constitution of Nepal, Part-33, Article 296 (Constituent Assembly to be converted into Legislature -Parliament)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(1)', '', NULL, 'The
+Constituent Assembly existing at the time of commencement of this Constitution shall
+ipso facto  be converted into the Legislature -Parliament after the commencement of
+this Constitution, and the term of that Legislature-Parliament shall  exist until 21
+January 2018  (7 Magha 2074).
+Provided that in case an election is to be held to the House of Repr esentatives
+set forth in  this Constitution prior to the expiration of that term, the Legislature -
+Parliament shall continue to exist until the day before the day specified for the filing
+of nominations of candidates for that election.', 0, 'The Constitution of Nepal, Part-33, Article 296, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(2)', '', NULL, 'The Bills under consideration of the Legislature -Parliament at the time of
+commencement of this Constitution shall ipso facto be transferred to the Legislature -
+Parliament set forth in clause (1).', 1, 'The Constitution of Nepal, Part-33, Article 296, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(3)', '', NULL, 'The Legislature -Parliament set forth in clause (1) shall perform the
+business required to be performed by the Federal Parliament in accordance with this
+Constitution until election to the House of Representatives is held in accordance with
+this Constitution.', 2, 'The Constitution of Nepal, Part-33, Article 296, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(4)', '', NULL, 'The legislative power of the Provincial Assembly with respect of matters
+set forth in Schedule -6 shall, upon the commencement of this Constitution, be vested
+in the Legislature -Parliament set forth in clause (1) until the Provincial Assembly is
+constituted. Any law so made shall be inoperative in relati on to that Province after
+one year of the date of constitution of the Provincial Assembly set forth in this
+Constitution.', 3, 'The Constitution of Nepal, Part-33, Article 296, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(5)', '', NULL, 'The Legislature -Parliament Secretariat , its Secretary General, Secretary
+and employees  existing at the time of commencement of t his Constitution shall,
+subject to the conditions of service in force at the time of their appointment, exist in
+the Federal Parliament Secretariat set forth in this Constitution.', 4, 'The Constitution of Nepal, Part-33, Article 296, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.1.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.1', 3, 'clause', '(6)', '', NULL, 'Where the Legislature -Parliament is in recess at the time of
+commencement of this Constitution, the President shall summon its session within
+seven days after the date of commencement of this Constitution.  The President shall,
+thereafter, summon a session of the Legislature-Parliament from time to time.', 5, 'The Constitution of Nepal, Part-33, Article 296, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 297', 'Provisions relating to President and Vice -President', 'Provisions relating to President and Vice -President', NULL, 2, 'The Constitution of Nepal, Part-33, Article 297 (Provisions relating to President and Vice -President)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(1)', '', NULL, 'The President and the Vice -
+President existing at the time of commencement of this Constitution shall continue to
+hold their respective offices until other President and Vice -President are elected
+pursuant to this Article.', 0, 'The Constitution of Nepal, Part-33, Article 297, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(2)', '', NULL, 'The Legislature-Parliament set forth in clause (1) of Article 296 shall, on
+the basis of political understanding, elect the President and the Vice -President, within
+one month after the date of the commencement of this Constitution where t he
+Legislature-Parliament is not in recess at the time of commencement of this
+Constitution and after the date on which the session is summoned pursuant to clause', 1, 'The Constitution of Nepal, Part-33, Article 297, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(6)', '', NULL, 'of Article 296 where the Legislature-Parliament is in recess.', 2, 'The Constitution of Nepal, Part-33, Article 297, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(3)', '', NULL, 'In the event of failu re to have an understanding pursuant to clause (2), the
+President and the Vice -President shall be elected by a majority of all the then
+members of the Legislature-Parliament.', 3, 'The Constitution of Nepal, Part-33, Article 297, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(4)', '', NULL, 'In case the office of the President or Vice -President elected pursuant to
+clause (2) or (3) falls vacant for any reason, the President or Vice -President shall be
+elected by the Legislature -Parliament pursuant to  this Article until the Federal
+Parliament is constituted.', 4, 'The Constitution of Nepal, Part-33, Article 297, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(5)', '', NULL, 'The term of office of the President or Vice -President elected pursuant to
+this Article shall continue to exist until another President or Vice -President elected by
+an electoral college set forth in Article 62 assumes office.', 5, 'The Constitution of Nepal, Part-33, Article 297, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(6)', '', NULL, 'The office of the President or Vice -President elected pursuant to  this
+Article shall fall vacant in any of the following circumstances: -
+(a) In case  the President tenders r esignation in writing to  the Vice -
+President and the Vice-President, to the President;
+(b) In case  a motion of impeachment against him or  her is adopted
+pursuant to clause (7);
+(c) In case  another President or Vice -President elected by an electoral
+college set forth in Article 62 assumes office;
+(d) In case he or she dies.', 6, 'The Constitution of Nepal, Part-33, Article 297, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.2.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.2', 3, 'clause', '(7)', '', NULL, 'At least one fourth of the total number of the then members of the
+Legislature-Parliament referred to in clause (1) of Article 296 may move a motion of
+impeachment against the President or Vice -President elected pursuant to this Article
+on the ground of serious violation of this Constitution and law. In case the motion is
+adopted by at least two-thirds majority of the total number of the then members of the
+Legislature-Parliament, he or she shall be relieved of his or her office', 7, 'The Constitution of Nepal, Part-33, Article 297, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 298', 'Provisions relating to Constitution of Council of Ministers', 'Provisions relating to Constitution of Council of Ministers', NULL, 3, 'The Constitution of Nepal, Part-33, Article 298 (Provisions relating to Constitution of Council of Ministers)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(1)', '', NULL, 'The  Council of
+Ministers existing at the time of commencement of this Constitution shall continue to
+exist until the Council of Ministers referred to clause (2) is constituted.', 0, 'The Constitution of Nepal, Part-33, Article 298, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(2)', '', NULL, 'The Prime Minister shall, on the basis of political understanding, be
+elected within seven days after the date of the commencement of this Constitution
+where the Legislature-Parliament is not in recess at the time of commencement of this
+Constitution, and after the date on which the session of the Legislature -Parliament
+summoned pursuant to  clause (6) of Artic le 296 commences where the Legi slature-
+Parliament is in recess, and a Council of Ministers shall be constituted under his or
+her chairpersonship.', 1, 'The Constitution of Nepal, Part-33, Article 298, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(3)', '', NULL, 'In the event of failure to have an understanding pursuant to clause (2), the
+Prime Minister shall be elected by a majority of all the then members of the
+Legislature-Parliament.', 2, 'The Constitution of Nepal, Part-33, Article 298, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(4)', '', NULL, 'The a composition and allocation of portfolios of the Council of Ministers
+to be constituted pursuant to this Article shall be made through mutual understanding.', 3, 'The Constitution of Nepal, Part-33, Article 298, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(5)', '', NULL, 'The C ouncil of Ministers to be constituted pursuant to  this Article shall
+consist of a Deputy Prime Minister and other Ministers, as required.', 4, 'The Constitution of Nepal, Part-33, Article 298, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(6)', '', NULL, 'The Prime Minister appointed pursuant to this Article shall, in appointing
+Ministers pursuant to clause (5), appoint Ministers from amongst the members of the
+Legislature-Parliament, on the recommendation of the concerned party.', 5, 'The Constitution of Nepal, Part-33, Article 298, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(7)', '', NULL, 'The Prime Minister and other Ministers appointed pursuant to this Article
+shall be collectively responsible to the Legislature -Parliament, and the Ministers shall
+be individually responsible to the Prime Minister and the Legislature - Parliament for
+the works of their respective Ministries.', 6, 'The Constitution of Nepal, Part-33, Article 298, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(8)', '', NULL, 'The office of the Prime Minister appointed pursuant to  this Article shall
+fall vacant in any of the following circumstances:-
+(a)  In case he or she tenders resignation in writing to the President;
+(b) In case a vote of no confidence is adopted against him or her pursuant
+to clause (14) or a vote of confidence is not adopted;
+(c) In case he or she ceases to be a member of the Legislature-Parliament;
+(d) In case he or she dies.', 7, 'The Constitution of Nepal, Part-33, Article 298, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(9)', '', NULL, 'The office of the Deputy Prime Minister, Minister, Minister of State and
+Assistance Minister appointed pursuant to this Article shall fall vacant in a ny of the
+following circumstances:-
+(a) In case he or she tenders resignation in writing to the Prime Minister;
+(b) In case the Prime Minister is removed from office pursuant to clause', 8, 'The Constitution of Nepal, Part-33, Article 298, Clause (9)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(8)', '', NULL, ';
+(c) In case he or she is removed from office by the Prime Minister on the
+recommendation or on advice of the concerned party;
+(d) In case he or she dies.', 9, 'The Constitution of Nepal, Part-33, Article 298, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(10)', '', NULL, 'Even though the office of the Prime Minister falls vacant pursuant to
+clause (8), the same Council of Ministers shall continue to act until another Council of
+Ministers is constituted.', 10, 'The Constitution of Nepal, Part-33, Article 298, Clause (10)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.11', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(11)', '', NULL, 'In case  the Prime Minister appointed pursuant to  this Article dies, the
+Deputy Prime Minister or senior-most Minister shall act a s the Prime Minister until
+another Prime Minister is appointed.', 11, 'The Constitution of Nepal, Part-33, Article 298, Clause (11)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.12', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(12)', '', NULL, 'The Prime Minister appointed pursuant to this Article may, whenever he
+or she considers necessary or appropriate to clarify that he or she has confidence from
+the Legislature-Parliament, table a motion to that effect in the Legislature-Parliament
+for the vote of confidence.', 12, 'The Constitution of Nepal, Part-33, Article 298, Clause (12)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.13', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(13)', '', NULL, 'At least o ne-fourth of the total number of the then members of the
+Legislature-Parliament may table in writing a motion of no confidence  against the
+Prime Minister appointed pursuant to this Article.
+Provided that a motion of no confidence shall not be tabled more than once in
+six moths'' period against the same Prime Minister appointed pursuant to this Article.', 13, 'The Constitution of Nepal, Part-33, Article 298, Clause (13)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.14', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(14)', '', NULL, 'A motion tabled pursuant to  clause (12) or (13) shall be decided  by a
+majority of the total number of the then members of the Legislature Parliament.', 14, 'The Constitution of Nepal, Part-33, Article 298, Clause (14)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.3.15', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.3', 3, 'clause', '(15)', '', NULL, 'The Government of Nepal shall , after the commencement of this
+Constitution, exercise the  executive powers of a Province until the Counc il of
+Ministers of the Province set forth in this Constitution is constituted.', 15, 'The Constitution of Nepal, Part-33, Article 298, Clause (15)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 299', 'Provisions relating to Speaker and Deputy Speaker', 'Provisions relating to Speaker and Deputy Speaker', NULL, 4, 'The Constitution of Nepal, Part-33, Article 299 (Provisions relating to Speaker and Deputy Speaker)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(1)', '', NULL, 'The Speaker and Deputy
+Speaker existing at the time of commencement of this Constitution shall continue to
+hold their re spective offices until another Speaker and Deputy Speaker is elected in
+accordance with this Constitution.', 0, 'The Constitution of Nepal, Part-33, Article 299, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(2)', '', NULL, 'The members of the Legislature -Parliament shall, on the basis of political
+understanding, elect one Speaker and Deputy Speaker from among themselves within
+twenty days after the date of the commencement of this Constitution where the
+Legislature-Parliament is not in recess at the time of commencement of this
+Constitution, and after the date on which the session of the Legislature -Parliament is
+summoned pursuant to clause (6) of Article 29 6 where the Legislature -Parliament is
+in recess.', 1, 'The Constitution of Nepal, Part-33, Article 299, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(3)', '', NULL, 'In the event of failure to have an understanding pursuant to  clause (2), a
+member of the Legislature -Parliament who commands a majority of all the then
+members of the Leg islature-Parliament shall be deemed to be elected as the Speaker
+or Deputy Speaker.', 2, 'The Constitution of Nepal, Part-33, Article 299, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(4)', '', NULL, 'In holding electing pursuant to clause (2) or (3), the Speaker and Deputy
+Speaker shall be members representing different political parties in the Legislature -
+Parliament.', 3, 'The Constitution of Nepal, Part-33, Article 299, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(5)', '', NULL, 'In discharging his or her functions in accordance with this Constitution, the
+Speaker and Deputy Speaker  shall so discharge functions in the capacity of a neutral
+person without standing for or against any political party whatsoever.', 4, 'The Constitution of Nepal, Part-33, Article 299, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(6)', '', NULL, 'The office of the  Speaker and Deputy Speaker  shall fall vacant in any of
+the following circumstances:-
+(a) In case he or she resigns in writing;
+(b) In case he or she ceases to be a member of the Legislature-Parliament;
+(c) In case a motion is adopted by a majority of at least two-thirds of the
+total number of the members of the Legislature-Parliament to the
+effect that his or her conduct is not compatible with his or her office;
+(d) In case he or she dies.', 5, 'The Constitution of Nepal, Part-33, Article 299, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(7)', '', NULL, 'The Deputy Speaker  or another member shall preside over a meeting at
+which deliberations are to be held on a motion that the conduct of the  Speaker of the
+Legislature-Parliament is not co mpatible with his or her office, and t he Speaker may
+take part and vote in the deliberations on such motion.', 6, 'The Constitution of Nepal, Part-33, Article 299, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.4.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.4', 3, 'clause', '(8)', '', NULL, 'Other procedures on the election to the Speaker and Deputy Speaker  and
+procedures on the moving and adoption of a motion that the  Speaker or Deputy
+Speaker has committed conduct not compatible with his or her office shall be as
+provided by the then prevailing rules of the Legislature-Parliament.', 7, 'The Constitution of Nepal, Part-33, Article 299, Clause (8)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 300', 'Provisions relating to Judiciary', 'Provisions relating to Judiciary', NULL, 5, 'The Constitution of Nepal, Part-33, Article 300 (Provisions relating to Judiciary)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(1)', '', NULL, 'The Supreme Court, Constituent Assembly Court,
+Appellate Courts and District Courts existing at the time of commencement of this
+Constitution shall continue to exist until the structure of Judiciary set forth in this
+Constitution is set up.  Nothing in this Constitution shall be deemed to bar the
+settlement by respective Courts  of the cases already filed in such Courts prior to the
+commencement of this Constitution  and of the cases to be filed after the
+commencement of this Constitution.', 0, 'The Constitution of Nepal, Part-33, Article 300, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(2)', '', NULL, 'The Chief Justice and Justices of the Supreme Court, Chief Judges and
+Judges of the Appellate Co urts and Judges of the District  Courts at the time of
+commencement of this Constitution  shall be deemed to have been appointed under
+this Constitution.', 1, 'The Constitution of Nepal, Part-33, Article 300, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(3)', '', NULL, 'The High Courts set forth in Article 139  shall be established within one
+year after the date of commencement of this Constitution. The Appellate Courts existing
+at the time of commencement of this Constitution  shall be dissolved after the
+establishment of such Courts.', 2, 'The Constitution of Nepal, Part-33, Article 300, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.3', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(4)', '', NULL, 'After the establishment of the High Courts pursuant to clause (3), the cases
+sub judice  in the Appellate Courts shall be transferred to such High Courts as
+specified by the Government of Nepal, in consultation with the Judicial Council, by a
+notification in the Nepal Gazette.', 3, 'The Constitution of Nepal, Part-33, Article 300, Clause (4)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.4', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(5)', '', NULL, 'After the establishment of the High Courts pursuant to clause (3), the Chief
+Justice shall, on recommendation of the Judicial Council, post the Chief Judges and
+Judges of the Appellate Courts who are holding office at the time of commencement
+of this Constitution to the offices of the Chief Judges and Judges of the High Courts.', 4, 'The Constitution of Nepal, Part-33, Article 300, Clause (5)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.5', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(6)', '', NULL, 'The Additional Judges of the Appellate Courts who are holding office at
+the time of commencement of this Constitution may continue to hold office until the
+term specified at the time of their appointment.', 5, 'The Constitution of Nepal, Part-33, Article 300, Clause (6)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.5.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.5', 3, 'clause', '(7)', '', NULL, 'The cases on criminal offences punishable by imprisonment for a term of
+more than one year and sub judice  in any body other than a Court at the time of
+commencement of this Constitution shall, after the commencement of this
+Constitution, be transferred to the concerned District Court.', 6, 'The Constitution of Nepal, Part-33, Article 300, Clause (7)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.6', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 301', 'Provisions r elating to Constitutional Bodies and Officials thereof', 'Provisions r elating to Constitutional Bodies and Officials thereof', NULL, 6, 'The Constitution of Nepal, Part-33, Article 301 (Provisions r elating to Constitutional Bodies and Officials thereof)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.6.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.6', 3, 'clause', '(1)', '', NULL, 'The
+Constitutional Bodies  which are existing at the time of commenceme nt of this
+Constitution and provided in this Constitution shall be deemed to have been formed in
+accordance with this Constitution, and nothing shall be deemed to bar the settlement
+of the matters under consideration of such Bodies subject to this Constitution.', 0, 'The Constitution of Nepal, Part-33, Article 301, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.6.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.6', 3, 'clause', '(2)', '', NULL, 'The chiefs or officials of the  Constitutional Bodies holding office at the
+time of commencement of this Constitution shall be deemed to have been appointed in
+accordance with this Constitution and shall continue to hold their respective offices
+subject to the conditions of services at the time of their appointments.', 1, 'The Constitution of Nepal, Part-33, Article 301, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.6.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.6', 3, 'clause', '(3)', '', NULL, 'The officials holding office in the Commission for the Investigation of the
+Abuse of Authority and the Public Service Commission, at the time of commencement
+of this Constitution, in excess of the number specified in this Constitution,  shall
+continue to hold their respective office s subject to the conditions of services at the
+time of their appointments.', 2, 'The Constitution of Nepal, Part-33, Article 301, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.7', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 302', 'Formation and Operation of Government Services at Province and Local Levels', 'Formation and Operation of Government Services at Province and Local Levels', NULL, 7, 'The Constitution of Nepal, Part-33, Article 302 (Formation and Operation of Government Services at Province and Local Levels)', '2026-01-15T09:00:00.000Z')
+;
+
+INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
+  ('doc_const_2072_2nd_amendment_2020:33.7.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.7', 3, 'clause', '(1)', '', NULL, 'The Government of Nepal shall make necessary provisions for the delivery of services
+at the Province and Local Levels.', 0, 'The Constitution of Nepal, Part-33, Article 302, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.7.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.7', 3, 'clause', '(2)', '', NULL, 'The Government of Nepal may, in making provisions pursuant to  clause', 1, 'The Constitution of Nepal, Part-33, Article 302, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.7.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.7', 3, 'clause', '(1)', '', NULL, ', arrange for the delivery of services by making adjustment of the employees
+serving in the government services at the time of commencement of this Co nstitution
+with the Federal, Provincial and Local Levels in accordance with law.', 2, 'The Constitution of Nepal, Part-33, Article 302, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.8', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 303', 'Provisions r elating to Local Bodies', 'Provisions r elating to Local Bodies', NULL, 8, 'The Constitution of Nepal, Part-33, Article 303 (Provisions r elating to Local Bodies)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.8.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.8', 3, 'clause', '(1)', '', NULL, 'The Local Bodies existing at the time of
+commencement of this Constitution shall continue to exist until the determination of
+the number and areas of the Local Level in accordance with this Constitution.', 0, 'The Constitution of Nepal, Part-33, Article 303, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.8.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.8', 3, 'clause', '(2)', '', NULL, 'Election to the officials of the Local Bodies existing pursuant to clause (1)
+shall be held in accordance with law.', 1, 'The Constitution of Nepal, Part-33, Article 303, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.8.2', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.8', 3, 'clause', '(3)', '', NULL, 'The officials of the Local Bodies elected in pursuant to  clause (2) shall
+continue to hold office until election to the Local Level is held in accordance with this
+Constitution.', 2, 'The Constitution of Nepal, Part-33, Article 303, Clause (3)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.9', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 304', 'Existing Laws to Remain in Force', 'Existing Laws to Remain in Force', NULL, 9, 'The Constitution of Nepal, Part-33, Article 304 (Existing Laws to Remain in Force)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.9.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.9', 3, 'clause', '(1)', '', NULL, 'The Nepal laws in force at the time of
+commencement of this Constitution shall continue to be in force until such laws are
+repealed or amended.
+Provided that any law, which is inconsistent with this Constitution,  shall ipso
+facto be void to the extent of such inconsistency, after one year of the date on which
+the first session of the Federal Parliament set forth in this Constitution is held.', 0, 'The Constitution of Nepal, Part-33, Article 304, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.9.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33.9', 3, 'clause', '(2)', '', NULL, 'Acts relating to peace process in accordance with the Interim Constitution
+of Nepal, 2007 shall be deemed to be carried out in accordance with this Constitution.', 1, 'The Constitution of Nepal, Part-33, Article 304, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:33.10', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:33', 2, 'article', 'Article 305', 'Power to Remove Difficulties', 'Power to Remove Difficulties', 'In case  any difficult y arises in connection with the
+implementation of this Constitution until the commencement of the first session of the
+Federal Parliament, upon being elected  in accordance with this Constitution , the
+President may, on the recommend ation of the Government of Nepal, Council of
+Ministers, issue necessary orders to remove such difficult y; and such orders  shall be
+submitted to the Legislature-Parliament or Federal Parliament, held immediately after
+the issue such orders, for approval.', 10, 'The Constitution of Nepal, Part-33, Article 305 (Power to Remove Difficulties)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:34', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-34', 'Definitions and Interpretations', 'Definitions and Interpretations', NULL, 34, 'The Constitution of Nepal, Part-34 (Definitions and Interpretations)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:34.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:34', 2, 'article', 'Article 306', 'Definitions and I nterpretations', 'Definitions and I nterpretations', NULL, 0, 'The Constitution of Nepal, Part-34, Article 306 (Definitions and I nterpretations)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:34.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:34.0', 3, 'clause', '(1)', '', NULL, 'Unless the subject or the context otherwise
+requires, in this Constitution,-
+(a) "Minority" means ethnic, linguistic and religious groups whose
+population is less than the pe rcentage specified by the federal law, and
+includes groups that have their distinct ethnic, religious or linguistic
+characteristics, aspirations to protect such characteristics and subjected
+to discrimination and oppression.
+(b) "Law" means federal law, provincial law and local law.
+(c) "Article" means an Article of this Constitution.
+(d) "Municipality" means and includes a Metropolitan City  and Sub-
+Metropolitan City.
+(e) "Citizen" means a citizen of Nepal.
+(f) "Province" means the area and form  of a federal unit of Nepal divided
+into the federal units in accordance with this Constitution.
+(g) "Remuneration" means and includes salary, allowance, pension and
+any other form of emolument and facility.
+(h) "State power" means the power relating to th e Executive, Legislative
+and Judiciary of the State, and includes residuary power as well.
+(i) "Bill" means a draft of amendment to the Constitution or of an Act,
+which has been introduced in the Federal Parliament or a Provincial
+Assembly, as the case may be.
+(j) "Federation" means the federal level that is the apex unit of the federal
+structure.
+(k) "Federal Units" means the Federation, Province and Local Level.
+(l) "Constitutional Bodies" means the Commission for the Investigation of
+Abuse of Authority, Auditor General, Public Service Commission,
+Election Commission, National Human Rights Commission, National
+Natural Resources and Fiscal Commission, National Women
+Commission, National Dalit Commission, National Inclusion
+Commission, Indige nous Nationalities Commission, Madhesi
+Commission, Tharu Commission and Muslim Commission.
+(m) "Marginalized" means communit ies that are made politically,
+economically and socially backward, are unable to enjoy services and
+facilities because of discrimination and oppression and of geographical
+remoteness or deprived thereof and are in lower status than the human
+development standards under federal law , and includes highly
+marginalized groups and groups on the verge of extinction.
+(n) "Local Level" means the Rural Municipality, Municipality and District
+Assembly to be established in accordance with this Constitution.', 0, 'The Constitution of Nepal, Part-34, Article 306, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:34.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:34.0', 3, 'clause', '(2)', '', NULL, 'Unless the subject or the context otherwise requires, the  legal provisions
+relating to interpretation of laws shall, subject to the provisions of this Constitution,
+apply to the interpretation of this Constitu tion in the same manner as that provisions
+apply to the interpretation of the Nepal laws.', 1, 'The Constitution of Nepal, Part-34, Article 306, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:35', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'part', 'Part-35', 'Short Title, Commencement and Repeal', 'Short Title, Commencement and Repeal', NULL, 35, 'The Constitution of Nepal, Part-35 (Short Title, Commencement and Repeal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:35.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:35', 2, 'article', 'Article 307', 'Short Title and Commencement', 'Short Title and Commencement', NULL, 0, 'The Constitution of Nepal, Part-35, Article 307 (Short Title and Commencement)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:35.0.0', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:35.0', 3, 'clause', '(1)', '', NULL, 'This Constitution may be cited as the
+“Constitution of Nepal".', 0, 'The Constitution of Nepal, Part-35, Article 307, Clause (1)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:35.0.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:35.0', 3, 'clause', '(2)', '', NULL, 'This Constitution shall commence on  Twenty September, Two Thousand
+Fifteen A.D. (corresponding to the third day of the month of Ashwin of the year Two
+Thousand Seventy Two of Bikram Era).', 1, 'The Constitution of Nepal, Part-35, Article 307, Clause (2)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:35.1', 'doc_const_2072_2nd_amendment_2020', 'doc_const_2072_2nd_amendment_2020:35', 2, 'article', 'Article 308', 'Repeal', 'Repeal', 'The Interim Constitution of Nepal, 2007 is hereby repealed.', 1, 'The Constitution of Nepal, Part-35, Article 308 (Repeal)', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:36', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-1', '', NULL, '(Relating to clause (2) of Article 8)
+National Flag of Nepal
+The method of making the National Flag of Nepal
+(a) Method of making the shape inside the border
+(1) On the lower portion of a crimson cloth draw a line AB of the required length
+from left to right.
+(2) From A draw a line AC perpendicular to AB making AC equal to AB plus one
+third AB. From AC mark off D making line AD equal to line AB. Join B and
+D.
+(3) From BD mark off E making BE equal to AB.
+(4) Touching E draw a line FG, starting from the point F on line AC, and parallel
+to AB to the right hand-side. Mark off FG equal to AB.
+(5) Join C and G.
+(b) Method of making the moon
+(6) From AB mark off AH making AH equal to one -fourth of line AB and starting
+from H draw a line HI parallel to line AC touching line CG at point I.
+(7) Bisect CF at J and draw a line JK parallel to AB touching CG at point K.
+(8) Let L be the point where lines JK and HI cut one another.
+(9) Join J and G.
+(10) Let M be the point where line JG and HI cut one another.
+(11) With centre M and with a distance shortest from M to B D mark off N on the
+lower portion of line HI.
+(12) Touching M and starting from O, a point on AC, draw a line from left to right
+parallel to AB.
+(13) With centre L and radius LN draw a semi -circle on the lower portion and let P
+and Q be the points where it touches the line OM respectively.
+(14) With centre M and radius MQ draw a semi-circle on the lower portion touching
+P and Q.
+(15) With centre N and radius NM draw an arc touching PNQ at R and S. Join RS.
+Let T be the point where RS and HI cut one another.
+(16) With centre T and radius TS draw a semi -circle on the upper portion of PNQ
+touching it at two points.
+(17) With centre T and radius TM draw an arc on the upper portion of PNQ
+touching at two points.
+(18) Eight equal and similar triangles of the moon are to be made in the space lying
+inside the semi -circle of No. (16) and outside the arc of No. (17) of this
+Schedule.
+(c) Method of making the sun
+(19) Bisect line AF at U, and draw a line UV parallel to AB line touching line BE at
+V.
+(20) With centre W, the point where HI and UV cut one another and radius MN
+draw a circle.
+(21) With centre W and radius LN draw a circle.
+(22) Twelve equal and similar triangles of the sun are to be made in the space
+enclosed by the circles of No. (20) and of No. (21) with t he two apexes of two
+triangles touching line HI.
+(d) Method of making the border
+(23) The width of the border will be equal to the width TN. This will be of deep blue
+colour and will be provided on all the side of the flag. However, on the five
+angles of the flag the external angles will be equal to the internal angles.
+(24) The above-mentioned border will be provided in case the flag is to be used with
+a rope. On the other hand, in case it is to be hoisted on a pole, the hole on the
+border on the side AC can be extended in accordance with requirements.
+Explanation: The lines HI, RS, FE, ED, JG, OQ, JK and UV are imaginary. Similarly,
+the external and internal circles of the sun and the other arcs except the crescent moon
+are also imaginary. These are not shown on the flag.
+Note: The size of the National Flag of Nepal shall be as  determined by the Government of
+Nepal.', 36, 'The Constitution of Nepal, Schedule-1', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:37', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-2', '', NULL, '(Relating to clause (1) of Article 9)
+National Anthem of Nepal
+Sayaun Thunga Phool Ka Hami Eutai Mala Nepali
+Sarvavhaum Vai Failiyeka Mechi Mahakali
+Prakitika Koti Koti Sampada Ko Aanchala
+Bir Haruka Ragata Le Swatantra Ra Atala
+Gyana Bhumi Shanti Bhumi Terai Pahad Himala
+Akhanda Yo Pyaro Hamro Matri Bhumi Nepal
+Bahul Jati Bhasa Dharma Sanskriti Chan Bishala
+Agragami Rastra Hamro Jaya Jaya Nepal.', 37, 'The Constitution of Nepal, Schedule-2', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:38', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-3', '', NULL, '(Relating to clause (2) of Article 9)
+Coat of Arms of Nepal
+Note: This Coat of Arms may be made in larger or smaller size as may be necessary.
+The colours determined by the Government of Nepal shall be used on it.
+Amended by the Second Amendment.', 38, 'The Constitution of Nepal, Schedule-3', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:39', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-4', '', NULL, '(Relating to clause (3) of Article 56)
+Provinces, and Districts to be included in the concerned Provinces
+Province No. 1 Province No. 2
+1. Taplejung
+2. Panchthar
+3. Ilam
+4. Sankhuwasabha
+5. Tehrathum
+6. Dhankuta
+7. Bhojpur
+8. Khotang
+9. Solukhumbu
+10. Okhaldhunga
+11. Udayapur
+12. Jhapa
+13. Morang
+14. Sunsari
+1. Saptari
+2. Siraha
+3. Dhanusa
+4. Mahottari
+5. Sarlahi
+6. Rautahat
+7. Bara
+8. Parsa
+Province No. 3 Province No. 4
+1. Dolakha
+2. Ramechhap
+3. Sindhuli
+4. Kavrepalanchok
+5. Sindhupalchok
+6. Rasuwa
+7.Nuwakot
+8. Dhading
+9. Chitwan
+10. Makawanpur
+11. Bhaktapur
+12. Lalitpur
+13. Kathmandu
+1. Gorkha
+2. Lamjung
+3. Tanahun
+4. Kaski
+5. Manang
+6. Mustang
+7. Parbat
+8. Syangja
+9. Myagdi
+10. Baglung
+11.Nawalparasi (East of Bardaghat
+Susta)
+Province No. 5 Province No. 6 Province No. 7
+1.Nawalparasi (West of
+Bardaghat Susta)
+2. Rupandehi
+3. Kapilbastu
+4. Palpa
+5. Arghakhanchi
+6. Gulmi
+7. Rukun (Eastern Part)
+8. Rolpa
+9. Pyuthan
+10. Daang
+11. Banke
+12. Bardiya
+1.Rukum (Western Part)
+2. Salyan
+3. Dolpa
+4. Jumla
+5. Mugu
+6. Humla
+7. Kalikot
+8. Jajarkot
+9. Dailekh
+10. Surkhet
+1.Bajura
+2.Bajhang
+3. Doti
+4. Achham
+5. Darchula
+6. Baitadi
+7. Dadeldhura
+8. Kanchanpur
+9. Kailali', 39, 'The Constitution of Nepal, Schedule-4', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:40', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-5', '', NULL, '(Relating to clause (1) of Article 57, and Article 109)
+List of Federal Powers
+S.N. Matters
+1. Relating to defence and military
+(a) Protection of national unity and territorial integrity
+(b) Relating to national security
+2. War and defence
+3. Arms and ammunitions factories and production thereof
+4. Central Police, Armed Police Force, national intelligence and investigation, law
+and order.
+5. Central planning, central bank, fina ncial policies, monetary and banking,
+monetary policies, foreign grants, aid and loans
+6. Foreign and diplomatic affairs, international relations and United Nations related
+matters
+7. International treaties or agreements, extradition, mutual legal assistance and
+international borders, international boundary rivers
+8. Telecommunications, allocation of radio frequency, radio, television and post al
+matters
+9. Customs, excise-duty, value-added tax, corporate income tax, individual income
+tax, remuneration tax, passport fee, visa fee, tourism fee, service charge and  fee,
+penalty
+10. Federal civil service, judicial service and other government services
+11. Policies relating to conservation and multiple uses of water resources
+12. Inland and inter-Province electricity transmission lines
+13. Central statistics (national and international standards and quality)
+14. Central level large electricity, irrigation and other projects
+15. Central universities, central level academies, universities standards and
+regulation, central libraries
+16. Health policies, health services, health standards, quality and monitoring, national
+or specialised service providing hospitals , traditional treatment services and
+communicable disease control
+17. Federal Parliament, Federal Executive, Local Level  related affairs, special
+structure
+18. International trade, exchange, port, quarantine
+19. Civil aviation, international airports
+20. National transportation policies, management of railways and national highways
+21. Laws relating to the Supreme Court, High Courts, District Courts and
+administration of justice
+22. Citizenship, passport, visa, immigration
+23. Atomic energy, air space and astronomy
+24. Intellectual property (including patents, designs, trademarks and copyrights)
+25. Measurement
+26. Mines excavation
+27. National and international environment management, national parks, wildlife
+reserves and wetland, national forest policies, carbon services
+28. Insurance policies, securities, cooperatives regulation
+29. Land use policies, human settlement development policies, tourism policies,
+environment adaptation
+30. Enactment of Criminal and civil laws
+31. Security printing
+32. Social security and poverty alleviation
+33. Constitutional Bodies, Commissions of national importance
+34. Sites of archaeological importance and ancient monuments
+35. Any matter not enumerated in the Lists of Federal Powers, Province Powers and
+Local Level Powers or in the Concurrent List and any matter not specified in this
+Constitution and in federal laws', 40, 'The Constitution of Nepal, Schedule-5', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:41', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-6', '', NULL, '(Relating to clause (2) of Article 57, clause (4) of Article 162, Article 197, clause (3) of
+Article 231, clause (7) of Article 232, clause (4) of Article 274 and clause (4) of Article
+296)
+List of Provincial Powers
+S.N. Matters
+1. Provincial police administration and law and order
+2. Operation of b anks and financial institutions  in accordance with the policies of
+Nepal Rastra Bank , cooperative institutions, foreign grants and assistance with the
+consent of the Centre
+3. Operation of Radio, F.M., television
+4. Housing and land registration fee , motor vehicle tax , entertainment  tax,
+advertisement tax, tax on tourism, agro-income, service charge, fee, penalty
+5. Provincial civil service and other government services
+6. Provincial statistics
+7. Province level electricity, irrigation and water supply services, navigation
+8. Provincial universities, higher education, libraries, museums
+9. Health services
+10. Matters relating to the Provincial Assembly, Provincial Council of Ministers
+11. Intra-Province trade
+12. Provincial highways
+13. Provincial Bureau of Investigation
+14. Physical management and other necessary matters of Provincial governmental
+offices
+15. Provincial Public Service Commission
+16. Management of land, land records
+17. Exploration and management of mines
+18. Protection and use of languages, scripts, cultures, fine arts and religions
+19. Use of forests and waters and management of environment within the Province
+20. Agriculture and livestock development, factories, industrialization, trade, business,
+transportation
+21. Management of trusts (Guthi)', 41, 'The Constitution of Nepal, Schedule-6', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:42', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-7', '', NULL, '(Relating to clause (3) of Articles 57, Article 109, clause (4) of Article 162, and Article
+197)
+List of Concurrent Powers of Federation and Province
+S.N. Matters
+1. Civil and criminal procedure, evidence and oaths ( legal recognition,  public acts and
+records, and judicial proceedings)
+2. Supply, distribution, price control, quality and monitoring of essential goods  and
+services
+3. Preventive detention for reasons connected with the security of the country, prison and
+detention management, and maintenance of peace and order
+4. Transfer of accused persons, detainees and prisoners  from one Province to another
+Province
+5. Laws relating to family affairs (marriage, transfer of property, divorce, persons on the
+verge of extinction, orphan, adoption, succession and joint family)
+6. Acquisition, requisitioning of property and creation of right in property
+7. Contracts, cooperatives, partnership and agency related matters
+8. Matters relating to bankruptcy and insolvency
+9. Drugs and pesticides
+10. Planning, family planning and population management
+11. Social security and employment, trade unions, settlement of industrial disputes, labour
+rights and disputes related matters
+12. Legal profession, auditing, engineering, medicines, Ayurvedic medicines, veterinary,
+Amchi and other professions
+13. Provincial boundary river, waterways, environment protection, biological diversity
+14. Matters related to means of communication
+15. Industries and mines and physical infrastructures
+16. Casino, lottery
+17. Preparedness for, rescue and  relief during, and recovery from, natural and non-natural
+disasters.
+18. Tourism, water supply and sanitation
+19. Motion pictures, cinema halls and sports
+20. Insurance business operation and management
+21. Poverty alleviation and industrialization
+22. Scientific research, science and technology and human resources development
+23. Utilization of forests, Himalayan ( mountains), forest conservation areas and waters
+stretching in inter-provincial form
+24. Land policies and laws relating thereto
+25. Employment and unemployment benefit', 42, 'The Constitution of Nepal, Schedule-7', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:43', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-8', '', NULL, '(Relating to clause (4) of Article 57, clause (2) of Article 214, clause (2) of Article 221
+and clause (1) of Article 226)
+List of Local Level Powers
+S.N. Matters
+1. Town police
+2. Cooperative institutions
+3. Operation of F.M.
+4. Local taxes ( property tax, house rent tax, land and building registration fee, motor
+vehicle tax), service charge, fee, tourism fee, advertisement tax , business tax, land
+tax (land revenue), penalty, entertainment tax, land revenue collection
+5. Management of the Local services
+6. Collection of local statistics and records
+7. Local Level development plans and projects
+8. Basic and secondary education
+9. Basic health and sanitation
+10. Local market management, environment protection and bio-diversity
+11. Local roads, rural roads, agro-roads, irrigation
+12. Rural Municipal Assembly , Municipal Assembly, District Assembly, local courts,
+management of mediation and arbitration
+13. Local records management
+14. Distribution of house and land ownership certificates
+15. Agriculture and animal husbandry , agro -products management, animal health,
+cooperatives
+16. Management of senior citizens, persons with disabilities and the incapacitated
+17. Collection of statistics of the unemployed
+18. Management, operation and control of agricultural extension
+19. Water supply, small hydropower projects, alternative energy
+20. Disaster management
+21. Conservation of watersheds, wildlife, mines and minerals
+22. Protection and development of languages, cultures and fine arts', 43, 'The Constitution of Nepal, Schedule-8', '2026-01-15T09:00:00.000Z'),
+  ('doc_const_2072_2nd_amendment_2020:44', 'doc_const_2072_2nd_amendment_2020', NULL, 1, 'schedule', 'Schedule-9', '', NULL, '(Relating to clause (5) of Article 57, Article 109, clause (4) of Article 162, Article 197,
+clause (2) of Article 214, clause (2) of Article 221, and clause (1) of Article 226)
+List of Concurrent Powers of Federation, Province and Local Level
+S.N. Matters
+1. Cooperatives
+2. Education, sports and newspapers
+3. Health
+4. Agriculture
+5. Services such as electricity, water supply, irrigation
+6. Service fee, charge, penalty and royalty from natural resources, tourism fee
+7. Forests, wildlife, birds, water uses, environment, ecology and bio-diversity
+8. Mines and minerals
+9. Disaster management
+10. Social security and poverty alleviation
+11. Personal events, births, deaths, marriages and statistics
+12. Archaeology, ancient monuments and museums
+13. Squatters management
+14. Royalty from natural resources
+15. Motor vehicle permits', 44, 'The Constitution of Nepal, Schedule-9', '2026-01-15T09:00:00.000Z')
 ;
 
 INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES

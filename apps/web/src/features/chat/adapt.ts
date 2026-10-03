@@ -3,6 +3,7 @@ import {
   SUPPORT_TICKET_CATEGORIES,
   ZCiteOutput,
   ZPublicLawyer,
+  stripToolCallText,
 } from "@vidhan/schema";
 import type {
   TChatMessage,
@@ -172,9 +173,13 @@ export function toMessageView(
   message: UIMessage,
   precedingUserText = ""
 ): TChatMessageView {
-  const content = message.parts
-    .map((part) => (part.type === "text" ? part.text : ""))
-    .join("");
+  // A disabled-tool step can leak the model's tool call into the text; strip it
+  // so the bubble shows prose, not markup.
+  const content = stripToolCallText(
+    message.parts
+      .map((part) => (part.type === "text" ? part.text : ""))
+      .join("")
+  );
 
   const view: TChatMessageView = {
     id: message.id,

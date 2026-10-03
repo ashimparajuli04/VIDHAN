@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 
 import { DocumentDetail } from "@/components/documents/document-detail";
@@ -18,5 +19,9 @@ export default async function RepositoryDocumentPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  return <DocumentDetail id={id} />;
+  return (
+    <Suspense fallback={null}>
+      <DocumentDetail id={id} />
+    </Suspense>
+  );
 }

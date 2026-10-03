@@ -18,8 +18,8 @@ import {
   getCompactOutline,
   getDocumentSummary,
   getSections,
+  hybridSearchSections,
   resolveReferences,
-  searchDocumentSections,
 } from "../documents/retrieval";
 import type { TSectionText } from "../documents/retrieval";
 import type { Env } from "../index";
@@ -225,7 +225,7 @@ export function buildTools(env: Env, origin: string) {
     // topic question — it returns the sections whose text itself matches.
     search_document_sections: tool({
       description:
-        "Rank a document's sections by keyword match against their text, returning " +
+        "Rank a document's sections by relevance to a query, returning " +
         "snippets and node ids. Use to jump straight to relevant provisions instead " +
         "of walking the outline.",
       inputSchema: z.object({
@@ -234,7 +234,7 @@ export function buildTools(env: Env, origin: string) {
       }),
       execute: async ({ query, limit }) => {
         const db = createDb(env.DB);
-        const matches = await searchDocumentSections(db, query, limit ?? 8);
+        const matches = await hybridSearchSections(db, env, query, limit ?? 8);
         return { matches, total: matches.length };
       },
     }),
@@ -334,7 +334,7 @@ export async function prefetchSections(
   limit = 5,
 ): Promise<TSectionText[]> {
   const db = createDb(env.DB);
-  const matches = await searchDocumentSections(db, question, limit);
+  const matches = await hybridSearchSections(db, env, question, limit);
   const seen = new Set<string>();
   const sections: TSectionText[] = [];
   for (const match of matches) {

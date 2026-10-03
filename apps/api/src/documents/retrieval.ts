@@ -3,6 +3,10 @@ import { documentNodes, documents, isDocumentContentNode, nodeLabel } from "@vid
 import type { TDocumentNodeType, TReference } from "@vidhan/schema";
 
 import type { Db } from "../db";
+import type { Env } from "../index";
+import { embedQuery } from "../ai/embeddings";
+import { cosineTopK, loadVectors } from "../rag/vectors";
+import { rrfFuse } from "../rag/rrf";
 
 // Retrieval reads for the chat agent, kept separate from `documents/list.ts`
 // (which backs the reader's public outline). These favour small, filtered
@@ -379,6 +383,83 @@ export async function searchDocumentSections(
     heading: nodeLabel({ heading: row.heading, title: row.node_title, identifier: row.identifier }),
     snippet: row.snippet,
   }));
+}
+
+// Hybrid retrieval: FTS keeps exact-term precision (section numbers, act
+// names, Devanagari tokens) while the vector pass adds meaning for paraphrase
+// and cross-lingual questions. Fused with reciprocal-rank fusion so neither
+// list's raw scores need calibrating.
+//
+// Any vector-path failure degrades to FTS-only: the turn must never fail
+// because an embedding call or a missing seed did.
+export async function hybridSearchSections(
+  db: Db,
+  env: Env,
+  query: string,
+  limit = 8,
+): Promise<TSectionMatch[]> {
+  const fts = await searchDocumentSections(db, query, limit);
+  const model = env.EMBEDDING_MODEL;
+
+  let vectors: { nodeId: string; score: number }[] = [];
+  try {
+    const embedding = await embedQuery(env, query);
+    const loaded = await loadVectors(db, model);
+    vectors = cosineTopK(loaded, Float32Array.from(embedding), limit);
+  } catch (err) {
+    console.error("[hybrid] vector pass failed, FTS only", err);
+  }
+
+  const ftsById = new Map(fts.map((match) => [match.nodeId, match]));
+  const fused = rrfFuse(
+    [fts.map((match) => match.nodeId), vectors.map((vector) => vector.nodeId)],
+    (nodeId) => nodeId,
+    limit,
+  );
+
+  // Only vector-only hits need a metadata fetch; FTS hits already carry it.
+  const missing = fused.filter((nodeId) => !ftsById.has(nodeId));
+  const meta = missing.length > 0 ? await loadSectionMetadata(db, missing) : new Map();
+
+  const merged = new Map([...ftsById, ...meta]);
+  return fused.flatMap((nodeId) => {
+    const match = merged.get(nodeId);
+    return match ? [match] : [];
+  });
+}
+
+// Metadata + a body snippet for node ids the FTS pass did not return. Mirrors
+// the column shape `searchDocumentSections` produces.
+async function loadSectionMetadata(
+  db: Db,
+  nodeIds: string[],
+): Promise<Map<string, TSectionMatch>> {
+  const rows = await db
+    .select({
+      nodeId: documentNodes.id,
+      documentId: documentNodes.documentId,
+      documentTitle: documents.title,
+      identifier: documentNodes.identifier,
+      heading: documentNodes.heading,
+      title: documentNodes.title,
+      content: documentNodes.content,
+    })
+    .from(documentNodes)
+    .innerJoin(documents, eq(documents.id, documentNodes.documentId))
+    .where(inArray(documentNodes.id, nodeIds));
+
+  const out = new Map<string, TSectionMatch>();
+  for (const row of rows) {
+    out.set(row.nodeId, {
+      documentId: row.documentId,
+      documentTitle: row.documentTitle,
+      nodeId: row.nodeId,
+      identifier: row.identifier,
+      heading: nodeLabel({ heading: row.heading, title: row.title, identifier: row.identifier }),
+      snippet: (row.content ?? "").slice(0, 240),
+    });
+  }
+  return out;
 }
 
 // FTS5 matching is boolean, not substring. Drop stopwords so they don't dilute

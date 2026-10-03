@@ -11,8 +11,14 @@ import { API_ROOT, readApiKey, runD1Json } from "./d1";
 //   pnpm --filter @vidhan/api db:seed:summaries
 //   pnpm --filter @vidhan/api db:seed:summaries:load   (loads into local D1)
 // Summaries are generated offline so the chat never pays for them.
+//
+// Pass a document id to summarise just that document, leaving the corpus
+// summaries untouched; the delta lands in a separate seed file:
+//   pnpm --filter @vidhan/api exec tsx src/ingest/summaries.ts <documentId>
+//   pnpm --filter @vidhan/api exec wrangler d1 execute DB --local --file=../../data/documents.summaries.add.seed.sql
 
 const OUT = resolve(API_ROOT, "..", "..", "data", "documents.summaries.seed.sql");
+const ADD_OUT = resolve(API_ROOT, "..", "..", "data", "documents.summaries.add.seed.sql");
 
 const MODEL = "deepseek/deepseek-v4-flash-0731";
 
@@ -165,9 +171,13 @@ function q(value: string): string {
 
 async function main() {
   const apiKey = readApiKey();
-  const docs = runD1Json<DocumentRow>(
+  const onlyId = process.argv[2];
+  const out = onlyId ? ADD_OUT : OUT;
+  const allDocs = runD1Json<DocumentRow>(
     "SELECT id, title, document_type FROM documents ORDER BY id;",
   );
+  const docs = onlyId ? allDocs.filter((doc) => doc.id === onlyId) : allDocs;
+  if (docs.length === 0) throw new Error(`no document with id ${onlyId}`);
   const nodes = runD1Json<NodeRow>(
     "SELECT id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position FROM document_nodes ORDER BY document_id, position;",
   );
@@ -202,10 +212,10 @@ async function main() {
     }
     // Flush after every document: a long run stays watchable and a crash keeps
     // the summaries already paid for.
-    writeFileSync(OUT, updates.join("\n"), "utf-8");
+    writeFileSync(out, updates.join("\n"), "utf-8");
   }
 
-  console.log(`[summary] wrote ${updates.length / 2}/${docs.length} summaries → ${OUT}`);
+  console.log(`[summary] wrote ${updates.length / 2}/${docs.length} summaries → ${out}`);
 }
 
 main().catch((err) => {

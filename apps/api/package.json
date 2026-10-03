@@ -15,6 +15,8 @@
     "db:seed:documents:load": "wrangler d1 execute DB --local --file=../../data/legal-documents.seed.sql",
     "db:seed:summaries": "tsx src/ingest/summaries.ts",
     "db:seed:summaries:load": "wrangler d1 execute DB --local --file=../../data/documents.summaries.seed.sql",
+    "db:seed:embeddings": "tsx src/ingest/embeddings.ts",
+    "db:seed:embeddings:load": "wrangler d1 execute DB --local --file=../../data/document-embeddings.seed.sql",
     "db:clean:documents": "tsx src/clean/documents.ts",
     "db:clean:documents:load": "wrangler d1 execute DB --local --file=../../data/documents.cleaned.seed.sql"
   },

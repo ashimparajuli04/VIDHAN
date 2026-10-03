@@ -398,3 +398,12 @@ Chapter-1 (Preliminary) — short title, commencement, definitions.
 Chapter-2 (Social Security Provisions) — entitlements, various allowances, applications, identity cards, distribution, records, budget.  
 Chapter-3 (Offences) — offences, complaints, trial, appeal, penalties.  
 Chapter-4 (Miscellaneous) — monitoring, care centers, reports, rule-making, directives, schedule alteration, prevailing law.' WHERE id = 'doc_the_social_security_act_2075_2018_2075_the_social_security_act_20';
+
+UPDATE documents SET summary = 'Constitution of Nepal — 45 parts, grouped.
+
+1–4 (Preliminary … Directive Principles) — foundational provisions: state, citizenship, fundamental rights and duties, and state policy directives.
+5–10 (Structure of State … Federal Financial Procedures) — federal structure, President, executive, legislature, and federal lawmaking and finance.
+11–12 (Judiciary … Attorney General) — court system and chief legal officer.
+13–19 (Provincial Executive … Local Financial Procedures) — provincial and local government, legislatures, and finances.
+20–29 (Interrelations … Emergency Powers) — intergovernmental relations, constitutional bodies, national security, political parties, and emergencies.
+30–35 (Amendment to Constitution … Short Title, Commencement and Repeal) — amendment, miscellaneous provisions, transitions, definitions, and closing articles; schedules follow.' WHERE id = 'doc_const_2072_2nd_amendment_2020';

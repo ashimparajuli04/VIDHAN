@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { streamText, stepCountIs, generateText, createUIMessageStream, createUIMessageStreamResponse } from "ai";
 import type { ModelMessage, ToolCallPart, ToolResultPart } from "ai";
-import { ZChatSend, ZCiteOutput } from "@vidhan/schema";
+import { ZChatSend, ZCiteOutput, extractLeakedCiteNodeIds, stripToolCallText } from "@vidhan/schema";
 import type { TChatMessage, TChatTitle, TReference, TToolCall, TToolResult } from "@vidhan/schema";
 import { createDb } from "../../db";
 import { parseJson, validationError } from "../../lib/validate";
@@ -17,6 +17,7 @@ import {
   touchSession,
 } from "../../chat";
 import { buildTools, chatModel, chatSystemPrompt, prefetchSections, renderPrefetchedContext, TITLE_SYSTEM_PROMPT, titleModel } from "../../ai";
+import { resolveReferences } from "../../documents/retrieval";
 import { addUsage, getUsage, isOverLimit } from "../../usage";
 
 export const chat = new Hono<TAuthContext>();
@@ -175,8 +176,20 @@ chat.post("/sessions/:id/messages", async (c) => {
     // leaving the user with only the tool UI. Narrow the tool set after the
     // first step and force a text-only answer on the final steps, so the turn
     // always ends with prose; any cite already recorded is unaffected.
-    prepareStep: ({ stepNumber }) => {
-      if (stepNumber >= FINAL_TEXT_STEP) return { toolChoice: "none" };
+    prepareStep: ({ stepNumber, steps }) => {
+      if (stepNumber >= FINAL_TEXT_STEP) {
+        // Reserve the last step for prose. Disabling tools while the required
+        // `cite` is still unrecorded makes the model write the call into the
+        // answer as raw text instead of answering, so force it natively one
+        // step earlier.
+        const cited = steps.some((step) =>
+          step.toolCalls.some((call) => call.toolName === "cite"),
+        );
+        if (stepNumber === FINAL_TEXT_STEP && !cited) {
+          return { toolChoice: { type: "tool" as const, toolName: "cite" } };
+        }
+        return { toolChoice: "none" };
+      }
       if (stepNumber >= 1) return { activeTools: [...REFINEMENT_TOOLS] };
       return undefined;
     },
@@ -207,18 +220,28 @@ chat.post("/sessions/:id/messages", async (c) => {
         parsedRefs?.success && parsedRefs.data.references.length > 0
           ? parsedRefs.data.references
           : null;
+      // When tools were disabled the model may have leaked the cite call as
+      // text; strip it from the stored answer and salvage its nodeIds.
+      const text = stripToolCallText(event.text);
+      const leakedCiteIds =
+        references === null ? extractLeakedCiteNodeIds(event.text) : [];
       // Context can tear down once the last chunk flushes; waitUntil keeps the
       // isolate alive for these writes.
       c.executionCtx.waitUntil(
         (async () => {
           const now = new Date().toISOString();
+          let resolvedReferences = references;
+          if (resolvedReferences === null && leakedCiteIds.length > 0) {
+            const resolved = await resolveReferences(db, leakedCiteIds);
+            if (resolved.length > 0) resolvedReferences = resolved;
+          }
           await insertAssistantMessage(
             db,
             session.id,
-            event.text,
+            text,
             toolCalls.length > 0 ? toolCalls : null,
             toolResults.length > 0 ? toolResults : null,
-            references,
+            resolvedReferences,
           );
           await touchSession(db, session.id, { updatedAt: now });
           // Title generation is a cheap side-call and deliberately not metered.

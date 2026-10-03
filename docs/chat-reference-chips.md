@@ -16,8 +16,8 @@ Retrieval provenance is invisible in the chat UI:
    server-side and injects sections into the system prompt — not a tool call, so
    it has no UI representation at all.
 
-This adds a final, cited-only chip footer under each assistant answer, designed
-to become a deep-link into the document reader later.
+This adds a final, cited-only chip footer under each assistant answer. Each chip
+deep-links into the document reader at the cited provision.
 
 ## Decisions
 
@@ -36,9 +36,10 @@ to become a deep-link into the document reader later.
    chips coexist as the final sources row.
 8. **Chip content:** label `§<identifier> · <heading>`, full `citation` as hover
    `title`; flat list, no grouping by document.
-9. **Deep-link contract (built later, not this pass):**
-   `/repo/<documentId>?node=<nodeId>`; display-only chips for now, but the ref
-   payload carries `documentId` + `nodeId` so the click is an isolated change.
+9. **Deep-link:** a chip links to `/repo/<documentId>?node=<nodeId>`. The reader
+   reads `?node=`, resolves it to its flat row (clause children fold into their
+   parent row), scrolls to it, and keeps it washed amber. Same tab; the ref
+   payload carries `documentId` + `nodeId`.
 
 ## Changes
 
@@ -77,7 +78,11 @@ to become a deep-link into the document reader later.
   cite part from the `references` column so one extraction path serves both.
 - `types.ts`: add `TReference` + `references?` on the view.
 - New `components/reference-chips.tsx`; render in `message-bubble.tsx` after
-  content.
+  content. Chips are `next/link` anchors into the reader.
+- `app/(app)/repo/[id]/page.tsx`: wrap `DocumentDetail` in `<Suspense>` so it can
+  read `?node=` via `useSearchParams`.
+- `components/documents/document-detail.tsx`: on a `?node=` target, map the id to
+  its row and call the existing `scrollToNode`; highlight that row (`HIGHLIGHT_MS`).
 
 ## Assumptions
 
@@ -100,6 +105,5 @@ lawyer-seeking question → `SourceSteps` and the lawyer carousel still work.
 
 ## Not done
 
-- Clickable chips and reader deep-link support (`?node=`), deferred.
 - Grouping chips by document.
 - Enforcing "was actually retrieved" on cited nodeIds (resolve-and-drop only).

@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { Virtuoso, type VirtuosoHandle } from "react-virtuoso";
 import remarkGfm from "remark-gfm";
@@ -60,6 +61,10 @@ export function DocumentDetail({ id }: { id: string }) {
   const [expanded, setExpanded] = React.useState<ReadonlySet<string>>(
     () => new Set(),
   );
+  const [highlightId, setHighlightId] = React.useState<string | null>(null);
+
+  const searchParams = useSearchParams();
+  const targetNodeId = searchParams.get("node");
 
   const virtuosoRef = React.useRef<VirtuosoHandle>(null);
   const fetchingRef = React.useRef<ReadonlySet<string>>(new Set());
@@ -68,6 +73,9 @@ export function DocumentDetail({ id }: { id: string }) {
   // Ignore scroll-spy updates while a TOC click is smooth-scrolling, so the
   // highlight doesn't flicker through every section it passes.
   const suppressSpyRef = React.useRef(false);
+  // Guards the deep-link scroll so it fires once per cited node, not on every
+  // render while the outline settles.
+  const deepLinkRef = React.useRef<string | null>(null);
 
   React.useEffect(() => {
     let active = true;
@@ -100,6 +108,16 @@ export function DocumentDetail({ id }: { id: string }) {
   // section_group) become heading rows; citeable nodes with content become
   // section rows. The flat index is the scroll target and cache key.
   const rows = React.useMemo(() => (outline ? flattenOutline(outline.nodes) : []), [outline]);
+  // Every outline node id — including clause children folded into a parent row —
+  // maps to the flat row that renders it, so a cited node id can be scrolled to.
+  const rowIdByNode = React.useMemo(() => {
+    const map = new Map<string, string>();
+    for (const row of rows) {
+      map.set(row.id, row.id);
+      for (const childId of row.childIds) map.set(childId, row.id);
+    }
+    return map;
+  }, [rows]);
   const tocIndex = React.useMemo(
     () => (outline ? buildTocIndex(outline.nodes) : EMPTY_TOC_INDEX),
     [outline],
@@ -238,23 +256,43 @@ export function DocumentDetail({ id }: { id: string }) {
     }
   }
 
-  function scrollToNode(nodeId: string) {
-    const index = rows.findIndex((row) => row.id === nodeId);
-    if (index < 0) return;
-    setActiveRow(index);
-    suppressSpyRef.current = true;
-    window.setTimeout(() => {
-      suppressSpyRef.current = false;
-    }, 700);
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    virtuosoRef.current?.scrollToIndex({
-      index,
-      align: "start",
-      behavior: reduced ? "auto" : "smooth",
+  const scrollToNode = React.useCallback(
+    (nodeId: string) => {
+      const index = rows.findIndex((row) => row.id === nodeId);
+      if (index < 0) return;
+      setActiveRow(index);
+      suppressSpyRef.current = true;
+      window.setTimeout(() => {
+        suppressSpyRef.current = false;
+      }, 700);
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      virtuosoRef.current?.scrollToIndex({
+        index,
+        align: "start",
+        behavior: reduced ? "auto" : "smooth",
+      });
+    },
+    [rows],
+  );
+
+  // Deep link from a chat citation: /repo/<id>?node=<nodeId>. Resolve the cited
+  // node to its row (clause children fold into the parent row), scroll to it,
+  // and flag it for a persistent highlight. Deferred a frame so Virtuoso has
+  // measured.
+  React.useEffect(() => {
+    if (status !== "ready" || rows.length === 0 || !targetNodeId) return;
+    if (deepLinkRef.current === targetNodeId) return;
+    const rowId = rowIdByNode.get(targetNodeId);
+    if (!rowId) return;
+    deepLinkRef.current = targetNodeId;
+    const frame = window.requestAnimationFrame(() => {
+      scrollToNode(rowId);
+      setHighlightId(rowId);
     });
-  }
+    return () => window.cancelAnimationFrame(frame);
+  }, [status, rows, targetNodeId, rowIdByNode, scrollToNode]);
 
   function toggleNode(nodeId: string) {
     setExpanded((prev) => {
@@ -385,6 +423,7 @@ export function DocumentDetail({ id }: { id: string }) {
                         row={row}
                         content={body?.content ?? null}
                         citation={body?.citation ?? row.citation}
+                        highlighted={row.id === highlightId}
                       />
                     );
                   }}
@@ -507,6 +546,11 @@ function buildTocIndex(nodes: TDocumentNodeOutline[]): TocIndex {
   return { tree: walk(nodes, []), ancestors };
 }
 
+// Amber wash marking the section a chat citation deep-linked to. Negative
+// margin keeps the highlighted block aligned with unhighlighted rows.
+const HIGHLIGHT_CLASS =
+  "-mx-3 rounded-lg bg-amber-100/70 px-3 ring-1 ring-amber-300/60 transition-colors duration-500 dark:bg-amber-400/10 dark:ring-amber-400/30";
+
 // One virtualized reader row. Structural containers render as an underlined
 // heading; section rows render the fetched body. A body that resolves to empty
 // is a genuinely empty provision, not a pending one, so it keeps its heading
@@ -515,14 +559,16 @@ function ReaderRow({
   row,
   content,
   citation,
+  highlighted,
 }: {
   row: FlatRow;
   content: string | null;
   citation: string | null;
+  highlighted: boolean;
 }) {
   if (row.kind === "heading") {
     return (
-      <div className="pt-8 pb-2">
+      <div className={cn("pt-8 pb-2", highlighted && HIGHLIGHT_CLASS)}>
         <h2 className="border-b pb-1 text-lg font-semibold tracking-tight">
           {nodeLabel(row)}
         </h2>
@@ -531,7 +577,7 @@ function ReaderRow({
   }
 
   return (
-    <section className="py-4">
+    <section className={cn("py-4", highlighted && HIGHLIGHT_CLASS)}>
       <h3 className="mb-2 text-base font-semibold tracking-tight">
         {row.identifier && row.nodeType === "section"
           ? `${row.identifier}. ${row.heading ?? ""}`

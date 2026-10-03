@@ -31,3 +31,13 @@ export function readApiKey(): string {
   if (!match?.[1]) throw new Error("OPENROUTER_API_KEY missing from .dev.vars");
   return match[1];
 }
+
+// Offline scripts need the same model/dims the Worker reads from wrangler vars.
+// Parsed from wrangler.toml so the seed can never drift from the runtime config.
+export function readEmbeddingConfig(): { model: string; dims: number } {
+  const toml = readFileSync(resolve(API_ROOT, "wrangler.toml"), "utf-8");
+  const model = toml.match(/^EMBEDDING_MODEL\s*=\s*"([^"]+)"/m)?.[1];
+  const dims = toml.match(/^EMBEDDING_DIMS\s*=\s*"?(\d+)"?/m)?.[1];
+  if (!model || !dims) throw new Error("EMBEDDING_MODEL / EMBEDDING_DIMS missing from wrangler.toml");
+  return { model, dims: Number(dims) };
+}

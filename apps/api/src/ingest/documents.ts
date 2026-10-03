@@ -186,6 +186,8 @@ function labelFor(kind: TDocumentNodeType, identifier: string): string | null {
   switch (kind) {
     case "section":
       return `Section ${identifier}`;
+    case "article":
+      return identifier;
     case "part":
       return identifier;
     case "chapter":

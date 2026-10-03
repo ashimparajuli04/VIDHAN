@@ -154,6 +154,7 @@ export const DOCUMENT_NODE_TYPES = [
   "chapter",
   "section_group",
   "section",
+  "article",
   "sub_section",
   "clause",
   "rule",
@@ -166,6 +167,7 @@ export type TDocumentNodeType = (typeof DOCUMENT_NODE_TYPES)[number];
 // schedules, so consumers must test against containers, not an allow-list of
 // content types — an allow-list silently drops any type it was not updated for.
 export const DOCUMENT_CONTAINER_NODE_TYPES = [
+  "part",
   "chapter",
   "section_group",
 ] as const satisfies readonly TDocumentNodeType[];
@@ -216,6 +218,28 @@ export const documentNodes = sqliteTable(
     index("document_nodes_doc_type_idx").on(t.documentId, t.nodeType),
   ],
 );
+
+// Section-level semantic vectors for hybrid chat retrieval. Separate from
+// `document_nodes` because the FTS external-content triggers fire on every
+// column write and would churn on each vector upsert. `vector` is float32
+// little-endian, L2-normalized, so cosine becomes a plain dot product.
+export const documentNodeEmbeddings = sqliteTable(
+  "document_node_embeddings",
+  {
+    nodeId: text("node_id")
+      .primaryKey()
+      .references(() => documentNodes.id, { onDelete: "cascade" }),
+    model: text("model").notNull(),
+    dims: integer("dims").notNull(),
+    vector: text("vector").notNull(),
+    contentHash: text("content_hash").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [index("document_node_embeddings_model_idx").on(t.model)],
+);
+
+export type DocumentNodeEmbeddingRow = typeof documentNodeEmbeddings.$inferSelect;
+export type DocumentNodeEmbeddingInsert = typeof documentNodeEmbeddings.$inferInsert;
 
 export const CHAT_ROLES = ["user", "assistant"] as const;
 

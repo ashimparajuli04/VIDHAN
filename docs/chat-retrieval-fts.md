@@ -72,6 +72,5 @@ Act §14 "Limitation" first; `domestic violence complaint time limit` returns
 ## Not done
 
 - Pagination cursor for outlines > 100 sections (the cap + `query` suffices now).
-- Hybrid vector retrieval — deferred until FTS5 is shown to miss paraphrase.
-  Section-granularity embeddings with citations kept alongside would be the
-  shape.
+- ~~Hybrid vector retrieval~~ — since shipped: section-granularity embeddings
+  fused with FTS via RRF. See `docs/vectorization.md`.
