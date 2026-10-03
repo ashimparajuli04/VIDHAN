@@ -77,7 +77,6 @@ lawyers.post("/", async (c) => {
       : null,
     courts: parsed.data.courts ? asJson(parsed.data.courts) : null,
     education: parsed.data.education ? asJson(parsed.data.education) : null,
-    bookingUrl: parsed.data.bookingUrl ?? null,
     barNumber: parsed.data.barNumber ?? null,
     yearsOfExperience: parsed.data.yearsOfExperience ?? null,
     bio: parsed.data.bio ?? null,

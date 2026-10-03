@@ -43,7 +43,6 @@ export function toPublicLawyer(
     languages: row.languages,
     yearsOfExperience: row.yearsOfExperience,
     bio: row.bio,
-    bookingUrl: row.bookingUrl,
     imageUrl: imageUrlFor(env, origin, row.imageKey),
     verified: row.verified,
     consultationFee: row.consultationFee,

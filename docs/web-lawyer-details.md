@@ -17,9 +17,11 @@ availability, or ratings surface anything not in the schema.
    untouched and stay slim).
 
 2. **No direct contact, by design** — `phone`, `whatsapp`, `email`, and `officeAddress` are
-   deliberately **not** in the schema. `bookingUrl` is the only reach mechanism; a lawyer
-   without one gets a disabled "Booking link coming soon" CTA and nothing else. Keep it this
-   way unless the product explicitly wants contact surfaces.
+   deliberately **not** in the schema, and neither is a lawyer-supplied booking link. The
+   only reach mechanism is the on-platform callback request: the profile CTA opens
+   `RequestCallDialog`, which posts the user's own phone + preferred time to
+   `/lawyer-requests`. The lawyer's own channel never reaches the public surface. Keep it
+   this way unless the product explicitly wants contact surfaces.
 
 3. **Static export constraint** — the web app is `output: "export"`, so `/lawyers/[id]`
    needs `generateStaticParams` at build time. `LAWYER_IDS` (deterministic `seed-001…080`)

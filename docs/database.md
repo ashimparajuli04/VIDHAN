@@ -22,9 +22,10 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 - `id` text PK (uuid, generated app-side)
 - `practiceAreas`, `languages` — JSON text columns, typed via `.$type<...[]>()`
 - `district` — validated against the `DISTRICTS` const (all 77, shared with web/admin dropdowns)
-- `bookingUrl` nullable — the **only** reach mechanism. Contact fields (`phone`, `whatsapp`,
-  `email`, `officeAddress`) are deliberately absent from the model — no direct contact on
-  public surfaces by design (see `docs/web-lawyer-details.md`).
+- no reach field. Contact fields (`phone`, `whatsapp`, `email`, `officeAddress`) and any
+  direct booking link are deliberately absent from the model — a lawyer is reached only by
+  a platform callback request (`lawyer_requests`), never a public channel (see
+  `docs/web-lawyer-details.md`).
 - `barNumber`, `yearsOfExperience`, `bio` nullable
 - `firmName`, `consultationFee` (NPR, null = not listed), `freeFirstConsultation` (default
   `false`), `consultationModes` / `courts` / `education` (JSON, closed enums
@@ -34,6 +35,18 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 - `verified`, `active` — boolean mode over integer, defaults `false`/`true`
 - `createdAt`, `updatedAt` — ISO strings set app-side
 - composite index `(practice_areas, district)` for catalog lookup
+
+`lawyer_requests` — on-platform callback leads; the only path from user to lawyer.
+
+- `id` text PK (uuid, generated app-side)
+- `lawyerId` FK → `lawyers.id`, `userId` FK → `users.id`
+- `phone` not null — the only contact field the form collects (name/email come from `users`)
+- `preferredTime` not null — free text ("Tomorrow evening"), not a datetime
+- `mode` nullable — reuses `CONSULTATION_MODES`
+- `note` nullable
+- `status` — `LAWYER_REQUEST_STATUSES` (`pending | contacted | closed`), default `pending`
+- `createdAt`, `updatedAt` — ISO strings
+- indexes `(user_id, created_at)` for the user's list, `lawyer_id` for the queue
 
 `documents` — one row per source statute (`act | constitution | regulation`).
 

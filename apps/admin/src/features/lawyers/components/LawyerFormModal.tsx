@@ -41,7 +41,6 @@ type TDraft = {
   languages: TLanguage[];
   yearsOfExperience: string;
   barNumber: string;
-  bookingUrl: string;
   bio: string;
   imageKey: string;
   verified: boolean;
@@ -57,7 +56,6 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
       languages: [],
       yearsOfExperience: "",
       barNumber: "",
-      bookingUrl: "",
       bio: "",
       imageKey: "",
       verified: false,
@@ -72,7 +70,6 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
     yearsOfExperience:
       lawyer.yearsOfExperience == null ? "" : String(lawyer.yearsOfExperience),
     barNumber: lawyer.barNumber ?? "",
-    bookingUrl: lawyer.bookingUrl ?? "",
     bio: lawyer.bio ?? "",
     imageKey: lawyer.imageKey ?? "",
     verified: lawyer.verified,
@@ -214,7 +211,6 @@ export function LawyerFormModal({
           ? undefined
           : Number(draft.yearsOfExperience),
       barNumber: draft.barNumber.trim() || undefined,
-      bookingUrl: draft.bookingUrl.trim() || undefined,
       bio: draft.bio.trim() || undefined,
       imageKey: draft.imageKey.trim() || null,
       verified: draft.verified,
@@ -377,22 +373,6 @@ export function LawyerFormModal({
               <FieldError messages={fieldErrors.barNumber} />
             </label>
           </div>
-
-          <label className="block space-y-1">
-            <span className="text-sm font-medium text-slate-700">
-              Booking URL
-            </span>
-            <input
-              type="url"
-              value={draft.bookingUrl}
-              onChange={(event) =>
-                setDraft({ ...draft, bookingUrl: event.target.value })
-              }
-              placeholder="https://"
-              className={inputClass}
-            />
-            <FieldError messages={fieldErrors.bookingUrl} />
-          </label>
 
           <label className="block space-y-1">
             <span className="text-sm font-medium text-slate-700">Bio</span>

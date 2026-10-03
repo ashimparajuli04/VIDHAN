@@ -5,6 +5,7 @@ import {
   DISTRICTS,
   LANGUAGES,
   PRACTICE_AREAS,
+  SUPPORT_TICKET_CATEGORIES,
   ZCiteOutput,
 } from "@vidhan/schema";
 import { createDb } from "../db";
@@ -264,6 +265,26 @@ export function buildTools(env: Env, origin: string) {
         if (!section) return { error: "not_found", documentId, nodeId };
         return section;
       },
+    }),
+
+    // Consent-gated: the execute is a no-op, and nothing is written until the
+    // client's offer card calls POST /support/tickets. Auto-filing on the
+    // model's judgement would let a hallucinated miss spam the admin queue.
+    offer_support_ticket: tool({
+      description:
+        "Offer to file a support ticket with the team. Call when you cannot find " +
+        "a relevant provision, or when find_lawyers returned no lawyers. This only " +
+        "shows the user an offer they must click; it does not create the ticket.",
+      inputSchema: z.object({
+        category: z
+          .enum(SUPPORT_TICKET_CATEGORIES)
+          .describe(
+            "missing_document when a provision was not found, missing_lawyer " +
+              "when no lawyer was found, other otherwise",
+          ),
+        reason: z.string().describe("One sentence on why the ticket is offered"),
+      }),
+      execute: async ({ category }) => ({ offered: true, category }),
     }),
 
     // Records the provisions the answer actually relied on, once, before the

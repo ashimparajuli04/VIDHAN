@@ -4,6 +4,7 @@ import type {
   TDistrict,
   TLanguage,
   TPracticeArea,
+  TRequestStatus,
 } from "@vidhan/schema";
 
 const PRACTICE_AREA_LABELS: Record<TPracticeArea, string> = {
@@ -43,6 +44,12 @@ const CONSULTATION_MODE_LABELS: Record<TConsultationMode, string> = {
   video: "Video",
 };
 
+const REQUEST_STATUS_LABELS: Record<TRequestStatus, string> = {
+  pending: "Pending",
+  contacted: "Contacted",
+  closed: "Closed",
+};
+
 export function practiceAreaLabel(area: TPracticeArea): string {
   return PRACTICE_AREA_LABELS[area];
 }
@@ -57,6 +64,10 @@ export function courtLabel(court: TCourt): string {
 
 export function consultationModeLabel(mode: TConsultationMode): string {
   return CONSULTATION_MODE_LABELS[mode];
+}
+
+export function requestStatusLabel(status: TRequestStatus): string {
+  return REQUEST_STATUS_LABELS[status];
 }
 
 export function formatNpr(amount: number): string {

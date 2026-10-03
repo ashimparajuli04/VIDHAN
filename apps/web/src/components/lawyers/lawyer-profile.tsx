@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   BadgeCheck,
   Building2,
-  Calendar,
   ChevronLeft,
   MapPin,
   Phone,
@@ -23,6 +22,7 @@ import { LawyerCard } from "@/components/lawyers/lawyer-card";
 import { LawyerProfileSkeleton } from "@/components/lawyers/lawyer-profile-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { RequestCallDialog } from "@/features/lawyers/components/request-call-dialog";
 import { cn } from "@/lib/utils";
 import {
   consultationModeLabel,
@@ -49,8 +49,8 @@ const MODE_ICONS: Record<TConsultationMode, typeof Building2> = {
  * credentials) that each render only when they carry data. The sticky side
  * column on `lg` holds the booking CTA and facts; on mobile the CTA is
  * pinned to the bottom. A related-lawyers row reuses the catalogue card.
- * Contact details are deliberately absent — bookingUrl is the only reach
- * mechanism (see docs/web-lawyer-details.md).
+ * Contact details are deliberately absent — a callback request is the only
+ * reach mechanism (see docs/web-lawyer-details.md).
  */
 export function LawyerProfile({ id }: { id: string }) {
   const [lawyer, setLawyer] = React.useState<TPublicLawyerDetail | null>(null);
@@ -304,7 +304,20 @@ export function LawyerProfile({ id }: { id: string }) {
             <aside className="lg:sticky lg:top-8 lg:self-start">
               <div className="space-y-6 rounded-[var(--radius)] bg-primary p-6 text-primary-foreground">
                 <div className="hidden lg:block">
-                  <BookButton bookingUrl={lawyer.bookingUrl} onDark />
+                  <RequestCallDialog
+                    lawyerId={lawyer.id}
+                    lawyerName={lawyer.name}
+                    trigger={
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="w-full border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+                      >
+                        <Phone />
+                        Request a call
+                      </Button>
+                    }
+                  />
                 </div>
 
                 <dl className="divide-y divide-primary-foreground/15">
@@ -360,7 +373,16 @@ export function LawyerProfile({ id }: { id: string }) {
       {/* ── Mobile / tablet pinned CTA ── */}
       {!loading && lawyer && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur lg:hidden">
-          <BookButton bookingUrl={lawyer.bookingUrl} />
+          <RequestCallDialog
+            lawyerId={lawyer.id}
+            lawyerName={lawyer.name}
+            trigger={
+              <Button size="lg" className="w-full">
+                <Phone />
+                Request a call
+              </Button>
+            }
+          />
         </div>
       )}
     </main>
@@ -395,47 +417,5 @@ function InfoRow({
         {value}
       </dd>
     </div>
-  );
-}
-
-function BookButton({
-  bookingUrl,
-  onDark = false,
-}: {
-  bookingUrl: string | null;
-  onDark?: boolean;
-}) {
-  if (!bookingUrl) {
-    return (
-      <Button
-        variant="outline"
-        size="lg"
-        className={cn(
-          "w-full",
-          onDark && "border-primary-foreground/40 text-primary-foreground/60"
-        )}
-        disabled
-      >
-        <Calendar />
-        Booking link coming soon
-      </Button>
-    );
-  }
-  return (
-    <Button
-      asChild
-      variant={onDark ? "outline" : "default"}
-      size="lg"
-      className={cn(
-        "w-full",
-        onDark &&
-          "border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
-      )}
-    >
-      <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-        <Calendar />
-        Book a consultation
-      </a>
-    </Button>
   );
 }

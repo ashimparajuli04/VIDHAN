@@ -1,6 +1,18 @@
-import type { TPublicLawyer, TReference } from "@vidhan/schema";
+import type {
+  TPublicLawyer,
+  TReference,
+  TSupportTicketCategory,
+} from "@vidhan/schema";
 
 export type TChatRole = "user" | "assistant";
+
+/** Server offer to file a support ticket; the button files it on click. */
+export type TSupportOffer = {
+  category: TSupportTicketCategory;
+  reason: string;
+  /** The user query the ticket body is taken from. */
+  query: string;
+};
 
 export type TLawyerSearch = {
   query: string;
@@ -19,6 +31,8 @@ export type TChatMessageView = {
   sources?: TSourceStep[];
   /** Provisions the answer relied on, from the `cite` tool. */
   references?: TReference[];
+  /** Present when the assistant offered to file a support ticket. */
+  supportOffer?: TSupportOffer;
 };
 
 /** A retrieval tool call shown while the answer is being researched. */

@@ -100,7 +100,6 @@ export const lawyerSchema = z.object({
   practiceAreas: z.array(z.enum(PRACTICE_AREAS)).min(1),
   city: z.string().min(1),
   languages: z.array(z.enum(LANGUAGES)).min(1),
-  bookingUrl: z.string().url(),          // Calendly/Cal.com — only contact channel
   barNumber: z.string().optional(),       // Nepal Bar Council registration
   yearsOfExperience: z.number().int().min(0).optional(),
   bio: z.string().max(500).optional(),
@@ -120,7 +119,7 @@ export const lawyerUpdateSchema = lawyerCreateSchema.partial();
 
 Decisions:
 
-- **No phone/email.** App connects users to lawyers via external calendar link only. No contact data stored, no booking state to manage.
+- **No phone/email, no external link.** A lawyer is reached only through an on-platform callback request (`lawyer_requests`: the user's own phone + preferred time, status advanced by admin). No lawyer contact data reaches the public surface, and the request state lives in our DB.
 - **`practiceAreas` enum** — escalation verdict emits the same enum → direct SQL join, no fuzzy matching. Adding an area later = one line in `PRACTICE_AREAS`; single source of truth feeds both admin form and escalation prompt.
 - **`city` free text** — Nepal cities too varied to enumerate; match exact/`LIKE`, fall back to area-only if no city match.
 - **`verified` + `barNumber`** — trust signal; unverified lawyers show a badge, not hidden.

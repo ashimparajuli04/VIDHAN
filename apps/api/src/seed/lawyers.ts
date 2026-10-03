@@ -104,8 +104,6 @@ function buildRow(index: number) {
   ];
   const yearsOfExperience = 1 + Math.floor(rand() * 40);
   const bio = `${name.split(" ")[0]} practises in ${district}, with ${yearsOfExperience} years at the bar.`;
-  const bookingUrl =
-    rand() < 0.5 ? `https://vidhan.example/lawyers/${index + 1}` : null;
   const barNumber = rand() < 0.2 ? null : `NEB-${String(index + 1).padStart(4, "0")}`;
   const verified = rand() < 0.85;
   const active = rand() < 0.92;
@@ -146,7 +144,6 @@ function buildRow(index: number) {
     practiceAreas: [...new Set(practiceAreas)],
     district,
     languages,
-    bookingUrl,
     barNumber,
     yearsOfExperience,
     bio,
@@ -184,7 +181,6 @@ async function main() {
         sqlString(JSON.stringify(row.practiceAreas)),
         sqlString(row.district),
         sqlString(JSON.stringify(row.languages)),
-        sqlNullable(row.bookingUrl ?? null),
         sqlNullable(row.barNumber ?? null),
         row.yearsOfExperience === undefined || row.yearsOfExperience === null
           ? "NULL"
@@ -212,7 +208,7 @@ async function main() {
     .map((cols) => `  (${cols})`)
     .join(",\n");
 
-  const sql = `INSERT INTO lawyers (id, name, practice_areas, district, languages, booking_url, bar_number, years_of_experience, bio, verified, active, created_at, updated_at, firm_name, consultation_fee, free_first_consultation, consultation_modes, courts, education, bar_enrollment_year) VALUES\n${values};\n`;
+  const sql = `INSERT INTO lawyers (id, name, practice_areas, district, languages, bar_number, years_of_experience, bio, verified, active, created_at, updated_at, firm_name, consultation_fee, free_first_consultation, consultation_modes, courts, education, bar_enrollment_year) VALUES\n${values};\n`;
 
   await writeFile(OUT, sql, "utf-8");
   console.log(`[seed] wrote ${rows.length} lawyers to ${OUT}`);

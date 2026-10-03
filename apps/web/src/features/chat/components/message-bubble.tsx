@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import type { TChatMessageView } from "../types";
 import { LawyerStep } from "./lawyer-step";
 import { ReferenceChips } from "./reference-chips";
+import { SupportOfferCard } from "./support-offer-card";
 import { ThinkingDots } from "./thinking-dots";
 
 export function MessageBubble({
@@ -25,7 +26,8 @@ export function MessageBubble({
     !thinking &&
     !message.lawyerSearch &&
     !message.sources &&
-    !message.references
+    !message.references &&
+    !message.supportOffer
   ) {
     return null;
   }
@@ -57,6 +59,10 @@ export function MessageBubble({
         ) : null}
 
         {message.lawyerSearch && <LawyerStep search={message.lawyerSearch} />}
+
+        {message.supportOffer && (
+          <SupportOfferCard offer={message.supportOffer} />
+        )}
 
         {message.references && (
           <ReferenceChips references={message.references} />

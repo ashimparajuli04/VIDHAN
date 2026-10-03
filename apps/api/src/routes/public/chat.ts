@@ -40,6 +40,7 @@ const REFINEMENT_TOOLS = [
   "search_document_sections",
   "cite",
   "find_lawyers",
+  "offer_support_ticket",
 ] as const;
 
 chat.post("/sessions", async (c) => {

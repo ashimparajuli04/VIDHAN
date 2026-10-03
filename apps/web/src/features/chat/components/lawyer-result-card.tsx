@@ -13,6 +13,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { RequestCallDialog } from "@/features/lawyers/components/request-call-dialog";
 import { districtLabel, practiceAreaLabel } from "@/features/lawyers/labels";
 
 export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
@@ -44,9 +45,20 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
             </div>
           </div>
 
-          <Button asChild variant="outline" size="sm" className="mt-auto w-full">
-            <Link href={`/lawyers/${lawyer.id}`}>View profile</Link>
-          </Button>
+          <div className="mt-auto grid grid-cols-2 gap-2">
+            <Button asChild variant="outline" size="sm" className="w-full">
+              <Link href={`/lawyers/${lawyer.id}`}>View profile</Link>
+            </Button>
+            <RequestCallDialog
+              lawyerId={lawyer.id}
+              lawyerName={lawyer.name}
+              trigger={
+                <Button variant="default" size="sm" className="w-full">
+                  Request a call
+                </Button>
+              }
+            />
+          </div>
         </div>
       </HoverCardTrigger>
 

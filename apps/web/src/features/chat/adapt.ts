@@ -1,16 +1,27 @@
 import type { ChatStatus, UIMessage } from "ai";
-import { ZCiteOutput, ZPublicLawyer } from "@vidhan/schema";
-import type { TChatMessage, TPublicLawyer, TReference } from "@vidhan/schema";
+import {
+  SUPPORT_TICKET_CATEGORIES,
+  ZCiteOutput,
+  ZPublicLawyer,
+} from "@vidhan/schema";
+import type {
+  TChatMessage,
+  TPublicLawyer,
+  TReference,
+  TSupportTicketCategory,
+} from "@vidhan/schema";
 
 import type {
   TChatMessageView,
   TLawyerSearch,
   TSourceStep,
   TStreamStatus,
+  TSupportOffer,
 } from "./types";
 
 const TOOL_NAME = "find_lawyers";
 const CITE_TOOL_NAME = "cite";
+const OFFER_TOOL_NAME = "offer_support_ticket";
 
 const RETRIEVAL_TOOLS = [
   "list_documents",
@@ -133,7 +144,27 @@ function extractReferences(output: unknown): TReference[] | undefined {
     : undefined;
 }
 
-export function toMessageView(message: UIMessage): TChatMessageView {
+function isSupportCategory(value: unknown): value is TSupportTicketCategory {
+  return (SUPPORT_TICKET_CATEGORIES as readonly string[]).includes(value as string);
+}
+
+// The offer body is the user query the ticket is filed from; the tool's own
+// input only carries category + reason. Read the input off the tool part.
+function toSupportOffer(input: unknown, query: string): TSupportOffer | undefined {
+  if (!input || typeof input !== "object") return undefined;
+  const record = input as { category?: unknown; reason?: unknown };
+  if (!isSupportCategory(record.category)) return undefined;
+  return {
+    category: record.category,
+    reason: typeof record.reason === "string" ? record.reason : "",
+    query,
+  };
+}
+
+export function toMessageView(
+  message: UIMessage,
+  precedingUserText = ""
+): TChatMessageView {
   const content = message.parts
     .map((part) => (part.type === "text" ? part.text : ""))
     .join("");
@@ -155,6 +186,14 @@ export function toMessageView(message: UIMessage): TChatMessageView {
     const tool = asToolPart(part);
     if (tool?.toolName === TOOL_NAME) {
       view.lawyerSearch = toLawyerSearch(tool);
+      break;
+    }
+  }
+
+  for (const part of message.parts) {
+    const tool = asToolPart(part);
+    if (tool?.toolName === OFFER_TOOL_NAME && tool.state === "output-available") {
+      view.supportOffer = toSupportOffer(tool.input, precedingUserText);
       break;
     }
   }
@@ -205,7 +244,19 @@ export function toMessageViews(
   messages: UIMessage[],
   status: TStreamStatus
 ): TChatMessageView[] {
-  const views = messages.map(toMessageView);
+  const views = messages.map((message, index) => {
+    // The offer card's ticket body is the user query that prompted the turn.
+    let query = "";
+    for (let at = index - 1; at >= 0; at -= 1) {
+      const prior = messages[at];
+      if (prior?.role !== "user") continue;
+      query = prior.parts
+        .map((part) => (part.type === "text" ? part.text : ""))
+        .join("");
+      break;
+    }
+    return toMessageView(message, query);
+  });
   // The SDK appends the assistant message only when the first chunk lands, so
   // synthesize one during the submitted phase to keep the thinking dots.
   if (status === "thinking" && messages[messages.length - 1]?.role === "user") {

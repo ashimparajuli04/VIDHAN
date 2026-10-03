@@ -10,7 +10,7 @@ export default function LawyersPage() {
           Find a lawyer
         </h1>
         <p className="mt-3 max-w-2xl text-[17px] leading-snug text-muted-foreground">
-          Browse legal professionals across Nepal and book a consultation.
+          Browse legal professionals across Nepal and request a consultation.
         </p>
       </header>
 

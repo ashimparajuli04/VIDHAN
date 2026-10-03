@@ -25,6 +25,7 @@ export const LANGUAGES = ["en", "ne", "roman_ne"] as const;
 // tiers of Nepal's judiciary (Supreme → High → District, plus special
 // courts and tribunals).
 export const CONSULTATION_MODES = ["in_person", "phone", "video"] as const;
+export const LAWYER_REQUEST_STATUSES = ["pending", "contacted", "closed"] as const;
 export const COURTS = [
   "supreme_court",
   "high_court",
@@ -63,6 +64,7 @@ export type TPracticeArea = (typeof PRACTICE_AREAS)[number];
 export type TLanguage = (typeof LANGUAGES)[number];
 export type TDistrict = (typeof DISTRICTS)[number];
 export type TConsultationMode = (typeof CONSULTATION_MODES)[number];
+export type TRequestStatus = (typeof LAWYER_REQUEST_STATUSES)[number];
 export type TCourt = (typeof COURTS)[number];
 
 export const lawyers = sqliteTable(
@@ -77,7 +79,6 @@ export const lawyers = sqliteTable(
     languages: text("languages", { mode: "json" })
       .$type<(typeof LANGUAGES)[number][]>()
       .notNull(),
-    bookingUrl: text("booking_url"),
     barNumber: text("bar_number"),
     yearsOfExperience: integer("years_of_experience"),
     bio: text("bio"),
@@ -225,6 +226,34 @@ export const users = sqliteTable(
   (t) => [uniqueIndex("users_email_unique").on(t.email)],
 );
 
+// Callback lead captured on-platform: the user asks Vidhan to arrange a
+// consultation, admin works the queue. No lawyer contact data is exposed.
+export const lawyerRequests = sqliteTable(
+  "lawyer_requests",
+  {
+    id: text("id").primaryKey(),
+    lawyerId: text("lawyer_id")
+      .notNull()
+      .references(() => lawyers.id),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    phone: text("phone").notNull(),
+    preferredTime: text("preferred_time").notNull(),
+    mode: text("mode", { enum: CONSULTATION_MODES }),
+    note: text("note"),
+    status: text("status", { enum: LAWYER_REQUEST_STATUSES })
+      .notNull()
+      .default("pending"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [
+    index("lawyer_requests_user_created_idx").on(t.userId, t.createdAt),
+    index("lawyer_requests_lawyer_idx").on(t.lawyerId),
+  ],
+);
+
 export const chatSessions = sqliteTable(
   "chat_sessions",
   {
@@ -261,12 +290,71 @@ export const chatMessages = sqliteTable(
   (t) => [index("chat_messages_session_created_idx").on(t.sessionId, t.createdAt)],
 );
 
+export const SUPPORT_TICKET_CATEGORIES = [
+  "missing_document",
+  "missing_lawyer",
+  "other",
+] as const;
+export const SUPPORT_TICKET_SOURCES = ["support_page", "chat"] as const;
+export const SUPPORT_TICKET_STATUSES = ["open", "closed"] as const;
+export const SUPPORT_TICKET_AUTHOR_ROLES = ["user", "admin"] as const;
+
+export type TSupportTicketCategory = (typeof SUPPORT_TICKET_CATEGORIES)[number];
+export type TSupportTicketSource = (typeof SUPPORT_TICKET_SOURCES)[number];
+export type TSupportTicketStatus = (typeof SUPPORT_TICKET_STATUSES)[number];
+export type TSupportTicketAuthorRole =
+  (typeof SUPPORT_TICKET_AUTHOR_ROLES)[number];
+
+// Threaded issue report. The opening body lives in support_ticket_messages
+// (the first `user` row), so the ticket row carries no body column.
+export const supportTickets = sqliteTable(
+  "support_tickets",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    subject: text("subject").notNull(),
+    category: text("category", { enum: SUPPORT_TICKET_CATEGORIES }).notNull(),
+    source: text("source", { enum: SUPPORT_TICKET_SOURCES }).notNull(),
+    status: text("status", { enum: SUPPORT_TICKET_STATUSES })
+      .notNull()
+      .default("open"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [
+    index("support_tickets_user_updated_idx").on(t.userId, t.updatedAt),
+    index("support_tickets_status_updated_idx").on(t.status, t.updatedAt),
+  ],
+);
+
+export const supportTicketMessages = sqliteTable(
+  "support_ticket_messages",
+  {
+    id: text("id").primaryKey(),
+    ticketId: text("ticket_id")
+      .notNull()
+      .references(() => supportTickets.id),
+    authorRole: text("author_role", {
+      enum: SUPPORT_TICKET_AUTHOR_ROLES,
+    }).notNull(),
+    body: text("body").notNull(),
+    createdAt: text("created_at").notNull(),
+  },
+  (t) => [
+    index("support_ticket_messages_ticket_created_idx").on(
+      t.ticketId,
+      t.createdAt,
+    ),
+  ],
+);
+
 const lawyerRefinements = {
   name: (s: z.ZodString) => s.min(1),
   practiceAreas: () => z.array(z.enum(PRACTICE_AREAS)).min(1),
   district: () => z.enum(DISTRICTS),
   languages: () => z.array(z.enum(LANGUAGES)).min(1),
-  bookingUrl: (s: z.ZodString) => s.url(),
   yearsOfExperience: (s: z.ZodNumber) => s.int().min(0),
   bio: (s: z.ZodString) => s.max(500),
   consultationFee: (s: z.ZodNumber) => s.int().min(0),
@@ -299,7 +387,6 @@ export const ZPublicLawyer = z.object({
   languages: z.array(z.enum(LANGUAGES)),
   yearsOfExperience: z.number().nullable(),
   bio: z.string().nullable(),
-  bookingUrl: z.string().nullable(),
   imageUrl: z.string().nullable(),
   verified: z.boolean(),
   consultationFee: z.number().int().min(0).nullable(),
@@ -309,10 +396,10 @@ export const ZPublicLawyer = z.object({
 
 // Detail/profile view adds the trust and credential signals the list
 // deliberately hides (courts, credentials, education). Contact details
-// (phone, email, office address) are deliberately absent — the bookingUrl
-// is the only reach mechanism. Internal fields (imageKey, timestamps,
-// active) stay out of public surfaces; `memberSince` is the year derived
-// from createdAt.
+// (phone, email, office address) are deliberately absent — a lawyer is
+// reached only through a platform callback request. Internal fields
+// (imageKey, timestamps, active) stay out of public surfaces; `memberSince`
+// is the year derived from createdAt.
 export const ZPublicLawyerDetail = ZPublicLawyer.extend({
   barNumber: z.string().nullable(),
   firmName: z.string().nullable(),
@@ -320,6 +407,38 @@ export const ZPublicLawyerDetail = ZPublicLawyer.extend({
   education: z.array(ZLawyerEducation).nullable(),
   barEnrollmentYear: z.number().int().min(1950).max(2030).nullable(),
   memberSince: z.number().int().min(1950).max(2030),
+});
+
+export const ZLawyerRequestCreate = z.object({
+  lawyerId: z.string().min(1),
+  phone: z.string().trim().min(1).max(40),
+  preferredTime: z.string().trim().min(1).max(200),
+  mode: z.enum(CONSULTATION_MODES).nullable().optional(),
+  note: z.string().trim().max(1000).nullable().optional(),
+});
+export const ZLawyerRequestStatusUpdate = z.object({
+  status: z.enum(LAWYER_REQUEST_STATUSES),
+});
+
+// Own view: the requester already knows their phone, so it is omitted.
+export const ZPublicLawyerRequest = z.object({
+  id: z.string(),
+  lawyerId: z.string(),
+  lawyerName: z.string(),
+  preferredTime: z.string(),
+  mode: z.enum(CONSULTATION_MODES).nullable(),
+  note: z.string().nullable(),
+  status: z.enum(LAWYER_REQUEST_STATUSES),
+  createdAt: z.string(),
+});
+
+// Admin view resolves both parties so the queue can be worked without joins.
+export const ZAdminLawyerRequest = ZPublicLawyerRequest.extend({
+  userId: z.string(),
+  userName: z.string(),
+  userEmail: z.string(),
+  phone: z.string(),
+  updatedAt: z.string(),
 });
 
 export const ZDocument = createSelectSchema(documents);
@@ -428,12 +547,63 @@ export const ZChatTitle = z.object({
   title: z.string(),
 });
 
+export const ZSupportTicketCreate = z.object({
+  subject: z.string().trim().min(1).max(120).optional(),
+  message: z.string().trim().min(1).max(4000),
+  category: z.enum(SUPPORT_TICKET_CATEGORIES),
+  source: z.enum(SUPPORT_TICKET_SOURCES),
+});
+export const ZSupportTicketMessageCreate = z.object({
+  body: z.string().trim().min(1).max(4000),
+});
+export const ZSupportTicketStatusUpdate = z.object({
+  status: z.enum(SUPPORT_TICKET_STATUSES),
+});
+
+// Response projections. `userId` stays server-side; the admin view adds the
+// resolved user instead.
+export const ZSupportTicket = z.object({
+  id: z.string(),
+  subject: z.string(),
+  category: z.enum(SUPPORT_TICKET_CATEGORIES),
+  source: z.enum(SUPPORT_TICKET_SOURCES),
+  status: z.enum(SUPPORT_TICKET_STATUSES),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+export const ZSupportTicketMessage = z.object({
+  id: z.string(),
+  authorRole: z.enum(SUPPORT_TICKET_AUTHOR_ROLES),
+  body: z.string(),
+  createdAt: z.string(),
+});
+export const ZSupportTicketDetail = ZSupportTicket.extend({
+  messages: z.array(ZSupportTicketMessage),
+});
+export const ZSupportTicketUser = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string(),
+});
+export const ZAdminSupportTicket = ZSupportTicket.extend({
+  user: ZSupportTicketUser,
+});
+export const ZAdminSupportTicketDetail = ZSupportTicketDetail.extend({
+  user: ZSupportTicketUser,
+});
+
 export type TLawyer = z.infer<typeof ZLawyer>;
 export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
 export type TLawyerUpdate = z.infer<typeof ZLawyerUpdate>;
 export type TPublicLawyer = z.infer<typeof ZPublicLawyer>;
 export type TPublicLawyerDetail = z.infer<typeof ZPublicLawyerDetail>;
+export type TLawyerRequestCreate = z.infer<typeof ZLawyerRequestCreate>;
+export type TLawyerRequestStatusUpdate = z.infer<
+  typeof ZLawyerRequestStatusUpdate
+>;
+export type TPublicLawyerRequest = z.infer<typeof ZPublicLawyerRequest>;
+export type TAdminLawyerRequest = z.infer<typeof ZAdminLawyerRequest>;
 
 export type TToolCall = z.infer<typeof ZToolCall>;
 export type TToolResult = z.infer<typeof ZToolResult>;
@@ -448,6 +618,21 @@ export type TChatSession = z.infer<typeof ZChatSession>;
 export type TChatMessage = z.infer<typeof ZChatMessage>;
 export type TChatSend = z.infer<typeof ZChatSend>;
 export type TChatTitle = z.infer<typeof ZChatTitle>;
+export type TSupportTicket = z.infer<typeof ZSupportTicket>;
+export type TSupportTicketMessage = z.infer<typeof ZSupportTicketMessage>;
+export type TSupportTicketDetail = z.infer<typeof ZSupportTicketDetail>;
+export type TSupportTicketUser = z.infer<typeof ZSupportTicketUser>;
+export type TAdminSupportTicket = z.infer<typeof ZAdminSupportTicket>;
+export type TAdminSupportTicketDetail = z.infer<
+  typeof ZAdminSupportTicketDetail
+>;
+export type TSupportTicketCreate = z.infer<typeof ZSupportTicketCreate>;
+export type TSupportTicketMessageCreate = z.infer<
+  typeof ZSupportTicketMessageCreate
+>;
+export type TSupportTicketStatusUpdate = z.infer<
+  typeof ZSupportTicketStatusUpdate
+>;
 
 export type LawyerRow = typeof lawyers.$inferSelect;
 export type LawyerInsert = typeof lawyers.$inferInsert;
@@ -457,7 +642,14 @@ export type DocumentNodeRow = typeof documentNodes.$inferSelect;
 export type DocumentNodeInsert = typeof documentNodes.$inferInsert;
 export type UserRow = typeof users.$inferSelect;
 export type UserInsert = typeof users.$inferInsert;
+export type LawyerRequestRow = typeof lawyerRequests.$inferSelect;
+export type LawyerRequestInsert = typeof lawyerRequests.$inferInsert;
 export type ChatSessionRow = typeof chatSessions.$inferSelect;
 export type ChatSessionInsert = typeof chatSessions.$inferInsert;
 export type ChatMessageRow = typeof chatMessages.$inferSelect;
 export type ChatMessageInsert = typeof chatMessages.$inferInsert;
+export type SupportTicketRow = typeof supportTickets.$inferSelect;
+export type SupportTicketInsert = typeof supportTickets.$inferInsert;
+export type SupportTicketMessageRow = typeof supportTicketMessages.$inferSelect;
+export type SupportTicketMessageInsert =
+  typeof supportTicketMessages.$inferInsert;
