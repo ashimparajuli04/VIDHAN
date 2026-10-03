@@ -25,12 +25,12 @@ export function ThemeToggle() {
       aria-label={
         mounted && isDark ? "Switch to light theme" : "Switch to dark theme"
       }
-      className="h-9 rounded-lg"
+      className="h-10 rounded-lg"
     >
       {mounted && isDark ? (
-        <Sun className="size-[17px]" />
+        <Sun className="size-5" />
       ) : (
-        <Moon className="size-[17px]" />
+        <Moon className="size-5" />
       )}
       <span>Toggle theme</span>
     </SidebarMenuButton>

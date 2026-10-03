@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ChevronDown, Search, X } from "lucide-react";
+import { Virtuoso } from "react-virtuoso";
 
 import type { TPublicLawyer } from "@vidhan/schema";
 import { DISTRICTS, LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
@@ -10,6 +11,7 @@ import { LawyerCard } from "@/components/lawyers/lawyer-card";
 import { LawyerSkeleton } from "@/components/lawyers/lawyer-skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { chunkIntoRows, useGridColumns } from "@/features/lawyers/grid";
 import { districtLabel, languageLabel, practiceAreaLabel } from "@/features/lawyers/labels";
 import { getLawyers, type LawyerQuery } from "@/lib/lawyers";
 
@@ -21,6 +23,14 @@ export function LawyerCatalogue() {
   const [loading, setLoading] = React.useState(true);
   const [searchInput, setSearchInput] = React.useState("");
   const [query, setQuery] = React.useState<LawyerQuery>({});
+
+  const columns = useGridColumns();
+  // Cards virtualize as rows of `columns`; the virtualizer measures each
+  // row as one item, so breakpoint changes re-chunk the list live.
+  const rows = React.useMemo(
+    () => chunkIntoRows(lawyers, columns),
+    [lawyers, columns],
+  );
 
   const hasActiveFilters = Boolean(
     query.search || query.practiceArea || query.district || query.language
@@ -68,13 +78,13 @@ export function LawyerCatalogue() {
         aria-label="Filter lawyers"
       >
         <div className="relative md:w-64 md:flex-1 md:min-w-48">
-          <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+          <Search className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
             placeholder="Search lawyers…"
             aria-label="Search lawyers"
-            className="pl-9"
+            className="h-12 pl-11"
           />
         </div>
 
@@ -143,10 +153,12 @@ export function LawyerCatalogue() {
             ))}
           </div>
         ) : lawyers.length === 0 ? (
-          <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed py-20 text-center">
-            <Search className="size-8 text-muted-foreground" />
-            <p className="text-sm font-medium">No lawyers match your filters</p>
-            <p className="text-sm text-muted-foreground">
+          <div className="flex flex-col items-center gap-3 rounded-[var(--radius)] border border-border bg-gradient-to-b from-peach-top to-peach-bottom px-6 py-20 text-center">
+            <span className="flex size-14 items-center justify-center rounded-full bg-background/60">
+              <Search className="size-6 text-muted-foreground" />
+            </span>
+            <p className="text-base font-semibold">No lawyers match your filters</p>
+            <p className="max-w-sm text-[15px] text-muted-foreground">
               Try broadening your search or clearing a filter.
             </p>
             {hasActiveFilters && (
@@ -162,11 +174,34 @@ export function LawyerCatalogue() {
             )}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {lawyers.map((lawyer) => (
-              <LawyerCard key={lawyer.id} lawyer={lawyer} />
-            ))}
-          </div>
+          <Virtuoso
+            useWindowScroll
+            overscan={400}
+            totalCount={rows.length}
+            computeItemKey={(index) => rows[index]?.[0]?.id ?? index}
+            itemContent={(index) => {
+              // index is always in range; the guard is only for strict
+              // indexed access.
+              const row = rows[index];
+              if (!row) return null;
+              return (
+                <div
+                  // Inline grid-template (not breakpoint classes) so the
+                  // columns always match the chunk size; pb-5 keeps the
+                  // inter-row gap, since margins are invisible to
+                  // Virtuoso's contentRect measurement.
+                  style={{
+                    gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+                  }}
+                  className="grid gap-5 pb-5"
+                >
+                  {row.map((lawyer) => (
+                    <LawyerCard key={lawyer.id} lawyer={lawyer} />
+                  ))}
+                </div>
+              );
+            }}
+          />
         )}
       </div>
     </div>
@@ -187,12 +222,12 @@ function FilterSelect({
   options: { value: string; label: string }[];
 }) {
   return (
-    <div className="relative md:w-44 md:shrink-0">
+    <div className="relative md:w-48 md:shrink-0">
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
         aria-label={ariaLabel}
-        className="h-8 w-full min-w-0 appearance-none rounded-md border border-input bg-background pr-8 pl-3 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-input/30 [&>option]:bg-background [&>option]:text-foreground"
+        className="h-11 w-full min-w-0 appearance-none rounded-full border border-border bg-white pr-10 pl-4 text-[15px] transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/40 dark:bg-white/[0.06] [&>option]:bg-background [&>option]:text-foreground"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => (
@@ -201,7 +236,7 @@ function FilterSelect({
           </option>
         ))}
       </select>
-      <ChevronDown className="pointer-events-none absolute top-1/2 right-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
+      <ChevronDown className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
     </div>
   );
 }

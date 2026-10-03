@@ -28,16 +28,16 @@ export function MessageBubble({
         )}
       >
         {thinking && !message.content ? (
-          <div className="rounded-2xl bg-muted/60 px-2 py-1">
+          <div className="rounded-full bg-muted px-2 py-1">
             <ThinkingDots />
           </div>
         ) : message.content ? (
           <div
             className={cn(
-              "rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap",
+              "rounded-[22px] px-5 py-3 text-[15px] leading-relaxed whitespace-pre-wrap wrap-anywhere",
               isUser
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted/60 text-foreground"
+                ? "rounded-br-md bg-primary text-primary-foreground"
+                : "rounded-bl-md border border-border bg-card text-foreground"
             )}
           >
             {message.content}

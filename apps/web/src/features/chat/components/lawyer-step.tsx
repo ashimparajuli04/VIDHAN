@@ -31,11 +31,11 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
         onOpenChange={setOpen}
         className="rounded-lg border bg-card/50"
       >
-        <CollapsibleTrigger className="flex w-full items-center gap-2 px-3 py-2 text-xs text-muted-foreground">
+        <CollapsibleTrigger className="flex w-full items-center gap-2 px-3.5 py-2.5 text-[13px] text-muted-foreground">
           {searching ? (
-            <Loader2 className="size-3.5 shrink-0 animate-spin" />
+            <Loader2 className="size-4 shrink-0 animate-spin" />
           ) : (
-            <Check className="size-3.5 shrink-0 text-emerald-600" />
+            <Check className="size-4 shrink-0 text-primary" />
           )}
 
           <span className="flex-1 text-left">
@@ -46,14 +46,14 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
 
           <ChevronDown
             className={cn(
-              "size-3.5 shrink-0 transition-transform",
+              "size-4 shrink-0 transition-transform",
               open && "rotate-180"
             )}
           />
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <pre className="overflow-x-auto border-t px-3 py-2 text-[11px] leading-relaxed text-muted-foreground">
+          <pre className="overflow-x-auto border-t px-3.5 py-2.5 text-xs leading-relaxed text-muted-foreground">
             {search.query}
           </pre>
         </CollapsibleContent>
@@ -62,13 +62,13 @@ export function LawyerStep({ search }: { search: TLawyerSearch }) {
       {!searching && (
         <Carousel opts={{ align: "start", containScroll: "trimSnaps" }}>
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-medium text-muted-foreground">
+            <p className="text-[13px] font-medium text-muted-foreground">
               Recommended lawyers
             </p>
 
             <div className="flex items-center gap-1">
-              <CarouselPrevious className="static size-7 translate-y-0" />
-              <CarouselNext className="static size-7 translate-y-0" />
+              <CarouselPrevious className="static size-8 translate-y-0" />
+              <CarouselNext className="static size-8 translate-y-0" />
             </div>
           </div>
 

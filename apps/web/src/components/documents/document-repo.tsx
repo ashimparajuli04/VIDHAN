@@ -111,7 +111,7 @@ export function DocumentRepo() {
     <div className="space-y-6">
       {/* ── Search ── */}
       <div className="relative">
-        <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+        <Search className="pointer-events-none absolute top-1/2 left-3 size-5 -translate-y-1/2 text-muted-foreground" />
         <Input
           value={query}
           onChange={(event) => {
@@ -120,24 +120,24 @@ export function DocumentRepo() {
           }}
           placeholder="Search documents…"
           aria-label="Search documents"
-          className="h-11 rounded-lg pl-9 pr-10 text-[15px]"
+          className="h-12 rounded-lg pl-11 pr-12 text-[15px]"
         />
         {query && (
           <button
             type="button"
             onClick={() => setQuery("")}
             aria-label="Clear search"
-            className="absolute top-1/2 right-3 flex size-6 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            className="absolute top-1/2 right-3 flex size-7 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
-            <X className="size-4" />
+            <X className="size-5" />
           </button>
         )}
       </div>
 
       {error ? (
         <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed py-16 text-center">
-          <p className="text-sm font-medium">Couldn&apos;t load the repository</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[15px] font-medium">Couldn&apos;t load the repository</p>
+          <p className="text-[15px] text-muted-foreground">
             Check that the API is running, then try again.
           </p>
           <Button
@@ -154,8 +154,8 @@ export function DocumentRepo() {
         <RepositorySkeleton />
       ) : documents.length === 0 ? (
         <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed py-16 text-center">
-          <p className="text-sm font-medium">The repository is empty.</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[15px] font-medium">The repository is empty.</p>
+          <p className="text-[15px] text-muted-foreground">
             Documents will appear here once they are added.
           </p>
         </div>
@@ -169,7 +169,7 @@ export function DocumentRepo() {
             onSelect={scrollToLetter}
           />
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[15px] text-muted-foreground">
             {documents.length} documents
           </p>
 
@@ -208,8 +208,8 @@ export function DocumentRepo() {
 // ignores margins.
 function LetterHeader({ letter }: { letter: string }) {
   return (
-    <div className="flex items-baseline gap-3 bg-background px-1 pt-6 pb-2">
-      <h2 className="text-lg font-semibold tracking-tight">{letter}</h2>
+    <div className="flex items-baseline gap-3 bg-background px-1 pt-7 pb-2.5">
+      <h2 className="text-xl font-semibold tracking-tight">{letter}</h2>
       <div
         aria-hidden
         className="h-px flex-1 -translate-y-[3px] bg-border"
@@ -221,7 +221,7 @@ function LetterHeader({ letter }: { letter: string }) {
 function ResultsView({ results }: { results: TRepoDocument[] }) {
   return (
     <div className="space-y-3">
-      <h2 className="text-sm font-medium text-muted-foreground">
+      <h2 className="text-[15px] font-medium text-muted-foreground">
         Search results · {results.length}{" "}
         {results.length === 1 ? "document" : "documents"}
       </h2>
@@ -229,7 +229,7 @@ function ResultsView({ results }: { results: TRepoDocument[] }) {
       {results.length === 0 ? (
         <div className="flex flex-col items-center gap-2 rounded-lg border border-dashed py-16 text-center">
           <Search className="size-8 text-muted-foreground" />
-          <p className="text-sm font-medium">No documents found.</p>
+          <p className="text-[15px] font-medium">No documents found.</p>
         </div>
       ) : (
         <ul className="divide-y divide-border/70 rounded-lg border bg-card">
@@ -249,11 +249,11 @@ function RepositorySkeleton() {
         <Skeleton className="mb-3 h-7 w-24" />
         <div className="divide-y divide-border/70 overflow-hidden rounded-lg border bg-card">
           {Array.from({ length: SKELETON_ROWS }, (_, index) => (
-            <div key={index} className="flex min-h-12 items-center gap-3 px-3 sm:px-4">
+            <div key={index} className="flex min-h-14 items-center gap-3 px-4 sm:px-5">
               <Skeleton
-                className={`h-4 ${index % 3 === 0 ? "w-3/4" : "w-1/2"}`}
+                className={`h-[18px] ${index % 3 === 0 ? "w-3/4" : "w-1/2"}`}
               />
-              <Skeleton className="ml-auto h-4 w-10" />
+              <Skeleton className="ml-auto h-[18px] w-12" />
             </div>
           ))}
         </div>

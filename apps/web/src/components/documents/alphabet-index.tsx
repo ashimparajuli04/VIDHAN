@@ -19,7 +19,7 @@ export function AlphabetIndex({
               onClick={() => onSelect(letter)}
               aria-current={activeLetter === letter ? "true" : undefined}
               className={cn(
-                "flex size-8 shrink-0 items-center justify-center rounded-md text-sm font-medium outline-none transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50",
+                "flex size-9 shrink-0 items-center justify-center rounded-md text-[15px] font-medium outline-none transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50",
                 activeLetter === letter
                   ? "bg-accent text-foreground"
                   : "text-muted-foreground hover:bg-accent/70 hover:text-foreground",
