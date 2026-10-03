@@ -64,6 +64,7 @@ export function MessageList({
               <MessageBubble
                 message={message}
                 thinking={status === "thinking" && message.id === lastId}
+                onRestoreQuery={onRestoreQuery}
               />
 
               {message.sources && (
@@ -96,7 +97,7 @@ export function MessageList({
             if (!viewport) return;
             viewport.scrollTop = viewport.scrollHeight;
           }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full shadow-sm"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-background/70 shadow-sm backdrop-blur-md hover:bg-background/90"
         >
           <ArrowDown />
           Jump to latest

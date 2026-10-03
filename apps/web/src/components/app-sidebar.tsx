@@ -105,9 +105,9 @@ export function AppSidebar() {
               <div className="group/logo-expand relative">
                 <Link
                   href="/chat"
-                  className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-all duration-150 hover:bg-sidebar-accent group-hover/logo-expand:scale-90 group-hover/logo-expand:opacity-0"
+                  className="flex items-center justify-center rounded-lg py-1.5 transition-all duration-150 hover:bg-sidebar-accent group-hover/logo-expand:scale-90 group-hover/logo-expand:opacity-0"
                 >
-                  <BrandLogo className="size-14 shrink-0" />
+                  <BrandLogo className="size-11 shrink-0" />
                 </Link>
 
                 {/* Expand */}
@@ -119,7 +119,7 @@ export function AppSidebar() {
                   onClick={toggleSidebar}
                   className="absolute inset-0 hidden pointer-events-none items-center justify-center rounded-lg text-sidebar-foreground/60 opacity-0 transition-all duration-150 hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:opacity-100 focus-visible:pointer-events-auto focus-visible:ring-2 focus-visible:ring-sidebar-ring group-hover/logo-expand:pointer-events-auto group-hover/logo-expand:opacity-100 md:flex"
                 >
-                  <SidebarToggleIcon className="size-5" />
+                  <SidebarToggleIcon className="size-6" />
                 </button>
               </div>
             </>
@@ -177,7 +177,7 @@ export function AppSidebar() {
                       className="h-11 rounded-lg"
                     >
                       <Link href={item.href}>
-                        <item.icon className="size-5" />
+                        <item.icon className="size-6" />
                         <span>{item.title}</span>
                       </Link>
                     </SidebarMenuButton>
