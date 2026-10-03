@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { ArrowUp, Square } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -62,10 +63,15 @@ export function ChatComposer({
     <div className="px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:pb-5">
       <div className="mx-auto w-full max-w-3xl">
         {overLimit && (
-          <p className="mb-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200">
-            Your session limit is over. Session usage will be reset in{" "}
-            {resetCountdown}.
-          </p>
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200">
+            <p className="min-w-0">
+              Your session limit is over. Session usage will be reset in{" "}
+              {resetCountdown}.
+            </p>
+            <Button asChild size="xs" variant="outline">
+              <Link href="/account">Upgrade</Link>
+            </Button>
+          </div>
         )}
 
         <div className="flex items-end gap-1.5 rounded-full border border-border bg-white p-1.5 pl-5 transition-[border-color] focus-within:border-ring/70 dark:bg-white/[0.06]">

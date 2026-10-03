@@ -303,7 +303,9 @@ export const users = sqliteTable(
   (t) => [uniqueIndex("users_email_unique").on(t.email)],
 );
 
-export const USAGE_LIMITS = { free: 100_000, subscribed: 1_000_000 } as const;
+// The plan cards on the Profile page render these same numbers, so the
+// displayed allocation and the enforced meter can never drift.
+export const USAGE_LIMITS = { free: 500_000, subscribed: 5_000_000 } as const;
 
 // One row per (user, NPT calendar date); the day boundary is the reset.
 export const userUsage = sqliteTable(
@@ -377,6 +379,9 @@ export const chatMessages = sqliteTable(
     references: text("references", { mode: "json" }).$type<
       TReference[] & JsonValueOf<TReference[]>
     >(),
+    // Chain-of-thought shown in the collapsible reasoning panel, joined across
+    // steps. Plain text; the model's internal reasoning, not the answer.
+    reasoning: text("reasoning"),
     createdAt: text("created_at").notNull(),
   },
   (t) => [index("chat_messages_session_created_idx").on(t.sessionId, t.createdAt)],
@@ -387,7 +392,11 @@ export const SUPPORT_TICKET_CATEGORIES = [
   "missing_lawyer",
   "other",
 ] as const;
-export const SUPPORT_TICKET_SOURCES = ["support_page", "chat"] as const;
+export const SUPPORT_TICKET_SOURCES = [
+  "support_page",
+  "chat",
+  "enterprise_request",
+] as const;
 export const SUPPORT_TICKET_STATUSES = ["open", "closed"] as const;
 export const SUPPORT_TICKET_AUTHOR_ROLES = ["user", "admin"] as const;
 
@@ -438,6 +447,166 @@ export const supportTicketMessages = sqliteTable(
     index("support_ticket_messages_ticket_created_idx").on(
       t.ticketId,
       t.createdAt,
+    ),
+  ],
+);
+
+// ───────────────────────────── Enterprise ─────────────────────────────
+
+// Enterprise access is an organization-level account: Vidhan reviews a
+// request, approves it with negotiated limits, and only then do seats and
+// a token allocation exist. The whole life cycle is discussed through the
+// linked support ticket — there is no separate enterprise messaging system.
+export const ENTERPRISE_REQUEST_STATUSES = [
+  "new",
+  "reviewing",
+  "awaiting_customer",
+  "negotiation",
+  "approved",
+  "active",
+  "rejected",
+  "closed",
+] as const;
+export const ENTERPRISE_CONTACT_METHODS = ["email", "phone"] as const;
+export const ENTERPRISE_CAPABILITIES = [
+  "higher_token_allocation",
+  "multiple_employee_accounts",
+  "organization_wide_access",
+  "team_user_management",
+  "usage_analytics",
+  "custom_document_repository",
+  "api_access",
+  "custom_integrations",
+  "dedicated_support",
+  "custom_security_deployment",
+  "other",
+] as const;
+
+export type TEnterpriseRequestStatus = (typeof ENTERPRISE_REQUEST_STATUSES)[number];
+export type TEnterpriseContactMethod = (typeof ENTERPRISE_CONTACT_METHODS)[number];
+export type TEnterpriseCapability = (typeof ENTERPRISE_CAPABILITIES)[number];
+
+export const ENTERPRISE_ORGANIZATION_STATUSES = [
+  "active",
+  "suspended",
+  "closed",
+] as const;
+export const ENTERPRISE_MEMBER_ROLES = ["admin", "member"] as const;
+export const ENTERPRISE_MEMBER_STATUSES = [
+  "active",
+  "invited",
+  "deactivated",
+] as const;
+
+export type TEnterpriseOrganizationStatus =
+  (typeof ENTERPRISE_ORGANIZATION_STATUSES)[number];
+export type TEnterpriseMemberRole = (typeof ENTERPRISE_MEMBER_ROLES)[number];
+export type TEnterpriseMemberStatus = (typeof ENTERPRISE_MEMBER_STATUSES)[number];
+
+// One request per prospective organization. The approval fields (approved*,
+// adminNotes) stay null until an admin approves; member rows only exist
+// after EnterpriseOrganization is created.
+export const enterpriseRequests = sqliteTable(
+  "enterprise_requests",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    supportTicketId: text("support_ticket_id").references(
+      () => supportTickets.id,
+    ),
+    status: text("status", { enum: ENTERPRISE_REQUEST_STATUSES })
+      .notNull()
+      .default("new"),
+    organizationName: text("organization_name").notNull(),
+    organizationType: text("organization_type").notNull(),
+    industry: text("industry").notNull(),
+    website: text("website"),
+    country: text("country").notNull(),
+    city: text("city").notNull(),
+    employeeCount: text("employee_count").notNull(),
+    contactName: text("contact_name").notNull(),
+    contactTitle: text("contact_title").notNull(),
+    contactEmail: text("contact_email").notNull(),
+    contactPhone: text("contact_phone").notNull(),
+    preferredContactMethod: text("preferred_contact_method", {
+      enum: ENTERPRISE_CONTACT_METHODS,
+    }).notNull(),
+    expectedUsers: integer("expected_users").notNull(),
+    expectedUsage: text("expected_usage").notNull(),
+    teamsDepartments: text("teams_departments").notNull(),
+    intendedUse: text("intended_use").notNull(),
+    expectedStartDate: text("expected_start_date").notNull(),
+    requestedCapabilities: text("requested_capabilities", { mode: "json" })
+      .$type<TEnterpriseCapability[] & JsonValueOf<TEnterpriseCapability[]>>()
+      .notNull(),
+    additionalRequirements: text("additional_requirements"),
+    approvedSeats: integer("approved_seats"),
+    approvedTokensPerMember: integer("approved_tokens_per_member"),
+    approvedStartDate: text("approved_start_date"),
+    adminNotes: text("admin_notes"),
+    approvedAt: text("approved_at"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [
+    index("enterprise_requests_user_created_idx").on(t.userId, t.createdAt),
+    index("enterprise_requests_status_updated_idx").on(t.status, t.updatedAt),
+  ],
+);
+
+// Created by the admin approval action; carries the negotiated limits the
+// organization and its members live under. One organization per request.
+export const enterpriseOrganizations = sqliteTable(
+  "enterprise_organizations",
+  {
+    id: text("id").primaryKey(),
+    requestId: text("request_id")
+      .notNull()
+      .references(() => enterpriseRequests.id),
+    name: text("name").notNull(),
+    status: text("status", { enum: ENTERPRISE_ORGANIZATION_STATUSES })
+      .notNull()
+      .default("active"),
+    approvedSeats: integer("approved_seats").notNull(),
+    tokensPerMember: integer("tokens_per_member").notNull(),
+    startDate: text("start_date"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [
+    uniqueIndex("enterprise_organizations_request_unique").on(t.requestId),
+  ],
+);
+
+// Who sits in the organization. `userId` is null while an invite is
+// outstanding and set when the invitee signs in; `tokensAllocated` is null
+// when the organization default (tokens_per_member) applies.
+export const enterpriseMembers = sqliteTable(
+  "enterprise_members",
+  {
+    id: text("id").primaryKey(),
+    organizationId: text("organization_id")
+      .notNull()
+      .references(() => enterpriseOrganizations.id),
+    userId: text("user_id").references(() => users.id),
+    email: text("email").notNull(),
+    role: text("role", { enum: ENTERPRISE_MEMBER_ROLES })
+      .notNull()
+      .default("member"),
+    status: text("status", { enum: ENTERPRISE_MEMBER_STATUSES })
+      .notNull()
+      .default("invited"),
+    tokensAllocated: integer("tokens_allocated"),
+    createdAt: text("created_at").notNull(),
+    updatedAt: text("updated_at").notNull(),
+  },
+  (t) => [
+    index("enterprise_members_org_status_idx").on(t.organizationId, t.status),
+    uniqueIndex("enterprise_members_org_email_unique").on(
+      t.organizationId,
+      t.email,
     ),
   ],
 );
@@ -712,6 +881,166 @@ export const ZAdminSupportTicketDetail = ZSupportTicketDetail.extend({
   user: ZSupportTicketUser,
 });
 
+// ───────────────────────── Enterprise schemas ─────────────────────────
+
+export const ZEnterpriseRequestCreate = z.object({
+  organizationName: z.string().trim().min(1).max(160),
+  organizationType: z.string().trim().min(1).max(120),
+  industry: z.string().trim().min(1).max(120),
+  website: z
+    .string()
+    .trim()
+    .max(200)
+    .transform((value) => (value.length > 0 ? value : null))
+    .optional(),
+  country: z.string().trim().min(1).max(120),
+  city: z.string().trim().min(1).max(120),
+  employeeCount: z.string().trim().min(1).max(120),
+  contactName: z.string().trim().min(1).max(120),
+  contactTitle: z.string().trim().min(1).max(120),
+  contactEmail: z
+    .string()
+    .email()
+    .transform((value) => value.trim().toLowerCase()),
+  contactPhone: z.string().trim().min(1).max(40),
+  preferredContactMethod: z.enum(ENTERPRISE_CONTACT_METHODS),
+  expectedUsers: z.number().int().min(1).max(100_000),
+  expectedUsage: z.string().trim().min(1).max(1000),
+  teamsDepartments: z.string().trim().min(1).max(500),
+  intendedUse: z.string().trim().min(1).max(1000),
+  expectedStartDate: z.string().trim().min(1).max(120),
+  requestedCapabilities: z
+    .array(z.enum(ENTERPRISE_CAPABILITIES))
+    .min(1)
+    .max(ENTERPRISE_CAPABILITIES.length),
+  additionalRequirements: z
+    .string()
+    .trim()
+    .max(4000)
+    .transform((value) => (value.length > 0 ? value : null))
+    .optional(),
+});
+
+export const ZEnterpriseRequestStatusUpdate = z.object({
+  status: z.enum(ENTERPRISE_REQUEST_STATUSES),
+});
+
+export const ZEnterpriseRequest = z.object({
+  id: z.string(),
+  status: z.enum(ENTERPRISE_REQUEST_STATUSES),
+  supportTicketId: z.string().nullable(),
+  organizationName: z.string(),
+  organizationType: z.string(),
+  industry: z.string(),
+  website: z.string().nullable(),
+  country: z.string(),
+  city: z.string(),
+  employeeCount: z.string(),
+  contactName: z.string(),
+  contactTitle: z.string(),
+  contactEmail: z.string(),
+  contactPhone: z.string(),
+  preferredContactMethod: z.enum(ENTERPRISE_CONTACT_METHODS),
+  expectedUsers: z.number().int(),
+  expectedUsage: z.string(),
+  teamsDepartments: z.string(),
+  intendedUse: z.string(),
+  expectedStartDate: z.string(),
+  requestedCapabilities: z.array(z.enum(ENTERPRISE_CAPABILITIES)),
+  additionalRequirements: z.string().nullable(),
+  approvedSeats: z.number().int().nullable(),
+  approvedTokensPerMember: z.number().int().nullable(),
+  approvedStartDate: z.string().nullable(),
+  adminNotes: z.string().nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+// Admin view resolves the requester so the queue can be worked without joins.
+export const ZAdminEnterpriseRequest = ZEnterpriseRequest.extend({
+  userId: z.string(),
+  userName: z.string(),
+  userEmail: z.string(),
+});
+
+// Admin detail adds the linked support thread (`messages`) so clarification
+// happens in the same conversation the user sees.
+export const ZAdminEnterpriseRequestDetail = ZAdminEnterpriseRequest.extend({
+  messages: z.array(ZSupportTicketMessage),
+});
+
+// Approval is a Vidhan-admin action: the negotiated seat count and per-member
+// token allocation are stored on the request and copied into the
+// organization when it is created.
+export const ZEnterpriseApprovalConfig = z.object({
+  approvedSeats: z.number().int().min(1).max(1_000_000),
+  approvedTokensPerMember: z.number().int().min(1).max(10_000_000_000),
+  approvedStartDate: z.string().trim().min(1).max(120),
+  notes: z
+    .string()
+    .trim()
+    .max(2000)
+    .transform((value) => (value.length > 0 ? value : null))
+    .optional(),
+});
+
+export const ZEnterpriseOrganization = z.object({
+  id: z.string(),
+  requestId: z.string(),
+  name: z.string(),
+  status: z.enum(ENTERPRISE_ORGANIZATION_STATUSES),
+  approvedSeats: z.number().int(),
+  tokensPerMember: z.number().int(),
+  startDate: z.string().nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+export const ZEnterpriseMember = z.object({
+  id: z.string(),
+  organizationId: z.string(),
+  userId: z.string().nullable(),
+  email: z.string(),
+  role: z.enum(ENTERPRISE_MEMBER_ROLES),
+  status: z.enum(ENTERPRISE_MEMBER_STATUSES),
+  tokensAllocated: z.number().int().nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+// Member view resolves the display name when the member is a platform user.
+export const ZEnterpriseMemberView = ZEnterpriseMember.extend({
+  userName: z.string().nullable(),
+});
+
+export const ZEnterpriseOrganizationDetail = ZEnterpriseOrganization.extend({
+  members: z.array(ZEnterpriseMemberView),
+});
+
+// What the web sidebar and profile need to know: which active organization
+// the signed-in user belongs to and their role inside it.
+export const ZEnterpriseMembership = z.object({
+  organizationId: z.string(),
+  organizationName: z.string(),
+  role: z.enum(ENTERPRISE_MEMBER_ROLES),
+});
+
+export const ZEnterpriseMemberCreate = z.object({
+  email: z
+    .string()
+    .email()
+    .transform((value) => value.trim().toLowerCase()),
+});
+
+export const ZEnterpriseMemberStatusUpdate = z.object({
+  status: z.enum(["active", "deactivated"]),
+});
+
+// Admin list adds the seat count so the queue shows capacity at a glance.
+export const ZAdminEnterpriseOrganization = ZEnterpriseOrganization.extend({
+  memberCount: z.number().int(),
+});
+
 export type TLawyer = z.infer<typeof ZLawyer>;
 export type TLawyerWithImage = z.infer<typeof ZLawyerWithImage>;
 export type TLawyerCreate = z.infer<typeof ZLawyerCreate>;
@@ -756,6 +1085,30 @@ export type TSupportTicketMessageCreate = z.infer<
 export type TSupportTicketStatusUpdate = z.infer<
   typeof ZSupportTicketStatusUpdate
 >;
+export type TEnterpriseRequestCreate = z.infer<typeof ZEnterpriseRequestCreate>;
+export type TEnterpriseRequestStatusUpdate = z.infer<
+  typeof ZEnterpriseRequestStatusUpdate
+>;
+export type TEnterpriseRequest = z.infer<typeof ZEnterpriseRequest>;
+export type TAdminEnterpriseRequest = z.infer<typeof ZAdminEnterpriseRequest>;
+export type TAdminEnterpriseRequestDetail = z.infer<
+  typeof ZAdminEnterpriseRequestDetail
+>;
+export type TEnterpriseApprovalConfig = z.infer<typeof ZEnterpriseApprovalConfig>;
+export type TEnterpriseOrganization = z.infer<typeof ZEnterpriseOrganization>;
+export type TEnterpriseMember = z.infer<typeof ZEnterpriseMember>;
+export type TEnterpriseMemberView = z.infer<typeof ZEnterpriseMemberView>;
+export type TEnterpriseOrganizationDetail = z.infer<
+  typeof ZEnterpriseOrganizationDetail
+>;
+export type TAdminEnterpriseOrganization = z.infer<
+  typeof ZAdminEnterpriseOrganization
+>;
+export type TEnterpriseMembership = z.infer<typeof ZEnterpriseMembership>;
+export type TEnterpriseMemberCreate = z.infer<typeof ZEnterpriseMemberCreate>;
+export type TEnterpriseMemberStatusUpdate = z.infer<
+  typeof ZEnterpriseMemberStatusUpdate
+>;
 
 export type LawyerRow = typeof lawyers.$inferSelect;
 export type LawyerInsert = typeof lawyers.$inferInsert;
@@ -778,3 +1131,11 @@ export type SupportTicketInsert = typeof supportTickets.$inferInsert;
 export type SupportTicketMessageRow = typeof supportTicketMessages.$inferSelect;
 export type SupportTicketMessageInsert =
   typeof supportTicketMessages.$inferInsert;
+export type EnterpriseRequestRow = typeof enterpriseRequests.$inferSelect;
+export type EnterpriseRequestInsert = typeof enterpriseRequests.$inferInsert;
+export type EnterpriseOrganizationRow =
+  typeof enterpriseOrganizations.$inferSelect;
+export type EnterpriseOrganizationInsert =
+  typeof enterpriseOrganizations.$inferInsert;
+export type EnterpriseMemberRow = typeof enterpriseMembers.$inferSelect;
+export type EnterpriseMemberInsert = typeof enterpriseMembers.$inferInsert;

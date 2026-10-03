@@ -185,6 +185,9 @@ export function toMessageView(
     id: message.id,
     role: message.role === "user" ? "user" : "assistant",
     content,
+    reasoning: message.parts
+      .map((part) => (part.type === "reasoning" ? part.text : ""))
+      .join("") || undefined,
   };
 
   for (const part of message.parts) {
@@ -295,6 +298,9 @@ export function historyToMessages(history: TChatMessage[]): UIMessage[] {
     }
 
     const parts: UIMessage["parts"] = [];
+    // Stored as one joined string; surface it as a reasoning part so the same
+    // extraction path (`toMessageView`) serves both live and reloaded turns.
+    if (row.reasoning) parts.push({ type: "reasoning", text: row.reasoning });
     if (row.content) parts.push({ type: "text", text: row.content });
 
     const results = row.toolResults ?? [];

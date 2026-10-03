@@ -17,7 +17,7 @@ import type { TChatMessageView } from "../types";
 import { LawyerStep } from "./lawyer-step";
 import { ReferenceChips } from "./reference-chips";
 import { SupportOfferCard } from "./support-offer-card";
-import { ThinkingDots } from "./thinking-dots";
+import { Thinking } from "./thinking";
 
 export function MessageBubble({
   message,
@@ -62,6 +62,7 @@ export function MessageBubble({
   if (
     !isUser &&
     !message.content &&
+    !message.reasoning &&
     !thinking &&
     !message.lawyerSearch &&
     !message.sources &&
@@ -79,10 +80,8 @@ export function MessageBubble({
           isUser && "items-end"
         )}
       >
-        {thinking && (
-          <div className="w-fit rounded-full bg-muted px-2 py-1">
-            <ThinkingDots />
-          </div>
+        {(message.reasoning || thinking) && (
+          <Thinking reasoning={message.reasoning} active={thinking} />
         )}
 
         {message.content && (
@@ -92,6 +91,11 @@ export function MessageBubble({
             // The assistant bubble spans the row like a document pane; the
             // user bubble sizes to its own text.
             className={cn(
+              // Bubble's built-in max-w-[80%] resolves against this
+              // shrink-to-fit column, so it caps the bubble at 80% of its own
+              // text width and every message wraps early. The column's own
+              // 85% cap is the real limit for the user bubble.
+              isUser && "max-w-none",
               !isUser && "w-full max-w-full",
               !isUser && hasBelow && "mb-6"
             )}
@@ -161,13 +165,18 @@ export function MessageBubble({
           </Bubble>
         )}
 
-        {message.lawyerSearch && <LawyerStep search={message.lawyerSearch} />}
+        {/* Tool parts stream in before the answer text, so these would
+            otherwise pop in above the (not yet written) text. Show them
+            only once the turn's text has started. */}
+        {message.content && message.lawyerSearch && (
+          <LawyerStep search={message.lawyerSearch} />
+        )}
 
-        {message.supportOffer && (
+        {message.content && message.supportOffer && (
           <SupportOfferCard offer={message.supportOffer} />
         )}
 
-        {message.references && (
+        {message.content && message.references && (
           <ReferenceChips references={message.references} />
         )}
       </div>

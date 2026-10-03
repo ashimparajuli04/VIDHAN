@@ -1,13 +1,19 @@
 "use client";
 
 import * as React from "react";
-import type { TAuthLogin, TAuthRegister, TPublicUser } from "@vidhan/schema";
+import type {
+  TAuthLogin,
+  TAuthRegister,
+  TAuthUpdate,
+  TPublicUser,
+} from "@vidhan/schema";
 
 import {
   ApiError,
   fetchMe,
   login as loginRequest,
   register as registerRequest,
+  updateUser as updateUserRequest,
 } from "./api";
 import { clearToken, readToken, writeToken } from "./storage";
 import type { TAuthContextValue, TAuthStatus } from "./types";
@@ -60,6 +66,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setStatus("authenticated");
   }, []);
 
+  const update = React.useCallback(async (input: TAuthUpdate) => {
+    const me = await updateUserRequest(input);
+    setUser(me);
+  }, []);
+
   const logout = React.useCallback(() => {
     clearToken();
     setUser(null);
@@ -67,8 +78,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = React.useMemo<TAuthContextValue>(
-    () => ({ user, status, login, register, logout }),
-    [user, status, login, register, logout]
+    () => ({ user, status, login, register, update, logout }),
+    [user, status, login, register, update, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

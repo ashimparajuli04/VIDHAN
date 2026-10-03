@@ -1,0 +1,37 @@
+CREATE TABLE `enterprise_requests` (
+	`id` text PRIMARY KEY,
+	`user_id` text NOT NULL,
+	`support_ticket_id` text,
+	`status` text DEFAULT 'new' NOT NULL,
+	`organization_name` text NOT NULL,
+	`organization_type` text NOT NULL,
+	`industry` text NOT NULL,
+	`website` text,
+	`country` text NOT NULL,
+	`city` text NOT NULL,
+	`employee_count` text NOT NULL,
+	`contact_name` text NOT NULL,
+	`contact_title` text NOT NULL,
+	`contact_email` text NOT NULL,
+	`contact_phone` text NOT NULL,
+	`preferred_contact_method` text NOT NULL,
+	`expected_users` integer NOT NULL,
+	`expected_usage` text NOT NULL,
+	`teams_departments` text NOT NULL,
+	`intended_use` text NOT NULL,
+	`expected_start_date` text NOT NULL,
+	`requested_capabilities` text NOT NULL,
+	`additional_requirements` text,
+	`approved_seats` integer,
+	`approved_tokens_per_member` integer,
+	`approved_start_date` text,
+	`admin_notes` text,
+	`approved_at` text,
+	`created_at` text NOT NULL,
+	`updated_at` text NOT NULL,
+	CONSTRAINT `fk_enterprise_requests_user_id_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+	CONSTRAINT `fk_enterprise_requests_support_ticket_id_support_tickets_id_fk` FOREIGN KEY (`support_ticket_id`) REFERENCES `support_tickets`(`id`)
+);
+--> statement-breakpoint
+CREATE INDEX `enterprise_requests_user_created_idx` ON `enterprise_requests` (`user_id`,`created_at`);--> statement-breakpoint
+CREATE INDEX `enterprise_requests_status_updated_idx` ON `enterprise_requests` (`status`,`updated_at`);

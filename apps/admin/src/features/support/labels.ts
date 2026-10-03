@@ -13,6 +13,7 @@ const CATEGORY_LABELS: Record<TSupportTicketCategory, string> = {
 const SOURCE_LABELS: Record<TSupportTicketSource, string> = {
   support_page: "Support page",
   chat: "Chat",
+  enterprise_request: "Enterprise request",
 };
 
 export function categoryLabel(category: TSupportTicketCategory): string {

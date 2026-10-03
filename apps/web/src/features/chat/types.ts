@@ -25,6 +25,8 @@ export type TChatMessageView = {
   id: string;
   role: TChatRole;
   content: string;
+  /** Chain-of-thought behind the answer, shown in the collapsible panel. */
+  reasoning?: string;
   /** Present on an assistant turn that ran the lawyer search. */
   lawyerSearch?: TLawyerSearch;
   /** Document-retrieval steps, in call order. */

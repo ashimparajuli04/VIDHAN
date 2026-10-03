@@ -1,7 +1,13 @@
 import { ZPublicUser } from "@vidhan/schema";
-import type { TAuthLogin, TAuthRegister, TPublicUser } from "@vidhan/schema";
+import type {
+  TAuthLogin,
+  TAuthRegister,
+  TAuthUpdate,
+  TPublicUser,
+} from "@vidhan/schema";
 
 import { API_URL } from "@/lib/api";
+import { readToken } from "./storage";
 
 export type TAuthErrorCode =
   | "unauthorized"
@@ -77,6 +83,19 @@ export async function register(input: TAuthRegister): Promise<TAuthResponse> {
 export async function fetchMe(token: string): Promise<TPublicUser> {
   const payload = await request("/auth/me", {
     headers: { authorization: `Bearer ${token}` },
+  });
+  return ZPublicUser.parse((payload as { user?: unknown }).user);
+}
+
+export async function updateUser(input: TAuthUpdate): Promise<TPublicUser> {
+  const token = readToken();
+  const payload = await request("/auth/me", {
+    method: "PATCH",
+    headers: {
+      "content-type": "application/json",
+      ...(token ? { authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify(input),
   });
   return ZPublicUser.parse((payload as { user?: unknown }).user);
 }

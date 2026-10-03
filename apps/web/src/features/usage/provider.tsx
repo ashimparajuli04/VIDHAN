@@ -46,7 +46,7 @@ export function useUsage(): TUsageContextValue {
   return context;
 }
 
-// Ticks the reset countdown so the banner and usage page stay live.
+// Ticks the reset countdown so the composer banner and account meter stay live.
 export function useUsageCountdown(resetAt: string | null | undefined): string {
   const [now, setNow] = React.useState(() => Date.now());
 
