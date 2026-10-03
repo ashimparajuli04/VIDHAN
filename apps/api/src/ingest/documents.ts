@@ -6,8 +6,11 @@ import type { TDocumentNodeType, TDocumentType } from "@vidhan/schema";
 
 // Converts the PG dumps in data/documents-sql-inserts-test/ (one legal_documents
 // row per file, node tree inlined as JSONB) into SQLite seed files. The dumps
-// are parsed, never executed: `$CODEx<hex>$` dollar-quotes and `::jsonb` casts
-// are PG-only. Re-run `db:seed:documents` after adding a source file.
+// are parsed, never executed: dollar-quotes (`$CODEx<hex>$`, `$LEGAL_<hex>$`)
+// and `::jsonb` casts are PG-only. Two dump layouts exist: the older 9-column
+// form inlines the node array, the newer 8-column form drops `source_filename`
+// and wraps the node array in the full document object. Re-run
+// `db:seed:documents` after adding a source file.
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(HERE, "..", "..", "..", "..", "data");
@@ -31,10 +34,23 @@ const DOCUMENT_TYPES: readonly string[] = ["act", "constitution", "regulation"];
 
 const SEED_TIME = "2026-01-15T09:00:00.000Z";
 
-// Garbage source ids (extraction fallback) → slugs from the source filename.
-const ID_OVERRIDES: Record<string, string> = {
-  doc_0_it7vg66_pdf: "muluki-criminal-code-2074",
-  doc_0_4_nomy0tn_pdf: "muluki-criminal-procedure-code-2074",
+// Web-to-PDF dumps prefix the title with the capture date and suffix it with the
+// source site ("5/18/2021 ... – Nepal Law Commission").
+const TITLE_JUNK = /^\d{1,2}\/\d{1,2}\/\d{4}\s+|[\s]+[–—-]\s*Nepal Law Commission\s*$/g;
+
+// Spacing lost on ligature/superscript extraction splits a word ("Author ity").
+const FALSE_WORD_SPLIT = /\bAuthor ity\b/g;
+
+// Extraction artifacts that survive JSON parsing, fixed on all emitted text.
+function cleanText(value: string): string {
+  return value.replace(FALSE_WORD_SPLIT, "Authority");
+}
+
+// The asset-laundering source has its BS/AD years swapped (year_bs=2008,
+// year_ad=2064). Correct it here rather than re-exporting the dump.
+const YEAR_OVERRIDES: Record<string, { yearBs: number; yearAd: number }> = {
+  doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:
+    { yearBs: 2064, yearAd: 2008 },
 };
 
 interface SourceNode {
@@ -90,8 +106,8 @@ function parseTuple(sql: string): string[] {
     skipWs();
     if (sql[i] === ")") break;
 
-    if (sql.startsWith("$CODEx", i)) {
-      const tagEnd = sql.indexOf("$", i + 6);
+    if (sql[i] === "$") {
+      const tagEnd = sql.indexOf("$", i + 1);
       const tag = sql.slice(i, tagEnd + 1);
       const close = sql.indexOf(tag, tagEnd + 1);
       fields.push(sql.slice(tagEnd + 1, close));
@@ -121,25 +137,28 @@ function toIntOrNull(value: string): number | null {
 
 function parseSource(sql: string, file: string): SourceDocument {
   const fields = parseTuple(sql);
-  const [rawId, title, originalTitle, documentType, yearBs, yearAd, totalPages, nodes, sourceFilename] =
-    fields;
-  if (fields.length < 9) {
-    throw new Error(`${file}: expected 9 columns, parsed ${fields.length}`);
+  if (fields.length < 8) {
+    throw new Error(`${file}: expected at least 8 columns, parsed ${fields.length}`);
   }
-  const id = ID_OVERRIDES[rawId!] ?? rawId!;
+  const [rawId, title, originalTitle, documentType, yearBs, yearAd, totalPages, nodesField, sourceFilename] =
+    fields;
   if (!DOCUMENT_TYPES.includes(documentType!)) {
     throw new Error(`${file}: unknown document_type ${documentType}`);
   }
+  // Older dumps inline the bare node array; the 8-column layout nests it under
+  // the full document object. Accept both.
+  const parsedNodes = JSON.parse(nodesField!) as SourceNode[] | { nodes: SourceNode[] };
+  const override = YEAR_OVERRIDES[rawId!];
   return {
-    id,
-    title: title!,
+    id: rawId!,
+    title: cleanText(title!.replace(TITLE_JUNK, "")).trim(),
     originalTitle: originalTitle || null,
     documentType: documentType as TDocumentType,
-    yearBs: toIntOrNull(yearBs!),
-    yearAd: toIntOrNull(yearAd!),
+    yearBs: override?.yearBs ?? toIntOrNull(yearBs!),
+    yearAd: override?.yearAd ?? toIntOrNull(yearAd!),
     totalPages: toIntOrNull(totalPages!),
-    sourceFilename: sourceFilename!,
-    nodes: JSON.parse(nodes!) as SourceNode[],
+    sourceFilename: sourceFilename ?? file,
+    nodes: Array.isArray(parsedNodes) ? parsedNodes : parsedNodes.nodes,
   };
 }
 
@@ -212,16 +231,19 @@ function convertDocument(doc: SourceDocument): ConvertedNode[] {
 
   const walk = (
     source: SourceNode[],
-    parent: { id: string | null; depth: number; chain: CitationPart[] },
+    parent: { id: string | null; depth: number; path: number[]; chain: CitationPart[] },
   ): void => {
     source.forEach((node, position) => {
       const depth = parent.depth + 1;
-      const id = `${doc.id}:${[...parent.chain.map((p) => p.identifier), position].join(".")}`;
+      const path = [...parent.path, position];
+      const id = `${doc.id}:${path.join(".")}`;
       // Path ids key off position, not identifier, so sibling id reuse (seen in
-      // the Nepali dumps) can't collide. The chain below still uses identifiers
-      // for human-readable citations.
+      // the Nepali dumps and the English penal code's repeated "Chapter-1")
+      // can't collide. The chain below still uses identifiers for
+      // human-readable citations.
       const nodeType = node.nodeType as TDocumentNodeType;
-      const heading = deriveHeading(node.title ?? "", nodeType);
+      const nodeTitle = cleanText(node.title ?? "");
+      const heading = deriveHeading(nodeTitle, nodeType);
       const part: CitationPart = { kind: nodeType, identifier: node.identifier, heading };
       const chain = [...parent.chain, part];
 
@@ -232,27 +254,41 @@ function convertDocument(doc: SourceDocument): ConvertedNode[] {
         depth,
         nodeType,
         identifier: node.identifier,
-        title: node.title ?? "",
+        title: nodeTitle,
         heading,
-        content: node.content ?? null,
+        content: node.content === null || node.content === undefined ? null : cleanText(node.content),
         position,
         citation: buildCitation(doc.title, chain),
       });
 
       if (node.children && node.children.length > 0) {
-        walk(node.children, { id, depth, chain });
+        walk(node.children, { id, depth, path, chain });
       }
     });
   };
 
-  walk(doc.nodes, { id: null, depth: 0, chain: [] });
+  walk(doc.nodes, { id: null, depth: 0, path: [], chain: [] });
   return out;
 }
 
 // ── Emit ─────────────────────────────────────────────────────────────────────
 
+// Some dumps encode the ﬀ / ft ligatures as JSON \u0000 (e.g. "o\u0000ence" =
+// "offence", "fi\u0000y" = "fifty"). NUL terminates SQL text, so recover the
+// letters from context before emitting. "ff" is the dominant ligature; "ft"
+// only appears after "a"/"gra" or before y/s/space/punctuation.
+function expandLigaturePlaceholders(value: string): string {
+  return value.replace(/\u0000/g, (_match, offset: number, whole: string) => {
+    const prev = whole[offset - 1] ?? "";
+    const next = whole[offset + 1] ?? "";
+    const afterA = prev === "a" && /[e"\uFFFD: ]/.test(next);
+    const afterI = prev === "i" && /[ys,"\uFFFD: ]/.test(next);
+    return afterA || afterI ? "ft" : "ff";
+  });
+}
+
 function q(value: string): string {
-  return `'${value.replace(/'/g, "''")}'`;
+  return `'${expandLigaturePlaceholders(value).replace(/'/g, "''")}'`;
 }
 
 function qOrNull(value: string | null): string {

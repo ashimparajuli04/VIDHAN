@@ -5,22 +5,22 @@ Status: **implemented**. Replaces the faked document layer (mock `documents`/`do
 What shipped and where it deviates from the original sketch:
 
 - `documents.status`/`chunkCount` and the `document_chunks`/`document_toc` tables are gone; `legal_rag_database_design.md` deleted.
-- `document_nodes` uses position-based path ids (`{documentId}:{0.2.1}`), not identifier-based, because the two Nepali dumps reuse section identifiers (`section [१]` appears twice per document).
+- `document_nodes` uses position-based path ids (`{documentId}:{0.2.1}`), not identifier-based, because identifiers repeat within a document (e.g. the penal code's `Chapter-1` appears in several parts).
 - The node `id` path segment is the position within the *parent chain*, assembled during the recursive walk (not `tier`-derived).
 - The ingest converter also writes `apps/web/src/lib/document-ids.generated.ts` for static export (section 5's "needs a generated id list" is now done this way).
 - Node inserts are batched under a ~60KB byte budget — D1 rejects statements over ~100KB (`SQLITE_TOOBIG`).
 
 ## What the source data is
 
-15 files → **14 unique documents** (`consumer_protection_act.sql` and `(1).sql` are identical). Each file is one `legal_documents` row plus a node tree stored as JSON.
+41 files → **40 unique documents** (`consumer_protection_act.sql` and `(1).sql` are identical). Each file is one `legal_documents` row plus a node tree stored as JSON.
 
-- Metadata: `id`, `title`, `original_title` (always NULL), `document_type` (always `act`), `year_bs`, `year_ad`, `total_pages`, `nodes`, `source_filename`.
+- Metadata: `id`, `title`, `original_title` (always NULL), `document_type` (always `act`), `year_bs`, `year_ad`, `total_pages`, `nodes`. Older dumps add `source_filename`; newer ones omit it (ingest falls back to the file name).
 - Node shape: `{ tier, nodeType, identifier, title, content, children }`.
 - Corpus depth is 2, but the model must support depth up to **3**.
 - `nodeType` seen: `preamble` (always exactly one), `chapter` **or** `section_group` at tier 1, `section` at tier 2. Some docs have both `chapter` and `section_group`.
 - `section.title` is polluted: heading + start of body run together (`"Short Title and Commencement: (1) This Act may be called the"`); the rest is in `content`.
 - `chapter.title` is non-descriptive (`"Chapter-1"`); `section_group.title` is `"Sections"`.
-- 2 Nepali docs have garbage ids (`doc_0_it7vg66_pdf`, `doc_0_4_nomy0tn_pdf`).
+- Two dump layouts coexist: older `$CODEx<hex>$` tags with 9 columns and a bare node array, and newer `$LEGAL_<hex>$` tags with 8 columns and the node array wrapped in the full document object. Ingest accepts both.
 
 ## Decisions
 
@@ -37,7 +37,7 @@ Replace `documents` (drop fake `status`/`chunkCount`):
 
 | column | type | notes |
 |---|---|---|
-| `id` | text PK | stable slug; fix the 2 garbage Nepali ids |
+| `id` | text PK | stable slug (from the source id) |
 | `title` | text not null | as extracted (already includes year) |
 | `originalTitle` | text null | always null in this corpus |
 | `documentType` | enum `act/constitution/regulation` | |

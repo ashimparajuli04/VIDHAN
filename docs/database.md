@@ -50,7 +50,7 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 
 `documents` — one row per source statute (`act | constitution | regulation`).
 
-- `id` text PK — slug from the source filename (2 garbage Nepali ids rewritten at ingest)
+- `id` text PK — slug from the source id
 - `title` — as extracted, already includes the year
 - `originalTitle` nullable — always null in the current corpus
 - `documentType` — closed enum; `yearBs`, `yearAd`, `totalPages` nullable ints
