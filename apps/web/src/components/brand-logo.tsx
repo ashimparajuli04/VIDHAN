@@ -1,0 +1,123 @@
+import * as React from "react";
+
+/**
+ * Vidhan brand mark — full-color tile with the scales symbol.
+ * Size it with className (e.g. `size-8`); the mark has a fixed
+ * aspect ratio of ~1.07:1, so it is not square.
+ */
+export function BrandLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 869 815"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role="img"
+      aria-label="Vidhan"
+    >
+      <g clipPath="url(#brandlogo-clip)">
+        <rect width="869" height="815" rx="126" fill="#61211D" />
+        <rect
+          width="869"
+          height="815"
+          rx="126"
+          fill="url(#brandlogo-gradient)"
+          fillOpacity="0.2"
+        />
+        <path
+          d="M244.126 72L177.49 414.286C270.377 455.028 337.013 582.026 391.332 745.196H414.546V309.18C396.582 306.693 383.558 290.437 383.558 272.251C383.558 251.83 401.933 235.371 424.6 235.371C447.266 235.371 465.642 251.83 465.642 272.251C465.642 290.437 451.103 306.693 431.59 309.18V746.616H456.353C507.643 596.25 573.27 460.107 670.195 407.174L605.073 72C539.951 75.048 477.354 95.3677 423.843 128.794C371.341 100.448 308.743 81.1439 244.126 72Z"
+          fill="#FDFDFD"
+        />
+        <g filter="url(#brandlogo-shadow)">
+          <path
+            d="M671.973 102.775L644.09 107.043L706.03 429.212C598.738 473.611 499.257 632.328 492.189 771.011C529.546 609.469 627.008 495.963 740.088 444.859L671.973 102.775ZM187.227 104.198L122.187 444.859C240.315 492.915 310.958 615.565 364.974 770.503C346.296 627.248 265.556 477.675 156.212 429.212L216.69 107.043L187.227 104.198Z"
+            fill="#FDFDFD"
+          />
+        </g>
+        <g filter="url(#brandlogo-inner)">
+          <path
+            d="M130.087 134.441L65 475.802C174.041 514.42 265.919 621.099 316.048 763.338C312.362 629.227 215.437 510.357 99.0926 458.804L159.531 137.273L130.087 134.441ZM722.066 134.441L703.469 137.273L763.907 458.804C647.563 510.357 550.638 629.227 546.952 763.338C597.081 621.099 688.959 514.42 798 475.802L732.913 134.441H722.066Z"
+            fill="#FDFDFD"
+          />
+        </g>
+      </g>
+      <defs>
+        <filter
+          id="brandlogo-shadow"
+          x="40.1872"
+          y="20.7754"
+          width="793.901"
+          height="844.235"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dx="6" dy="6" />
+          <feGaussianBlur stdDeviation="44" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow"
+            result="shape"
+          />
+        </filter>
+        <filter
+          id="brandlogo-inner"
+          x="65"
+          y="134.441"
+          width="741"
+          height="636.896"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dx="8" dy="8" />
+          <feGaussianBlur stdDeviation="44" />
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
+        </filter>
+        <linearGradient
+          id="brandlogo-gradient"
+          x1="447"
+          y1="-172.5"
+          x2="435"
+          y2="791.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#48201B" />
+          <stop offset="0.78115" stopColor="#E41408" />
+        </linearGradient>
+        <clipPath id="brandlogo-clip">
+          <rect width="869" height="815" rx="126" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}

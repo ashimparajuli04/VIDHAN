@@ -5,7 +5,12 @@ import { ChevronDown, Search, X } from "lucide-react";
 import { Virtuoso } from "react-virtuoso";
 
 import type { TPublicLawyer } from "@vidhan/schema";
-import { DISTRICTS, LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
+import {
+  DISTRICTS,
+  LANGUAGES,
+  PRACTICE_AREAS,
+  SENIORITY_LEVELS,
+} from "@vidhan/schema";
 
 import { LawyerCard } from "@/components/lawyers/lawyer-card";
 import { LawyerSkeleton } from "@/components/lawyers/lawyer-skeleton";
@@ -25,7 +30,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { chunkIntoRows, useGridColumns } from "@/features/lawyers/grid";
-import { districtLabel, languageLabel, practiceAreaLabel } from "@/features/lawyers/labels";
+import {
+  districtLabel,
+  languageLabel,
+  practiceAreaLabel,
+  seniorityLabel,
+} from "@/features/lawyers/labels";
 import { getLawyers, type LawyerQuery } from "@/lib/lawyers";
 
 const SEARCH_DEBOUNCE_MS = 250;
@@ -52,13 +62,18 @@ export function LawyerCatalogue() {
   );
 
   const hasActiveFilters = Boolean(
-    query.search || query.practiceArea || query.district || query.language
+    query.search ||
+      query.practiceArea ||
+      query.district ||
+      query.language ||
+      query.seniority
   );
 
   const activeFilterCount = [
     query.practiceArea,
     query.district,
     query.language,
+    query.seniority,
   ].filter(Boolean).length;
 
   // Debounce the search box into the query.
@@ -113,7 +128,7 @@ export function LawyerCatalogue() {
           />
         </div>
 
-        {/* Desktop: the three selects stay inline, side by side. */}
+        {/* Desktop: the four selects stay inline, side by side. */}
         <div className="hidden md:flex md:flex-wrap md:items-center md:gap-3">
           <FilterFields query={query} setQuery={setQuery} />
           {hasActiveFilters && <ClearFiltersButton onClick={resetFilters} />}
@@ -263,7 +278,7 @@ function FilterSelect({
   );
 }
 
-// The three selects, shared by the desktop toolbar and the mobile popover.
+// The four selects, shared by the desktop toolbar and the mobile popover.
 function FilterFields({
   query,
   setQuery,
@@ -309,6 +324,19 @@ function FilterFields({
         options={LANGUAGES.map((language) => ({
           value: language,
           label: languageLabel(language),
+        }))}
+      />
+
+      <FilterSelect
+        value={query.seniority ?? ""}
+        onChange={(value) =>
+          setQuery((prev) => ({ ...prev, seniority: value || undefined }))
+        }
+        placeholder="Seniority"
+        ariaLabel="Filter by seniority"
+        options={SENIORITY_LEVELS.map((seniority) => ({
+          value: seniority,
+          label: seniorityLabel(seniority),
         }))}
       />
     </>

@@ -1,6 +1,12 @@
 import { Hono } from "hono";
 import { eq } from "drizzle-orm";
-import { asJson, lawyers as lawyersTable, ZLawyerCreate, ZLawyerUpdate } from "@vidhan/schema";
+import {
+  asJson,
+  asJsonObject,
+  lawyers as lawyersTable,
+  ZLawyerCreate,
+  ZLawyerUpdate,
+} from "@vidhan/schema";
 import type { LawyerRow } from "@vidhan/schema";
 import type { Env } from "../../index";
 import { createDb } from "../../db";
@@ -82,9 +88,10 @@ lawyers.post("/", async (c) => {
     bio: parsed.data.bio ?? null,
     imageKey: parsed.data.imageKey ?? null,
     firmName: parsed.data.firmName ?? null,
-    consultationFee: parsed.data.consultationFee ?? null,
-    freeFirstConsultation: parsed.data.freeFirstConsultation ?? false,
     barEnrollmentYear: parsed.data.barEnrollmentYear ?? null,
+    seniority: parsed.data.seniority,
+    totalCases: parsed.data.totalCases ?? null,
+    caseCounts: parsed.data.caseCounts ? asJsonObject(parsed.data.caseCounts) : null,
     verified: parsed.data.verified ?? false,
     active: parsed.data.active ?? true,
     createdAt: now,
@@ -127,6 +134,9 @@ lawyers.patch("/:id", async (c) => {
     education: parsed.data.education
       ? asJson(parsed.data.education)
       : existing.education,
+    caseCounts: parsed.data.caseCounts
+      ? asJsonObject(parsed.data.caseCounts)
+      : existing.caseCounts,
     updatedAt: new Date().toISOString(),
   };
   try {

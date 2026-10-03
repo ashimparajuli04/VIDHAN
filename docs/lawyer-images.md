@@ -53,6 +53,15 @@ Public GET /lawyers → imageUrl = `${R2_PUBLIC_BASE_URL}/${imageKey}`
 - `src/lib/api.ts`, `src/features/lawyers/{api,labels}.ts`, `components/LawyerCard.tsx`.
 - `app/lawyers/page.tsx` is a client component (static export → runtime fetch) with loading/error/empty states.
 
+## Seeded portraits
+
+The 80 seed lawyers get portraits from `data/portraits/{male,female}` (30 JPEGs, committed so teammates can seed).
+
+- **Keys are stable and deterministic: `lawyers/seed/<filename>`.** `apps/api/src/seed/images.ts` uploads them into the local miniflare R2 store (via a programmatic `Miniflare` pointed at `apps/api/.wrangler/state/v3`, the same `resourcePersistencePath` `wrangler dev` uses). `src/seed/lawyers.ts` records the matching `image_key` in the seed SQL.
+- **Assignment is random but reproducible — and gender-matched.** A dedicated PRNG (seeded, separate from the lawyer-field PRNG so other columns stay identical across seed runs) shuffles a deck per gender; rows draw from their gender's deck. 18 male / 12 female portraits recycle across the 40/40 rows, so faces repeat — acceptable for demo data, and the shuffle spreads repeats apart. Gender follows the lawyer's first name (`FEMALE_FIRST_NAMES` set in the seed generator).
+- **`miniflare` is an exact-pinned devDependency** (`5.20260930.0-alpha`, the version wrangler bundles) so the persist layout it writes matches what `wrangler dev` reads. Its API is an alpha (`workers[].config` + `env` typed bindings + `manifest` modules) — see `apps/api/src/seed/images.ts` for the working shape.
+- **Remote R2 is untouched.** `db:seed:images` only writes local state; prod images still come from the admin upload flow.
+
 ## Production config
 
 - Create the bucket and a public access domain (or custom domain) → set `R2_PUBLIC_BASE_URL`.

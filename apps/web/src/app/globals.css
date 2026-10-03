@@ -101,6 +101,7 @@
 @theme inline {
   --font-sans: "Inter Tight", "Plus Jakarta Sans", Figtree, ui-sans-serif,
     system-ui, sans-serif;
+  --font-brand: var(--font-inter-tight);
 
   --radius-sm: calc(var(--radius) - 10px);
   --radius-md: calc(var(--radius) - 6px);

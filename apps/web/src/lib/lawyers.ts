@@ -12,6 +12,7 @@ export interface LawyerQuery {
   practiceArea?: string;
   district?: string;
   language?: string;
+  seniority?: string;
 }
 
 // The catalogue fetches the whole set once (mirrors the docs repository);
@@ -25,6 +26,7 @@ export async function getLawyers(
   if (query.practiceArea) params.set("practiceArea", query.practiceArea);
   if (query.district) params.set("district", query.district);
   if (query.language) params.set("language", query.language);
+  if (query.seniority) params.set("seniority", query.seniority);
   params.set("limit", String(MAX_RESULTS));
 
   const payload = (await apiGet(`/lawyers?${params}`)) as {
@@ -54,9 +56,9 @@ export async function getLawyer(
 }
 
 // Static export needs every route's params at build time, and the seed
-// lawyer ids are deterministic (seed-001 … seed-080). Swap this for the
+// lawyer ids are deterministic (seed-001 … seed-150). Swap this for the
 // real id source when the API becomes the source of truth for builds.
 export const LAWYER_IDS: string[] = Array.from(
-  { length: 80 },
+  { length: 150 },
   (_, index) => `seed-${String(index + 1).padStart(3, "0")}`,
 );

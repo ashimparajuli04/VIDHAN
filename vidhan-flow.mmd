@@ -1,0 +1,59 @@
+flowchart TD
+    %% ===== SHARED DATA LAYER =====
+    subgraph DATA[Shared Data Layer — Cloudflare]
+        DB[(D1 SQLite + FTS5)]
+        VEC[(Vectorize embeddings)]
+        R2[(R2 images)]
+        DB --- VEC
+        DB --- R2
+    end
+
+    %% ===== PUBLIC CHAT STREAM =====
+    subgraph PUB[Public Stream — apps/web — citizens]
+        direction TB
+        U[Register / Login → JWT Bearer] --> C[Chat: ask in EN / Nepali / Roman-Nepali]
+        C --> CH[POST /chat/sessions/:id/messages<br/>requireAuth]
+        CH --> RT[Retrieval: embed → summaries → sections<br/>Vectorize + FTS5, RRF]
+        RT --> GEN[LLM streams answer + citations]
+        GEN --> ESC{Escalate?}
+        ESC -- yes --> FL[find_lawyers tool → D1 lookup]
+        FL --> LC[Lawyer cards in chat]
+        GEN --> ST[offer_support_ticket tool]
+        LC --> CB[Request callback: phone + time]
+        CB --> LR[(lawyer_requests)]
+        ST --> SP[(support ticket)]
+        BR[Browse lawyers / repo] --> CAT[GET /lawyers, /docs]
+    end
+
+    %% ===== ADMIN STREAM =====
+    subgraph ADM[Admin Stream — apps/admin — staff]
+        direction TB
+        AL[Login: HTTP Basic] --> AD[GET /admin/* guarded]
+        AD --> ALM[Manage lawyers CRUD]
+        AD --> ADL[Upload / reindex documents<br/>runs ingest in-worker]
+        AD --> ADR[Advance lawyer_requests]
+        AD --> ADS[Advance support tickets]
+        AD --> AST[View stats]
+    end
+
+    %% ===== INGEST STREAM =====
+    subgraph ING[Ingest Pipeline — bulk]
+        direction TB
+        SRC[data/ corpus] --> VZ[Validate zod]
+        VZ --> SUM[AI summary]
+        SUM --> CHK[Section chunking]
+        CHK --> EMB[Embed + write]
+    end
+
+    %% Only data-layer + handoff links cross the streams
+    RT -.read.-> VEC
+    RT -.read.-> DB
+    FL -.read.-> DB
+    CAT -.read.-> DB
+    ALM -.write/read.-> DB
+    ADL -.write.-> DB
+    ADL -.write.-> VEC
+    ADR -.read/advance.-> LR
+    ADS -.read/advance.-> SP
+    EMB -.write.-> DB
+    EMB -.write.-> VEC

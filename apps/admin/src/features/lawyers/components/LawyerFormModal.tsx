@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import {
+  CASE_COUNT_COURTS,
   DISTRICTS,
   LANGUAGES,
   PRACTICE_AREAS,
+  SENIORITY_LEVELS,
   ZLawyerCreate,
 } from "@vidhan/schema";
 import type {
@@ -14,8 +16,15 @@ import type {
   TLawyerCreate,
   TLawyerWithImage,
   TPracticeArea,
+  TSeniority,
 } from "@vidhan/schema";
-import { districtLabel, languageLabel, practiceAreaLabel } from "../labels";
+import {
+  courtLabel,
+  districtLabel,
+  languageLabel,
+  practiceAreaLabel,
+  seniorityLabel,
+} from "../labels";
 import {
   IMAGE_CONTENT_TYPES,
   MAX_IMAGE_BYTES,
@@ -34,17 +43,28 @@ export type TLawyerFormModalProps = {
 
 type TFieldErrors = Record<string, string[] | undefined>;
 
+type TCaseCountDraft = Record<(typeof CASE_COUNT_COURTS)[number], string>;
+
 type TDraft = {
   name: string;
   district: TDistrict | "";
+  seniority: TSeniority | "";
   practiceAreas: TPracticeArea[];
   languages: TLanguage[];
   yearsOfExperience: string;
   barNumber: string;
   bio: string;
   imageKey: string;
+  totalCases: string;
+  caseCounts: TCaseCountDraft;
   verified: boolean;
   active: boolean;
+};
+
+const BLANK_CASE_COUNTS: TCaseCountDraft = {
+  supreme_court: "",
+  high_court: "",
+  district_court: "",
 };
 
 function toDraft(lawyer: TLawyerWithImage | null): TDraft {
@@ -52,12 +72,15 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
     return {
       name: "",
       district: "",
+      seniority: "",
       practiceAreas: [],
       languages: [],
       yearsOfExperience: "",
       barNumber: "",
       bio: "",
       imageKey: "",
+      totalCases: "",
+      caseCounts: { ...BLANK_CASE_COUNTS },
       verified: false,
       active: true,
     };
@@ -65,6 +88,7 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
   return {
     name: lawyer.name,
     district: lawyer.district,
+    seniority: lawyer.seniority,
     practiceAreas: [...lawyer.practiceAreas],
     languages: [...lawyer.languages],
     yearsOfExperience:
@@ -72,6 +96,21 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
     barNumber: lawyer.barNumber ?? "",
     bio: lawyer.bio ?? "",
     imageKey: lawyer.imageKey ?? "",
+    totalCases: lawyer.totalCases == null ? "" : String(lawyer.totalCases),
+    caseCounts: {
+      supreme_court:
+        lawyer.caseCounts?.supreme_court == null
+          ? ""
+          : String(lawyer.caseCounts.supreme_court),
+      high_court:
+        lawyer.caseCounts?.high_court == null
+          ? ""
+          : String(lawyer.caseCounts.high_court),
+      district_court:
+        lawyer.caseCounts?.district_court == null
+          ? ""
+          : String(lawyer.caseCounts.district_court),
+    },
     verified: lawyer.verified,
     active: lawyer.active,
   };
@@ -201,6 +240,11 @@ export function LawyerFormModal({
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const counts = [
+      draft.caseCounts.supreme_court,
+      draft.caseCounts.high_court,
+      draft.caseCounts.district_court,
+    ];
     const result = ZLawyerCreate.safeParse({
       name: draft.name.trim(),
       district: draft.district,
@@ -210,9 +254,21 @@ export function LawyerFormModal({
         draft.yearsOfExperience === ""
           ? undefined
           : Number(draft.yearsOfExperience),
+      seniority: draft.seniority === "" ? undefined : draft.seniority,
       barNumber: draft.barNumber.trim() || undefined,
       bio: draft.bio.trim() || undefined,
       imageKey: draft.imageKey.trim() || null,
+      // Blank tiers read as 0; the whole breakdown is dropped when every
+      // tier is blank so partial records stay indistinguishable from none.
+      totalCases:
+        draft.totalCases === "" ? undefined : Number(draft.totalCases),
+      caseCounts: counts.some((value) => value !== "")
+        ? {
+            supreme_court: Number(draft.caseCounts.supreme_court || 0),
+            high_court: Number(draft.caseCounts.high_court || 0),
+            district_court: Number(draft.caseCounts.district_court || 0),
+          }
+        : undefined,
       verified: draft.verified,
       active: draft.active,
     });
@@ -272,6 +328,29 @@ export function LawyerFormModal({
                 ))}
               </select>
               <FieldError messages={fieldErrors.district} />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-sm font-medium text-slate-700">
+                Seniority
+              </span>
+              <select
+                value={draft.seniority}
+                onChange={(event) =>
+                  setDraft({
+                    ...draft,
+                    seniority: event.target.value as TSeniority | "",
+                  })
+                }
+                className={inputClass}
+              >
+                <option value="">Select seniority</option>
+                {SENIORITY_LEVELS.map((seniority) => (
+                  <option key={seniority} value={seniority}>
+                    {seniorityLabel(seniority)}
+                  </option>
+                ))}
+              </select>
+              <FieldError messages={fieldErrors.seniority} />
             </label>
           </div>
 
@@ -372,6 +451,50 @@ export function LawyerFormModal({
               />
               <FieldError messages={fieldErrors.barNumber} />
             </label>
+          </div>
+
+          <div className="rounded-md border border-slate-200 p-3">
+            <span className="text-sm font-medium text-slate-700">
+              Case record
+            </span>
+            <div className="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <label className="block space-y-1">
+                <span className="text-xs text-slate-500">Total cases</span>
+                <input
+                  type="number"
+                  min={0}
+                  value={draft.totalCases}
+                  onChange={(event) =>
+                    setDraft({ ...draft, totalCases: event.target.value })
+                  }
+                  className={inputClass}
+                />
+              </label>
+              {CASE_COUNT_COURTS.map((court) => (
+                <label key={court} className="block space-y-1">
+                  <span className="text-xs text-slate-500">
+                    {courtLabel(court)}
+                  </span>
+                  <input
+                    type="number"
+                    min={0}
+                    value={draft.caseCounts[court]}
+                    onChange={(event) =>
+                      setDraft({
+                        ...draft,
+                        caseCounts: {
+                          ...draft.caseCounts,
+                          [court]: event.target.value,
+                        },
+                      })
+                    }
+                    className={inputClass}
+                  />
+                </label>
+              ))}
+            </div>
+            <FieldError messages={fieldErrors.totalCases} />
+            <FieldError messages={fieldErrors.caseCounts} />
           </div>
 
           <label className="block space-y-1">

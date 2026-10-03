@@ -34,8 +34,8 @@ Empty-district recovery: user sets location at onboarding → query district →
 
 **Public**
 
-- `GET /lawyers` — params `practiceArea`, `district`, `language` (all comma-separated/multi-value), `limit` (default 20, max 50), `offset`. No free-text `q`.
-  - Hard gate: `active AND verified`. Then exact `practiceArea` + exact `district` filters.
+- `GET /lawyers` — params `practiceArea`, `district`, `language` (all comma-separated/multi-value), `seniority` (single `advocate | senior_advocate`), `limit` (default 20, max 50), `offset`. No free-text `q`.
+  - Hard gate: `active AND verified`. Then exact `practiceArea` + exact `district` + exact `seniority` filters.
   - Rank: `yearsOfExperience desc → name asc`. `language` matching floats up.
   - Response `{ lawyers, meta: { total, districtCounts? } }`; `districtCounts` scoped to the queried practice area and returned **only when the result is empty**.
   - Pagination is in-memory (fetch the practice-area slice, sort, slice).

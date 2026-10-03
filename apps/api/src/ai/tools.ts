@@ -60,6 +60,7 @@ export function buildTools(env: Env, origin: string) {
             practiceAreas: input.practiceAreas,
             districts: input.district ? [input.district] : [],
             languages: input.language ? [input.language] : [],
+            seniority: null,
             limit: 5,
             offset: 0,
           },

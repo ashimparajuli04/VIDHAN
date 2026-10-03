@@ -8,6 +8,7 @@ import {
   formatDate,
   languageLabel,
   practiceAreaLabel,
+  seniorityLabel,
 } from "../labels";
 
 export type TLawyerRowProps = {
@@ -37,6 +38,9 @@ export function LawyerRow({
       </td>
       <td className="px-3 py-2 text-slate-700">
         {districtLabel(lawyer.district)}
+      </td>
+      <td className="px-3 py-2 text-slate-700">
+        {seniorityLabel(lawyer.seniority)}
       </td>
       <td className="px-3 py-2 text-slate-700">
         {lawyer.practiceAreas.map(practiceAreaLabel).join(", ")}

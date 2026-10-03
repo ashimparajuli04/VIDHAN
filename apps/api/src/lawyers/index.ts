@@ -7,6 +7,7 @@ import type {
   TPracticeArea,
   TPublicLawyer,
   TPublicLawyerDetail,
+  TSeniority,
 } from "@vidhan/schema";
 import type { Db } from "../db";
 import type { Env } from "../index";
@@ -16,6 +17,7 @@ export type TLawyerSearchQuery = {
   practiceAreas: TPracticeArea[];
   districts: TDistrict[];
   languages: TLanguage[];
+  seniority: TSeniority | null;
   limit: number;
   offset: number;
 };
@@ -45,8 +47,8 @@ export function toPublicLawyer(
     bio: row.bio,
     imageUrl: imageUrlFor(env, origin, row.imageKey),
     verified: row.verified,
-    consultationFee: row.consultationFee,
-    freeFirstConsultation: row.freeFirstConsultation,
+    totalCases: row.totalCases,
+    seniority: row.seniority,
     consultationModes: row.consultationModes,
   };
 }
@@ -66,6 +68,9 @@ export function toPublicLawyerDetail(
     courts: row.courts,
     education: row.education,
     barEnrollmentYear: row.barEnrollmentYear,
+    seniority: row.seniority,
+    totalCases: row.totalCases,
+    caseCounts: row.caseCounts,
     memberSince: new Date(row.createdAt).getFullYear(),
   };
 }
@@ -95,14 +100,17 @@ export async function searchLawyers(
   const matched = practiceScoped.filter(
     (row) => districtSet.size === 0 || districtSet.has(row.district),
   );
-  matched.sort(compareByLanguageThenRank(languageSet));
+  const seniorityScoped = matched.filter(
+    (row) => query.seniority === null || row.seniority === query.seniority,
+  );
+  seniorityScoped.sort(compareByLanguageThenRank(languageSet));
 
-  const meta: TLawyerSearchMeta = { total: matched.length };
-  if (matched.length === 0) {
+  const meta: TLawyerSearchMeta = { total: seniorityScoped.length };
+  if (seniorityScoped.length === 0) {
     meta.districtCounts = countByDistrict(practiceScoped);
   }
 
-  const page = matched.slice(query.offset, query.offset + query.limit);
+  const page = seniorityScoped.slice(query.offset, query.offset + query.limit);
   return {
     lawyers: page.map((row) => toPublicLawyer(row, env, origin)),
     meta,

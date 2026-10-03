@@ -13,6 +13,7 @@ export type TLawyerTableProps = {
 const HEADERS = [
   "Name",
   "District",
+  "Seniority",
   "Practice areas",
   "Languages",
   "Experience",

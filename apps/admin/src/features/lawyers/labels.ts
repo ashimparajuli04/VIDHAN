@@ -1,4 +1,21 @@
-import type { TDistrict, TLanguage, TPracticeArea } from "@vidhan/schema";
+import type {
+  TCourt,
+  TDistrict,
+  TLanguage,
+  TPracticeArea,
+  TSeniority,
+} from "@vidhan/schema";
+
+const COURT_LABELS: Record<TCourt, string> = {
+  supreme_court: "Supreme Court",
+  high_court: "High Court",
+  district_court: "District Court",
+};
+
+const SENIORITY_LABELS: Record<TSeniority, string> = {
+  senior_advocate: "Senior Advocate",
+  advocate: "Advocate",
+};
 
 const PRACTICE_AREA_LABELS: Record<TPracticeArea, string> = {
   criminal: "Criminal",
@@ -31,11 +48,19 @@ export function languageLabel(language: TLanguage): string {
   return LANGUAGE_LABELS[language];
 }
 
+export function seniorityLabel(seniority: TSeniority): string {
+  return SENIORITY_LABELS[seniority];
+}
+
 export function districtLabel(district: TDistrict): string {
   return district
     .split("_")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
+}
+
+export function courtLabel(court: TCourt): string {
+  return COURT_LABELS[court];
 }
 
 export function formatDate(iso: string): string {

@@ -1,4 +1,4 @@
-import { ArrowRight, BadgeCheck, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import Link from "next/link";
 
 import type { TPublicLawyer } from "@vidhan/schema";
@@ -17,9 +17,10 @@ import {
   districtLabel,
   languageLabel,
   practiceAreaLabel,
+  seniorityLabel,
 } from "@/features/lawyers/labels";
 
-const MAX_PRACTICE_AREAS = 3;
+const MAX_PRACTICE_AREAS = 4;
 const MAX_LANGUAGES = 2;
 
 export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
@@ -31,17 +32,26 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
 
   const hasStats =
     typeof lawyer.yearsOfExperience === "number" ||
-    lawyer.consultationFee !== null ||
-    lawyer.freeFirstConsultation;
+    typeof lawyer.totalCases === "number";
 
   return (
     <Card className="group relative mx-auto h-full w-full max-w-[470px] transition-colors hover:border-foreground/15">
       <CardHeader className="gap-3">
         <div className="flex min-w-0 items-center gap-3.5">
-          <PigAvatar
-            name={lawyer.name}
-            className="size-14 shrink-0"
-          />
+          {lawyer.imageUrl ? (
+            // next/image isn't configured for remote hosts under static export.
+            <img
+              src={lawyer.imageUrl}
+              alt={lawyer.name}
+              loading="lazy"
+              className="size-14 shrink-0 rounded-full object-cover"
+            />
+          ) : (
+            <PigAvatar
+              name={lawyer.name}
+              className="size-14 shrink-0"
+            />
+          )}
 
           <div className="min-w-0">
             <CardTitle className="flex min-w-0 items-center gap-2 text-[17px]">
@@ -52,22 +62,16 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
               >
                 {lawyer.name}
               </Link>
-              {lawyer.verified && (
-                <Badge
-                  variant="accent"
-                  className="shrink-0 gap-1 px-2 py-0.5 text-[11px] font-semibold"
-                  title="Verified by Vidhan"
-                >
-                  <BadgeCheck className="size-3" aria-hidden="true" />
-                  Verified
-                </Badge>
-              )}
             </CardTitle>
 
             <CardDescription className="mt-1 flex min-w-0 items-center gap-1">
               <MapPin className="size-3.5 shrink-0" />
               <span className="truncate">{districtLabel(lawyer.district)}</span>
             </CardDescription>
+
+            <p className="mt-1.5 text-[11px] font-semibold tracking-wide text-primary uppercase">
+              {seniorityLabel(lawyer.seniority)}
+            </p>
           </div>
         </div>
       </CardHeader>
@@ -105,26 +109,16 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
               </div>
             )}
 
-            {(lawyer.freeFirstConsultation || lawyer.consultationFee !== null) && (
-              <div>
+            {typeof lawyer.totalCases === "number" && (
+              <div className="text-right">
                 <dd className="text-[24px] leading-none font-bold tracking-tight">
-                  {lawyer.freeFirstConsultation ? (
-                    "Free"
-                  ) : (
-                    <>
-                      {new Intl.NumberFormat("en-NP").format(
-                        lawyer.consultationFee ?? 0
-                      )}
-                      <span className="ms-1.5 text-[13px] font-semibold text-muted-foreground">
-                        NPR
-                      </span>
-                    </>
-                  )}
+                  {lawyer.totalCases}
+                  <span className="ms-1.5 text-[13px] font-semibold text-muted-foreground">
+                    cases
+                  </span>
                 </dd>
                 <dt className="mt-1.5 text-[13px] text-muted-foreground">
-                  {lawyer.freeFirstConsultation
-                    ? "first consult"
-                    : "from, per consult"}
+                  cases fought
                 </dt>
               </div>
             )}

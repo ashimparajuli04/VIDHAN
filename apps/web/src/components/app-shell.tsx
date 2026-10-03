@@ -45,7 +45,9 @@ function MobileHeader() {
           <ListSortDescending className="size-5" strokeWidth={2.5} />
         </Button>
 
-        <span className="text-2xl font-black tracking-tight">VIDHAN</span>
+        <span className="font-brand text-2xl font-extrabold uppercase tracking-[0.08em]">
+          VIDHAN
+        </span>
       </div>
 
       <ThemeToggle />

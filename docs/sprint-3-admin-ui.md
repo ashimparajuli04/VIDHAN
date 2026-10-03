@@ -47,7 +47,7 @@ src/
 
 - Client-side search: name / `barNumber`.
 - Filters: practice area, district (dropdowns from `@vidhan/schema` consts), active/all (server `?active=`).
-- Columns: name, district, practiceAreas, languages, experience, barNumber, verified, active, updatedAt.
+- Columns: name, district, seniority, practiceAreas, languages, experience, barNumber, verified, active, updatedAt.
 - Toggles call `PATCH /admin/lawyers/:id`; optimistic update, invalidate on failure.
 - `Add lawyer` / per-row `Edit` open a client-state modal (`LawyerFormModal`); create → `POST`, edit → `PATCH`. Form is zod-validated with `ZLawyerCreate`; server errors (`409 duplicate_bar_number`, `400`, `500`) render in the modal. No dynamic route, per the decision above.
 - Errors: `409`/`400`/`500` → inline error; `401` → clear creds, back to `/login`.
