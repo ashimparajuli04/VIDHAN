@@ -1,77 +1,116 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * "Warm, soft, confident" design language (Cleo-inspired).
+ *
+ * One deep oxblood brown (#4A1F1C) replaces black everywhere, a warm
+ * off-white replaces pure white, and cool greys are banished — every
+ * surface and text has a warm undertone. Cards are tonal (slightly darker
+ * than the page) with a thin border and no shadows; hierarchy comes from
+ * size, weight, and tone, not from lines.
+ *
+ * Extra tokens beyond the shadcn set:
+ *   --chip        near-white surface for inactive pills / quick replies
+ *   --peach-top   top stop of the warm conversational gradient
+ *   --peach-bottom bottom stop of the warm conversational gradient
+ *   --skeleton    neutral grey placeholder (product preference over accent)
+ */
+
 @layer base {
   :root {
-    --radius: 0.625rem;
+    /* Every shape in the app inherits this large radius (28px). */
+    --radius: 1.75rem;
 
-    --background: hsl(0 0% 100%);
-    --foreground: hsl(240 10% 3.9%);
-    --card: hsl(0 0% 100%);
-    --card-foreground: hsl(240 10% 3.9%);
-    --popover: hsl(0 0% 100%);
-    --popover-foreground: hsl(240 10% 3.9%);
-    --primary: hsl(240 5.9% 10%);
-    --primary-foreground: hsl(0 0% 98%);
-    --secondary: hsl(240 4.8% 95.9%);
-    --secondary-foreground: hsl(240 5.9% 10%);
-    --muted: hsl(240 4.8% 95.9%);
-    --muted-foreground: hsl(240 3.8% 46.1%);
-    --accent: hsl(240 4.8% 95.9%);
-    --accent-foreground: hsl(240 5.9% 10%);
-    --destructive: hsl(0 84.2% 60.2%);
-    --border: hsl(240 5.9% 90%);
-    --input: hsl(240 5.9% 90%);
-    --ring: hsl(240 10% 3.9%);
+    --background: hsl(36 29% 97%);
+    --foreground: hsl(4 45% 20%);
+    --card: hsl(30 17% 93%);
+    --card-foreground: hsl(4 45% 20%);
+    --popover: hsl(36 29% 99%);
+    --popover-foreground: hsl(4 45% 20%);
+    --primary: hsl(4 45% 20%);
+    --primary-foreground: hsl(36 29% 97%);
+    --secondary: hsl(26 13% 90%);
+    --secondary-foreground: hsl(4 45% 20%);
+    --muted: hsl(30 17% 93%);
+    --muted-foreground: hsl(11 8% 51%);
+    --accent: hsl(47 89% 72%);
+    --accent-foreground: hsl(4 45% 20%);
+    --destructive: hsl(6 60% 40%);
+    --destructive-foreground: hsl(36 29% 97%);
+    --border: hsl(30 15% 87%);
+    --input: hsl(30 15% 87%);
+    --ring: hsl(4 35% 40%);
 
-    --sidebar: hsl(0 0% 98%);
-    --sidebar-foreground: hsl(240 5.3% 26.1%);
-    --sidebar-primary: hsl(240 5.9% 10%);
-    --sidebar-primary-foreground: hsl(0 0% 98%);
-    --sidebar-accent: hsl(240 4.8% 95.9%);
-    --sidebar-accent-foreground: hsl(240 5.9% 10%);
-    --sidebar-border: hsl(220 13% 91%);
-    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+    --chip: hsl(0 0% 100% / 0.72);
+    --peach-top: hsl(28 76% 97%);
+    --peach-bottom: hsl(24 100% 88%);
+    --skeleton: hsl(0 0% 86%);
+
+    --sidebar: hsl(30 14% 95%);
+    --sidebar-foreground: hsl(4 45% 20%);
+    --sidebar-primary: hsl(4 45% 20%);
+    --sidebar-primary-foreground: hsl(36 29% 97%);
+    --sidebar-accent: hsl(26 13% 90%);
+    --sidebar-accent-foreground: hsl(4 45% 20%);
+    --sidebar-border: hsl(30 14% 89%);
+    --sidebar-ring: hsl(4 45% 20%);
   }
 
   .dark {
-    --background: hsl(240 10% 3.9%);
-    --foreground: hsl(0 0% 98%);
-    --card: hsl(240 10% 3.9%);
-    --card-foreground: hsl(0 0% 98%);
-    --popover: hsl(240 10% 3.9%);
-    --popover-foreground: hsl(0 0% 98%);
-    --primary: hsl(0 0% 98%);
-    --primary-foreground: hsl(240 5.9% 10%);
-    --secondary: hsl(240 3.7% 15.9%);
-    --secondary-foreground: hsl(0 0% 98%);
-    --muted: hsl(240 3.7% 15.9%);
-    --muted-foreground: hsl(240 5% 64.9%);
-    --accent: hsl(240 3.7% 15.9%);
-    --accent-foreground: hsl(0 0% 98%);
-    --destructive: hsl(0 62.8% 30.6%);
-    --border: hsl(240 3.7% 15.9%);
-    --input: hsl(240 3.7% 15.9%);
-    --ring: hsl(240 4.9% 83.9%);
+    /* Warm dark: very dark brown, off-white text, peach-tinted primary. */
+    --background: hsl(13 22% 8%);
+    --foreground: hsl(25 30% 92%);
+    --card: hsl(11 19% 11%);
+    --card-foreground: hsl(25 30% 92%);
+    --popover: hsl(11 19% 10%);
+    --popover-foreground: hsl(25 30% 92%);
+    --primary: hsl(22 78% 83%);
+    --primary-foreground: hsl(13 22% 8%);
+    --secondary: hsl(11 14% 16%);
+    --secondary-foreground: hsl(25 30% 92%);
+    --muted: hsl(11 19% 13%);
+    --muted-foreground: hsl(10 12% 62%);
+    --accent: hsl(47 85% 65%);
+    --accent-foreground: hsl(13 22% 8%);
+    --destructive: hsl(6 55% 30%);
+    --destructive-foreground: hsl(25 30% 92%);
+    --border: hsl(13 23% 16%);
+    --input: hsl(13 23% 16%);
+    --ring: hsl(22 78% 70%);
 
-    --sidebar: hsl(240 5.9% 10%);
-    --sidebar-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-primary: hsl(224.3 76.3% 48%);
-    --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(240 3.7% 15.9%);
-    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-border: hsl(240 3.7% 15.9%);
-    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+    --chip: hsl(0 0% 100% / 0.08);
+    --peach-top: hsl(13 25% 12%);
+    --peach-bottom: hsl(11 30% 16%);
+    --skeleton: hsl(0 0% 22%);
+
+    --sidebar: hsl(11 19% 10%);
+    --sidebar-foreground: hsl(25 30% 92%);
+    --sidebar-primary: hsl(22 78% 83%);
+    --sidebar-primary-foreground: hsl(13 22% 8%);
+    --sidebar-accent: hsl(11 19% 15%);
+    --sidebar-accent-foreground: hsl(25 30% 92%);
+    --sidebar-border: hsl(13 23% 15%);
+    --sidebar-ring: hsl(22 78% 70%);
   }
 }
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --font-sans: "Inter Tight", "Plus Jakarta Sans", Figtree, ui-sans-serif,
+    system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 10px);
+  --radius-md: calc(var(--radius) - 6px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  /* 4-column catalogue grids; 2400px keeps cards wide enough. */
+  --breakpoint-3xl: 150rem;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -88,9 +127,15 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-chip: var(--chip);
+  --color-peach-top: var(--peach-top);
+  --color-peach-bottom: var(--peach-bottom);
+  --color-skeleton: var(--skeleton);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -108,5 +153,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
   }
 }

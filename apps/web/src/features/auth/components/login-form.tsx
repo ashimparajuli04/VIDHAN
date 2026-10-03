@@ -50,10 +50,12 @@ export function LoginForm() {
   });
 
   return (
-    <div className="w-full max-w-sm rounded-xl border border-border bg-card p-6 text-card-foreground shadow-sm">
-      <header className="space-y-1">
-        <h1 className="text-xl font-semibold tracking-tight">Welcome back</h1>
-        <p className="text-sm text-muted-foreground">
+    <div className="w-full max-w-md rounded-[var(--radius)] border border-border bg-card p-8 text-card-foreground">
+      <header className="space-y-1.5">
+        <h1 className="text-3xl font-extrabold tracking-[-0.03em]">
+          Welcome back
+        </h1>
+        <p className="text-[15px] text-muted-foreground">
           Sign in to continue to Vidhan.
         </p>
       </header>
@@ -92,7 +94,7 @@ export function LoginForm() {
                       type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
                       placeholder="••••••••"
-                      className="pr-9"
+                      className="pr-11"
                     />
                     <button
                       type="button"
@@ -100,12 +102,12 @@ export function LoginForm() {
                       aria-label={
                         showPassword ? "Hide password" : "Show password"
                       }
-                      className="absolute inset-y-0 right-0 flex w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                      className="absolute inset-y-0 right-0 flex w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {showPassword ? (
-                        <EyeOff className="size-4" />
+                        <EyeOff className="size-5" />
                       ) : (
-                        <Eye className="size-4" />
+                        <Eye className="size-5" />
                       )}
                     </button>
                   </div>
@@ -116,7 +118,7 @@ export function LoginForm() {
           />
 
           {formError && (
-            <p role="alert" className="text-sm text-destructive">
+            <p role="alert" className="text-[15px] text-destructive">
               {formError}
             </p>
           )}
@@ -130,7 +132,7 @@ export function LoginForm() {
         </form>
       </Form>
 
-      <p className="mt-6 text-center text-sm text-muted-foreground">
+      <p className="mt-6 text-center text-[15px] text-muted-foreground">
         Don&apos;t have an account?{" "}
         <Link
           href="/register"

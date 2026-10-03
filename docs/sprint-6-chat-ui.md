@@ -130,3 +130,13 @@ opens `/chat?id=<seed>` with its history.
 
 - `apps/web/src/features/lawyers/components/LawyerCard.tsx` is an unused duplicate of
   `apps/web/src/components/lawyers/lawyer-card.tsx`.
+
+## Follow-ups (post-sprint)
+
+- **Mode pill (empty state) + composer toggle.** `TChatMode = "general" | "research"`
+  lives in the chat store, defaulting to **general**. The empty state shows a display-only
+  pill ("General: Practical legal answers, guidance, and lawyer connections" /
+  "Research: In-depth legal analysis, sources, and research tools") driven by the store
+  value; the composer's disclaimer row shows a right-aligned "Vidhan - General / Research"
+  text toggle (`aria-pressed`). Both read/write the same store value. In-memory only,
+  still mock-era — no API branch yet.

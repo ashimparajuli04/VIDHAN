@@ -72,11 +72,20 @@ lawyers.post("/", async (c) => {
     ...parsed.data,
     id: crypto.randomUUID(),
     languages: asJson(parsed.data.languages),
+    consultationModes: parsed.data.consultationModes
+      ? asJson(parsed.data.consultationModes)
+      : null,
+    courts: parsed.data.courts ? asJson(parsed.data.courts) : null,
+    education: parsed.data.education ? asJson(parsed.data.education) : null,
     bookingUrl: parsed.data.bookingUrl ?? null,
     barNumber: parsed.data.barNumber ?? null,
     yearsOfExperience: parsed.data.yearsOfExperience ?? null,
     bio: parsed.data.bio ?? null,
     imageKey: parsed.data.imageKey ?? null,
+    firmName: parsed.data.firmName ?? null,
+    consultationFee: parsed.data.consultationFee ?? null,
+    freeFirstConsultation: parsed.data.freeFirstConsultation ?? false,
+    barEnrollmentYear: parsed.data.barEnrollmentYear ?? null,
     verified: parsed.data.verified ?? false,
     active: parsed.data.active ?? true,
     createdAt: now,
@@ -112,6 +121,13 @@ lawyers.patch("/:id", async (c) => {
     ...existing,
     ...parsed.data,
     languages: parsed.data.languages ? asJson(parsed.data.languages) : existing.languages,
+    consultationModes: parsed.data.consultationModes
+      ? asJson(parsed.data.consultationModes)
+      : existing.consultationModes,
+    courts: parsed.data.courts ? asJson(parsed.data.courts) : existing.courts,
+    education: parsed.data.education
+      ? asJson(parsed.data.education)
+      : existing.education,
     updatedAt: new Date().toISOString(),
   };
   try {

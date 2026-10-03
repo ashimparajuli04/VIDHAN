@@ -3,12 +3,15 @@
 import * as React from "react";
 
 import { createSession as createSessionRequest, listSessions } from "./api";
-import type { TChatContextValue, TChatSessionView } from "./types";
+import type { TChatContextValue, TChatMode, TChatSessionView } from "./types";
 
 const ChatContext = React.createContext<TChatContextValue | null>(null);
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [sessions, setSessions] = React.useState<TChatSessionView[]>([]);
+  // General is the default; the empty-state picker and composer toggle
+  // override it for the rest of the session.
+  const [mode, setMode] = React.useState<TChatMode>("general");
 
   const refresh = React.useCallback(async () => {
     try {
@@ -39,8 +42,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = React.useMemo<TChatContextValue>(
-    () => ({ sessions, createSession, refresh, setSessionTitle }),
-    [sessions, createSession, refresh, setSessionTitle]
+    () => ({ sessions, mode, createSession, refresh, setSessionTitle, setMode }),
+    [sessions, mode, createSession, refresh, setSessionTitle]
   );
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;

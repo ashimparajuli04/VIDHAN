@@ -22,10 +22,25 @@ export const chat = new Hono<TAuthContext>();
 
 chat.use("*", requireAuth());
 
-// Step budget for one answer. The model may spend all but the last step on
-// tools; the final step is forced text-only so a turn never ends on a tool
-// call with no answer.
-const TOOL_STEP_BUDGET = 6;
+// Step budget for one answer. A reasoning model spends steps on hidden
+// reasoning before each tool call, so the budget must leave a step for the
+// final text answer. The last two steps are forced text-only.
+const TOOL_STEP_BUDGET = 7;
+const FINAL_TEXT_STEP = TOOL_STEP_BUDGET - 2;
+
+// After the first step the model has seen the corpus titles and may still
+// reach for coarse discovery tools and loop. Restrict the active set to the
+// precise navigation + read + cite + lawyer tools so it commits: inspect a
+// summary, read the parts, cite, answer.
+const REFINEMENT_TOOLS = [
+  "get_document_summary",
+  "get_document_outline",
+  "get_sections",
+  "get_section",
+  "search_document_sections",
+  "cite",
+  "find_lawyers",
+] as const;
 
 chat.post("/sessions", async (c) => {
   const db = createDb(c.env.DB);
@@ -144,14 +159,19 @@ chat.post("/sessions/:id/messages", async (c) => {
     system: chatSystemPrompt(c.get("user").language, c.get("user").district, prefetchedContext),
     messages,
     tools: buildTools(c.env, origin),
-    // Prefetched context plus a tight tool budget: retrieval to read a couple
-    // of sections, the cite round-trip, one summarise step, then done.
+    // Prefetched context plus a tool budget: retrieval to read a couple of
+    // sections, the cite round-trip, then a summarise step. A reasoning model
+    // spends extra hidden steps, so leave headroom.
     stopWhen: stepCountIs(TOOL_STEP_BUDGET),
     // The model can flail past its budget and end on a tool call with no text,
-    // leaving the user with only the tool UI. On the final step, force a
-    // text-only answer; any cite already recorded is unaffected.
-    prepareStep: ({ stepNumber }) =>
-      stepNumber >= TOOL_STEP_BUDGET - 1 ? { toolChoice: "none" } : undefined,
+    // leaving the user with only the tool UI. Narrow the tool set after the
+    // first step and force a text-only answer on the final steps, so the turn
+    // always ends with prose; any cite already recorded is unaffected.
+    prepareStep: ({ stepNumber }) => {
+      if (stepNumber >= FINAL_TEXT_STEP) return { toolChoice: "none" };
+      if (stepNumber >= 1) return { activeTools: [...REFINEMENT_TOOLS] };
+      return undefined;
+    },
     onFinish: (event) => {
       // Tool calls live in the step that invoked them, not the final step that
       // summarises the result, so aggregate across every step.
@@ -198,23 +218,29 @@ chat.post("/sessions/:id/messages", async (c) => {
     },
   });
 
-  // The title depends only on the user's query, so generate it alongside the
-  // answer and stream it as a transient data part: the sidebar names the chat
-  // the moment it is ready, without waiting for the answer to finish.
+  // The title depends only on the user's query. Generate it inline (not as a
+  // detached `void` task): the write below must happen while the writer is
+  // still open, or the transient part is dropped when the answer stream closes
+  // first. The waitUntil keeps the isolate alive for the DB write.
   const stream = createUIMessageStream({
-    execute: ({ writer }) => {
-      writer.merge(result.toUIMessageStream());
-      if (isFirstMessage) {
-        void generateTitle(c.env, userMessage.content).then(async (title) => {
-          await touchSession(db, session.id, { title, updatedAt: new Date().toISOString() });
-          writer.write({
-            type: "data-title",
-            id: session.id,
-            data: { sessionId: session.id, title } satisfies TChatTitle,
-            transient: true,
-          });
-        });
-      }
+    execute: async ({ writer }) => {
+      // Reasoning is internal; streaming it would flood the client with
+      // chain-of-thought deltas the UI has no surface for.
+      writer.merge(result.toUIMessageStream({ sendReasoning: false }));
+      if (!isFirstMessage) return;
+      const title = await generateTitle(c.env, userMessage.content);
+      c.executionCtx.waitUntil(
+        touchSession(db, session.id, {
+          title,
+          updatedAt: new Date().toISOString(),
+        }),
+      );
+      writer.write({
+        type: "data-title",
+        id: session.id,
+        data: { sessionId: session.id, title } satisfies TChatTitle,
+        transient: true,
+      });
     },
   });
 

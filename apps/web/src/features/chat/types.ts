@@ -38,10 +38,14 @@ export type TChatSessionView = {
 
 export type TStreamStatus = "idle" | "thinking" | "streaming" | "searching";
 
+export type TChatMode = "general" | "research";
+
 export type TChatContextValue = {
   sessions: TChatSessionView[];
+  mode: TChatMode;
   createSession: () => Promise<string>;
   refresh: () => Promise<void>;
   /** Upserts a session with a streamed title, before a full refresh lands. */
   setSessionTitle: (id: string, title: string) => void;
+  setMode: (mode: TChatMode) => void;
 };

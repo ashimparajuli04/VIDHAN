@@ -39,18 +39,18 @@ export function MessageBubble({
         )}
       >
         {thinking && (
-          <div className="w-fit rounded-2xl bg-muted/60 px-2 py-1">
+          <div className="w-fit rounded-full bg-muted px-2 py-1">
             <ThinkingDots />
           </div>
         )}
 
         {message.content ? (
           isUser ? (
-            <div className="rounded-2xl bg-primary px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap text-primary-foreground">
+            <div className="rounded-[22px] rounded-br-md bg-primary px-5 py-3 text-[15px] leading-relaxed whitespace-pre-wrap wrap-anywhere text-primary-foreground">
               {message.content}
             </div>
           ) : (
-            <div className="prose prose-sm dark:prose-invert max-w-none rounded-2xl bg-muted/60 px-4 py-2.5 text-sm leading-relaxed prose-p:my-1.5 prose-p:first:mt-0 prose-p:last:mb-0">
+            <div className="prose prose-sm dark:prose-invert max-w-none rounded-[22px] rounded-bl-md border border-border bg-card px-5 py-3 text-[15px] leading-relaxed prose-p:my-1.5 prose-p:first:mt-0 prose-p:last:mb-0">
               <Markdown remarkPlugins={[remarkGfm]}>{message.content}</Markdown>
             </div>
           )

@@ -120,6 +120,130 @@ export async function getCompactOutline(
   };
 }
 
+// Summary + a flat index of the document's leaf sections, so the model can
+// judge relevance from the stored brief and then fetch exact sections by id.
+// The stored summary is generated offline (see ingest/summaries.ts) and already
+// contains both the prose summary and the parts brief.
+export type TDocumentSummary = {
+  documentId: string;
+  title: string;
+  summary: string | null;
+  /** Total leaf sections; `sections` may be a bounded slice of this. */
+  sectionCount: number;
+  /** Bounded id+heading index. For large documents the model should narrow with
+   * search_document_sections rather than read this list alone. */
+  sections: { nodeId: string; label: string }[];
+  truncated: boolean;
+};
+
+// A 300-section code would otherwise dump ~12k tokens of ids per turn. Cap the
+// index and let the model search within the document when it is larger.
+const SUMMARY_SECTION_LIMIT = 80;
+
+export async function getDocumentSummary(
+  db: Db,
+  documentId: string,
+): Promise<TDocumentSummary | null> {
+  const [doc] = await db
+    .select({
+      id: documents.id,
+      title: documents.title,
+      summary: documents.summary,
+    })
+    .from(documents)
+    .where(eq(documents.id, documentId))
+    .limit(1);
+  if (!doc) return null;
+
+  const rows = await db
+    .select({
+      id: documentNodes.id,
+      identifier: documentNodes.identifier,
+      title: documentNodes.title,
+      heading: documentNodes.heading,
+      nodeType: documentNodes.nodeType,
+      position: documentNodes.position,
+    })
+    .from(documentNodes)
+    .where(eq(documentNodes.documentId, documentId))
+    .orderBy(asc(documentNodes.position));
+
+  // Leaf provisions (section/sub_section) carry the citable text. Containers are
+  // skipped — their content is covered by the brief.
+  const isSection = (nodeType: string) =>
+    nodeType === "section" || nodeType === "sub_section" || nodeType === "clause";
+  const all = rows
+    .filter((row) => isSection(row.nodeType))
+    .map((row) => ({
+      nodeId: row.id,
+      label: `${row.identifier ? `${row.identifier}. ` : ""}${
+        row.heading ?? row.title
+      }`.trim(),
+    }));
+
+  return {
+    documentId: doc.id,
+    title: doc.title,
+    summary: doc.summary,
+    sectionCount: all.length,
+    sections: all.slice(0, SUMMARY_SECTION_LIMIT),
+    truncated: all.length > SUMMARY_SECTION_LIMIT,
+  };
+}
+
+// Batch fetch: several sections in one round trip, so the model reads a handful
+// of candidate provisions without one tool call each.
+export async function getSections(
+  db: Db,
+  documentId: string,
+  nodeIds: string[],
+  maxChars = DEFAULT_SECTION_MAX_CHARS,
+): Promise<TSectionText[]> {
+  const unique = [...new Set(nodeIds)];
+  if (unique.length === 0) return [];
+
+  const [doc] = await db
+    .select({ id: documents.id, title: documents.title })
+    .from(documents)
+    .where(eq(documents.id, documentId))
+    .limit(1);
+  if (!doc) return [];
+
+  const rows = await db
+    .select({
+      id: documentNodes.id,
+      identifier: documentNodes.identifier,
+      heading: documentNodes.heading,
+      title: documentNodes.title,
+      content: documentNodes.content,
+      citation: documentNodes.citation,
+    })
+    .from(documentNodes)
+    .where(
+      and(eq(documentNodes.documentId, documentId), inArray(documentNodes.id, unique)),
+    );
+
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  return unique.flatMap((id) => {
+    const node = byId.get(id);
+    if (!node) return [];
+    const content = node.content ?? "";
+    return [
+      {
+        documentId,
+        documentTitle: doc.title,
+        nodeId: node.id,
+        identifier: node.identifier,
+        heading: node.heading ?? node.title,
+        content: content.slice(0, maxChars),
+        contentLength: content.length,
+        truncated: content.length > maxChars,
+        citation: node.citation,
+      },
+    ];
+  });
+}
+
 // One node's body, bounded to `maxChars`. The caller uses `truncated` +
 // `contentLength` to decide whether to fetch the remainder.
 export async function getBoundedSection(

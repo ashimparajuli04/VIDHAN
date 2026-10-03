@@ -15,6 +15,8 @@ import {
   DEFAULT_SECTION_MAX_CHARS,
   getBoundedSection,
   getCompactOutline,
+  getDocumentSummary,
+  getSections,
   resolveReferences,
   searchDocumentSections,
 } from "../documents/retrieval";
@@ -80,6 +82,84 @@ export function buildTools(env: Env, origin: string) {
             title: doc.title,
             documentType: doc.documentType,
           })),
+        };
+      },
+    }),
+
+    // Primary discovery step: titles are enough for the model to shortlist the
+    // likely statute without relying on lexical matching.
+    get_document_titles: tool({
+      description:
+        "List every legal document in the corpus by title and id. Start here: read " +
+        "the titles and pick the one most likely to contain the provision. Prefer " +
+        "this over keyword search when the user's topic may map to a differently " +
+        "worded or non-English statute.",
+      inputSchema: z.object({}),
+      execute: async () => {
+        const db = createDb(env.DB);
+        const docs = await listDocumentTitles(db);
+        return {
+          documents: docs.map((doc) => ({
+            id: doc.id,
+            title: doc.title,
+            documentType: doc.documentType,
+          })),
+        };
+      },
+    }),
+
+    // Second discovery step: a stored summary plus a brief of the parts and an
+    // index of every section id, so the model can confirm relevance and pick the
+    // exact sections to read.
+    get_document_summary: tool({
+      description:
+        "Fetch a document's summary, a brief of its parts, and the id + heading of " +
+        "every section. Use after get_document_titles to confirm the document covers " +
+        "the topic, then pass the relevant section nodeIds to get_sections.",
+      inputSchema: z.object({
+        documentId: z.string().describe("Document id from get_document_titles"),
+      }),
+      execute: async ({ documentId }) => {
+        const db = createDb(env.DB);
+        const summary = await getDocumentSummary(db, documentId);
+        if (!summary) return { error: "not_found", documentId };
+        return summary;
+      },
+    }),
+
+    // Batch reader: several section bodies in one call. This is the preferred
+    // way to read provisions, replacing one-get_section-per-provision.
+    get_sections: tool({
+      description:
+        "Fetch several sections' text and canonical citations by node id in one " +
+        "call. Pass every nodeId you want to read. Bodies are capped; if truncated " +
+        "is true the content continues. Cite the returned citation verbatim.",
+      inputSchema: z.object({
+        documentId: z.string(),
+        nodeIds: z
+          .array(z.string())
+          .min(1)
+          .describe("Node ids from get_document_summary or get_document_outline"),
+        maxChars: z
+          .number()
+          .int()
+          .min(500)
+          .max(20000)
+          .optional()
+          .describe("Per-section character cap; defaults to 6000"),
+      }),
+      execute: async ({ documentId, nodeIds, maxChars }) => {
+        const db = createDb(env.DB);
+        const sections = await getSections(
+          db,
+          documentId,
+          nodeIds,
+          maxChars ?? DEFAULT_SECTION_MAX_CHARS,
+        );
+        return {
+          sections,
+          requested: nodeIds.length,
+          returned: sections.length,
         };
       },
     }),

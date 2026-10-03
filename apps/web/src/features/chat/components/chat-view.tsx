@@ -142,13 +142,16 @@ export function ChatView() {
   }
 
   return (
-    <main className="flex h-[calc(100svh-3rem)] flex-col overflow-hidden">
+    // Fixed to the viewport so the message list scrolls internally and the
+    // composer stays pinned. Phones subtract the 3.5rem mobile header; the
+    // desktop shell has no header to subtract.
+    <main className="flex h-[calc(100svh-3.5rem)] flex-col overflow-hidden md:h-svh">
       {historyLoading ? (
         <div className="flex min-h-0 flex-1 items-center justify-center text-sm text-muted-foreground">
           Loading conversation…
         </div>
       ) : views.length === 0 ? (
-        <ChatEmpty onPick={handleSend} />
+        <ChatEmpty />
       ) : (
         <MessageList
           messages={views}

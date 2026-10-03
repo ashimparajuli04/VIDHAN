@@ -22,8 +22,14 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
 - `id` text PK (uuid, generated app-side)
 - `practiceAreas`, `languages` — JSON text columns, typed via `.$type<...[]>()`
 - `district` — validated against the `DISTRICTS` const (all 77, shared with web/admin dropdowns)
-- `bookingUrl` nullable — contact/booking mechanism deferred
+- `bookingUrl` nullable — the **only** reach mechanism. Contact fields (`phone`, `whatsapp`,
+  `email`, `officeAddress`) are deliberately absent from the model — no direct contact on
+  public surfaces by design (see `docs/web-lawyer-details.md`).
 - `barNumber`, `yearsOfExperience`, `bio` nullable
+- `firmName`, `consultationFee` (NPR, null = not listed), `freeFirstConsultation` (default
+  `false`), `consultationModes` / `courts` / `education` (JSON, closed enums
+  `CONSULTATION_MODES` / `COURTS`, `education` = `{ degree, institution, year? }[]`),
+  `barEnrollmentYear` — all nullable decision-useful fields for the profile page
 - unique index on `bar_number` (unique only when present)
 - `verified`, `active` — boolean mode over integer, defaults `false`/`true`
 - `createdAt`, `updatedAt` — ISO strings set app-side

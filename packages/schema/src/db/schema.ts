@@ -21,6 +21,25 @@ export const PRACTICE_AREAS = [
 
 export const LANGUAGES = ["en", "ne", "roman_ne"] as const;
 
+// Willingness to be reached for a consultation; courts mirrors the
+// tiers of Nepal's judiciary (Supreme → High → District, plus special
+// courts and tribunals).
+export const CONSULTATION_MODES = ["in_person", "phone", "video"] as const;
+export const COURTS = [
+  "supreme_court",
+  "high_court",
+  "district_court",
+  "special_courts",
+  "tribunals",
+] as const;
+
+export const ZLawyerEducation = z.object({
+  degree: z.string().min(1).max(120),
+  institution: z.string().min(1).max(160),
+  year: z.number().int().min(1950).max(2030).optional(),
+});
+export type TLawyerEducation = z.infer<typeof ZLawyerEducation>;
+
 export const DISTRICTS = [
   "bhojpur", "dhankuta", "ilam", "jhapa", "khotang", "morang",
   "okhaldhunga", "panchthar", "sankhuwasabha", "solukhumbu", "sunsari",
@@ -43,6 +62,8 @@ export const DISTRICTS = [
 export type TPracticeArea = (typeof PRACTICE_AREAS)[number];
 export type TLanguage = (typeof LANGUAGES)[number];
 export type TDistrict = (typeof DISTRICTS)[number];
+export type TConsultationMode = (typeof CONSULTATION_MODES)[number];
+export type TCourt = (typeof COURTS)[number];
 
 export const lawyers = sqliteTable(
   "lawyers",
@@ -61,6 +82,20 @@ export const lawyers = sqliteTable(
     yearsOfExperience: integer("years_of_experience"),
     bio: text("bio"),
     imageKey: text("image_key"),
+    firmName: text("firm_name"),
+    // NPR; null = fee not listed
+    consultationFee: integer("consultation_fee"),
+    freeFirstConsultation: integer("free_first_consultation", {
+      mode: "boolean",
+    })
+      .notNull()
+      .default(false),
+    consultationModes: text("consultation_modes", { mode: "json" })
+      .$type<TConsultationMode[]>(),
+    courts: text("courts", { mode: "json" }).$type<TCourt[]>(),
+    education: text("education", { mode: "json" })
+      .$type<TLawyerEducation[]>(),
+    barEnrollmentYear: integer("bar_enrollment_year"),
     verified: integer("verified", { mode: "boolean" }).notNull().default(false),
     active: integer("active", { mode: "boolean" }).notNull().default(true),
     createdAt: text("created_at").notNull(),
@@ -234,6 +269,11 @@ const lawyerRefinements = {
   bookingUrl: (s: z.ZodString) => s.url(),
   yearsOfExperience: (s: z.ZodNumber) => s.int().min(0),
   bio: (s: z.ZodString) => s.max(500),
+  consultationFee: (s: z.ZodNumber) => s.int().min(0),
+  consultationModes: () => z.array(z.enum(CONSULTATION_MODES)),
+  courts: () => z.array(z.enum(COURTS)),
+  education: () => z.array(ZLawyerEducation),
+  barEnrollmentYear: (s: z.ZodNumber) => s.int().min(1950).max(2030),
 };
 
 export const ZLawyer = createSelectSchema(lawyers, lawyerRefinements);
@@ -261,13 +301,25 @@ export const ZPublicLawyer = z.object({
   bio: z.string().nullable(),
   bookingUrl: z.string().nullable(),
   imageUrl: z.string().nullable(),
+  verified: z.boolean(),
+  consultationFee: z.number().int().min(0).nullable(),
+  freeFirstConsultation: z.boolean(),
+  consultationModes: z.array(z.enum(CONSULTATION_MODES)).nullable(),
 });
 
-// Detail/profile view adds the trust signals the list deliberately hides.
-// Internal fields (imageKey, timestamps, active) stay out of public surfaces.
+// Detail/profile view adds the trust and credential signals the list
+// deliberately hides (courts, credentials, education). Contact details
+// (phone, email, office address) are deliberately absent — the bookingUrl
+// is the only reach mechanism. Internal fields (imageKey, timestamps,
+// active) stay out of public surfaces; `memberSince` is the year derived
+// from createdAt.
 export const ZPublicLawyerDetail = ZPublicLawyer.extend({
-  verified: z.boolean(),
   barNumber: z.string().nullable(),
+  firmName: z.string().nullable(),
+  courts: z.array(z.enum(COURTS)).nullable(),
+  education: z.array(ZLawyerEducation).nullable(),
+  barEnrollmentYear: z.number().int().min(1950).max(2030).nullable(),
+  memberSince: z.number().int().min(1950).max(2030),
 });
 
 export const ZDocument = createSelectSchema(documents);

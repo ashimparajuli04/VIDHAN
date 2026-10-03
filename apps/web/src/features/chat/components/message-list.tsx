@@ -96,7 +96,7 @@ export function MessageList({
             if (!viewport) return;
             viewport.scrollTop = viewport.scrollHeight;
           }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full shadow-md"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full shadow-sm"
         >
           <ArrowDown />
           Jump to latest

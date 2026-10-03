@@ -1,12 +1,11 @@
 "use client";
 
 import * as React from "react";
+import { SidebarToggleIcon } from "@/components/sidebar-toggle-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BriefcaseBusiness,
-  ChevronsLeft,
-  ChevronsRight,
   Library,
   LogOut,
   MessageSquare,
@@ -27,7 +26,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -40,7 +38,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useAuth } from "@/features/auth/provider";
 import { useChat } from "@/features/chat/store";
 
@@ -92,7 +89,7 @@ export function AppSidebar() {
                   href="/chat"
                   className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-all duration-150 hover:bg-sidebar-accent group-hover/logo-expand:scale-90 group-hover/logo-expand:opacity-0"
                 >
-                  <Scale className="size-5 shrink-0 text-sidebar-primary" />
+                  <Scale className="size-6 shrink-0 text-sidebar-primary" />
                 </Link>
 
                 {/* Expand */}
@@ -104,7 +101,7 @@ export function AppSidebar() {
                   onClick={toggleSidebar}
                   className="absolute inset-0 hidden pointer-events-none items-center justify-center rounded-lg text-sidebar-foreground/60 opacity-0 transition-all duration-150 hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:opacity-100 focus-visible:pointer-events-auto focus-visible:ring-2 focus-visible:ring-sidebar-ring group-hover/logo-expand:pointer-events-auto group-hover/logo-expand:opacity-100 md:flex"
                 >
-                  <ChevronsRight className="size-4" />
+                  <SidebarToggleIcon className="size-5" />
                 </button>
               </div>
             </>
@@ -116,10 +113,10 @@ export function AppSidebar() {
                 href="/chat"
                 className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-sidebar-accent"
               >
-                <Scale className="size-5 shrink-0 text-sidebar-primary" />
+                <Scale className="size-6 shrink-0 text-sidebar-primary" />
 
-                <span className="truncate text-sm font-semibold tracking-tight">
-                  VIDHAN
+                <span className="truncate text-base font-bold tracking-tight">
+                  Vidhan
                 </span>
               </Link>
 
@@ -130,9 +127,9 @@ export function AppSidebar() {
                 aria-label="Collapse sidebar"
                 title="Collapse sidebar"
                 onClick={toggleSidebar}
-                className="hidden size-8 items-center justify-center rounded-md text-sidebar-foreground/60 transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring md:flex"
+                className="hidden size-9 items-center justify-center rounded-md text-sidebar-foreground/60 transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:ring-2 focus-visible:ring-sidebar-ring md:flex"
               >
-                <ChevronsLeft className="size-4" />
+                <SidebarToggleIcon className="size-5" />
               </button>
             </>
           )}
@@ -159,10 +156,10 @@ export function AppSidebar() {
                       asChild
                       isActive={isActive}
                       tooltip={item.title}
-                      className="h-9 rounded-lg"
+                      className="h-11 rounded-lg"
                     >
                       <Link href={item.href}>
-                        <item.icon className="size-[17px]" />
+                        <item.icon className="size-5" />
                         <span>{item.title}</span>
                       </Link>
                     </SidebarMenuButton>
@@ -177,7 +174,7 @@ export function AppSidebar() {
 
         {!collapsed && (
           <SidebarGroup className="mt-4 p-0">
-            <SidebarGroupLabel className="px-2 text-[11px] font-medium uppercase tracking-wider text-sidebar-foreground/50">
+            <SidebarGroupLabel className="px-2 text-[13px] font-medium text-sidebar-foreground/60">
               Recent
             </SidebarGroupLabel>
 
@@ -187,10 +184,10 @@ export function AppSidebar() {
                   <SidebarMenuItem key={chat.id}>
                     <SidebarMenuButton
                       asChild
-                      className="group h-9 rounded-lg px-2 text-[13px] font-normal"
+                      className="group h-11 rounded-lg px-2 text-sm font-normal"
                     >
                       <Link href={`/chat?id=${chat.id}`}>
-                        <MessageSquare className="size-3.5 shrink-0 opacity-50" />
+                        <MessageSquare className="size-4 shrink-0 opacity-50" />
 
                         <span className="min-w-0 flex-1 truncate">
                           {chat.title}
@@ -220,17 +217,6 @@ export function AppSidebar() {
       {/* ───────────────── Footer ───────────────── */}
 
       <SidebarFooter className="border-t-0 p-2">
-
-        {/* Theme toggle */}
-
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <ThemeToggle />
-          </SidebarMenuItem>
-        </SidebarMenu>
-
-        <SidebarSeparator className="mx-2 my-2" />
-
         {/* User */}
 
         <SidebarMenu>
@@ -242,14 +228,14 @@ export function AppSidebar() {
                   tooltip={`${displayName} - ${displayEmail}`}
                   className="rounded-lg"
                 >
-                  <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sidebar-accent">
-                    <User className="size-4" />
+                  <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-sidebar-accent">
+                    <User className="size-5" />
                   </div>
 
-                  <div className="grid min-w-0 flex-1 text-left text-sm leading-tight">
+                  <div className="grid min-w-0 flex-1 text-left text-[15px] leading-tight">
                     <span className="truncate font-medium">{displayName}</span>
 
-                    <span className="truncate text-xs text-sidebar-foreground/60">
+                    <span className="truncate text-[13px] text-sidebar-foreground/60">
                       {displayEmail}
                     </span>
                   </div>
@@ -264,8 +250,8 @@ export function AppSidebar() {
                 className="w-60 rounded-xl"
               >
                 <DropdownMenuLabel className="font-normal">
-                  <p className="text-sm font-medium">{displayName}</p>
-                  <p className="text-xs text-muted-foreground">{displayEmail}</p>
+                  <p className="text-[15px] font-medium">{displayName}</p>
+                  <p className="text-[13px] text-muted-foreground">{displayEmail}</p>
                 </DropdownMenuLabel>
 
                 <DropdownMenuSeparator />
