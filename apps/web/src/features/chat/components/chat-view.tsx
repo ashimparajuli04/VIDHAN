@@ -29,9 +29,9 @@ export function ChatView() {
   }
 
   return (
-    // Fixed to the viewport below the 3rem app header so the message list
+    // Fixed to the viewport (no app header to subtract) so the message list
     // scrolls internally and the composer stays pinned.
-    <main className="flex h-[calc(100svh-3rem)] flex-col overflow-hidden">
+    <main className="flex h-svh flex-col overflow-hidden">
       {messages.length === 0 ? (
         <ChatEmpty onPick={handleSend} />
       ) : (

@@ -8,7 +8,7 @@ export function ThinkingDots() {
       {[0, 1, 2].map((index) => (
         <span
           key={index}
-          className="size-1.5 animate-bounce rounded-full bg-muted-foreground/60"
+          className="size-2 animate-bounce rounded-full bg-muted-foreground/60"
           style={{ animationDelay: `${index * 150}ms` }}
         />
       ))}

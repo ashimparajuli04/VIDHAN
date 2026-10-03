@@ -100,12 +100,12 @@ export function RegisterForm() {
   });
 
   return (
-    <div className="w-full max-w-md rounded-xl border border-border bg-card p-6 text-card-foreground shadow-sm">
+    <div className="w-full max-w-md rounded-[var(--radius)] border border-border bg-card p-7 text-card-foreground">
       <header className="space-y-2">
-        <h1 className="text-xl font-semibold tracking-tight">
+        <h1 className="text-3xl font-extrabold tracking-[-0.03em]">
           Create your account
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-[15px] text-muted-foreground">
           Step {step + 1} of {STEP_TITLES.length} — {STEP_TITLES[step]}
         </p>
         <div className="h-1 w-full overflow-hidden rounded-full bg-muted">
@@ -170,7 +170,7 @@ export function RegisterForm() {
                           type={showPassword ? "text" : "password"}
                           autoComplete="new-password"
                           placeholder="At least 8 characters"
-                          className="pr-9"
+                          className="pr-11"
                         />
                         <button
                           type="button"
@@ -178,12 +178,12 @@ export function RegisterForm() {
                           aria-label={
                             showPassword ? "Hide password" : "Show password"
                           }
-                          className="absolute inset-y-0 right-0 flex w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                          className="absolute inset-y-0 right-0 flex w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
                           {showPassword ? (
-                            <EyeOff className="size-4" />
+                            <EyeOff className="size-5" />
                           ) : (
-                            <Eye className="size-4" />
+                            <Eye className="size-5" />
                           )}
                         </button>
                       </div>
@@ -206,7 +206,7 @@ export function RegisterForm() {
                           type={showConfirm ? "text" : "password"}
                           autoComplete="new-password"
                           placeholder="Re-enter your password"
-                          className="pr-9"
+                          className="pr-11"
                         />
                         <button
                           type="button"
@@ -214,12 +214,12 @@ export function RegisterForm() {
                           aria-label={
                             showConfirm ? "Hide password" : "Show password"
                           }
-                          className="absolute inset-y-0 right-0 flex w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                          className="absolute inset-y-0 right-0 flex w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                         >
                           {showConfirm ? (
-                            <EyeOff className="size-4" />
+                            <EyeOff className="size-5" />
                           ) : (
-                            <Eye className="size-4" />
+                            <Eye className="size-5" />
                           )}
                         </button>
                       </div>
@@ -292,12 +292,12 @@ export function RegisterForm() {
           )}
 
           {step === 2 && (
-            <label className="flex items-start gap-3 text-sm">
+            <label className="flex items-start gap-3 text-[15px]">
               <input
                 type="checkbox"
                 checked={accepted}
                 onChange={(event) => setAccepted(event.target.checked)}
-                className="mt-0.5 size-4 shrink-0 rounded border-input accent-primary"
+                className="mt-1 size-5 shrink-0 rounded border-input accent-primary"
               />
               <span className="text-muted-foreground">
                 I agree to the{" "}
@@ -320,7 +320,7 @@ export function RegisterForm() {
           )}
 
           {formError && (
-            <p role="alert" className="text-sm text-destructive">
+            <p role="alert" className="text-[15px] text-destructive">
               {formError}
             </p>
           )}
@@ -357,7 +357,7 @@ export function RegisterForm() {
         </form>
       </Form>
 
-      <p className="mt-6 text-center text-sm text-muted-foreground">
+      <p className="mt-6 text-center text-[15px] text-muted-foreground">
         Already have an account?{" "}
         <Link
           href="/login"

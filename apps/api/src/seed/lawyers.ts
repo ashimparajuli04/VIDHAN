@@ -2,18 +2,41 @@ import { writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  CONSULTATION_MODES,
+  COURTS,
   DISTRICTS,
   LANGUAGES,
   PRACTICE_AREAS,
   ZLawyerCreate,
 } from "@vidhan/schema";
-import type { TDistrict, TLanguage, TPracticeArea } from "@vidhan/schema";
+import type {
+  TConsultationMode,
+  TCourt,
+  TDistrict,
+  TLanguage,
+  TLawyerEducation,
+  TPracticeArea,
+} from "@vidhan/schema";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(HERE, "..", "..", "..", "..", "data", "lawyers.seed.sql");
 
 const COUNT = 80;
 const NOW = "2026-01-15T09:00:00.000Z";
+const NOW_YEAR = 2026;
+
+// Every fee and year below is fictional; phone-like and email-like values
+// are deliberately fake (`example.com`) — seed data must never contain
+// real people's contact details.
+const FEES = [1000, 1500, 2000, 2500, 3000, 5000] as const;
+const DEGREES = ["LLB", "BA LLB", "BCom LLB"] as const;
+const INSTITUTIONS = [
+  "Nepal Law Campus, Tribhuvan University",
+  "Kathmandu School of Law",
+  "Purbanchal University Faculty of Law",
+  "Pokhara University School of Law",
+  "Mid-Western University Faculty of Law",
+] as const;
 
 const FIRST_NAMES = [
   "Aarav", "Sita", "Ramesh", "Gita", "Bishal", "Sunita", "Prakash", "Anjali",
@@ -87,6 +110,36 @@ function buildRow(index: number) {
   const verified = rand() < 0.85;
   const active = rand() < 0.92;
 
+  // ── Newer decision-useful fields (draws appended so the PRNG stream for
+  // ── the columns above stays identical to earlier seed runs) ──
+  const firmName = rand() < 0.4
+    ? `${LAST_NAMES[(index * 11) % LAST_NAMES.length]} & Associates`
+    : null;
+  const consultationFee = rand() < 0.65
+    ? FEES[Math.floor(rand() * FEES.length)]
+    : null;
+  const freeFirstConsultation = rand() < 0.35;
+  const consultationModes =
+    rand() < 0.7 ? sample(CONSULTATION_MODES, 1, 3) : null;
+  const courts = rand() < 0.75 ? sample(COURTS, 1, 3) : null;
+  const barEnrollmentYear = rand() < 0.8
+    ? Math.max(1990, NOW_YEAR - yearsOfExperience)
+    : null;
+  const education: TLawyerEducation[] | null = rand() < 0.7
+    ? [
+        {
+          degree: pick(DEGREES),
+          institution: pick(INSTITUTIONS),
+          year: barEnrollmentYear
+            ? barEnrollmentYear - 1 - Math.floor(rand() * 5)
+            : undefined,
+        },
+        ...(rand() < 0.3
+          ? [{ degree: "LLM", institution: pick(INSTITUTIONS) }]
+          : []),
+      ]
+    : null;
+
   return {
     id: `seed-${String(index + 1).padStart(3, "0")}`,
     name,
@@ -99,6 +152,13 @@ function buildRow(index: number) {
     bio,
     verified,
     active,
+    firmName,
+    consultationFee,
+    freeFirstConsultation,
+    consultationModes,
+    courts,
+    education,
+    barEnrollmentYear,
     createdAt: NOW,
     updatedAt: NOW,
   };
@@ -134,12 +194,25 @@ async function main() {
         row.active ? 1 : 0,
         sqlString(row.createdAt),
         sqlString(row.updatedAt),
+        sqlNullable(row.firmName ?? null),
+        row.consultationFee === null || row.consultationFee === undefined
+          ? "NULL"
+          : String(row.consultationFee),
+        row.freeFirstConsultation ? 1 : 0,
+        row.consultationModes
+          ? sqlString(JSON.stringify(row.consultationModes))
+          : "NULL",
+        row.courts ? sqlString(JSON.stringify(row.courts)) : "NULL",
+        row.education ? sqlString(JSON.stringify(row.education)) : "NULL",
+        row.barEnrollmentYear === null || row.barEnrollmentYear === undefined
+          ? "NULL"
+          : String(row.barEnrollmentYear),
       ].join(", "),
     )
     .map((cols) => `  (${cols})`)
     .join(",\n");
 
-  const sql = `INSERT INTO lawyers (id, name, practice_areas, district, languages, booking_url, bar_number, years_of_experience, bio, verified, active, created_at, updated_at) VALUES\n${values};\n`;
+  const sql = `INSERT INTO lawyers (id, name, practice_areas, district, languages, booking_url, bar_number, years_of_experience, bio, verified, active, created_at, updated_at, firm_name, consultation_fee, free_first_consultation, consultation_modes, courts, education, bar_enrollment_year) VALUES\n${values};\n`;
 
   await writeFile(OUT, sql, "utf-8");
   console.log(`[seed] wrote ${rows.length} lawyers to ${OUT}`);

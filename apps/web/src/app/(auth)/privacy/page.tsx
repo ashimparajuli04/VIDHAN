@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function PrivacyPage() {
   return (
-    <article className="w-full max-w-2xl rounded-xl border border-border bg-card p-6 text-sm text-card-foreground shadow-sm md:p-8">
-      <h1 className="text-2xl font-semibold tracking-tight">Privacy Policy</h1>
+    <article className="w-full max-w-2xl rounded-[var(--radius)] border border-border bg-card p-7 text-[15px] text-card-foreground md:p-8">
+      <h1 className="text-3xl font-extrabold tracking-[-0.03em]">Privacy Policy</h1>
       <p className="mt-2 text-muted-foreground">
         Last updated 2 October 2026.
       </p>

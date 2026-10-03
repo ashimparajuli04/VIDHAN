@@ -5,6 +5,8 @@ import { ArrowUp, Square } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
+import { useChat } from "../store";
+
 const MAX_HEIGHT_PX = 200;
 
 export function ChatComposer({
@@ -18,6 +20,7 @@ export function ChatComposer({
 }) {
   const [value, setValue] = React.useState("");
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+  const { mode, setMode } = useChat();
 
   React.useEffect(() => {
     const el = textareaRef.current;
@@ -41,9 +44,10 @@ export function ChatComposer({
   }
 
   return (
-    <div className="border-t bg-background/80 backdrop-blur">
-      <div className="mx-auto w-full max-w-3xl px-4 py-3">
-        <div className="flex items-end gap-2 rounded-2xl border bg-card p-2 shadow-sm focus-within:border-ring/60">
+    // Floating pill composer; the send action is a dark circle inside it.
+    <div className="px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:pb-5">
+      <div className="mx-auto w-full max-w-3xl">
+        <div className="flex items-end gap-1.5 rounded-full border border-border bg-white p-1.5 pl-5 transition-[border-color] focus-within:border-ring/70 dark:bg-white/[0.06]">
           <textarea
             ref={textareaRef}
             rows={1}
@@ -52,13 +56,13 @@ export function ChatComposer({
             onKeyDown={handleKeyDown}
             placeholder="Ask about a legal issue…"
             aria-label="Message"
-            className="max-h-[200px] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm leading-relaxed outline-none placeholder:text-muted-foreground"
+            className="max-h-[200px] flex-1 resize-none self-center bg-transparent px-1 py-2.5 text-base leading-relaxed outline-none placeholder:text-muted-foreground md:text-[15px]"
           />
 
           {streaming ? (
             <Button
               type="button"
-              size="icon-sm"
+              size="icon"
               variant="secondary"
               onClick={onStop}
               aria-label="Stop generating"
@@ -68,7 +72,7 @@ export function ChatComposer({
           ) : (
             <Button
               type="button"
-              size="icon-sm"
+              size="icon"
               onClick={submit}
               disabled={!value.trim()}
               aria-label="Send message"
@@ -78,10 +82,26 @@ export function ChatComposer({
           )}
         </div>
 
-        <p className="mt-2 text-center text-xs text-muted-foreground">
-          Vidhan is an AI and can make mistakes. Verify important information
-          and consult a qualified lawyer before acting.
-        </p>
+        {/* Full disclaimer on wide screens; shortened below sm to avoid wrapping */}
+        <div className="mt-2.5 flex items-center justify-between gap-3 pl-5 pr-5">
+          <p className="text-left text-[13px] text-muted-foreground">
+            <span className="hidden sm:inline">
+              Vidhan is AI and can make mistakes. Please double-check responses.
+            </span>
+            <span aria-hidden="true" className="sm:hidden">
+              Vidhan is AI and can make mistakes.
+            </span>
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setMode(mode === "general" ? "research" : "general")}
+            aria-pressed={mode === "research"}
+            className="shrink-0 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Vidhan - {mode === "general" ? "General" : "Research"}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
   return (
     <HoverCard openDelay={250} closeDelay={100}>
       <HoverCardTrigger asChild>
-        <div className="flex h-full flex-col gap-3 rounded-xl border bg-card p-4 text-left transition-colors hover:border-foreground/15">
+        <div className="flex h-full flex-col gap-3 rounded-[var(--radius)] border border-border bg-card p-5 text-left transition-colors hover:border-foreground/15">
           <div className="flex items-center gap-3">
             {lawyer.imageUrl ? (
               // next/image isn't configured for remote hosts under static export.
@@ -27,16 +27,16 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
                 src={lawyer.imageUrl}
                 alt={lawyer.name}
                 loading="lazy"
-                className="size-11 shrink-0 rounded-full object-cover"
+                className="size-12 shrink-0 rounded-full object-cover"
               />
             ) : (
-              <PigAvatar name={lawyer.name} className="size-11 shrink-0" />
+              <PigAvatar name={lawyer.name} className="size-12 shrink-0" />
             )}
 
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold">{lawyer.name}</p>
-              <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
-                <Clock className="size-3" />
+              <p className="truncate text-[15px] font-semibold">{lawyer.name}</p>
+              <p className="mt-0.5 flex items-center gap-1 text-[13px] text-muted-foreground">
+                <Clock className="size-3.5" />
                 {typeof lawyer.yearsOfExperience === "number"
                   ? `${lawyer.yearsOfExperience} yrs experience`
                   : "Experience not listed"}
@@ -50,16 +50,16 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
         </div>
       </HoverCardTrigger>
 
-      <HoverCardContent align="start" className="w-72 space-y-3">
+      <HoverCardContent align="start" className="w-80 space-y-3">
         <div>
-          <p className="text-sm font-semibold">{lawyer.name}</p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-[15px] font-semibold">{lawyer.name}</p>
+          <p className="text-[13px] text-muted-foreground">
             {districtLabel(lawyer.district)}
           </p>
         </div>
 
         {lawyer.bio && (
-          <p className="line-clamp-3 text-xs leading-relaxed text-muted-foreground">
+          <p className="line-clamp-3 text-[13px] leading-relaxed text-muted-foreground">
             {lawyer.bio}
           </p>
         )}

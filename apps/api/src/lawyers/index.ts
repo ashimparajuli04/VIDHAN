@@ -45,10 +45,16 @@ export function toPublicLawyer(
     bio: row.bio,
     bookingUrl: row.bookingUrl,
     imageUrl: imageUrlFor(env, origin, row.imageKey),
+    verified: row.verified,
+    consultationFee: row.consultationFee,
+    freeFirstConsultation: row.freeFirstConsultation,
+    consultationModes: row.consultationModes,
   };
 }
 
-// Profile view adds trust signals (verified, bar number) the list omits.
+// Profile view adds the trust and credential signals the list
+// omits to keep the payload slim. `memberSince` is derived from createdAt
+// so the raw timestamp never leaves the API.
 export function toPublicLawyerDetail(
   row: LawyerRow,
   env: Env,
@@ -56,8 +62,12 @@ export function toPublicLawyerDetail(
 ): TPublicLawyerDetail {
   return {
     ...toPublicLawyer(row, env, origin),
-    verified: row.verified,
     barNumber: row.barNumber,
+    firmName: row.firmName,
+    courts: row.courts,
+    education: row.education,
+    barEnrollmentYear: row.barEnrollmentYear,
+    memberSince: new Date(row.createdAt).getFullYear(),
   };
 }
 

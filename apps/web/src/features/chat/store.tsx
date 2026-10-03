@@ -2,10 +2,13 @@
 
 import * as React from "react";
 
+import { useAuth } from "@/features/auth/provider";
+
 import { replyFor, SEED_SESSIONS } from "./mock";
 import type {
   TChatContextValue,
   TChatMessageView,
+  TChatMode,
   TChatSessionView,
   TStreamStatus,
 } from "./types";
@@ -27,8 +30,14 @@ function delay(ms: number): Promise<void> {
 }
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth();
   const [sessions, setSessions] = React.useState<TChatSessionView[]>(SEED_SESSIONS);
   const [status, setStatus] = React.useState<TStreamStatus>("idle");
+  // Default follows the account's researcher flag; the composer toggle then
+  // overrides it for the rest of the session.
+  const [mode, setMode] = React.useState<TChatMode>(
+    user?.isResearcher ? "research" : "general"
+  );
   const [streamingSessionId, setStreamingSessionId] = React.useState<
     string | null
   >(null);
@@ -129,11 +138,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       sessions,
       status,
       streamingSessionId,
+      mode,
       createSession,
       sendMessage,
       stop,
+      setMode,
     }),
-    [sessions, status, streamingSessionId, createSession, sendMessage, stop]
+    [sessions, status, streamingSessionId, mode, createSession, sendMessage, stop]
   );
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;

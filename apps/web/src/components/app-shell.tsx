@@ -17,9 +17,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <PersistedSidebarState />
       <AppSidebar />
       <div className="flex min-h-svh w-full flex-col">
-        <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-3">
-          <SidebarTrigger className="md:hidden" />
-        </header>
+        {/* No app header; the mobile trigger floats over content instead of
+            reserving a bar. */}
+        <SidebarTrigger className="fixed top-2 left-2 z-50 bg-background/80 shadow-sm backdrop-blur md:hidden" />
         {children}
       </div>
     </SidebarProvider>

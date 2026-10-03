@@ -23,11 +23,15 @@ export type TChatSessionView = {
 
 export type TStreamStatus = "idle" | "thinking" | "streaming" | "searching";
 
+export type TChatMode = "general" | "research";
+
 export type TChatContextValue = {
   sessions: TChatSessionView[];
   status: TStreamStatus;
   streamingSessionId: string | null;
+  mode: TChatMode;
   createSession: (title: string) => string;
   sendMessage: (sessionId: string, content: string) => Promise<void>;
   stop: () => void;
+  setMode: (mode: TChatMode) => void;
 };

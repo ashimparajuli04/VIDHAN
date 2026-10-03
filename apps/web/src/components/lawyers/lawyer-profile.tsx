@@ -1,28 +1,61 @@
 "use client";
 
 import * as React from "react";
-import { BadgeCheck, Calendar, ChevronLeft, MapPin } from "lucide-react";
+import {
+  BadgeCheck,
+  Building2,
+  Calendar,
+  ChevronLeft,
+  MapPin,
+  Phone,
+  Video,
+} from "lucide-react";
 import Link from "next/link";
 
-import type { TPublicLawyerDetail } from "@vidhan/schema";
+import type {
+  TConsultationMode,
+  TPublicLawyer,
+  TPublicLawyerDetail,
+} from "@vidhan/schema";
 
 import { PigAvatar } from "@/components/lawyers/pig-avatar";
+import { LawyerCard } from "@/components/lawyers/lawyer-card";
 import { LawyerProfileSkeleton } from "@/components/lawyers/lawyer-profile-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { districtLabel, languageLabel, practiceAreaLabel } from "@/features/lawyers/labels";
-import { getLawyer } from "@/lib/lawyers";
+import { cn } from "@/lib/utils";
+import {
+  consultationModeLabel,
+  courtLabel,
+  districtLabel,
+  languageLabel,
+  practiceAreaLabel,
+} from "@/features/lawyers/labels";
+import { getLawyer, getLawyers } from "@/lib/lawyers";
+
+const MAX_RELATED = 3;
+
+const MODE_ICONS: Record<TConsultationMode, typeof Building2> = {
+  in_person: Building2,
+  phone: Phone,
+  video: Video,
+};
 
 /**
  * Lawyer profile page.
  *
- * Mobile-first: hero, then quiet sections, with the primary CTA pinned to
- * the bottom. From `lg` the CTA and professional facts sit in a sticky
- * side column instead.
+ * Compact left-aligned hero (name, location, experience, practice areas),
+ * then decision-useful sections (About, Consultation, Courts, Education &
+ * credentials) that each render only when they carry data. The sticky side
+ * column on `lg` holds the booking CTA and facts; on mobile the CTA is
+ * pinned to the bottom. A related-lawyers row reuses the catalogue card.
+ * Contact details are deliberately absent — bookingUrl is the only reach
+ * mechanism (see docs/web-lawyer-details.md).
  */
 export function LawyerProfile({ id }: { id: string }) {
   const [lawyer, setLawyer] = React.useState<TPublicLawyerDetail | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [allLawyers, setAllLawyers] = React.useState<TPublicLawyer[]>([]);
 
   React.useEffect(() => {
     let active = true;
@@ -43,6 +76,34 @@ export function LawyerProfile({ id }: { id: string }) {
     };
   }, [id]);
 
+  // Related row needs the catalogue; fail silently — the section hides
+  // when there is no list data.
+  React.useEffect(() => {
+    let active = true;
+    getLawyers({})
+      .then((results) => {
+        if (active) setAllLawyers(results);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const related = React.useMemo(() => {
+    if (!lawyer) return [];
+    // insert schema guarantees a non-empty practiceAreas array
+    const primary = lawyer.practiceAreas[0]!;
+    return allLawyers
+      .filter(
+        (candidate) =>
+          candidate.id !== lawyer.id &&
+          candidate.district === lawyer.district &&
+          candidate.practiceAreas.includes(primary),
+      )
+      .slice(0, MAX_RELATED);
+  }, [allLawyers, lawyer]);
+
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pt-6 pb-36 md:px-8 lg:pt-8 lg:pb-16">
       <nav aria-label="Breadcrumb">
@@ -50,10 +111,10 @@ export function LawyerProfile({ id }: { id: string }) {
           asChild
           variant="ghost"
           size="sm"
-          className="-mx-2 h-8 text-muted-foreground hover:text-foreground"
+          className="-mx-2 text-muted-foreground hover:text-foreground"
         >
           <Link href="/lawyers">
-            <ChevronLeft className="size-4" />
+            <ChevronLeft className="size-5" />
             All lawyers
           </Link>
         </Button>
@@ -62,111 +123,232 @@ export function LawyerProfile({ id }: { id: string }) {
       {loading ? (
         <LawyerProfileSkeleton />
       ) : lawyer ? (
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-14">
-          <div className="min-w-0 space-y-12 md:space-y-14">
-            {/* ── Hero ── */}
-            <section className="flex flex-col items-center gap-6 pt-8 text-center lg:flex-row lg:items-start lg:gap-8 lg:pt-10 lg:text-left">
-              <PigAvatar
-                name={lawyer.name}
-                className="size-28 shadow-sm ring-1 ring-border/70 lg:size-32"
-              />
-              <div className="flex min-w-0 max-w-xl flex-col items-center gap-3 lg:items-start lg:pt-1.5">
-                <h1 className="text-3xl font-semibold tracking-tight text-balance md:text-4xl">
-                  {lawyer.name}
-                </h1>
+        <>
+          <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
+            <div className="min-w-0 space-y-8">
+              {/* ── Hero ── */}
+              <section className="space-y-6">
+                <div className="flex items-start gap-5 md:gap-7">
+                  <PigAvatar
+                    name={lawyer.name}
+                    className="mt-1 size-20 shrink-0 md:size-28"
+                  />
 
-                {lawyer.verified && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-600/25 bg-emerald-600/10 px-2.5 py-1 text-xs font-medium text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300">
-                    <BadgeCheck className="size-3.5" />
-                    Verified by Vidhan
-                  </span>
-                )}
+                  <div className="min-w-0 space-y-3 md:pt-1">
+                    <div className="min-w-0">
+                      <h1 className="text-4xl leading-[1.05] font-extrabold tracking-[-0.03em] md:text-[44px]">
+                        {lawyer.name}
+                      </h1>
+                      {lawyer.verified && (
+                        <Badge variant="accent" className="mt-2.5">
+                          <BadgeCheck className="size-4" aria-hidden="true" />
+                          Verified by Vidhan
+                        </Badge>
+                      )}
+                    </div>
 
-                <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm text-muted-foreground lg:justify-start">
-                  <span className="inline-flex items-center gap-1">
-                    <MapPin className="size-4" />
-                    {districtLabel(lawyer.district)}
-                  </span>
-                  {typeof lawyer.yearsOfExperience === "number" && (
-                    <>
-                      <span aria-hidden="true" className="text-border">
-                        ·
-                      </span>
-                      <span>{lawyer.yearsOfExperience} yrs experience</span>
-                    </>
+                    <p className="flex items-center gap-1 text-[15px] text-muted-foreground">
+                      <MapPin className="size-4 shrink-0" />
+                      {districtLabel(lawyer.district)}
+                    </p>
+
+                    {typeof lawyer.yearsOfExperience === "number" && (
+                      <p className="flex items-baseline gap-1.5">
+                        <span className="text-[30px] leading-none font-bold tracking-tight">
+                          {lawyer.yearsOfExperience}
+                        </span>
+                        <span className="text-[14px] font-semibold text-muted-foreground">
+                          yrs experience
+                        </span>
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* What they do: right under the identity, no scrolling needed */}
+                <ul className="flex flex-wrap gap-2">
+                  {lawyer.practiceAreas.map((area) => (
+                    <li key={area}>
+                      <Badge variant="secondary" className="px-3 py-1 text-sm">
+                        {practiceAreaLabel(area)}
+                      </Badge>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* ── About ── */}
+              {lawyer.bio && (
+                <section className="space-y-3 border-t pt-8">
+                  <h2 className="text-xl font-bold tracking-tight">About</h2>
+                  <p className="max-w-prose text-[17px] leading-relaxed text-foreground/85">
+                    {lawyer.bio}
+                  </p>
+                </section>
+              )}
+
+              {/* ── Consultation ── */}
+              {(lawyer.freeFirstConsultation ||
+                lawyer.consultationFee !== null ||
+                (lawyer.consultationModes?.length ?? 0) > 0) && (
+                <section className="space-y-4 border-t pt-8">
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Consultation
+                  </h2>
+                  {lawyer.freeFirstConsultation && (
+                    <Badge variant="accent" className="px-3 py-1 text-sm">
+                      Free first consult
+                    </Badge>
                   )}
+                  {lawyer.consultationFee !== null && (
+                    <p className="flex flex-wrap items-baseline gap-1.5">
+                      <span className="text-[34px] leading-none font-extrabold tracking-[-0.03em] md:text-[40px]">
+                        {new Intl.NumberFormat("en-NP").format(
+                          lawyer.consultationFee
+                        )}
+                      </span>
+                      <span className="text-[15px] font-semibold text-muted-foreground">
+                        NPR
+                      </span>
+                      <span className="ms-2 text-[15px] text-muted-foreground">
+                        per consultation
+                      </span>
+                    </p>
+                  )}
+                  {lawyer.consultationModes &&
+                    lawyer.consultationModes.length > 0 && (
+                      <ul
+                        className="flex flex-wrap gap-2 pt-1"
+                        aria-label="Available consultation modes"
+                      >
+                        {lawyer.consultationModes.map((mode) => {
+                          const Icon = MODE_ICONS[mode];
+                          return (
+                            <li
+                              key={mode}
+                              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-4 py-1.5 text-sm dark:bg-white/[0.06]"
+                            >
+                              <Icon className="size-4 shrink-0" aria-hidden="true" />
+                              {consultationModeLabel(mode)}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                </section>
+              )}
+
+              {/* ── Courts ── */}
+              {lawyer.courts && lawyer.courts.length > 0 && (
+                <section className="space-y-3 border-t pt-8">
+                  <h2 className="text-xl font-bold tracking-tight">Courts</h2>
+                  <ul className="flex flex-wrap gap-2">
+                    {lawyer.courts.map((court) => (
+                      <li key={court}>
+                        <Badge
+                          variant="secondary"
+                          className="px-3 py-1 text-sm"
+                        >
+                          {courtLabel(court)}
+                        </Badge>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {/* ── Education & credentials ── */}
+              {(lawyer.education?.length ||
+                lawyer.barEnrollmentYear !== null ||
+                lawyer.firmName) && (
+                <section className="space-y-3 border-t pt-8">
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Education &amp; credentials
+                  </h2>
+                  {lawyer.education && lawyer.education.length > 0 && (
+                    <ul className="space-y-2">
+                      {lawyer.education.map((entry, index) => (
+                        <li key={index} className="text-[15px]">
+                          <span className="font-medium">{entry.degree}</span>
+                          <span className="text-foreground/80">
+                            {" "}
+                            — {entry.institution}
+                            {entry.year ? `, ${entry.year}` : ""}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {lawyer.barEnrollmentYear !== null && (
+                    <p className="text-[15px] text-foreground/80">
+                      Enrolled at the bar in {lawyer.barEnrollmentYear}
+                    </p>
+                  )}
+                  {lawyer.firmName && (
+                    <p className="text-[15px] text-foreground/80">
+                      Practises at {lawyer.firmName}
+                    </p>
+                  )}
+                </section>
+              )}
+
+              {/* ── Languages: one quiet line, not a full section ── */}
+              {lawyer.languages.length > 0 && (
+                <p className="border-t pt-8 text-[15px] text-muted-foreground">
+                  Speaks {lawyer.languages.map(languageLabel).join(", ")}
                 </p>
-              </div>
-            </section>
-
-            {/* ── Content sections ── */}
-            {lawyer.bio && (
-              <Section title="About">
-                <p className="max-w-prose text-[15px] leading-7 text-foreground/80">
-                  {lawyer.bio}
-                </p>
-              </Section>
-            )}
-
-            <Section title="Practice areas">
-              <ul className="flex flex-wrap gap-2">
-                {lawyer.practiceAreas.map((area) => (
-                  <li key={area}>
-                    <Badge
-                      variant="secondary"
-                      className="px-3 py-1 text-[13px] font-medium"
-                    >
-                      {practiceAreaLabel(area)}
-                    </Badge>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <Section title="Languages">
-              <ul className="flex flex-wrap gap-2">
-                {lawyer.languages.map((language) => (
-                  <li key={language}>
-                    <Badge
-                      variant="outline"
-                      className="bg-transparent px-3 py-1 text-[13px] font-medium text-foreground/80"
-                    >
-                      {languageLabel(language)}
-                    </Badge>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          </div>
-
-          {/* ── Desktop aside: CTA + facts ── */}
-          <aside className="lg:sticky lg:top-8 lg:self-start lg:space-y-8">
-            <div className="hidden lg:block">
-              <BookButton bookingUrl={lawyer.bookingUrl} />
+              )}
             </div>
 
-            <Section title="Professional information">
-              <dl className="divide-y divide-border rounded-xl border bg-card/40">
-                {lawyer.barNumber && (
-                  <InfoRow label="Bar number" value={lawyer.barNumber} />
-                )}
-                {typeof lawyer.yearsOfExperience === "number" && (
+            {/* ── Aside: the featured dark card with the booking CTA ── */}
+            <aside className="lg:sticky lg:top-8 lg:self-start">
+              <div className="space-y-6 rounded-[var(--radius)] bg-primary p-6 text-primary-foreground">
+                <div className="hidden lg:block">
+                  <BookButton bookingUrl={lawyer.bookingUrl} onDark />
+                </div>
+
+                <dl className="divide-y divide-primary-foreground/15">
+                  {lawyer.barNumber && (
+                    <InfoRow label="Bar number" value={lawyer.barNumber} onDark />
+                  )}
+                  {lawyer.barEnrollmentYear !== null && (
+                    <InfoRow
+                      label="Bar enrolled"
+                      value={String(lawyer.barEnrollmentYear)}
+                      onDark
+                    />
+                  )}
                   <InfoRow
-                    label="Years of experience"
-                    value={`${lawyer.yearsOfExperience} years`}
+                    label="Member since"
+                    value={String(lawyer.memberSince)}
+                    onDark
                   />
-                )}
-                <InfoRow label="Based in" value={districtLabel(lawyer.district)} />
-              </dl>
-            </Section>
-          </aside>
-        </div>
+                </dl>
+              </div>
+            </aside>
+          </div>
+
+          {/* ── Related lawyers ── */}
+          {related.length > 0 && (
+            <section className="mt-12 space-y-4">
+              <h2 className="text-xl font-bold tracking-tight">
+                More {practiceAreaLabel(lawyer.practiceAreas[0]!).toLowerCase()}{" "}
+                lawyers in {districtLabel(lawyer.district)}
+              </h2>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {related.map((item) => (
+                  <LawyerCard key={item.id} lawyer={item} />
+                ))}
+              </div>
+            </section>
+          )}
+        </>
       ) : (
         <div className="flex flex-col items-center gap-2 py-24 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight">
+          <h1 className="text-4xl font-extrabold tracking-[-0.03em]">
             Lawyer not found
           </h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[15px] text-muted-foreground">
             This profile is unavailable or no longer exists.
           </p>
           <Button asChild variant="outline" size="sm" className="mt-3">
@@ -185,41 +367,71 @@ export function LawyerProfile({ id }: { id: string }) {
   );
 }
 
-function Section({
-  title,
-  children,
+function InfoRow({
+  label,
+  value,
+  onDark = false,
 }: {
-  title: string;
-  children: React.ReactNode;
+  label: string;
+  value: string;
+  onDark?: boolean;
 }) {
   return (
-    <section className="space-y-4">
-      <h2 className="text-base font-semibold tracking-tight">{title}</h2>
-      {children}
-    </section>
-  );
-}
-
-function InfoRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between gap-4 px-4 py-3.5">
-      <dt className="text-sm text-muted-foreground">{label}</dt>
-      <dd className="text-right text-sm font-medium">{value}</dd>
+    <div className="flex items-start justify-between gap-4 py-3 first:pt-0 last:pb-0">
+      <dt
+        className={cn(
+          "text-[15px]",
+          onDark ? "text-primary-foreground/70" : "text-muted-foreground"
+        )}
+      >
+        {label}
+      </dt>
+      <dd
+        className={cn(
+          "text-right text-[15px] font-semibold",
+          onDark && "text-primary-foreground"
+        )}
+      >
+        {value}
+      </dd>
     </div>
   );
 }
 
-function BookButton({ bookingUrl }: { bookingUrl: string | null }) {
+function BookButton({
+  bookingUrl,
+  onDark = false,
+}: {
+  bookingUrl: string | null;
+  onDark?: boolean;
+}) {
   if (!bookingUrl) {
     return (
-      <Button variant="outline" size="lg" className="w-full" disabled>
+      <Button
+        variant="outline"
+        size="lg"
+        className={cn(
+          "w-full",
+          onDark && "border-primary-foreground/40 text-primary-foreground/60"
+        )}
+        disabled
+      >
         <Calendar />
         Booking link coming soon
       </Button>
     );
   }
   return (
-    <Button asChild size="lg" className="w-full">
+    <Button
+      asChild
+      variant={onDark ? "outline" : "default"}
+      size="lg"
+      className={cn(
+        "w-full",
+        onDark &&
+          "border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+      )}
+    >
       <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
         <Calendar />
         Book a consultation
