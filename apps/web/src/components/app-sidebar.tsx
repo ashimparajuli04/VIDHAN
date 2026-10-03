@@ -26,7 +26,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -39,7 +38,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useAuth } from "@/features/auth/provider";
 
 const navItems = [
@@ -237,17 +235,6 @@ export function AppSidebar() {
       {/* ───────────────── Footer ───────────────── */}
 
       <SidebarFooter className="border-t-0 p-2">
-
-        {/* Theme toggle */}
-
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <ThemeToggle />
-          </SidebarMenuItem>
-        </SidebarMenu>
-
-        <SidebarSeparator className="mx-2 my-2" />
-
         {/* User */}
 
         <SidebarMenu>

@@ -2,46 +2,42 @@ import * as React from "react";
 
 import type { TPublicLawyer } from "@vidhan/schema";
 
-// Breakpoints mirror the catalogue's old Tailwind grid classes
-// (grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4), sorted
-// descending so the first matching query wins.
-const BREAKPOINTS = [
-  { minWidth: 1280, columns: 4 },
-  { minWidth: 1024, columns: 3 },
-  { minWidth: 640, columns: 2 },
-  { minWidth: 0, columns: 1 },
-] as const;
+// Columns are derived from the catalogue's own width (not the viewport),
+// so cards never shrink below MIN_CARD_WIDTH regardless of the surrounding
+// layout — e.g. the app sidebar. A column drops as soon as the container
+// can't fit another card at that width.
+const MIN_CARD_WIDTH = 360;
+const GRID_GAP = 20; // must match the `gap-5` class on the grid
+const MAX_COLUMNS = 4;
 
 export type TGridColumns = 1 | 2 | 3 | 4;
 
+function columnsForWidth(width: number): TGridColumns {
+  if (width <= 0) return 1;
+  const fit = Math.floor((width + GRID_GAP) / (MIN_CARD_WIDTH + GRID_GAP));
+  return Math.min(MAX_COLUMNS, Math.max(1, fit)) as TGridColumns;
+}
+
 // Column count drives how the flat lawyer list is chunked into virtual
-// rows. Defaults to 1 until matchMedia runs (kept in an effect so the
-// server-rendered HTML and the first client render agree).
-export function useGridColumns(): TGridColumns {
+// rows. Defaults to 1 until the container has been measured (kept in an
+// effect so server-rendered HTML and the first client render agree).
+export function useGridColumns() {
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const [columns, setColumns] = React.useState<TGridColumns>(1);
 
   React.useEffect(() => {
-    const queries = BREAKPOINTS.map(({ minWidth }) =>
-      window.matchMedia(`(min-width: ${minWidth}px)`),
-    );
-    const update = () => {
-      const index = queries.findIndex((query) => query.matches);
-      // The index is clamped into range; the 0px breakpoint always matches.
-      const entry = BREAKPOINTS[index === -1 ? BREAKPOINTS.length - 1 : index]!;
-      setColumns(entry.columns);
-    };
-    for (const query of queries) {
-      query.addEventListener("change", update);
-    }
-    update();
-    return () => {
-      for (const query of queries) {
-        query.removeEventListener("change", update);
-      }
-    };
+    const element = ref.current;
+    if (!element) return;
+
+    const measure = () => setColumns(columnsForWidth(element.clientWidth));
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
   }, []);
 
-  return columns;
+  return { ref, columns };
 }
 
 export function chunkIntoRows(

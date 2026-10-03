@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 
 export function LawyerSkeleton() {
   return (
-    <Card aria-hidden>
+    <Card aria-hidden className="mx-auto w-full max-w-[470px]">
       <CardHeader className="gap-3">
         <div className="flex min-w-0 items-center gap-3">
           <Skeleton className="size-14 shrink-0 rounded-full" />

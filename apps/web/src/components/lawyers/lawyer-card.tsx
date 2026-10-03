@@ -35,7 +35,7 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
     lawyer.freeFirstConsultation;
 
   return (
-    <Card className="group relative h-full transition-colors hover:border-foreground/15">
+    <Card className="group relative mx-auto h-full w-full max-w-[470px] transition-colors hover:border-foreground/15">
       <CardHeader className="gap-3">
         <div className="flex min-w-0 items-center gap-3.5">
           <PigAvatar

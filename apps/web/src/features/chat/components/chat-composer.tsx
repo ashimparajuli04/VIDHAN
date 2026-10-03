@@ -83,8 +83,8 @@ export function ChatComposer({
         </div>
 
         {/* Full disclaimer on wide screens; shortened below sm to avoid wrapping */}
-        <div className="mt-2.5 flex items-center justify-between gap-3 pl-5 pr-5">
-          <p className="text-left text-[13px] text-muted-foreground">
+        <div className="mt-2.5 flex items-center justify-between gap-2 pl-3 pr-3 sm:gap-3 sm:pl-5 sm:pr-5">
+          <p className="min-w-0 flex-1 truncate whitespace-nowrap text-left text-[clamp(0.625rem,1.75vw,0.8125rem)] text-muted-foreground">
             <span className="hidden sm:inline">
               Vidhan is AI and can make mistakes. Please double-check responses.
             </span>

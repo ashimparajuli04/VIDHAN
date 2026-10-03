@@ -29,11 +29,12 @@ export function ChatView() {
   }
 
   return (
-    // Fixed to the viewport (no app header to subtract) so the message list
-    // scrolls internally and the composer stays pinned.
-    <main className="flex h-svh flex-col overflow-hidden">
+    // Fixed to the viewport so the message list scrolls internally and the
+    // composer stays pinned. Phones subtract the 3.5rem mobile header; the
+    // desktop shell has no header to subtract.
+    <main className="flex h-[calc(100svh-3.5rem)] flex-col overflow-hidden md:h-svh">
       {messages.length === 0 ? (
-        <ChatEmpty onPick={handleSend} />
+        <ChatEmpty />
       ) : (
         <MessageList messages={messages} status={status} />
       )}

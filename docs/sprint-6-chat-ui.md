@@ -133,8 +133,10 @@ opens `/chat?id=<seed>` with its history.
 
 ## Follow-ups (post-sprint)
 
-- **Mode toggle (composer).** `TChatMode = "general" | "research"` lives in the chat store,
-  defaulting from `user.isResearcher`. The composer's disclaimer row shows a right-aligned
-  "Vidhan - General / Research" text toggle (`aria-pressed`); the empty-state chip reads the
-  same store value. Terminology unified on **General** (was "Enquiry"). In-memory only,
+- **Mode pill (empty state) + composer toggle.** `TChatMode = "general" | "research"`
+  lives in the chat store, defaulting to **general**. The empty state shows a display-only
+  pill ("General: Practical legal answers, guidance, and lawyer connections" /
+  "Research: In-depth legal analysis, sources, and research tools") driven by the store
+  value; the composer's disclaimer row shows a right-aligned "Vidhan - General / Research"
+  text toggle (`aria-pressed`). Both read/write the same store value. In-memory only,
   still mock-era — no API branch yet.

@@ -2,10 +2,13 @@
 
 import * as React from "react";
 
+import { ListSortDescending } from "lucide-react";
+
 import { AppSidebar } from "@/components/app-sidebar";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   SidebarProvider,
-  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
 
@@ -16,13 +19,37 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <PersistedSidebarState />
       <AppSidebar />
-      <div className="flex min-h-svh w-full flex-col">
-        {/* No app header; the mobile trigger floats over content instead of
-            reserving a bar. */}
-        <SidebarTrigger className="fixed top-2 left-2 z-50 bg-background/80 shadow-sm backdrop-blur md:hidden" />
+      <div className="flex min-h-svh w-full flex-col pt-14 md:pt-0">
+        {/* Mobile-only header: trigger + wordmark + theme toggle. */}
+        <MobileHeader />
         {children}
       </div>
     </SidebarProvider>
+  );
+}
+
+function MobileHeader() {
+  const { toggleSidebar } = useSidebar();
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between bg-background/90 px-3 shadow-sm backdrop-blur md:hidden">
+      <div className="flex items-center gap-1">
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon-sm"
+          onClick={toggleSidebar}
+          aria-label="Toggle sidebar"
+          className="size-8"
+        >
+          <ListSortDescending className="size-5" strokeWidth={2.5} />
+        </Button>
+
+        <span className="text-2xl font-black tracking-tight">VIDHAN</span>
+      </div>
+
+      <ThemeToggle />
+    </header>
   );
 }
 

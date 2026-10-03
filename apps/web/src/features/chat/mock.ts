@@ -10,28 +10,6 @@ import { MOCK_LAWYERS } from "@/lib/lawyers";
 
 import type { TChatSessionView } from "./types";
 
-export const CHAT_SUGGESTIONS = [
-  {
-    label: "Terminate a rental agreement",
-    prompt:
-      "Can I terminate my rental agreement early if the landlord won't fix the water supply?",
-  },
-  {
-    label: "Property dispute",
-    prompt:
-      "My neighbour is claiming part of my land. I need a property lawyer in Kathmandu.",
-  },
-  {
-    label: "Consumer complaint",
-    prompt:
-      "A shop sold me a phone that broke within a week and refuses to replace it. What are my rights?",
-  },
-  {
-    label: "Find a lawyer",
-    prompt: "Find me a family lawyer in Lalitpur who speaks English.",
-  },
-] as const;
-
 // Seeds mirror the sidebar's hardcoded recent chats so /chat?id=<n> opens
 // with history. Swap for the session list once the API is wired.
 export const SEED_SESSIONS: TChatSessionView[] = [
