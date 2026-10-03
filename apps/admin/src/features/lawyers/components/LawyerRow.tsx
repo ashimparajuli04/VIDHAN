@@ -1,7 +1,7 @@
 "use client";
 
 import type { TLawyerUpdate, TLawyerWithImage } from "@vidhan/schema";
-import { Toggle } from "./Toggle";
+import { Toggle } from "@/components/Toggle";
 import { Avatar } from "./Avatar";
 import {
   districtLabel,

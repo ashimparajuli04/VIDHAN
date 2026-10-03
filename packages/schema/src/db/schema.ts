@@ -1,6 +1,7 @@
 import {
   index,
   integer,
+  primaryKey,
   sqliteTable,
   text,
   uniqueIndex,
@@ -219,11 +220,29 @@ export const users = sqliteTable(
     isResearcher: integer("is_researcher", { mode: "boolean" })
       .notNull()
       .default(false),
+    isSubscribed: integer("is_subscribed", { mode: "boolean" })
+      .notNull()
+      .default(false),
     language: text("language").notNull().default("en"),
     createdAt: text("created_at").notNull(),
     updatedAt: text("updated_at").notNull(),
   },
   (t) => [uniqueIndex("users_email_unique").on(t.email)],
+);
+
+export const USAGE_LIMITS = { free: 100_000, subscribed: 1_000_000 } as const;
+
+// One row per (user, NPT calendar date); the day boundary is the reset.
+export const userUsage = sqliteTable(
+  "user_usage",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id),
+    date: text("date").notNull(),
+    tokens: integer("tokens").notNull().default(0),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.date] })],
 );
 
 // Callback lead captured on-platform: the user asks Vidhan to arrange a
@@ -507,7 +526,26 @@ const userRefinements = {
 };
 
 export const ZUser = createSelectSchema(users, userRefinements);
-export const ZPublicUser = ZUser.omit({ passwordHash: true });
+// Plan state stays off the public user surface; the usage module owns it.
+export const ZPublicUser = ZUser.omit({ passwordHash: true, isSubscribed: true });
+
+export const ZUsage = z.object({
+  used: z.number().int().min(0),
+  limit: z.number().int().min(0),
+  resetAt: z.string(),
+  isSubscribed: z.boolean(),
+});
+
+export const ZAdminUser = z.object({
+  id: z.string(),
+  email: z.string(),
+  name: z.string(),
+  isSubscribed: z.boolean(),
+  createdAt: z.string(),
+});
+export const ZAdminUserUpdate = z.object({
+  isSubscribed: z.boolean(),
+});
 
 export const ZAuthRegister = z.object({
   email: z.string().email().transform((v) => v.trim().toLowerCase()),
@@ -611,6 +649,9 @@ export type TReference = z.infer<typeof ZReference>;
 export type TCiteOutput = z.infer<typeof ZCiteOutput>;
 export type TUser = z.infer<typeof ZUser>;
 export type TPublicUser = z.infer<typeof ZPublicUser>;
+export type TUsage = z.infer<typeof ZUsage>;
+export type TAdminUser = z.infer<typeof ZAdminUser>;
+export type TAdminUserUpdate = z.infer<typeof ZAdminUserUpdate>;
 export type TAuthRegister = z.infer<typeof ZAuthRegister>;
 export type TAuthLogin = z.infer<typeof ZAuthLogin>;
 export type TAuthUpdate = z.infer<typeof ZAuthUpdate>;
@@ -642,6 +683,8 @@ export type DocumentNodeRow = typeof documentNodes.$inferSelect;
 export type DocumentNodeInsert = typeof documentNodes.$inferInsert;
 export type UserRow = typeof users.$inferSelect;
 export type UserInsert = typeof users.$inferInsert;
+export type UserUsageRow = typeof userUsage.$inferSelect;
+export type UserUsageInsert = typeof userUsage.$inferInsert;
 export type LawyerRequestRow = typeof lawyerRequests.$inferSelect;
 export type LawyerRequestInsert = typeof lawyerRequests.$inferInsert;
 export type ChatSessionRow = typeof chatSessions.$inferSelect;

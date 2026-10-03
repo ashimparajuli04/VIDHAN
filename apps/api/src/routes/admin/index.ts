@@ -6,6 +6,7 @@ import { documents } from "./documents";
 import { stats } from "./stats";
 import { support } from "./support";
 import { uploads } from "./uploads";
+import { users } from "./users";
 
 export const adminRoutes = new Hono<{ Bindings: Env }>();
 
@@ -63,3 +64,4 @@ adminRoutes.route("/documents", documents);
 adminRoutes.route("/support", support);
 adminRoutes.route("/stats", stats);
 adminRoutes.route("/uploads", uploads);
+adminRoutes.route("/users", users);

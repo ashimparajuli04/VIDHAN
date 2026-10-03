@@ -9,6 +9,7 @@ import { ZChatTitle } from "@vidhan/schema";
 
 import { Button } from "@/components/ui/button";
 import { readToken } from "@/features/auth/storage";
+import { useUsage } from "@/features/usage/provider";
 import { API_URL } from "@/lib/api";
 
 import { deriveStatus, historyToMessages, lastUserText, toMessageViews } from "../adapt";
@@ -23,6 +24,7 @@ export function ChatView() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const { createSession, refresh, setSessionTitle } = useChat();
+  const { refresh: refreshUsage } = useUsage();
 
   // Session the transport targets. Set before the first send so the stream
   // request has an id even before router.replace lands.
@@ -58,7 +60,10 @@ export function ChatView() {
     setMessages,
   } = useAiChat({
     transport,
-    onFinish: () => void refresh(),
+    onFinish: () => {
+      void refresh();
+      void refreshUsage();
+    },
     // Streamed as soon as the first message's title is generated, so the
     // sidebar names the chat while the answer is still streaming.
     onData: (part) => {
@@ -102,6 +107,12 @@ export function ChatView() {
 
     void loadHistory(id);
   }, [id, loadHistory, setMessages]);
+
+  // A 429 means the cached usage is stale (another tab consumed the quota);
+  // refetch so the composer gates immediately.
+  React.useEffect(() => {
+    if (error || sendError) void refreshUsage();
+  }, [error, sendError, refreshUsage]);
 
   const status = deriveStatus(aiStatus, messages);
   const streaming = aiStatus === "submitted" || aiStatus === "streaming";

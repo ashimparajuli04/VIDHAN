@@ -17,6 +17,7 @@ import {
   touchSession,
 } from "../../chat";
 import { buildTools, chatModel, chatSystemPrompt, prefetchSections, renderPrefetchedContext, TITLE_SYSTEM_PROMPT, titleModel } from "../../ai";
+import { addUsage, getUsage, isOverLimit } from "../../usage";
 
 export const chat = new Hono<TAuthContext>();
 
@@ -132,6 +133,12 @@ chat.post("/sessions/:id/messages", async (c) => {
   if (!parsed.ok) return validationError(c, parsed.error);
 
   const db = createDb(c.env.DB);
+
+  const usage = await getUsage(db, c.get("user").id);
+  if (isOverLimit(usage)) {
+    return c.json({ error: "usage_limit_exceeded", ...usage }, 429);
+  }
+
   const session = await findSession(db, c.req.param("id"), c.get("user").id);
   if (!session) return c.json({ error: "not_found" }, 404);
 
@@ -214,6 +221,9 @@ chat.post("/sessions/:id/messages", async (c) => {
             references,
           );
           await touchSession(db, session.id, { updatedAt: now });
+          // Title generation is a cheap side-call and deliberately not metered.
+          const { inputTokens, outputTokens } = event.totalUsage;
+          await addUsage(db, session.userId, (inputTokens ?? 0) + (outputTokens ?? 0));
         })(),
       );
     },

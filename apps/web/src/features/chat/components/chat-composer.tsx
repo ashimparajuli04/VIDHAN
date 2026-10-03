@@ -4,6 +4,7 @@ import * as React from "react";
 import { ArrowUp, Square } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useUsage, useUsageCountdown } from "@/features/usage/provider";
 
 import { useChat } from "../store";
 
@@ -23,6 +24,10 @@ export function ChatComposer({
   const [value, setValue] = React.useState("");
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
   const { mode, setMode } = useChat();
+  const { usage } = useUsage();
+
+  const overLimit = usage !== null && usage.used >= usage.limit;
+  const resetCountdown = useUsageCountdown(overLimit ? usage?.resetAt : null);
 
   // A Stop puts the in-flight turn back in the box for editing.
   React.useEffect(() => {
@@ -40,7 +45,7 @@ export function ChatComposer({
 
   function submit() {
     const content = value.trim();
-    if (!content || streaming) return;
+    if (!content || streaming || overLimit) return;
     onSend(content);
     setValue("");
   }
@@ -56,6 +61,13 @@ export function ChatComposer({
     // Floating pill composer; the send action is a dark circle inside it.
     <div className="px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:pb-5">
       <div className="mx-auto w-full max-w-3xl">
+        {overLimit && (
+          <p className="mb-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200">
+            Your session limit is over. Session usage will be reset in{" "}
+            {resetCountdown}.
+          </p>
+        )}
+
         <div className="flex items-end gap-1.5 rounded-full border border-border bg-white p-1.5 pl-5 transition-[border-color] focus-within:border-ring/70 dark:bg-white/[0.06]">
           <textarea
             ref={textareaRef}
@@ -63,9 +75,10 @@ export function ChatComposer({
             value={value}
             onChange={(event) => setValue(event.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask about a legal issue…"
+            disabled={overLimit}
+            placeholder={overLimit ? "Session limit reached" : "Ask about a legal issue…"}
             aria-label="Message"
-            className="max-h-[200px] flex-1 resize-none self-center bg-transparent px-1 py-2.5 text-base leading-relaxed outline-none placeholder:text-muted-foreground md:text-[15px]"
+            className="max-h-[200px] flex-1 resize-none self-center bg-transparent px-1 py-2.5 text-base leading-relaxed outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed md:text-[15px]"
           />
 
           {streaming ? (
@@ -83,7 +96,7 @@ export function ChatComposer({
               type="button"
               size="icon"
               onClick={submit}
-              disabled={!value.trim()}
+              disabled={!value.trim() || overLimit}
               aria-label="Send message"
             >
               <ArrowUp />

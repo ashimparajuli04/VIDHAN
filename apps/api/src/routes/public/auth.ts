@@ -36,6 +36,7 @@ auth.post("/register", async (c) => {
     name: parsed.data.name,
     district: parsed.data.district,
     isResearcher: parsed.data.isResearcher,
+    isSubscribed: false,
     language: "en",
     createdAt: now,
     updatedAt: now,

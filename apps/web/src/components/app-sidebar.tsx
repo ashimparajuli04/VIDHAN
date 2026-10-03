@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BriefcaseBusiness,
+  Gauge,
   Inbox,
   Library,
   LifeBuoy,
@@ -68,6 +69,11 @@ const navItems = [
     title: "Support",
     href: "/support",
     icon: LifeBuoy,
+  },
+  {
+    title: "Usage",
+    href: "/usage",
+    icon: Gauge,
   },
 ] as const;
 
