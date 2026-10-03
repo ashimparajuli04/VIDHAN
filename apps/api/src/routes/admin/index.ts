@@ -3,6 +3,7 @@ import type { Env } from "../../index";
 import { lawyers } from "./lawyers";
 import { lawyerRequests } from "./lawyer-requests";
 import { documents } from "./documents";
+import { enterprise } from "./enterprise";
 import { stats } from "./stats";
 import { support } from "./support";
 import { uploads } from "./uploads";
@@ -61,6 +62,7 @@ adminRoutes.use("*", async (c, next) => {
 adminRoutes.route("/lawyers", lawyers);
 adminRoutes.route("/lawyer-requests", lawyerRequests);
 adminRoutes.route("/documents", documents);
+adminRoutes.route("/enterprise", enterprise);
 adminRoutes.route("/support", support);
 adminRoutes.route("/stats", stats);
 adminRoutes.route("/uploads", uploads);

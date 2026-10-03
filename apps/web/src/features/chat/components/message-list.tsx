@@ -51,8 +51,6 @@ export function MessageList({
     viewport.scrollTop = viewport.scrollHeight;
   }, [messages, status, atBottom]);
 
-  // The in-flight user turn, so a Stop can put it back in the composer.
-  const lastUser = [...messages].reverse().find((m) => m.role === "user");
   const lastId = messages[messages.length - 1]?.id;
 
   return (
@@ -63,7 +61,10 @@ export function MessageList({
             <div key={message.id} className="flex flex-col gap-3">
               <MessageBubble
                 message={message}
-                thinking={status === "thinking" && message.id === lastId}
+                thinking={
+                  (status === "thinking" || status === "searching") &&
+                  message.id === lastId
+                }
                 onRestoreQuery={onRestoreQuery}
               />
 
@@ -74,16 +75,6 @@ export function MessageList({
               )}
             </div>
           ))}
-
-          {status !== "idle" && lastUser && onRestoreQuery && (
-            <button
-              type="button"
-              onClick={() => onRestoreQuery(lastUser.content)}
-              className="self-center rounded-full border bg-card px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              Edit message
-            </button>
-          )}
         </div>
       </ScrollArea>
 

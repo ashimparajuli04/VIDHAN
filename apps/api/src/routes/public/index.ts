@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { auth } from "./auth";
 import { chat } from "./chat";
+import { enterprise } from "./enterprise";
 import { lawyers } from "./lawyers";
 import { lawyerRequests } from "./lawyer-requests";
 import { docs } from "./docs";
@@ -12,6 +13,7 @@ export const publicRoutes = new Hono();
 
 publicRoutes.route("/auth", auth);
 publicRoutes.route("/chat", chat);
+publicRoutes.route("/enterprise", enterprise);
 publicRoutes.route("/lawyers", lawyers);
 publicRoutes.route("/lawyer-requests", lawyerRequests);
 publicRoutes.route("/docs", docs);

@@ -40,3 +40,10 @@ Hackathon codebase. Reliability and consistency matter more than speed. Type eve
 
 - When a non-obvious decision is made, record it in `docs/` as a markdown file.
 - At the end of each session, recommend the user create/update their `.md` file in `docs/` capturing the decisions taken.
+
+## 8. Dev servers
+
+- Never start a dev server on your own (`pnpm web:dev`, `pnpm api:dev`, `next dev`, `wrangler dev`, etc.).
+- The user runs them. An extra instance grabs the next port (3001, 3002…) and causes confusing conflicts.
+- Only start one when the user explicitly asks in that turn.
+- You may still stop servers or free ports when asked.

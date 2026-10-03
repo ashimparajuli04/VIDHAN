@@ -1,5 +1,11 @@
 import { and, eq, sql } from "drizzle-orm";
-import { USAGE_LIMITS, users, userUsage } from "@vidhan/schema";
+import {
+  enterpriseMembers,
+  enterpriseOrganizations,
+  USAGE_LIMITS,
+  users,
+  userUsage,
+} from "@vidhan/schema";
 import type { TUsage } from "@vidhan/schema";
 import type { Db } from "../db";
 
@@ -31,7 +37,7 @@ export async function getUsage(
   userId: string,
   now: Date = new Date(),
 ): Promise<TUsage> {
-  const [userRow, usageRow] = await Promise.all([
+  const [userRow, usageRow, enterpriseRow] = await Promise.all([
     db
       .select({ isSubscribed: users.isSubscribed })
       .from(users)
@@ -42,11 +48,31 @@ export async function getUsage(
       .from(userUsage)
       .where(and(eq(userUsage.userId, userId), eq(userUsage.date, nptDate(now))))
       .get(),
+    db
+      .select({ tokensPerMember: enterpriseOrganizations.tokensPerMember })
+      .from(enterpriseMembers)
+      .innerJoin(
+        enterpriseOrganizations,
+        eq(enterpriseMembers.organizationId, enterpriseOrganizations.id),
+      )
+      .where(
+        and(
+          eq(enterpriseMembers.userId, userId),
+          eq(enterpriseMembers.status, "active"),
+          eq(enterpriseOrganizations.status, "active"),
+        ),
+      )
+      .get(),
   ]);
   const isSubscribed = userRow?.isSubscribed ?? false;
+  // An active Enterprise seat overrides the individual plans: every member
+  // meters against the organization's approved per-member allocation.
+  const limit = enterpriseRow
+    ? enterpriseRow.tokensPerMember
+    : limitFor(isSubscribed);
   return {
     used: usageRow?.tokens ?? 0,
-    limit: limitFor(isSubscribed),
+    limit,
     resetAt: nptResetAt(now),
     isSubscribed,
   };

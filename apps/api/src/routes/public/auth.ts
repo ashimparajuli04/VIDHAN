@@ -4,6 +4,7 @@ import { ZAuthLogin, ZAuthRegister, ZAuthUpdate, users } from "@vidhan/schema";
 import type { TLanguage } from "@vidhan/schema";
 import { createDb } from "../../db";
 import { parseJson, validationError } from "../../lib/validate";
+import { activateInvites } from "../../enterprise";
 import {
   DUMMY_PASSWORD_HASH,
   findByEmail,
@@ -47,6 +48,8 @@ auth.post("/register", async (c) => {
     if (isDuplicateEmailError(err)) return c.json({ error: "duplicate_email" }, 409);
     throw err;
   }
+  // A pending Enterprise invite for this email becomes an active seat.
+  await activateInvites(db, row.id, parsed.data.email);
   const token = await signJwt(row.id, c.env.JWT_SECRET);
   return c.json({ token, user: toPublicUser(row) }, 201);
 });
@@ -60,6 +63,9 @@ auth.post("/login", async (c) => {
   const row = await findByEmail(parsed.data.email, db);
   const ok = await verifyPassword(parsed.data.password, row?.passwordHash ?? DUMMY_PASSWORD_HASH);
   if (!row || !ok) return c.json({ error: "unauthorized" }, 401);
+
+  // Idempotent: activates an Enterprise seat for this email if one exists.
+  await activateInvites(db, row.id, row.email);
 
   const token = await signJwt(row.id, c.env.JWT_SECRET);
   return c.json({ token, user: toPublicUser(row) });

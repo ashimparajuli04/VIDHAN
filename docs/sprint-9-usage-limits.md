@@ -40,8 +40,10 @@ gateway — subscription is an admin-only flag this sprint.
 
 ### Limits
 
-- `USAGE_LIMITS = { free: 100_000, subscribed: 1_000_000 }` in `@vidhan/schema`,
+- `USAGE_LIMITS = { free: 500_000, subscribed: 5_000_000 }` in `@vidhan/schema`,
   imported by both API and web so the % math can't drift.
+  **Updated from 100K / 1M** so the Profile plan cards and the enforced
+  meters share one number (see `docs/enterprise-plans.md`).
 - A retrieval-heavy turn realistically burns 20k–60k tokens, so free ≈ 2–4
   turns/day, subscribed ≈ 20+.
 

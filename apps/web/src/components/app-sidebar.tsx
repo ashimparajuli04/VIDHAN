@@ -8,11 +8,10 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   BriefcaseBusiness,
-  Gauge,
+  Building2,
   Inbox,
   Library,
   LifeBuoy,
-  LogOut,
   MessageSquare,
   MessageSquarePlus,
   MoreHorizontal,
@@ -50,8 +49,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -65,6 +62,8 @@ import {
 import { useAuth } from "@/features/auth/provider";
 import { useChat } from "@/features/chat/store";
 import type { TChatSessionView } from "@/features/chat/types";
+import { getMembership } from "@/features/enterprise/api";
+import type { TEnterpriseMembership } from "@vidhan/schema";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -93,23 +92,48 @@ const navItems = [
     href: "/support",
     icon: LifeBuoy,
   },
-  {
-    title: "Usage",
-    href: "/usage",
-    icon: Gauge,
-  },
 ] as const;
+
+// Shown only to approved Enterprise members; the server computes it so a
+// revoked membership removes the tab on the next reload.
+const ENTERPRISE_ITEM = {
+  title: "Enterprise",
+  href: "/enterprise",
+  icon: Building2,
+} as const;
 
 export function AppSidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const { sessions, deleteSession, refresh } = useChat();
 
   const [pendingDelete, setPendingDelete] =
     React.useState<TChatSessionView | null>(null);
   const [deleting, setDeleting] = React.useState(false);
+  const [enterprise, setEnterprise] = React.useState<TEnterpriseMembership | null>(
+    null
+  );
+  const [enterpriseLoaded, setEnterpriseLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    let active = true;
+    getMembership()
+      .then((membership) => {
+        if (!active) return;
+        setEnterprise(membership);
+        setEnterpriseLoaded(true);
+      })
+      .catch(() => {
+        if (!active) return;
+        setEnterprise(null);
+        setEnterpriseLoaded(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const collapsed = state === "collapsed";
   const displayName = user?.name ?? "Account";
@@ -178,7 +202,7 @@ export function AppSidebar() {
               >
                 <BrandLogo className="size-14 shrink-0" />
 
-                <span className="truncate font-brand text-lg font-extrabold uppercase tracking-[0.08em]">
+                <span className="truncate font-brand text-2xl font-extrabold uppercase tracking-[0.08em]">
                   Vidhan
                 </span>
               </Link>
@@ -229,6 +253,22 @@ export function AppSidebar() {
                   </SidebarMenuItem>
                 );
               })}
+
+              {enterpriseLoaded && enterprise && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname.startsWith(ENTERPRISE_ITEM.href)}
+                    tooltip={ENTERPRISE_ITEM.title}
+                    className="h-11 rounded-lg"
+                  >
+                    <Link href={ENTERPRISE_ITEM.href}>
+                      <ENTERPRISE_ITEM.icon className="size-6" />
+                      <span>{ENTERPRISE_ITEM.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -323,51 +363,30 @@ export function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
 
-        {/* User */}
+        {/* User — clicking opens the account page. */}
 
         <SidebarMenu>
           <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
-                  size="lg"
-                  tooltip={`${displayName} - ${displayEmail}`}
-                  className="rounded-lg"
-                >
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-sidebar-accent">
-                    <User className="size-5" />
-                  </div>
+            <SidebarMenuButton
+              asChild
+              size="lg"
+              tooltip={`${displayName} - ${displayEmail}`}
+              className="rounded-lg"
+            >
+              <Link href="/account">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-sidebar-accent">
+                  <User className="size-5" />
+                </div>
 
-                  <div className="grid min-w-0 flex-1 text-left text-[15px] leading-tight">
-                    <span className="truncate font-medium">{displayName}</span>
+                <div className="grid min-w-0 flex-1 text-left text-[15px] leading-tight">
+                  <span className="truncate font-medium">{displayName}</span>
 
-                    <span className="truncate text-[13px] text-sidebar-foreground/60">
-                      {displayEmail}
-                    </span>
-                  </div>
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                side="top"
-                align="end"
-                sideOffset={8}
-                collisionPadding={12}
-                className="w-60 rounded-xl"
-              >
-                <DropdownMenuLabel className="font-normal">
-                  <p className="text-[15px] font-medium">{displayName}</p>
-                  <p className="text-[13px] text-muted-foreground">{displayEmail}</p>
-                </DropdownMenuLabel>
-
-                <DropdownMenuSeparator />
-
-                <DropdownMenuItem variant="destructive" onSelect={logout}>
-                  <LogOut />
-                  Sign out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  <span className="truncate text-[13px] text-sidebar-foreground/60">
+                    {displayEmail}
+                  </span>
+                </div>
+              </Link>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
