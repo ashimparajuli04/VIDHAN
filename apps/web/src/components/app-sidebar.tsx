@@ -3,6 +3,7 @@
 import * as React from "react";
 import { SidebarToggleIcon } from "@/components/sidebar-toggle-icon";
 import { BrandLogo } from "@/components/brand-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -43,6 +44,7 @@ import {
 
 import { useAuth } from "@/features/auth/provider";
 import { useChat } from "@/features/chat/store";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   {
@@ -235,6 +237,20 @@ export function AppSidebar() {
       {/* ───────────────── Footer ───────────────── */}
 
       <SidebarFooter className="border-t-0 p-2">
+        {/* Theme — the mobile header carries the mobile copy of this toggle. */}
+
+        <SidebarMenu className="gap-1">
+          <SidebarMenuItem>
+            <ThemeToggle
+              showLabel={!collapsed}
+              className={cn(
+                "rounded-lg text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                collapsed && "size-10"
+              )}
+            />
+          </SidebarMenuItem>
+        </SidebarMenu>
+
         {/* User */}
 
         <SidebarMenu>

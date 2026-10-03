@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeader } from "@/components/page-header";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -30,14 +31,10 @@ export default function UsagePage() {
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-5 pt-5 pb-16 md:px-8 md:pt-7">
-      <header className="mb-8 md:mb-10">
-        <h1 className="text-4xl font-extrabold tracking-[-0.03em] md:text-[44px] md:leading-[1.05]">
-          Usage
-        </h1>
-        <p className="mt-3 max-w-2xl text-[17px] leading-snug text-muted-foreground">
-          Your token usage for today. It resets every midnight in Nepal.
-        </p>
-      </header>
+      <PageHeader
+        title="Usage"
+        description="Your token usage for today. It resets every midnight in Nepal."
+      />
 
       <Card>
         <CardHeader>

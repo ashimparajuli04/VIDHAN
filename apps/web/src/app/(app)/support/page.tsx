@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useSearchParams } from "next/navigation";
 
+import { PageHeader } from "@/components/page-header";
 import { SupportList } from "@/features/support/components/support-list";
 import { SupportThread } from "@/features/support/components/support-thread";
 
@@ -27,15 +28,10 @@ function SupportContent() {
         <SupportThread id={id} />
       ) : (
         <>
-          <header className="mb-8 md:mb-10">
-            <h1 className="text-4xl font-extrabold tracking-[-0.03em] md:text-[44px] md:leading-[1.05]">
-              Support
-            </h1>
-            <p className="mt-3 max-w-2xl text-[17px] leading-snug text-muted-foreground">
-              Report a missing document, a missing lawyer, or anything else.
-              An admin replies here.
-            </p>
-          </header>
+          <PageHeader
+            title="Support"
+            description="Report a missing document, a missing lawyer, or anything else. An admin replies here."
+          />
 
           <SupportList />
         </>
