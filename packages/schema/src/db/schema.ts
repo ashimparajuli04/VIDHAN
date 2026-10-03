@@ -379,6 +379,9 @@ export const chatMessages = sqliteTable(
     references: text("references", { mode: "json" }).$type<
       TReference[] & JsonValueOf<TReference[]>
     >(),
+    // Chain-of-thought shown in the collapsible reasoning panel, joined across
+    // steps. Plain text; the model's internal reasoning, not the answer.
+    reasoning: text("reasoning"),
     createdAt: text("created_at").notNull(),
   },
   (t) => [index("chat_messages_session_created_idx").on(t.sessionId, t.createdAt)],

@@ -17,7 +17,7 @@ import type { TChatMessageView } from "../types";
 import { LawyerStep } from "./lawyer-step";
 import { ReferenceChips } from "./reference-chips";
 import { SupportOfferCard } from "./support-offer-card";
-import { ThinkingDots } from "./thinking-dots";
+import { Thinking } from "./thinking";
 
 export function MessageBubble({
   message,
@@ -62,6 +62,7 @@ export function MessageBubble({
   if (
     !isUser &&
     !message.content &&
+    !message.reasoning &&
     !thinking &&
     !message.lawyerSearch &&
     !message.sources &&
@@ -79,10 +80,8 @@ export function MessageBubble({
           isUser && "items-end"
         )}
       >
-        {thinking && (
-          <div className="w-fit rounded-full bg-muted px-2 py-1">
-            <ThinkingDots />
-          </div>
+        {(message.reasoning || thinking) && (
+          <Thinking reasoning={message.reasoning} active={thinking} />
         )}
 
         {message.content && (

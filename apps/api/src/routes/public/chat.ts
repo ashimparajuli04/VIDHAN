@@ -168,6 +168,13 @@ chat.post("/sessions/:id/messages", async (c) => {
     system: chatSystemPrompt(c.get("user").language, c.get("user").district, prefetchedContext),
     messages,
     tools: buildTools(c.env, origin),
+    // OpenRouter wants reasoning opted in per request. `providerOptions` keys
+    // the provider does not recognize are forwarded into the request body, so
+    // this becomes `reasoning: { enabled: true, max_tokens: 1024 }`. The token
+    // cap keeps a long deliberation from stalling the answer or the budget.
+    providerOptions: {
+      openrouter: { reasoning: { enabled: true, max_tokens: 1024 } },
+    },
     // Prefetched context plus a tool budget: retrieval to read a couple of
     // sections, the cite round-trip, then a summarise step. A reasoning model
     // spends extra hidden steps, so leave headroom.
@@ -210,6 +217,13 @@ chat.post("/sessions/:id/messages", async (c) => {
           output: toolResult.output,
         })),
       );
+      // The model reasons before each tool call, so one turn holds several
+      // reasoning blocks. Join them into the single trace the panel shows.
+      const reasoning =
+        event.steps
+          .map((step) => step.reasoningText)
+          .filter((text): text is string => Boolean(text?.trim()))
+          .join("\n\n") || null;
       // `cite` is the only source of the cited refs; parse rather than cast so a
       // malformed tool output degrades to no footer instead of throwing.
       const cited = [...toolResults]
@@ -242,6 +256,7 @@ chat.post("/sessions/:id/messages", async (c) => {
             toolCalls.length > 0 ? toolCalls : null,
             toolResults.length > 0 ? toolResults : null,
             resolvedReferences,
+            reasoning,
           );
           await touchSession(db, session.id, { updatedAt: now });
           // Title generation is a cheap side-call and deliberately not metered.
@@ -258,9 +273,9 @@ chat.post("/sessions/:id/messages", async (c) => {
   // first. The waitUntil keeps the isolate alive for the DB write.
   const stream = createUIMessageStream({
     execute: async ({ writer }) => {
-      // Reasoning is internal; streaming it would flood the client with
-      // chain-of-thought deltas the UI has no surface for.
-      writer.merge(result.toUIMessageStream({ sendReasoning: false }));
+      // Reasoning streams as its own part; the web app folds it into the
+      // collapsible thinking panel instead of the answer bubble.
+      writer.merge(result.toUIMessageStream({ sendReasoning: true }));
       if (!isFirstMessage) return;
       const title = await generateTitle(c.env, userMessage.content);
       c.executionCtx.waitUntil(

@@ -91,6 +91,7 @@ export async function insertUserMessage(
     toolCalls: null,
     toolResults: null,
     references: null,
+    reasoning: null,
     createdAt: now,
   };
   await db.insert(chatMessages).values(row);
@@ -104,6 +105,7 @@ export async function insertAssistantMessage(
   toolCalls: TToolCall[] | null,
   toolResults: TToolResult[] | null,
   references: TReference[] | null,
+  reasoning: string | null,
 ): Promise<TChatMessage> {
   const now = new Date().toISOString();
   const row = {
@@ -114,6 +116,7 @@ export async function insertAssistantMessage(
     toolCalls: toolCalls ? asJson(toolCalls) : null,
     toolResults: toolResults ? asJson(toolResults) : null,
     references: references ? asJson(references) : null,
+    reasoning,
     createdAt: now,
   };
   await db.insert(chatMessages).values(row);
