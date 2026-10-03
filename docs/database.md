@@ -27,10 +27,17 @@ Schema lives in `@vidhan/schema` (not the api app) because both the api and the 
   a platform callback request (`lawyer_requests`), never a public channel (see
   `docs/web-lawyer-details.md`).
 - `barNumber`, `yearsOfExperience`, `bio` nullable
-- `firmName`, `consultationFee` (NPR, null = not listed), `freeFirstConsultation` (default
-  `false`), `consultationModes` / `courts` / `education` (JSON, closed enums
+- `firmName`, `consultationModes` / `courts` / `education` (JSON, closed enums
   `CONSULTATION_MODES` / `COURTS`, `education` = `{ degree, institution, year? }[]`),
   `barEnrollmentYear` — all nullable decision-useful fields for the profile page
+- `seniority` **mandatory** — closed enum `SENIORITY_LEVELS` (`senior_advocate | advocate`),
+  DB default `advocate`, required in the admin create payload (`ZLawyerCreate`) and the
+  admin form
+- `totalCases` nullable int — number of cases fought, stored independently
+- `caseCounts` nullable JSON object keyed by `COURTS` (the three tiers of the
+  regular judiciary: `supreme_court | high_court | district_court`). All keys present —
+  `0` is a valid count — so the breakdown is uniform to render; it is split info and
+  **not** required to sum to `totalCases`
 - unique index on `bar_number` (unique only when present)
 - `verified`, `active` — boolean mode over integer, defaults `false`/`true`
 - `createdAt`, `updatedAt` — ISO strings set app-side
@@ -107,12 +114,17 @@ pnpm --filter @vidhan/api exec wrangler d1 migrations apply DB --local
 
 ## Seeding mock lawyers (local)
 
-`apps/api/src/seed/lawyers.ts` deterministically generates 80 lawyers (every practice area and district covered) and writes `data/lawyers.seed.sql`.
+`apps/api/src/seed/lawyers.ts` deterministically generates 150 lawyers and writes `data/lawyers.seed.sql`. The first full pass over `DISTRICTS` guarantees one lawyer per district (all 77), extras densify randomly chosen districts. `senior_advocate` requires 16+ years of practice; seniors get a heavier docket (higher per-year case rate) skewed toward the Supreme/High courts so the counts stay believable for their career length. Practice areas run 1–4 distinct per lawyer; courts are multi-bench by default (only the three tiers — Supreme, High, District): seniors always hold the Supreme Court plus 1–2 others, advocates 2–3 courts. Bios are professional first-person profile copy (designation, district, firm, courts), not placeholder sentences. Portraits live in `data/portraits/{male,female}` and are assigned randomly per gender (deterministic PRNG); `image_key` references the R2 key `lawyers/seed/<file>`.
 
 ```pwsh
-pnpm --filter @vidhan/api db:seed        # regenerate data/lawyers.seed.sql
-pnpm --filter @vidhan/api db:seed:load   # load into local D1
+pnpm --filter @vidhan/api db:seed:images  # upload data/portraits into local miniflare R2 (idempotent)
+pnpm --filter @vidhan/api db:seed         # regenerate data/lawyers.seed.sql
+pnpm --filter @vidhan/api db:seed:load    # load into local D1
 ```
+
+`db:seed:images` writes into the same miniflare state (`apps/api/.wrangler/state/v3`) that `wrangler dev` reads, so portraits are served by the public `GET /uploads/:key` route without further setup. Safe to rerun; run it before `dev` on a fresh clone.
+
+The lawyers seed starts with `DELETE FROM lawyers;`, so `db:seed:load` is idempotent — rerunning replaces the row set (local dev only; it also drops lawyers created via the admin UI on reseed, same trade-off as the documents seed).
 
 ## Seeding legal documents (local)
 

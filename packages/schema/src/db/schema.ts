@@ -22,18 +22,34 @@ export const PRACTICE_AREAS = [
 
 export const LANGUAGES = ["en", "ne", "roman_ne"] as const;
 
-// Willingness to be reached for a consultation; courts mirrors the
-// tiers of Nepal's judiciary (Supreme → High → District, plus special
-// courts and tribunals).
+// Willingness to be reached for a consultation. Courts cover the three
+// tiers of Nepal's judiciary (Supreme → High → District); special courts
+// and tribunals are deliberately not part of the model.
 export const CONSULTATION_MODES = ["in_person", "phone", "video"] as const;
 export const LAWYER_REQUEST_STATUSES = ["pending", "contacted", "closed"] as const;
 export const COURTS = [
   "supreme_court",
   "high_court",
   "district_court",
-  "special_courts",
-  "tribunals",
 ] as const;
+
+// Professional designation; `senior_advocate` is the higher rank.
+export const SENIORITY_LEVELS = ["senior_advocate", "advocate"] as const;
+
+// The case-count breakdown covers the same three tiers as COURTS.
+export const CASE_COUNT_COURTS = COURTS;
+
+// Where a lawyer fought cases. All keys present (0 is a valid count), so
+// the breakdown is uniform to render and sum. `totalCases` is stored
+// independently — the breakdown is split info, not required to sum to it.
+export const ZCaseCounts = z.object({
+  supreme_court: z.number().int().min(0),
+  high_court: z.number().int().min(0),
+  district_court: z.number().int().min(0),
+});
+export type TCaseCounts = z.infer<typeof ZCaseCounts>;
+export type TSeniority = (typeof SENIORITY_LEVELS)[number];
+export type TCaseCountCourt = (typeof CASE_COUNT_COURTS)[number];
 
 export const ZLawyerEducation = z.object({
   degree: z.string().min(1).max(120),
@@ -85,19 +101,17 @@ export const lawyers = sqliteTable(
     bio: text("bio"),
     imageKey: text("image_key"),
     firmName: text("firm_name"),
-    // NPR; null = fee not listed
-    consultationFee: integer("consultation_fee"),
-    freeFirstConsultation: integer("free_first_consultation", {
-      mode: "boolean",
-    })
-      .notNull()
-      .default(false),
     consultationModes: text("consultation_modes", { mode: "json" })
       .$type<TConsultationMode[]>(),
     courts: text("courts", { mode: "json" }).$type<TCourt[]>(),
     education: text("education", { mode: "json" })
       .$type<TLawyerEducation[]>(),
     barEnrollmentYear: integer("bar_enrollment_year"),
+    seniority: text("seniority", { enum: SENIORITY_LEVELS })
+      .notNull()
+      .default("advocate"),
+    totalCases: integer("total_cases"),
+    caseCounts: text("case_counts", { mode: "json" }).$type<TCaseCounts>(),
     verified: integer("verified", { mode: "boolean" }).notNull().default(false),
     active: integer("active", { mode: "boolean" }).notNull().default(true),
     createdAt: text("created_at").notNull(),
@@ -182,6 +196,12 @@ type JsonValueOf<T> = { [jsonDataType]: T };
 // `$type` changes only the select type; inserts still demand the branded payload.
 export function asJson<T>(value: T[]): T[] & JsonValueOf<T[]> {
   return value as T[] & JsonValueOf<T[]>;
+}
+
+// Same branding for object-shaped JSON columns (e.g. `case_counts`);
+// `asJson` above only handles arrays.
+export function asJsonObject<T extends object>(value: T): T & JsonValueOf<T> {
+  return value as T & JsonValueOf<T>;
 }
 
 export const ZToolCall = z.object({
@@ -376,18 +396,24 @@ const lawyerRefinements = {
   languages: () => z.array(z.enum(LANGUAGES)).min(1),
   yearsOfExperience: (s: z.ZodNumber) => s.int().min(0),
   bio: (s: z.ZodString) => s.max(500),
-  consultationFee: (s: z.ZodNumber) => s.int().min(0),
   consultationModes: () => z.array(z.enum(CONSULTATION_MODES)),
   courts: () => z.array(z.enum(COURTS)),
   education: () => z.array(ZLawyerEducation),
   barEnrollmentYear: (s: z.ZodNumber) => s.int().min(1950).max(2030),
+  seniority: () => z.enum(SENIORITY_LEVELS),
+  totalCases: (s: z.ZodNumber) => s.int().min(0),
+  caseCounts: () => ZCaseCounts.nullable(),
 };
 
 export const ZLawyer = createSelectSchema(lawyers, lawyerRefinements);
+// The column carries a DB default, which would make seniority optional in
+// createInsertSchema; seniority is mandatory for every lawyer, so force it.
 export const ZLawyerCreate = createInsertSchema(
   lawyers,
   lawyerRefinements,
-).omit({ id: true, createdAt: true, updatedAt: true });
+)
+  .omit({ id: true, createdAt: true, updatedAt: true })
+  .extend({ seniority: z.enum(SENIORITY_LEVELS) });
 export const ZLawyerUpdate = createUpdateSchema(
   lawyers,
   lawyerRefinements,
@@ -408,8 +434,8 @@ export const ZPublicLawyer = z.object({
   bio: z.string().nullable(),
   imageUrl: z.string().nullable(),
   verified: z.boolean(),
-  consultationFee: z.number().int().min(0).nullable(),
-  freeFirstConsultation: z.boolean(),
+  totalCases: z.number().int().min(0).nullable(),
+  seniority: z.enum(SENIORITY_LEVELS),
   consultationModes: z.array(z.enum(CONSULTATION_MODES)).nullable(),
 });
 
@@ -426,6 +452,9 @@ export const ZPublicLawyerDetail = ZPublicLawyer.extend({
   education: z.array(ZLawyerEducation).nullable(),
   barEnrollmentYear: z.number().int().min(1950).max(2030).nullable(),
   memberSince: z.number().int().min(1950).max(2030),
+  seniority: z.enum(SENIORITY_LEVELS),
+  totalCases: z.number().int().min(0).nullable(),
+  caseCounts: ZCaseCounts.nullable(),
 });
 
 export const ZLawyerRequestCreate = z.object({

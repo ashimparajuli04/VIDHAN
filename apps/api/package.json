@@ -9,6 +9,7 @@
     "build": "tsc -p tsconfig.json --noEmit",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "db:seed": "tsx src/seed/lawyers.ts",
+    "db:seed:images": "tsx src/seed/images.ts",
     "db:seed:load": "wrangler d1 execute DB --local --file=../../data/lawyers.seed.sql",
     "db:seed:documents": "tsx src/ingest/documents.ts",
     "db:seed:documents:load": "wrangler d1 execute DB --local --file=../../data/legal-documents.seed.sql",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
     "@types/node": "^26.6.3",
+    "miniflare": "5.20260930.0-alpha",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
     "wrangler": "^4.145.0"

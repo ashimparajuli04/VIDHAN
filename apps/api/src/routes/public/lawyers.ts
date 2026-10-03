@@ -1,6 +1,11 @@
 import { Hono } from "hono";
-import { DISTRICTS, LANGUAGES, PRACTICE_AREAS } from "@vidhan/schema";
-import type { TDistrict, TLanguage, TPracticeArea } from "@vidhan/schema";
+import { DISTRICTS, LANGUAGES, PRACTICE_AREAS, SENIORITY_LEVELS } from "@vidhan/schema";
+import type {
+  TDistrict,
+  TLanguage,
+  TPracticeArea,
+  TSeniority,
+} from "@vidhan/schema";
 import type { Env } from "../../index";
 import { createDb } from "../../db";
 import { findPublicLawyer, searchLawyers } from "../../lawyers";
@@ -19,18 +24,30 @@ const isDistrict = (v: string): v is TDistrict =>
   (DISTRICTS as readonly string[]).includes(v);
 const isLanguage = (v: string): v is TLanguage =>
   (LANGUAGES as readonly string[]).includes(v);
+const isSeniority = (v: string): v is TSeniority =>
+  (SENIORITY_LEVELS as readonly string[]).includes(v);
 
 lawyers.get("/", async (c) => {
   const rawPractice = parseCsv(c.req.query("practiceArea"));
   const rawDistrict = parseCsv(c.req.query("district"));
   const rawLanguage = parseCsv(c.req.query("language"));
+  const rawSeniority = c.req.query("seniority");
 
   const invalid = {
     practiceArea: rawPractice.filter((v) => !isPracticeArea(v)),
     district: rawDistrict.filter((v) => !isDistrict(v)),
     language: rawLanguage.filter((v) => !isLanguage(v)),
+    seniority:
+      rawSeniority !== undefined && !isSeniority(rawSeniority)
+        ? [rawSeniority]
+        : [],
   };
-  if (invalid.practiceArea.length || invalid.district.length || invalid.language.length) {
+  if (
+    invalid.practiceArea.length ||
+    invalid.district.length ||
+    invalid.language.length ||
+    invalid.seniority.length
+  ) {
     return c.json({ error: "validation_error", details: invalid }, 400);
   }
 
@@ -53,6 +70,7 @@ lawyers.get("/", async (c) => {
       practiceAreas: rawPractice.filter(isPracticeArea),
       districts: rawDistrict.filter(isDistrict),
       languages: rawLanguage.filter(isLanguage),
+      seniority: rawSeniority && isSeniority(rawSeniority) ? rawSeniority : null,
       limit: Math.min(limit, MAX_LIMIT),
       offset,
     },

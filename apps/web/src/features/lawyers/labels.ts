@@ -5,6 +5,7 @@ import type {
   TLanguage,
   TPracticeArea,
   TRequestStatus,
+  TSeniority,
 } from "@vidhan/schema";
 
 const PRACTICE_AREA_LABELS: Record<TPracticeArea, string> = {
@@ -34,8 +35,6 @@ const COURT_LABELS: Record<TCourt, string> = {
   supreme_court: "Supreme Court",
   high_court: "High Court",
   district_court: "District Court",
-  special_courts: "Special Courts",
-  tribunals: "Tribunals",
 };
 
 const CONSULTATION_MODE_LABELS: Record<TConsultationMode, string> = {
@@ -48,6 +47,11 @@ const REQUEST_STATUS_LABELS: Record<TRequestStatus, string> = {
   pending: "Pending",
   contacted: "Contacted",
   closed: "Closed",
+};
+
+const SENIORITY_LABELS: Record<TSeniority, string> = {
+  senior_advocate: "Senior Advocate",
+  advocate: "Advocate",
 };
 
 export function practiceAreaLabel(area: TPracticeArea): string {
@@ -70,8 +74,8 @@ export function requestStatusLabel(status: TRequestStatus): string {
   return REQUEST_STATUS_LABELS[status];
 }
 
-export function formatNpr(amount: number): string {
-  return `NPR ${new Intl.NumberFormat("en-NP").format(amount)}`;
+export function seniorityLabel(seniority: TSeniority): string {
+  return SENIORITY_LABELS[seniority];
 }
 
 export function districtLabel(district: TDistrict): string {

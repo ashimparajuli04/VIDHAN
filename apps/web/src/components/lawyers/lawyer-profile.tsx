@@ -2,20 +2,14 @@
 
 import * as React from "react";
 import {
-  BadgeCheck,
-  Building2,
   ChevronLeft,
   MapPin,
   Phone,
-  Video,
 } from "lucide-react";
 import Link from "next/link";
 
-import type {
-  TConsultationMode,
-  TPublicLawyer,
-  TPublicLawyerDetail,
-} from "@vidhan/schema";
+import type { TPublicLawyer, TPublicLawyerDetail } from "@vidhan/schema";
+import { CASE_COUNT_COURTS } from "@vidhan/schema";
 
 import { PigAvatar } from "@/components/lawyers/pig-avatar";
 import { LawyerCard } from "@/components/lawyers/lawyer-card";
@@ -25,27 +19,21 @@ import { Button } from "@/components/ui/button";
 import { RequestCallDialog } from "@/features/lawyers/components/request-call-dialog";
 import { cn } from "@/lib/utils";
 import {
-  consultationModeLabel,
   courtLabel,
   districtLabel,
   languageLabel,
   practiceAreaLabel,
+  seniorityLabel,
 } from "@/features/lawyers/labels";
 import { getLawyer, getLawyers } from "@/lib/lawyers";
 
 const MAX_RELATED = 3;
 
-const MODE_ICONS: Record<TConsultationMode, typeof Building2> = {
-  in_person: Building2,
-  phone: Phone,
-  video: Video,
-};
-
 /**
  * Lawyer profile page.
  *
  * Compact left-aligned hero (name, location, experience, practice areas),
- * then decision-useful sections (About, Consultation, Courts, Education &
+ * then decision-useful sections (About, Courts, Education &
  * credentials) that each render only when they carry data. The sticky side
  * column on `lg` holds the booking CTA and facts; on mobile the CTA is
  * pinned to the bottom. A related-lawyers row reuses the catalogue card.
@@ -129,22 +117,29 @@ export function LawyerProfile({ id }: { id: string }) {
               {/* ── Hero ── */}
               <section className="space-y-6">
                 <div className="flex items-start gap-5 md:gap-7">
-                  <PigAvatar
-                    name={lawyer.name}
-                    className="mt-1 size-20 shrink-0 md:size-28"
-                  />
+                  {lawyer.imageUrl ? (
+                    // next/image isn't configured for remote hosts under static export.
+                    <img
+                      src={lawyer.imageUrl}
+                      alt={lawyer.name}
+                      loading="lazy"
+                      className="mt-1 size-20 shrink-0 rounded-full object-cover md:size-28"
+                    />
+                  ) : (
+                    <PigAvatar
+                      name={lawyer.name}
+                      className="mt-1 size-20 shrink-0 md:size-28"
+                    />
+                  )}
 
                   <div className="min-w-0 space-y-3 md:pt-1">
                     <div className="min-w-0">
                       <h1 className="text-4xl leading-[1.05] font-extrabold tracking-[-0.03em] md:text-[44px]">
                         {lawyer.name}
                       </h1>
-                      {lawyer.verified && (
-                        <Badge variant="accent" className="mt-2.5">
-                          <BadgeCheck className="size-4" aria-hidden="true" />
-                          Verified by Vidhan
-                        </Badge>
-                      )}
+                      <p className="mt-1 text-[15px] font-semibold text-primary">
+                        {seniorityLabel(lawyer.seniority)}
+                      </p>
                     </div>
 
                     <p className="flex items-center gap-1 text-[15px] text-muted-foreground">
@@ -187,57 +182,6 @@ export function LawyerProfile({ id }: { id: string }) {
                 </section>
               )}
 
-              {/* ── Consultation ── */}
-              {(lawyer.freeFirstConsultation ||
-                lawyer.consultationFee !== null ||
-                (lawyer.consultationModes?.length ?? 0) > 0) && (
-                <section className="space-y-4 border-t pt-8">
-                  <h2 className="text-xl font-bold tracking-tight">
-                    Consultation
-                  </h2>
-                  {lawyer.freeFirstConsultation && (
-                    <Badge variant="accent" className="px-3 py-1 text-sm">
-                      Free first consult
-                    </Badge>
-                  )}
-                  {lawyer.consultationFee !== null && (
-                    <p className="flex flex-wrap items-baseline gap-1.5">
-                      <span className="text-[34px] leading-none font-extrabold tracking-[-0.03em] md:text-[40px]">
-                        {new Intl.NumberFormat("en-NP").format(
-                          lawyer.consultationFee
-                        )}
-                      </span>
-                      <span className="text-[15px] font-semibold text-muted-foreground">
-                        NPR
-                      </span>
-                      <span className="ms-2 text-[15px] text-muted-foreground">
-                        per consultation
-                      </span>
-                    </p>
-                  )}
-                  {lawyer.consultationModes &&
-                    lawyer.consultationModes.length > 0 && (
-                      <ul
-                        className="flex flex-wrap gap-2 pt-1"
-                        aria-label="Available consultation modes"
-                      >
-                        {lawyer.consultationModes.map((mode) => {
-                          const Icon = MODE_ICONS[mode];
-                          return (
-                            <li
-                              key={mode}
-                              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-4 py-1.5 text-sm dark:bg-white/[0.06]"
-                            >
-                              <Icon className="size-4 shrink-0" aria-hidden="true" />
-                              {consultationModeLabel(mode)}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-                </section>
-              )}
-
               {/* ── Courts ── */}
               {lawyer.courts && lawyer.courts.length > 0 && (
                 <section className="space-y-3 border-t pt-8">
@@ -257,6 +201,42 @@ export function LawyerProfile({ id }: { id: string }) {
                 </section>
               )}
 
+              {/* ── Case record ── */}
+              {(lawyer.totalCases !== null || lawyer.caseCounts !== null) && (
+                <section className="space-y-3 border-t pt-8">
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Case record
+                  </h2>
+                  {lawyer.totalCases !== null && (
+                    <p className="flex items-baseline gap-1.5">
+                      <span className="text-[26px] leading-none font-bold tracking-tight">
+                        {lawyer.totalCases}
+                      </span>
+                      <span className="text-[14px] font-semibold text-muted-foreground">
+                        cases fought
+                      </span>
+                    </p>
+                  )}
+                  {lawyer.caseCounts !== null && (
+                    <ul className="flex flex-wrap gap-x-6 gap-y-2 pt-1">
+                      {CASE_COUNT_COURTS.map((court) => (
+                        <li
+                          key={court}
+                          className="inline-flex items-baseline gap-1.5 text-[15px]"
+                        >
+                          <span className="font-bold">
+                            {lawyer.caseCounts?.[court] ?? 0}
+                          </span>
+                          <span className="text-muted-foreground">
+                            at {courtLabel(court)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              )}
+
               {/* ── Education & credentials ── */}
               {(lawyer.education?.length ||
                 lawyer.barEnrollmentYear !== null ||
@@ -273,7 +253,7 @@ export function LawyerProfile({ id }: { id: string }) {
                           <span className="text-foreground/80">
                             {" "}
                             — {entry.institution}
-                            {entry.year ? `, ${entry.year}` : ""}
+                            {entry.year ? ` · ${entry.year}` : ""}
                           </span>
                         </li>
                       ))}
@@ -281,12 +261,13 @@ export function LawyerProfile({ id }: { id: string }) {
                   )}
                   {lawyer.barEnrollmentYear !== null && (
                     <p className="text-[15px] text-foreground/80">
-                      Enrolled at the bar in {lawyer.barEnrollmentYear}
+                      Enrolled with the Nepal Bar Council in{" "}
+                      {lawyer.barEnrollmentYear}
                     </p>
                   )}
                   {lawyer.firmName && (
                     <p className="text-[15px] text-foreground/80">
-                      Practises at {lawyer.firmName}
+                      In practice with {lawyer.firmName}
                     </p>
                   )}
                 </section>

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { SidebarToggleIcon } from "@/components/sidebar-toggle-icon";
+import { BrandLogo } from "@/components/brand-logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -14,7 +15,6 @@ import {
   MessageSquare,
   MessageSquarePlus,
   MoreHorizontal,
-  Scale,
   User,
 } from "lucide-react";
 
@@ -107,7 +107,7 @@ export function AppSidebar() {
                   href="/chat"
                   className="flex items-center gap-2 rounded-lg px-2 py-1.5 transition-all duration-150 hover:bg-sidebar-accent group-hover/logo-expand:scale-90 group-hover/logo-expand:opacity-0"
                 >
-                  <Scale className="size-6 shrink-0 text-sidebar-primary" />
+                  <BrandLogo className="size-14 shrink-0" />
                 </Link>
 
                 {/* Expand */}
@@ -131,9 +131,9 @@ export function AppSidebar() {
                 href="/chat"
                 className="flex min-w-0 items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-sidebar-accent"
               >
-                <Scale className="size-6 shrink-0 text-sidebar-primary" />
+                <BrandLogo className="size-14 shrink-0" />
 
-                <span className="truncate text-base font-bold tracking-tight">
+                <span className="truncate font-brand text-lg font-extrabold uppercase tracking-[0.08em]">
                   Vidhan
                 </span>
               </Link>
