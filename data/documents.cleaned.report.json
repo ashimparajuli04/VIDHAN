@@ -1,0 +1,377 @@
+{
+  "generatedAt": "2026-10-03T12:07:05.167Z",
+  "llm": false,
+  "totals": {
+    "documents": 40,
+    "nodes": 6128,
+    "changed": 0,
+    "folded": 0,
+    "artifactsRemoved": 0,
+    "llmApplied": 0,
+    "llmRejected": 0,
+    "llmFailures": 0,
+    "reverted": 0
+  },
+  "documents": [
+    {
+      "id": "doc_5_18_2021_the_prevention_of_corruption_act_2059_2002_a_d_nepal_law_commission_2059_prevention_of_corruption_ac",
+      "title": "The Prevention of Corruption Act, 2059 (2002 A.D)",
+      "nodeCount": 67,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_administration_of_justice_act_2073_2016__2073_566024369-administration-of-justice-act-2073-2016_pdf",
+      "title": "Administration of Justice Act, 2073 (2016)",
+      "nodeCount": 45,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf",
+      "title": "An Act promulgated for the Prevention of Asset Laundering",
+      "nodeCount": 55,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_civil_service_act_2049_1993__2049_civil_service_act_2049_pdf",
+      "title": "Civil Service Act, 2049 (1993)",
+      "nodeCount": 74,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_commission_for_the_investigation_of_abuse_of_author_ity_act_2048_2048_commission_for_the_investigation_of_abus",
+      "title": "Commission for the Investigation of Abuse of Authority Act, 2048",
+      "nodeCount": 25,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_companies_act_2063_2006__2063_company_act_pdf",
+      "title": "Companies Act, 2063 (2006)",
+      "nodeCount": 212,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_compensation_relating_to_torture_act_2053_1996__2053_1996-12-18_legal_govt-of-nepal_eng_pdf",
+      "title": "Compensation Relating to Torture Act, 2053 (1996)",
+      "nodeCount": 15,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_competition_promotion_and_market_protection_act_20_63_2007__2063_competitionpromotionmarketprotectionact2007_p",
+      "title": "Competition Promotion and Market Protection Act, 20 63 (2007)",
+      "nodeCount": 44,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_domestic_violence_offence_and_punishment_act_2066_2009_2066_domes",
+      "title": "Domestic Violence (Offence and Punishment) Act, 2066 (2009)",
+      "nodeCount": 19,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_evidence_act_2031_2031_evidence_act_2031_1974_pdf",
+      "title": "Evidence Act, 2031",
+      "nodeCount": 64,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_foreign_employment_act_2064_2007",
+      "title": "Foreign Employment Act, 2064 (2007)",
+      "nodeCount": 289,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_good_governance_management_and_operation_act__2064_good_governance_management_and_operation_act_2064_pdf",
+      "title": "Good Governance (Management and Operation) Act, 2064 (2008)",
+      "nodeCount": 53,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_immigration_act_2049",
+      "title": "Immigration Act, 2049 (1992)",
+      "nodeCount": 48,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_immigration_rules_2051",
+      "title": "Immigration Rules, 2051 (1994)",
+      "nodeCount": 307,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_land_revenue_act_2034_1978_2034_land_revenue_act_2034_pdf",
+      "title": "Land Revenue Act, 2034 (1978)",
+      "nodeCount": 50,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_land_survey_and_measurement_act_2019_1963_2019_land_survey_and_me",
+      "title": "Land (Survey and Measurement) Act, 2019 (1963)",
+      "nodeCount": 28,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_motor_vehicles_and_transport_management_act_2049",
+      "title": "Vehicle & Transportation Act, 2049",
+      "nodeCount": 187,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_motor_vehicles_and_transport_management_rules_2054",
+      "title": "Motor Vehicles and Transport Management Rules, 2054 (1997)",
+      "nodeCount": 311,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_national_criminal_procedure_code_2074_2017",
+      "title": "The National Criminal Procedure (Code) Act, 2017",
+      "nodeCount": 1062,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_national_penal_code_2074_2017",
+      "title": "The National Penal (Code) Act, 2017",
+      "nodeCount": 1004,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_nepal_citizenship_act_2063_2006__2063_nepal_citizenship_act_2063_pdf",
+      "title": "NEPAL CITIZENSHIP ACT 2063 (2006)",
+      "nodeCount": 26,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_partnership_act_2020_1964__2020_partnership-act-2020_pdf",
+      "title": "Partnership Act, 2020 (1964)",
+      "nodeCount": 56,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_passport_act_2076",
+      "title": "Passport Act, 2076 (2019)",
+      "nodeCount": 116,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_police_rules_2049_1992__2049_nepal_poliru_pdf",
+      "title": "Police Rules, 2049 (1992)",
+      "nodeCount": 431,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_reg_civil_service_employee_conduct_2065",
+      "title": "The Regulation Concerning the Conduct of Employees of the Civil Service, 2065 B.S. (2009)",
+      "nodeCount": 94,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_right_to_information_act_2064_2007_2064_right_to_information_act_",
+      "title": "Right to Information Act, 2064 (2007 )",
+      "nodeCount": 44,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_act_relating_to_children_2075_2018_2075_act_relating_to_child",
+      "title": "The Act Relating to Children, 2075 (2018)",
+      "nodeCount": 98,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_consumer_protection_act_2075_2018_2075_consumer_protection_ac",
+      "title": "The Consumer Protection Act, 2075 (2018)",
+      "nodeCount": 77,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_copyright_act_2059_2002__2059_copyright_act_2059_pdf",
+      "title": "The Copyright Act, 2059 (2002)",
+      "nodeCount": 44,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_electronic_transactions_act_2063_2008_2063_electronic_transac",
+      "title": "The Electronic Transactions Act, 2063 (2008)",
+      "nodeCount": 93,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_environment_protection_act_2019_2076__2019_the-environment-protection-act-2019-2076_2021-12-03_06-38-31_pd",
+      "title": "The Environment Protection Act, 2019 (2076)",
+      "nodeCount": 55,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_foreign_investment_and_technology_transfer_act_2019_2075__2019_fitta-2075_pdf",
+      "title": "The Foreign Investment and Technology Transfer Act, 2019 (2075)",
+      "nodeCount": 70,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_industrial_enterprises_act_2076_2020__2076_industrial-enterprises-act-2020_pdf",
+      "title": "The Industrial Enterprises Act, 2076 (2020)",
+      "nodeCount": 273,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_labour_act_2017_2074_2017_the_labor_act_2017_2074_pdf",
+      "title": "The Labour Act, 2017 (2074)",
+      "nodeCount": 208,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_lands_act_2021_1964_2021_landact1964_pdf",
+      "title": "The Lands Act, 2021(1964)",
+      "nodeCount": 80,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_patent_design_and_trade_mark_act_2022_1965__2022_patent_and_design_act_pdf",
+      "title": "The Patent, Design and Trade Mark Act, 2022 (1965)",
+      "nodeCount": 39,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_privacy_act_2075_2018_2075_act_relating_to_individual_privacy",
+      "title": "The Privacy Act, 2075 (2018)",
+      "nodeCount": 48,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_public_procurement_act_2063_2007__2063_public_procurement_act_2063_pdf",
+      "title": "The Public Procurement Act, 2063 (2007)",
+      "nodeCount": 87,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_public_procurement_regulation_2064_2007__2008_public_procurement_rules_2064_pdf",
+      "title": "The Public Procurement Regulation, 2064 ( 2007)",
+      "nodeCount": 193,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    },
+    {
+      "id": "doc_the_social_security_act_2075_2018_2075_the_social_security_act_20",
+      "title": "The Social Security Act, 2075 (2018)",
+      "nodeCount": 37,
+      "changed": [],
+      "llmRejected": [],
+      "llmFailures": [],
+      "reverted": []
+    }
+  ]
+}

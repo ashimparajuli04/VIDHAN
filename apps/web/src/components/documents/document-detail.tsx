@@ -4,11 +4,7 @@ import * as React from "react";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import {
-  Virtuoso,
-  type ListItem,
-  type VirtuosoHandle,
-} from "react-virtuoso";
+import { Virtuoso, type VirtuosoHandle } from "react-virtuoso";
 import remarkGfm from "remark-gfm";
 
 import type {
@@ -17,6 +13,7 @@ import type {
   TDocumentOutline,
   TPublicDocumentDetail,
 } from "@vidhan/schema";
+import { isDocumentContentNode, nodeLabel } from "@vidhan/schema";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -31,6 +28,15 @@ import {
 // missing section is fetched.
 const PREFETCH_GAP = 3;
 const SKELETON_ROWS = 4;
+// Viewport line (px from the top) a row must cross to count as the active section.
+const TOP_LINE = 24;
+
+// A row's resolved body: the node's own content plus any folded clause bodies,
+// and the citation to display beneath it.
+interface TBodies {
+  content: string | null;
+  citation: string | null;
+}
 
 /**
  * Document reader. The outline (node tree, no bodies) drives the TOC and the
@@ -43,7 +49,7 @@ export function DocumentDetail({ id }: { id: string }) {
     null,
   );
   const [outline, setOutline] = React.useState<TDocumentOutline | null>(null);
-  const [bodies, setBodies] = React.useState<ReadonlyMap<string, TDocumentNode>>(
+  const [bodies, setBodies] = React.useState<ReadonlyMap<string, TBodies>>(
     new Map(),
   );
   const [status, setStatus] = React.useState<
@@ -57,6 +63,11 @@ export function DocumentDetail({ id }: { id: string }) {
 
   const virtuosoRef = React.useRef<VirtuosoHandle>(null);
   const fetchingRef = React.useRef<ReadonlySet<string>>(new Set());
+  const tocScrollRef = React.useRef<HTMLDivElement>(null);
+  const listRef = React.useRef<HTMLDivElement>(null);
+  // Ignore scroll-spy updates while a TOC click is smooth-scrolling, so the
+  // highlight doesn't flicker through every section it passes.
+  const suppressSpyRef = React.useRef(false);
 
   React.useEffect(() => {
     let active = true;
@@ -89,26 +100,120 @@ export function DocumentDetail({ id }: { id: string }) {
   // section_group) become heading rows; citeable nodes with content become
   // section rows. The flat index is the scroll target and cache key.
   const rows = React.useMemo(() => (outline ? flattenOutline(outline.nodes) : []), [outline]);
-  const tocTree = React.useMemo(
-    () => (outline ? buildTocTree(outline.nodes) : []),
+  const tocIndex = React.useMemo(
+    () => (outline ? buildTocIndex(outline.nodes) : EMPTY_TOC_INDEX),
     [outline],
   );
+  const tocTree = tocIndex.tree;
+  const activeId = activeRow !== null ? rows[activeRow]?.id ?? null : null;
 
   const rowsRef = React.useRef(rows);
   React.useEffect(() => {
     rowsRef.current = rows;
   }, [rows]);
 
+  // Scroll-spy: measure the rendered rows directly instead of trusting
+  // Virtuoso's render range, whose 1200px overscan would make the highlight
+  // trail the viewport. The active row is the last one whose top has crossed a
+  // line near the top of the viewport.
+  React.useEffect(() => {
+    const container = listRef.current;
+    if (!container) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (suppressSpyRef.current) return;
+      const items = container.querySelectorAll<HTMLElement>("[data-index]");
+      if (items.length === 0) return;
+      let next = -1;
+      for (const item of items) {
+        const index = Number(item.dataset.index);
+        if (Number.isNaN(index)) continue;
+        if (item.getBoundingClientRect().top <= TOP_LINE && index > next) {
+          next = index;
+        }
+      }
+      if (next < 0) next = Number(items[0]!.dataset.index);
+      if (!Number.isNaN(next)) {
+        setActiveRow((prev) => (prev === next ? prev : next));
+      }
+    };
+
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    const observer = new ResizeObserver(schedule);
+    observer.observe(container);
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      observer.disconnect();
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [rows]);
+
+  // Keep the reader's place visible: unfold the ancestors of the section at the
+  // top of the viewport. Additive and keyed to the active id, so a manual
+  // collapse is only overridden when the reader moves to a different branch.
+  React.useEffect(() => {
+    if (!activeId) return;
+    const chain = tocIndex.ancestors.get(activeId);
+    if (!chain || chain.length === 0) return;
+    setExpanded((prev) => {
+      let changed = false;
+      const next = new Set(prev);
+      for (const nodeId of chain) {
+        if (!next.has(nodeId)) {
+          next.add(nodeId);
+          changed = true;
+        }
+      }
+      return changed ? next : prev;
+    });
+  }, [activeId, tocIndex]);
+
+  // Bring the highlighted entry into the sidebar's own scroll viewport. The
+  // sidebar is sticky over a window-scrolled list, so scroll it directly rather
+  // than via scrollIntoView, which would move the page.
+  React.useEffect(() => {
+    const container = tocScrollRef.current;
+    if (!container || !activeId) return;
+    const active = container.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!active) return;
+    const view = container.getBoundingClientRect();
+    const item = active.getBoundingClientRect();
+    if (item.top < view.top) container.scrollTop -= view.top - item.top + 8;
+    else if (item.bottom > view.bottom)
+      container.scrollTop += item.bottom - view.bottom + 8;
+  }, [activeId, expanded]);
+
   const fetchBody = React.useCallback(
-    (node: TDocumentNodeOutline) => {
+    (node: FlatRow) => {
       if (bodies.has(node.id) || fetchingRef.current.has(node.id)) return;
       fetchingRef.current = new Set(fetchingRef.current).add(node.id);
-      getDocumentNode(id, node.id)
-        .then((full) => {
+      Promise.all([
+        getDocumentNode(id, node.id),
+        ...node.childIds.map((childId) => getDocumentNode(id, childId)),
+      ])
+        .then(([full, ...children]) => {
           if (!full) return;
+          // A rule/section often carries no body itself; its text lives in the
+          // clause children, so join them under the parent's citation.
+          const parts = [full.content ?? ""];
+          for (const child of children) parts.push(child?.content ?? "");
+          const content = parts
+            .map((part) => part.trim())
+            .filter(Boolean)
+            .join("\n\n");
           setBodies((prev) => {
             const next = new Map(prev);
-            next.set(node.id, full);
+            next.set(node.id, { content: content || null, citation: full.citation });
             return next;
           });
         })
@@ -129,16 +234,7 @@ export function DocumentDetail({ id }: { id: string }) {
       i++
     ) {
       const row = all[i];
-      if (row && row.isContent) void fetchBody(row);
-    }
-  }
-
-  function handleItemsRendered(items: ListItem<unknown>[]) {
-    for (const item of items) {
-      if (item.type !== "group" && typeof item.index === "number") {
-        setActiveRow((prev) => (prev === item.index ? prev : item.index));
-        break;
-      }
+      if (row && row.kind === "section") void fetchBody(row);
     }
   }
 
@@ -146,6 +242,10 @@ export function DocumentDetail({ id }: { id: string }) {
     const index = rows.findIndex((row) => row.id === nodeId);
     if (index < 0) return;
     setActiveRow(index);
+    suppressSpyRef.current = true;
+    window.setTimeout(() => {
+      suppressSpyRef.current = false;
+    }, 700);
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -250,18 +350,19 @@ export function DocumentDetail({ id }: { id: string }) {
               {hasToc && (
                 <TocSidebar
                   tree={tocTree}
-                  activeId={activeRow !== null ? rows[activeRow]?.id ?? null : null}
+                  activeId={activeId}
                   expanded={expanded}
+                  scrollRef={tocScrollRef}
                   onSelect={scrollToNode}
                   onToggle={toggleNode}
                 />
               )}
 
-              <div className="min-w-0">
+              <div ref={listRef} className="min-w-0">
                 {hasToc && (
                   <TocMobile
                     tree={tocTree}
-                    activeId={activeRow !== null ? rows[activeRow]?.id ?? null : null}
+                    activeId={activeId}
                     expanded={expanded}
                     onSelect={scrollToNode}
                     onToggle={toggleNode}
@@ -275,7 +376,6 @@ export function DocumentDetail({ id }: { id: string }) {
                   totalCount={rows.length}
                   defaultItemHeight={400}
                   rangeChanged={handleRangeChanged}
-                  itemsRendered={handleItemsRendered}
                   itemContent={(index) => {
                     const row = rows[index];
                     if (!row) return null;
@@ -298,27 +398,61 @@ export function DocumentDetail({ id }: { id: string }) {
   );
 }
 
+type RowKind = "heading" | "section";
+
 interface FlatRow extends TDocumentNodeOutline {
-  /** True when this node carries body text to lazy-fetch and render. */
-  isContent: boolean;
-  /** Whether the source node declared content (null content still a leaf). */
-  contentPresent: boolean;
+  kind: RowKind;
+  /**
+   * Sub-provision ids (clauses) folded into this row. Their bodies are fetched
+   * and concatenated under the parent's heading, so a rule whose text lives in
+   * `(1)`, `(2)` children renders as one provision, not one row per clause.
+   */
+  childIds: string[];
 }
 
-// Walk the outline depth-first (document order). Preamble + sections carry
-// content; chapters/section_group are structural headings. All are rows so the
-// reader shows the same hierarchy the outline describes.
+// A clause child (`(1)`, `(a)`) has no heading; its identifier is the only
+// label. It is a sub-provision, rendered inside its parent's row, never its own
+// TOC entry or top-level row.
+const CLAUSE_LABEL = /^\([\w]+\)$/;
+const isClauseChild = (node: TDocumentNodeOutline) =>
+  CLAUSE_LABEL.test(nodeLabel(node));
+
+// Walk the outline depth-first (document order). Content nodes render as
+// section rows with their clause children folded in; containers are structural
+// headings. Bodies are not in the outline, so a section row with no body (an
+// amendment caption, or a rule whose text is entirely in clause children) is
+// only known after its fetch resolves.
 function flattenOutline(nodes: TDocumentNodeOutline[]): FlatRow[] {
   const out: FlatRow[] = [];
+
+  // Clause descendants of a content node, so their bodies can be concatenated
+  // into the parent row. Stops at nested content nodes, which are their own rows.
+  const collectClauses = (node: TDocumentNodeOutline): string[] => {
+    const ids: string[] = [];
+    for (const child of node.children) {
+      if (isClauseChild(child)) {
+        ids.push(child.id);
+        ids.push(...collectClauses(child));
+      }
+    }
+    return ids;
+  };
+
   const walk = (list: TDocumentNodeOutline[]) => {
     for (const node of list) {
-      const contentPresent =
-        node.nodeType === "preamble" ||
-        node.nodeType === "section" ||
-        node.nodeType === "sub_section" ||
-        node.nodeType === "clause";
-      out.push({ ...node, isContent: contentPresent, contentPresent });
-      if (node.children.length > 0) walk(node.children);
+      if (isClauseChild(node)) continue;
+      const isContent = isDocumentContentNode(node.nodeType);
+      out.push({
+        ...node,
+        kind: isContent ? "section" : "heading",
+        childIds: isContent ? collectClauses(node) : [],
+      });
+      // Content nodes already claimed their clause children; recurse only into
+      // nested content nodes. Containers recurse into all children.
+      const nested = isContent
+        ? node.children.filter((child) => !isClauseChild(child))
+        : node.children.filter((child) => !isClauseChild(child) || isContent);
+      if (nested.length > 0) walk(nested);
     }
   };
   walk(nodes);
@@ -332,20 +466,51 @@ interface TocNode {
   children: TocNode[];
 }
 
+interface TocIndex {
+  tree: TocNode[];
+  /** Outline-node id -> ids of its ancestor TOC nodes, for unfolding to it. */
+  ancestors: ReadonlyMap<string, readonly string[]>;
+}
+
+const EMPTY_TOC_INDEX: TocIndex = { tree: [], ancestors: new Map() };
+
 // Build the TOC from the outline tree directly (depth = nesting level).
-function buildTocTree(nodes: TDocumentNodeOutline[]): TocNode[] {
-  return nodes
-    .filter((node) => node.nodeType !== "section_group")
-    .map((node) => ({
-      id: node.id,
-      label: node.heading ?? node.title ?? node.identifier,
-      level: node.depth,
-      children: buildTocTree(node.children),
-    }));
+// section_group is structural: it contributes no entry of its own, so its
+// children are lifted to the parent's level rather than dropped with it. Bare
+// clause markers are skipped entirely. The ancestor map lets the reader unfold
+// the active section's branch as it scrolls.
+function buildTocIndex(nodes: TDocumentNodeOutline[]): TocIndex {
+  const ancestors = new Map<string, readonly string[]>();
+
+  const walk = (
+    list: TDocumentNodeOutline[],
+    chain: readonly string[],
+  ): TocNode[] => {
+    const out: TocNode[] = [];
+    for (const node of list) {
+      if (isClauseChild(node)) continue;
+      ancestors.set(node.id, chain);
+      if (node.nodeType === "section_group") {
+        out.push(...walk(node.children, chain));
+        continue;
+      }
+      out.push({
+        id: node.id,
+        label: nodeLabel(node),
+        level: node.depth,
+        children: walk(node.children, [...chain, node.id]),
+      });
+    }
+    return out;
+  };
+
+  return { tree: walk(nodes, []), ancestors };
 }
 
 // One virtualized reader row. Structural containers render as an underlined
-// heading; content nodes render the fetched body (or a skeleton while loading).
+// heading; section rows render the fetched body. A body that resolves to empty
+// is a genuinely empty provision, not a pending one, so it keeps its heading
+// and citation but shows nothing (no skeleton, no placeholder).
 function ReaderRow({
   row,
   content,
@@ -355,11 +520,11 @@ function ReaderRow({
   content: string | null;
   citation: string | null;
 }) {
-  if (!row.isContent) {
+  if (row.kind === "heading") {
     return (
       <div className="pt-8 pb-2">
         <h2 className="border-b pb-1 text-lg font-semibold tracking-tight">
-          {row.heading ?? row.title ?? row.identifier}
+          {nodeLabel(row)}
         </h2>
       </div>
     );
@@ -370,15 +535,13 @@ function ReaderRow({
       <h3 className="mb-2 text-base font-semibold tracking-tight">
         {row.identifier && row.nodeType === "section"
           ? `${row.identifier}. ${row.heading ?? ""}`
-          : row.heading ?? row.title ?? row.identifier}
+          : nodeLabel(row)}
       </h3>
-      {content === null ? (
-        <ChunkSkeleton />
-      ) : (
+      {content ? (
         <div className="prose prose-neutral max-w-none dark:prose-invert prose-p:my-2 prose-p:leading-7 prose-ul:my-2 prose-ol:my-2 prose-li:my-0.5 prose-blockquote:my-3 prose-hr:my-5 prose-table:my-3">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
-      )}
+      ) : null}
       {citation && (
         <p className="mt-3 text-xs text-muted-foreground italic">{citation}</p>
       )}
@@ -390,18 +553,23 @@ function TocSidebar({
   tree,
   activeId,
   expanded,
+  scrollRef,
   onSelect,
   onToggle,
 }: {
   tree: TocNode[];
   activeId: string | null;
   expanded: ReadonlySet<string>;
+  scrollRef: React.RefObject<HTMLDivElement | null>;
   onSelect: (id: string) => void;
   onToggle: (id: string) => void;
 }) {
   return (
     <aside className="hidden lg:block">
-      <div className="sticky top-8 max-h-[calc(100vh-3rem)] overflow-y-auto pr-1">
+      <div
+        ref={scrollRef}
+        className="sticky top-8 max-h-[calc(100vh-3rem)] overflow-y-auto pr-1"
+      >
         <h2 className="mb-2 text-[13px] font-semibold tracking-wider text-muted-foreground uppercase">
           Contents
         </h2>
@@ -524,7 +692,7 @@ function TocTreeNode({
           onClick={() => onSelect(node.id)}
           aria-current={isActive ? "true" : undefined}
           className={cn(
-            "min-w-0 flex-1 truncate rounded-md py-1 pr-2 text-left text-sm leading-snug transition-colors",
+            "min-w-0 flex-1 truncate rounded-md py-1 pl-2 pr-2 text-left text-sm leading-snug transition-colors",
             isActive
               ? "bg-accent font-medium text-foreground"
               : cn(
@@ -575,20 +743,6 @@ function ReaderSkeleton() {
           />
         ))}
       </div>
-    </div>
-  );
-}
-
-// Shown while a section body is in flight; keeps the scrollbar position stable.
-function ChunkSkeleton() {
-  return (
-    <div className="space-y-3 py-3" aria-hidden>
-      {Array.from({ length: SKELETON_ROWS }, (_, index) => (
-        <Skeleton
-          key={index}
-          className={`h-[18px] ${index % 5 === 2 ? "w-2/3" : "w-full"}`}
-        />
-      ))}
     </div>
   );
 }

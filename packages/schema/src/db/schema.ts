@@ -142,9 +142,38 @@ export const DOCUMENT_NODE_TYPES = [
   "section",
   "sub_section",
   "clause",
+  "rule",
   "schedule",
 ] as const;
 export type TDocumentNodeType = (typeof DOCUMENT_NODE_TYPES)[number];
+
+// Structural-only node types, never carrying body text. Everything else is a
+// citable provision. The corpus mixes acts (`section`), rules (`rule`) and
+// schedules, so consumers must test against containers, not an allow-list of
+// content types — an allow-list silently drops any type it was not updated for.
+export const DOCUMENT_CONTAINER_NODE_TYPES = [
+  "chapter",
+  "section_group",
+] as const satisfies readonly TDocumentNodeType[];
+
+export function isDocumentContentNode(nodeType: string): boolean {
+  return !(DOCUMENT_CONTAINER_NODE_TYPES as readonly string[]).includes(nodeType);
+}
+
+// Display label for a node. `title` is often an empty string (not null) on
+// containers and clauses, so a plain `heading ?? title ?? identifier` chain
+// stops at the blank and renders nothing; skip blanks explicitly.
+export function nodeLabel(node: {
+  heading?: string | null;
+  title?: string | null;
+  identifier?: string | null;
+}): string {
+  for (const candidate of [node.heading, node.title, node.identifier]) {
+    const trimmed = candidate?.trim();
+    if (trimmed) return trimmed;
+  }
+  return "";
+}
 
 // Normalized recursive tree. `id` is the path id `{documentId}:{0.2.1}` where
 // each segment is the node's 0-based position within its parent. Citations are

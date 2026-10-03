@@ -109,14 +109,14 @@ export function buildTools(env: Env, origin: string) {
       },
     }),
 
-    // Second discovery step: a stored summary plus a brief of the parts and an
-    // index of every section id, so the model can confirm relevance and pick the
-    // exact sections to read.
+    // Second discovery step: a stored parts brief plus an index of every section
+    // id, so the model can confirm relevance and pick the exact sections to read.
     get_document_summary: tool({
       description:
-        "Fetch a document's summary, a brief of its parts, and the id + heading of " +
-        "every section. Use after get_document_titles to confirm the document covers " +
-        "the topic, then pass the relevant section nodeIds to get_sections.",
+        "Fetch a document's parts brief — a lead line and what each part covers — " +
+        "and the id + heading of every section. Use after get_document_titles to " +
+        "confirm the document covers the topic, then pass the relevant section " +
+        "nodeIds to get_sections.",
       inputSchema: z.object({
         documentId: z.string().describe("Document id from get_document_titles"),
       }),

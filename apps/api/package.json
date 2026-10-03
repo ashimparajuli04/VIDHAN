@@ -13,7 +13,9 @@
     "db:seed:documents": "tsx src/ingest/documents.ts",
     "db:seed:documents:load": "wrangler d1 execute DB --local --file=../../data/legal-documents.seed.sql",
     "db:seed:summaries": "tsx src/ingest/summaries.ts",
-    "db:seed:summaries:load": "wrangler d1 execute DB --local --file=../../data/documents.summaries.seed.sql"
+    "db:seed:summaries:load": "wrangler d1 execute DB --local --file=../../data/documents.summaries.seed.sql",
+    "db:clean:documents": "tsx src/clean/documents.ts",
+    "db:clean:documents:load": "wrangler d1 execute DB --local --file=../../data/documents.cleaned.seed.sql"
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^1.0.58",

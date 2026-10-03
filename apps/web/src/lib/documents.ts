@@ -1,4 +1,5 @@
 import {
+  ZDocumentNode,
   ZDocumentOutline,
   ZPublicDocument,
   ZPublicDocumentDetail,
@@ -105,5 +106,5 @@ export async function getDocumentNode(
     `/docs/${encodeURIComponent(id)}/nodes/${encodeURIComponent(nodeId)}`,
   )) as { node?: unknown };
   if (!payload.node) return null;
-  return payload.node as TDocumentNode;
+  return ZDocumentNode.parse(payload.node);
 }

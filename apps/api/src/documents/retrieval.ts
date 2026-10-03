@@ -1,5 +1,5 @@
 import { and, asc, eq, inArray, like, sql } from "drizzle-orm";
-import { documentNodes, documents } from "@vidhan/schema";
+import { documentNodes, documents, isDocumentContentNode, nodeLabel } from "@vidhan/schema";
 import type { TDocumentNodeType, TReference } from "@vidhan/schema";
 
 import type { Db } from "../db";
@@ -65,7 +65,7 @@ function chapterLabel(row: {
   heading: string | null;
   title: string;
 }): string {
-  const label = row.heading ?? row.title;
+  const label = nodeLabel(row);
   return row.identifier ? `${row.identifier} · ${label}` : label;
 }
 
@@ -90,12 +90,17 @@ export async function getCompactOutline(
   const sections: TOutlineEntry[] = [];
   let chapter: string | null = null;
   for (const row of rows) {
-    if (row.nodeType === "chapter" || row.nodeType === "section_group") {
+    if (!isDocumentContentNode(row.nodeType)) {
       chapter = chapterLabel(row);
       continue;
     }
-    if (row.nodeType !== "section") continue;
-    const heading = row.heading ?? row.title;
+    // `clause` children carry text too, but they are subordinate to their rule
+    // or section; the parent is the citable unit, so keep only top-level
+    // content nodes here.
+    if (row.parentId !== null && rows.some((r) => r.id === row.parentId && isDocumentContentNode(r.nodeType))) {
+      continue;
+    }
+    const heading = nodeLabel(row);
     if (needle && !heading.toLowerCase().includes(needle)) continue;
     sections.push({
       id: row.id,
@@ -122,8 +127,8 @@ export async function getCompactOutline(
 
 // Summary + a flat index of the document's leaf sections, so the model can
 // judge relevance from the stored brief and then fetch exact sections by id.
-// The stored summary is generated offline (see ingest/summaries.ts) and already
-// contains both the prose summary and the parts brief.
+// The stored summary is generated offline (see ingest/summaries.ts) and is the
+// terse lead line plus the parts brief.
 export type TDocumentSummary = {
   documentId: string;
   title: string;
@@ -168,17 +173,13 @@ export async function getDocumentSummary(
     .where(eq(documentNodes.documentId, documentId))
     .orderBy(asc(documentNodes.position));
 
-  // Leaf provisions (section/sub_section) carry the citable text. Containers are
-  // skipped — their content is covered by the brief.
-  const isSection = (nodeType: string) =>
-    nodeType === "section" || nodeType === "sub_section" || nodeType === "clause";
+  // Every content node carries citable text; containers are skipped because
+  // their content is covered by the brief.
   const all = rows
-    .filter((row) => isSection(row.nodeType))
+    .filter((row) => isDocumentContentNode(row.nodeType))
     .map((row) => ({
       nodeId: row.id,
-      label: `${row.identifier ? `${row.identifier}. ` : ""}${
-        row.heading ?? row.title
-      }`.trim(),
+      label: `${row.identifier ? `${row.identifier}. ` : ""}${nodeLabel(row)}`.trim(),
     }));
 
   return {
@@ -234,7 +235,7 @@ export async function getSections(
         documentTitle: doc.title,
         nodeId: node.id,
         identifier: node.identifier,
-        heading: node.heading ?? node.title,
+        heading: nodeLabel(node) || null,
         content: content.slice(0, maxChars),
         contentLength: content.length,
         truncated: content.length > maxChars,
@@ -281,7 +282,7 @@ export async function getBoundedSection(
     documentTitle: doc[0].title,
     nodeId: node.id,
     identifier: node.identifier,
-    heading: node.heading ?? node.title,
+    heading: nodeLabel(node) || null,
     content: content.slice(0, maxChars),
     contentLength: content.length,
     truncated: content.length > maxChars,
@@ -320,7 +321,7 @@ export async function resolveReferences(
         documentId: row.documentId,
         nodeId: row.nodeId,
         identifier: row.identifier,
-        heading: row.heading ?? row.title,
+        heading: nodeLabel(row),
         citation: row.citation,
       },
     ];
@@ -375,7 +376,7 @@ export async function searchDocumentSections(
     documentTitle: row.title,
     nodeId: row.id,
     identifier: row.identifier,
-    heading: row.heading ?? row.node_title,
+    heading: nodeLabel({ heading: row.heading, title: row.node_title, identifier: row.identifier }),
     snippet: row.snippet,
   }));
 }

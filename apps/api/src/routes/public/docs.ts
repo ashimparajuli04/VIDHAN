@@ -85,21 +85,11 @@ docs.get("/:id/outline", async (c) => {
 
 // A single node's body + precomputed citation. Ids embed the document id
 // (`{documentId}:{path}`), but the documentId is still checked so a node can't
-// be read through another document's route.
+// be read through another document's route. The full row is returned so the
+// client can validate against ZDocumentNode rather than an ad-hoc subset.
 docs.get("/:id/nodes/:nodeId", async (c) => {
   const db = createDb(c.env.DB);
   const node = await getDocumentNode(db, c.req.param("id"), c.req.param("nodeId"));
   if (!node) return c.json({ error: "not_found" }, 404);
-  return c.json({
-    node: {
-      id: node.id,
-      documentId: node.documentId,
-      nodeType: node.nodeType,
-      identifier: node.identifier,
-      title: node.title,
-      heading: node.heading,
-      content: node.content,
-      citation: node.citation,
-    },
-  });
+  return c.json({ node });
 });

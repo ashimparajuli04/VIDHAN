@@ -85,6 +85,15 @@ skipping `section_group` containers. Labels: `section` → `"Section 3"`, `chapt
 verbatim (`"Chapter-1"`), `preamble` → `"Preamble"`. Example:
 `Domestic Violence (Offence and Punishment) Act, 2066 (2009), Section 3 (Domestic Violence not to be committed)`.
 
+A source dump whose JSON is OCR-garbled or missing headings can be corrected
+from a curated plain-text transcription before re-ingest. The corrected text is
+parsed into the same `{tier, nodeType, identifier, title, content, children}`
+shape and spliced into the dump's `nodes` JSON (or the dump is regenerated), then
+`db:seed:documents` runs unchanged. The asset-laundering source was rebuilt this
+way from `data/fixes/…asset_laundering…pdf.txt`, which supplies the 8 chapter
+descriptions the extraction dropped and repairs split words (`prev ent` →
+`prevent`).
+
 ## Conventions
 
 - **Types derive from Drizzle, not hand-written.** `createSelectSchema` / `createInsertSchema` / `createUpdateSchema` from `drizzle-orm/zod`; refinements applied per column. `create`/`update` schemas omit `id` + timestamps (set server-side). Schemas are `Z*`, inferred types `T*` (`ZLawyer`, `TLawyer`).

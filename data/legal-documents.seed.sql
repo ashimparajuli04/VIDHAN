@@ -1609,602 +1609,584 @@ section (1) shall be deemed to have been done and taken under this Act.', 13, 'A
 ;
 
 INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'preamble', 'Preamble', 'Introductory matter', NULL, 'An Act promulgated for the Prevention of Asset Laundering 
- 
-Preamble: Whereas, it is expedient to prev ent laundering of criminally earned 
-assets,  
-the Legislature-Parliament has enacted this Act.   
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'preamble', 'Preamble', 'Introductory matter', NULL, 'An Act promulgated for the Prevention of Asset Laundering
+Preamble: Whereas, it is expedient to prevent laundering of criminally earned
+assets,
+the Legislature-Parliament has enacted this Act.
 Act No. 34 of the Year 2008 (2064)', 0, 'An Act promulgated for the Prevention of Asset Laundering, Preamble', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter - 1', 'Chapter - 1', NULL, NULL, 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter - 1', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 2, 'section', '1', 'Short Title, Extent, and Commencement:    (1) This Act shall be', 'Short Title, Extent, and Commencement', 'known as the "Asset (Money) Laundering Prevention Act, 2008". 
- (2) The Act shall be applicab le throughout Nepal and to any 
-individual or corporate body, wher ever may be residing, remitting, 
-transferring or sending assets from Nepal to abroad or abroad to Nepal 
-obtained by the act which is offence under this Act.  
- (3) The Act shall come  into force at once.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter - 1, Section 1 (Short Title, Extent, and Commencement)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 2, 'section', '2', 'Definition : Unless the subject or context otherwise requires, in this Act,-', 'Definition', '(a) "Investigation Officer" means a staff or person appointed or 
-prescribed as per the section 15.  
-(b)   "Offence" means the offences stipulated under chapter 2.  
-(c)    "Transactions" means any act  or agreement made in order to 
-carry out any economic or busin ess transactions and the term 
-also denotes the transactions  including acquisition, sale, 
-distribution, transfer or inve stment and possession of any 
-assets by any means.  
-(c) "Non-Financial Institution" m eans the following institutions:- 
-(1) Any firm or company registered as per prevailing laws 
-to carry out the business of casino, precious metals or 
-stones including any other business and commerce, 
-(2) Any institution whether or not  organized or registered 
-as per the laws, 
-(3) Any institution prescribed by Nepal Government by 
-publishing notice in the Nepal Gazette. 
-(d) "Prescribed or as prescribed " means prescribed or as 
-prescribed in this Act or rules framed under therein. 
-(e) "Department" means the Asse t Laundering Investigation 
-Department pursuant to section 11. 
-(f)  "Bank" means a bank licensed by Rastra Bank for carrying 
-out ''A'' class financial transacti ons under the prevailing bank 
-and financial institution law.  
-(g) "Financial Institution" means financial ins titution licensed by 
-Rastra Bank for carrying out ''B'', ''C'', and ''D''  class financial 
-transactions under the prevailing bank and financial institution 
-law and the term also denotes the cooperatives, person, firm, 
-company or institution holding li cense to purchase and sale of 
-foreign currency or any other transactions, company holding 
-license for insurance business,  insurance broker and also 
-securities market or business as per prevailing laws.  
-(h) "Financial Information Unit" means the Financial Information 
-Unit constituted pursuant to section 9.  
-(i) "Rastra Bank" means Nepal Rastra Bank established under the 
-prevailing Nepal Rastra Bank law. 
-(j) "Public Servant"  means any indi vidual supposed to be public 
-servant as per prevailing laws.  
-(k) "Doubtful Transactions" mean s transactions appearing 
-improbable economically, commercially or by business in 
-general situation.  
-(l) "Assets" means all kinds of moveable, immovable, tangible or 
-intangible properties. 
-(m) "Government Office" means the Land Revenue Office, Office 
-of the Company Registrar and the term also denotes entity 
-prescribed by the Government of Nepal by publishing notice 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter - 1', 'Chapter - 1
+Preliminary', NULL, NULL, 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter - 1', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 2, 'section', '1', 'Short Title, Extent, and Commencement: (1) This Act shall be', 'Short Title, Extent, and Commencement', 'known as the "Asset (Money) Laundering Prevention Act, 2008".
+(2) The Act shall be applicable throughout Nepal and to any
+individual or corporate body, wherever may be residing, remitting,
+transferring or sending assets from Nepal to abroad or abroad to Nepal
+obtained by the act which is offence under this Act.
+(3) The Act shall come into force at once.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter - 1, Section 1 (Short Title, Extent, and Commencement)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:1', 2, 'section', '2', 'Definition: Unless the subject or context otherwise requires, in this Act,-', 'Definition', '(a) "Investigation Officer" means a staff or person appointed or
+prescribed as per the section 15.
+(b) "Offence" means the offences stipulated under chapter 2.
+(c) "Transactions" means any act or agreement made in order to
+carry out any economic or business transactions and the term
+also denotes the transactions including acquisition, sale,
+distribution, transfer or investment and possession of any
+assets by any means.
+(c) "Non-Financial Institution" means the following institutions:-
+(1) Any firm or company registered as per prevailing laws
+to carry out the business of casino, precious metals or
+stones including any other business and commerce,
+(2) Any institution whether or not organized or registered
+as per the laws,
+(3) Any institution prescribed by Nepal Government by
+publishing notice in the Nepal Gazette.
+(d) "Prescribed or as prescribed" means prescribed or as
+prescribed in this Act or rules framed under therein.
+(e) "Department" means the Asset Laundering Investigation
+Department pursuant to section 11.
+(f) "Bank" means a bank licensed by Rastra Bank for carrying
+out ''A'' class financial transactions under the prevailing bank
+and financial institution law.
+(g) "Financial Institution" means financial institution licensed by
+Rastra Bank for carrying out ''B'', ''C'', and ''D'' class financial
+transactions under the prevailing bank and financial institution
+law and the term also denotes the cooperatives, person, firm,
+company or institution holding license to purchase and sale of
+foreign currency or any other transactions, company holding
+license for insurance business, insurance broker and also
+securities market or business as per prevailing laws.
+(h) "Financial Information Unit" means the Financial Information
+Unit constituted pursuant to section 9.
+(i) "Rastra Bank" means Nepal Rastra Bank established under the
+prevailing Nepal Rastra Bank law.
+(j) "Public Servant" means any individual supposed to be public
+servant as per prevailing laws.
+(k) "Doubtful Transactions" means transactions appearing
+improbable economically, commercially or by business in
+general situation.
+(l) "Assets" means all kinds of moveable, immovable, tangible or
+intangible properties.
+(m) "Government Office" means the Land Revenue Office, Office
+of the Company Registrar and the term also denotes entity
+prescribed by the Government of Nepal by publishing notice
 in the Nepal Gazette.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter - 1, Section 2 (Definition)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-2', 'Chapter-2', NULL, NULL, 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '3', 'Assets not to Be Laundered: (1) Nobody shall launder or cause to launder', 'Assets not to Be Laundered', 'assets. 
-(2) Any one committing acts pursuant to sub-section (1) shall be 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-2', 'Chapter-2
+Provisions Relating to Offences', NULL, NULL, 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '3', 'Assets not to Be Laundered: (1) Nobody shall launder or cause to launder', 'Assets not to Be Laundered', 'assets.
+(2) Any one committing acts pursuant to sub-section (1) shall be
 deemed to have committed offence as per this Act.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2, Section 3 (Assets not to Be Laundered)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '4', 'Assets Supposed to  Have Laundered:  Assets shall be supposed to have', 'Assets Supposed to  Have Laundered', 'laundered in case anyone, directly or indirectly, earns fr om tax evasion or 
-terrorist activities or invests in such activities or acquires, holds, possesses  
-or utilizes assets by comm itting any or all offences  stipulated as follows 
-and in case assets acquired, held or accumulated from investment of such 
-assets is possessed, held or used, utilized or consumed  or committed any 
-other act so as to present such assets as  legally acquired or earned assets or 
-conceals sources of origin of such asse ts  or assists any one to transform, 
-conceal or transfer such assets with an objective of avoiding legal actions 
-to the person having such assets:-  
-(a) Offences under the prevailing arms and ammunitions laws, 
-(b) Offences under the prevailing foreign exchange regulation laws, 
-(c) Offences of murder, theft, cheating, forgery documents, 
-counterfeiting, kidnap or abduction under the concerned  
-prevailing laws, 
-(d) Offences under the prevailing drug addiction control laws, 
-(e) Offences under the prevailing na tional park and wild animals 
-conservation laws, 
-(f) Offences under the prevailing human trafficking and taking of 
-hostages control laws, 
-(g) Offences under the prevailing cooperatives laws, 
-(h) Offences under the prevailing forest laws, 
-(i) Offences under the prevailing corruption control laws, 
-(j) Offences under the prevailing ba nk and financial institution 
-laws, 
-(k) Offences under the prevailing banking crime and punishment 
-laws, 
-(l) Offences under the prevailing ancient monuments conversation 
-laws, 
-(m) Other offences that Government of Nepal prescribes by 
-publishing in the Nepal Gazette.   
-Clarification: For the purpose of this se ction, in case any one has 
-committed any act supposed to be an offence under the following 
-conventions or provided or coll ected any money by any means for 
-murdering or physically disabling any other knowingly or with grounds 
-that such money is being used for co mmitting such offence, he shall be 
-supposed to have invested in terrorist activities:- 
-(1) Tokyo Convention on Offences and Certain Other Acts 
-Committed on Board Aircraft, 1963, 
-(2) Hague Convention for the Suppression of Unlawful Seizure of 
-Aircraft, 1970,  
-(3) Montréal Convention for the Suppression of Unlawful Acts 
-Against the Safety of Civil Aviation, 1971, 
-(4) Convention on the Prevention and Punishment of Crime 
-Against Internationally Protected Persons Including Diplomatic 
-Agents, 1973, 
-(5) International convention Against the Taking of Hostages, 1979,  
-(6) SAARC Regional Convention on Suppression of Terrorism, 
-1987, 
-(7) Any Convention against Terrorist Activities to which Nepal is a 
-party.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2, Section 4 (Assets Supposed to  Have Laundered)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '5', 'Not to Attempt, Support or Provoke : No one should attempt, support', 'Not to Attempt, Support or Provoke', 'or provoke others to commit offences stipulated in this chapter.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2, Section 5 (Not to Attempt, Support or Provoke)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -3', 'Chapter -3', NULL, NULL, 3, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -3', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 2, 'section', '6', 'Customers to be Identified : (1) Any bank, financial institution or non-', 'Customers to be Identified', 'financial institutions sha ll maintain clear identity of a person while  
-establishing any kind of business relati onship with him or transacting the 
-amount more than the limit at one or several transactions as prescribed by 
-Rastra Bank from time to time by publishing notice. 
-(2) Bank, financial institution or  non-financial institution, while 
-getting identification of the customer  as per sub-section (1), shall require 
-the person establishing business relati onship or having transactions with 
-it to submit the documents as follows:- 
-(a)   In case of  a natural pers on his name, family title, copy of 
-citizenship or passport including other necessary documents 
-evidencing his permanent residential address and profession 
-or business, 
-(b)   In case of the pe rson or firm beyond clau se (a),  copy of the 
-document certifying incorpor ation, establishment or 
-registration of the institutio n, documents that presenting 
-name, family title, address, prof ession, business of board of 
-directors and executive director or proprietor of firm or 
-partners of partnership firm,  
-(c)  In case of business relation or  transactions to be established 
-or made on behalf of someone  else, documents relating to 
-principal''s identity, address in cluding power of attorney 
-clarifying his business,  
-(d)  Name, surname, address of  close relative, person or 
-institution benefiting from th e transactions of business 
-relationship, 
-(e)   In case of transactions made through negotiable instruments, 
-name, family title and address of  the issuer and payee of or 
-from such instrument, 
-(f)   Other documents as prescr ibed by the Financial Information 
-Unit from time to time.  
-(3) Bank, financial institution or  non-financial in stitution shall 
-keep a separate record of document s and transactions of each customer, 
-pursuant to sub-section (2), includi ng date and nature of transactions, 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '4', 'Assets Supposed to Have Laundered: Assets shall be supposed to have', 'Assets Supposed to Have Laundered', 'laundered in case anyone, directly or indirectly, earns from tax evasion or
+terrorist activities or invests in such activities or acquires, holds, possesses
+or utilizes assets by committing any or all offences stipulated as follows
+and in case assets acquired, held or accumulated from investment of such
+assets is possessed, held or used, utilized or consumed or committed any
+other act so as to present such assets as legally acquired or earned assets or
+conceals sources of origin of such assets or assists any one to transform,
+conceal or transfer such assets with an objective of avoiding legal actions
+to the person having such assets:-
+(a) Offences under the prevailing arms and ammunitions laws,
+(b) Offences under the prevailing foreign exchange regulation laws,
+(c) Offences of murder, theft, cheating, forgery documents,
+counterfeiting, kidnap or abduction under the concerned
+prevailing laws,
+(d) Offences under the prevailing drug addiction control laws,
+(e) Offences under the prevailing national park and wild animals
+conservation laws,
+(f) Offences under the prevailing human trafficking and taking of
+hostages control laws,
+(g) Offences under the prevailing cooperatives laws,
+(h) Offences under the prevailing forest laws,
+(i) Offences under the prevailing corruption control laws,
+(j) Offences under the prevailing bank and financial institution
+laws,
+(k) Offences under the prevailing banking crime and punishment
+laws,
+(l) Offences under the prevailing ancient monuments conversation
+laws,
+(m) Other offences that Government of Nepal prescribes by
+publishing in the Nepal Gazette.
+Clarification: For the purpose of this section, in case any one has
+committed any act supposed to be an offence under the following
+conventions or provided or collected any money by any means for
+murdering or physically disabling any other knowingly or with grounds
+that such money is being used for committing such offence, he shall be
+supposed to have invested in terrorist activities:-
+(1) Tokyo Convention on Offences and Certain Other Acts
+Committed on Board Aircraft, 1963,
+(2) Hague Convention for the Suppression of Unlawful Seizure of
+Aircraft, 1970,
+(3) Montréal Convention for the Suppression of Unlawful Acts
+Against the Safety of Civil Aviation, 1971,
+(4) Convention on the Prevention and Punishment of Crime
+Against Internationally Protected Persons Including Diplomatic
+Agents, 1973,
+(5) International convention Against the Taking of Hostages, 1979,
+(6) SAARC Regional Convention on Suppression of Terrorism,
+1987,
+(7) Any Convention against Terrorist Activities to which Nepal is a
+party.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2, Section 4 (Assets Supposed to Have Laundered)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:2', 2, 'section', '5', 'Not to Attempt, Support or Provoke: No one should attempt, support', 'Not to Attempt, Support or Provoke', 'or provoke others to commit offences stipulated in this chapter.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-2, Section 5 (Not to Attempt, Support or Provoke)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -3', 'Chapter -3
+Provision Relating to Identity, Transactions and Details of the Customers', NULL, NULL, 3, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -3', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 2, 'section', '6', 'Customers to be Identified: (1) Any bank, financial institution or non-', 'Customers to be Identified', 'financial institutions shall maintain clear identity of a person while
+establishing any kind of business relationship with him or transacting the
+amount more than the limit at one or several transactions as prescribed by
+Rastra Bank from time to time by publishing notice.
+(2) Bank, financial institution or non-financial institution, while
+getting identification of the customer as per sub-section (1), shall require
+the person establishing business relationship or having transactions with
+it to submit the documents as follows:-
+(a) In case of a natural person his name, family title, copy of
+citizenship or passport including other necessary documents
+evidencing his permanent residential address and profession
+or business,
+(b) In case of the person or firm beyond clause (a), copy of the
+document certifying incorporation, establishment or
+registration of the institution, documents that presenting
+name, family title, address, profession, business of board of
+directors and executive director or proprietor of firm or
+partners of partnership firm,
+(c) In case of business relation or transactions to be established
+or made on behalf of someone else, documents relating to
+principal''s identity, address including power of attorney
+clarifying his business,
+(d) Name, surname, address of close relative, person or
+institution benefiting from the transactions of business
+relationship,
+(e) In case of transactions made through negotiable instruments,
+name, family title and address of the issuer and payee of or
+from such instrument,
+(f) Other documents as prescribed by the Financial Information
+Unit from time to time.
+(3) Bank, financial institution or non-financial institution shall
+keep a separate record of documents and transactions of each customer,
+pursuant to sub-section (2), including date and nature of transactions,
 type of account if so and symbol number.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -3, Section 6 (Customers to be Identified)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 2, 'section', '7', 'Liability of Government Enti ty, Bank, Financial Institution and Non-', 'Liability of Government Enti ty, Bank, Financial Institution and Non-', 'Financial Institution :- (1) The government  entity, bank, financial 
-institution and non financial ins titution shall abid e the following 
-liabilities for the purpose of this Act:- 
-(a)  To maintain records of  am ount transacted beyond the limit 
-prescribed by Rastra Bank at a single or in a series of 
-transactions by a person,  
-(b)   To investigate and inquire any transactions which seem to be 
-doubtful or transacted with the motive of assets laundering 
-or so laundered or there are reasonable grounds for getting 
-into suspicion, 
-(c) To inform the Financial Information Unit about the 
-transactions made under clause (a) within seven days of 
-event and immediately for th e transactions  made under 
-clause (b).   
-(2)  Should there be any informatio n left in details submitted to the 
-Financial Information Unit in acc ordance with sub-section (1), 
-afterwards, the concerned entity, ba nk, financial institution or non-
-financial institution shall immediat ely inform such details or any 
-information or detail found contrary to the details submitted previously.  
-(3) Notwithstanding whatever written in the sub-section (1), should 
-there be any suspicion in the tran sactions of persons having regular 
-business relation or transactions, the concerned entity, bank, financial 
-institution or non-banking financial institution shall inform the Financial 
-Information Unit after making an inquiry. 
-(4) The records of tran sactions referred in this section shall be 
-maintained secured at leas t for a period of five years from the date of 
-such transactions.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -3, Section 7 (Liability of Government Enti ty, Bank, Financial Institution and Non-)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter – 4', 'Chapter – 4', NULL, NULL, 4, 'An Act promulgated for the Prevention of Asset Laundering, Chapter – 4', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '8', 'Formation of Coordination Committee : (1) There shall be a', 'Formation of Coordination Committee', 'Coordination Committee to coordina te inter-related entities and to 
-provide essential suggestions to the Government of Nepal in regard to the 
-prevention of assets laundering as follows:- 
-(a) Secretary, Ministry of Finance                       - Coordinator 
-(b) Secretary, Ministry of Law, Justice  
- and Parliamentary System                                -Member 
-(c) Secretary, Ministry of Home                           -Member 
-(d) Secretary, Ministry of Foreign Affairs            -Member 
-(e) Deputy Governor, Nepal Rastra Bank                    - Member  
- 
-    (2) The chief of the Financ ial Information Unit shall act as 
-secretary of the Coordination Committe e pursuant to sub-section (1) and 
-the Financial Information Unit shal l work as secretariat of the 
-Coordination Committee.  
-  (3) The procedures of  mee ting of the Coordinate Committee 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:3', 2, 'section', '7', 'Liability of Government Entity, Bank, Financial Institution and Non-', 'Liability of Government Entity, Bank, Financial Institution and Non-', 'Financial Institution:- (1) The government entity, bank, financial
+institution and non financial institution shall abide the following
+liabilities for the purpose of this Act:-
+(a) To maintain records of amount transacted beyond the limit
+prescribed by Rastra Bank at a single or in a series of
+transactions by a person,
+(b) To investigate and inquire any transactions which seem to be
+doubtful or transacted with the motive of assets laundering
+or so laundered or there are reasonable grounds for getting
+into suspicion,
+(c) To inform the Financial Information Unit about the
+transactions made under clause (a) within seven days of
+event and immediately for the transactions made under
+clause (b).
+(2) Should there be any information left in details submitted to the
+Financial Information Unit in accordance with sub-section (1),
+afterwards, the concerned entity, bank, financial institution or non-
+financial institution shall immediately inform such details or any
+information or detail found contrary to the details submitted previously.
+(3) Notwithstanding whatever written in the sub-section (1), should
+there be any suspicion in the transactions of persons having regular
+business relation or transactions, the concerned entity, bank, financial
+institution or non-banking financial institution shall inform the Financial
+Information Unit after making an inquiry.
+(4) The records of transactions referred in this section shall be
+maintained secured at least for a period of five years from the date of
+such transactions.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -3, Section 7 (Liability of Government Entity, Bank, Financial Institution and Non-)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter – 4', 'Chapter – 4
+Provisions for Coordination Committee and Financial Information Unit', NULL, NULL, 4, 'An Act promulgated for the Prevention of Asset Laundering, Chapter – 4', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '8', 'Formation of Coordination Committee: (1) There shall be a', 'Formation of Coordination Committee', 'Coordination Committee to coordinate inter-related entities and to
+provide essential suggestions to the Government of Nepal in regard to the
+prevention of assets laundering as follows:-
+(a) Secretary, Ministry of Finance - Coordinator
+(b) Secretary, Ministry of Law, Justice
+and Parliamentary System -Member
+(c) Secretary, Ministry of Home -Member
+(d) Secretary, Ministry of Foreign Affairs -Member
+(e) Deputy Governor, Nepal Rastra Bank - Member
+(2) The chief of the Financial Information Unit shall act as
+secretary of the Coordination Committee pursuant to sub-section (1) and
+the Financial Information Unit shall work as secretariat of the
+Coordination Committee.
+(3) The procedures of meeting of the Coordinate Committee
 pursuant to sub-section (1) shall be as determined by the committee itself.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter – 4, Section 8 (Formation of Coordination Committee)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '9', 'Financial Information Unit : (1) There shall be a Financial Information', 'Financial Information Unit', 'Unit in Rastra Bank for collection and analysis of  information relating to 
-assets laundering.  
-    (2) The Governor of Rastra Bank shall appoint the chief of the 
-Financial Information Unit from among the first class officers, at the 
-least, of Rastra Bank.  
-(3) The Office of the Financial Info rmation Unit shall be placed in 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '9', 'Financial Information Unit: (1) There shall be a Financial Information', 'Financial Information Unit', 'Unit in Rastra Bank for collection and analysis of information relating to
+assets laundering.
+(2) The Governor of Rastra Bank shall appoint the chief of the
+Financial Information Unit from among the first class officers, at the
+least, of Rastra Bank.
+(3) The Office of the Financial Information Unit shall be placed in
 Rastra Bank and the Rastra Bank shall manage the staffs required for it.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter – 4, Section 9 (Financial Information Unit)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '10', 'Functions, Powers and Duties of Financial Information Unit:', 'Functions, Powers and Duties of Financial Information Unit', '(1) In 
-addition to the functions, powers and duties mentioned at other places of 
-this Act, the functions,  powers and duties of th e Financial Information 
-Unit shall be as follows:- 
-(a)  To obtain details of transact ions under section 7 from government 
-entities, bank, financial institu tion and non-financial institution 
-regularly and maintain records of  those details by scrutinizing 
-them,  
-(b)  In case the notice, details a nd documents available to it require 
-further inquiry and investigation on assets laundering, to make 
-primary study and send its details to the concerned department, 
-government entity, bank, financ ial institution and non-financial 
-institution, 
-(c) To write to the department with  extensive details, should there 
-appear doubtful transactions or looks dubious or there are 
-reasonable grounds to doubt in the details recei ved pursuant to 
-clause (a) or from the inquiry made pursuant to clause (b), 
-(d) To send notice, details and docu ments regarding assets laundering 
-to the Financial Information Units of other country and 
-international organization, institu tions and receive such notice  
-from concerned country and international organization and 
-institution, 
-(e) To inspect transactions and records of bank, financial institution 
-and non financial institution, to  obtain any information or 
-clarification about such transactions and records and their copies if 
-necessary, 
-(f) To manage required training programs for the staffs of government 
-entities, departments and Financial Information Unit for prevention 
-of assets laundering, 
-(g) To carry out other fu nctions as prescribed. 
- 
-(2) The entity authorized to regula te bank, financial institution and 
-non-financial institution under prevailing laws may receive information 
-from the Financial Information Unit and may provide information 
-available with it to the Unit.  
-(3) The Financial Information Unit may give necessary directives 
-to the concerned bank, financial inst itution and non-financial institution 
-about the method, form, time and other procedures regarding the 
-submission of details, statistics, not ices and informatio n  pursuant to 
-clause (a) of sub-section (1) and it  shall be the duty  of such bank, 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:4', 2, 'section', '10', 'Functions, Powers and Duties of Financial Information Unit: (1) In', 'Functions, Powers and Duties of Financial Information Unit', 'addition to the functions, powers and duties mentioned at other places of
+this Act, the functions, powers and duties of the Financial Information
+Unit shall be as follows:-
+(a) To obtain details of transactions under section 7 from government
+entities, bank, financial institution and non-financial institution
+regularly and maintain records of those details by scrutinizing
+them,
+(b) In case the notice, details and documents available to it require
+further inquiry and investigation on assets laundering, to make
+primary study and send its details to the concerned department,
+government entity, bank, financial institution and non-financial
+institution,
+(c) To write to the department with extensive details, should there
+appear doubtful transactions or looks dubious or there are
+reasonable grounds to doubt in the details received pursuant to
+clause (a) or from the inquiry made pursuant to clause (b),
+(d) To send notice, details and documents regarding assets laundering
+to the Financial Information Units of other country and
+international organization, institutions and receive such notice
+from concerned country and international organization and
+institution,
+(e) To inspect transactions and records of bank, financial institution
+and non financial institution, to obtain any information or
+clarification about such transactions and records and their copies if
+necessary,
+(f) To manage required training programs for the staffs of government
+entities, departments and Financial Information Unit for prevention
+of assets laundering,
+(g) To carry out other functions as prescribed.
+(2) The entity authorized to regulate bank, financial institution and
+non-financial institution under prevailing laws may receive information
+from the Financial Information Unit and may provide information
+available with it to the Unit.
+(3) The Financial Information Unit may give necessary directives
+to the concerned bank, financial institution and non-financial institution
+about the method, form, time and other procedures regarding the
+submission of details, statistics, notices and information pursuant to
+clause (a) of sub-section (1) and it shall be the duty of such bank,
 financial institution and non-financial institution to abide such directives.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter – 4, Section 10 (Functions, Powers and Duties of Financial Information Unit)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -5', 'Chapter -5', NULL, NULL, 5, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -5', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 2, 'section', '11', 'Establishment of the Department:  (1) The Government of Nepal shall', 'Establishment of the Department', 'establish an Asset Laundering Prevention Department to make 
-investigation and inquiry of offences under this Act.  
-(2) The chief of the department shal l be a first class officer of civil 
-service. 
-(3) The organizational structure of the Departmental and required 
-number of staffs shall be as prescribed by the Government of Nepal. 
-(4) The Government of Nepal may prescribe any entity to make 
-investigation and inquiry of the offences pursuant  to sub-section (1) till 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -5', 'Chapter -5
+Provisions for Formation of the Department and its Functions, Duties and Powers', NULL, NULL, 5, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -5', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 2, 'section', '11', 'Establishment of the Department: (1) The Government of Nepal shall', 'Establishment of the Department', 'establish an Asset Laundering Prevention Department to make
+investigation and inquiry of offences under this Act.
+(2) The chief of the department shall be a first class officer of civil
+service.
+(3) The organizational structure of the Departmental and required
+number of staffs shall be as prescribed by the Government of Nepal.
+(4) The Government of Nepal may prescribe any entity to make
+investigation and inquiry of the offences pursuant to sub-section (1) till
 the Department is not established.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -5, Section 11 (Establishment of the Department)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 2, 'section', '12', 'P owers of the Department fo r Investigation and Inquiry:', 'P owers of the Department fo r Investigation and Inquiry', '(1) The 
-Department  may exercise the fo llowing powers in course of 
-investigation and inquiry of the offences under this Act:- 
-(a)To issue order to an y concern government entity, bank, financial 
-institution or non-financial ins titution to submit the concerned 
-documents, evidences or other required details remained  with such 
-entity, bank, financial institution and non-financial institution to 
-the Department within a time prescribed, 
-(b) To conduct search operation of any concerned government entity, 
-bank, financial institution or non- financial institution or of any 
-other places, to seize, take cont rol of concerned document, deed, 
-material evidence and other eviden ces and hand its receipts to the 
-concerned official, 
-(c) To get present and inquire, call explanation or clarification from 
-the concern official of the co ncerned government entity, bank, 
-financial institution or non-financ ial institution, other staff or a 
-concerned person supposed to have obtained information of related 
-facts as deemed by the Department,  
-(d) To release a person with a written condition to present at 
-requirement or on dated attendance,  or release with guarantee or 
-bail in case there are reasonable grounds that he may disappear or 
-to keep under custody at the failure of provi ding guarantee or bail 
-with the permission of the court  after his inquiry, explanation or 
-clarification as per clause (c), 
-    Provided that the concer ned person shall not be placed 
-under custody for more than ha lf of the period punishable for 
-offences under this Act when decision is given against him.  
-(e) To order the concerned entity to freeze assets, located in Nepal, of 
-a concerned person at the request of another nation where the 
-offence under this Act has occu rred or any other international 
-organization or in accordance with bilateral or multilateral treaty or 
-agreement or on the other grounds like that, 
-(f) To require to freeze assets relate d to the offence under this Act in 
-the course of inquiry and investigation of the offence.  
-(2) In case any government entity, ba nk, financial institution or 
-non-financial institution is written by the department to submit any 
-documents or any other matters, freeze assets or provide information 
-about any matter in the course of  investigation and inquiry of  the 
-offences under this Act, the entity, ba nk, financial institution, concerned 
-official, staff or agent of the non-fi nancial institution not submitting such 
-document or other matters, not freezing assets or not providing 
-information and any official or sta ff  of such entity, bank, financial 
-institution or non-financial institution absenting even at the order of the 
-department to be present, the department may require him to submit 
-documents or matter or to freez e assets or to provide required 
-information by arresting him and may fine him up to one thousand 
-rupees.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -5, Section 12 (P owers of the Department fo r Investigation and Inquiry)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-6', 'Chapter-6', NULL, NULL, 6, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '13', 'Complaint:  (1) Any person who has in formation that somebody has', 'Complaint', 'committed, going to committee or committing any act supposed to be 
-offence under this Act, may submit  a complaint, application, information 
-or notice to the department in written or oral form. 
-(2) The department shall regist er complaint, application, 
-information or notice in written form  and oral complaint, application, 
-information or notice shall be registered after giving it to a written form, 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:5', 2, 'section', '12', 'Powers of the Department for Investigation and Inquiry: (1) The', 'Powers of the Department for Investigation and Inquiry', 'Department may exercise the following powers in course of
+investigation and inquiry of the offences under this Act:-
+(a)To issue order to any concern government entity, bank, financial
+institution or non-financial institution to submit the concerned
+documents, evidences or other required details remained with such
+entity, bank, financial institution and non-financial institution to
+the Department within a time prescribed,
+(b) To conduct search operation of any concerned government entity,
+bank, financial institution or non-financial institution or of any
+other places, to seize, take control of concerned document, deed,
+material evidence and other evidences and hand its receipts to the
+concerned official,
+(c) To get present and inquire, call explanation or clarification from
+the concern official of the concerned government entity, bank,
+financial institution or non-financial institution, other staff or a
+concerned person supposed to have obtained information of related
+facts as deemed by the Department,
+(d) To release a person with a written condition to present at
+requirement or on dated attendance, or release with guarantee or
+bail in case there are reasonable grounds that he may disappear or
+to keep under custody at the failure of providing guarantee or bail
+with the permission of the court after his inquiry, explanation or
+clarification as per clause (c),
+Provided that the concerned person shall not be placed
+under custody for more than half of the period punishable for
+offences under this Act when decision is given against him.
+(e) To order the concerned entity to freeze assets, located in Nepal, of
+a concerned person at the request of another nation where the
+offence under this Act has occurred or any other international
+organization or in accordance with bilateral or multilateral treaty or
+agreement or on the other grounds like that,
+(f) To require to freeze assets related to the offence under this Act in
+the course of inquiry and investigation of the offence.
+(2) In case any government entity, bank, financial institution or
+non-financial institution is written by the department to submit any
+documents or any other matters, freeze assets or provide information
+about any matter in the course of investigation and inquiry of the
+offences under this Act, the entity, bank, financial institution, concerned
+official, staff or agent of the non-financial institution not submitting such
+document or other matters, not freezing assets or not providing
+information and any official or staff of such entity, bank, financial
+institution or non-financial institution absenting even at the order of the
+department to be present, the department may require him to submit
+documents or matter or to freeze assets or to provide required
+information by arresting him and may fine him up to one thousand
+rupees.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -5, Section 12 (Powers of the Department for Investigation and Inquiry)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-6', 'Chapter-6
+Provisions for Investigation and Inquiry', NULL, NULL, 6, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '13', 'Complaint: (1) Any person who has information that somebody has', 'Complaint', 'committed, going to committee or committing any act supposed to be
+offence under this Act, may submit a complaint, application, information
+or notice to the department in written or oral form.
+(2) The department shall register complaint, application,
+information or notice in written form and oral complaint, application,
+information or notice shall be registered after giving it to a written form,
 obtained pursuant to sub-section (1).', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 13 (Complaint)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '14', 'Investigation and Inquiry', 'Investigation and Inquiry', ': (1) The department shall conduct necessary 
-investigation and inquiry if it rece ives information from a complaint 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '14', 'Investigation and Inquiry: (1) The department shall conduct necessary', 'Investigation and Inquiry', 'investigation and inquiry if it receives information from a complaint
 pursuant to section 13 or information pursuant to clause (c) of sub-
-section (1) of section 10 or from an y other method or source that any 
-offence under this Act has been co mmitted, being committed or going to 
-be committed. 
-(2) The department, if it receiv es information th at any offence 
-under this Act has been committed, being committed or going to be 
-committed and there are reasonable gr ounds that the person involved in 
-the offence may abscond or destroy evidences or documents, hide or 
-alter,  may take control of any docu ments or assets or arrest the person 
-involved in the offence by conducting search operation at the place where 
-offence was committed, being committed or goi ng to be committed 
-immediately.  
-(3) The department shall obtain consultancy of government 
-attorney while conducting such immediate investigation and inquiry 
+section (1) of section 10 or from any other method or source that any
+offence under this Act has been committed, being committed or going to
+be committed.
+(2) The department, if it receives information that any offence
+under this Act has been committed, being committed or going to be
+committed and there are reasonable grounds that the person involved in
+the offence may abscond or destroy evidences or documents, hide or
+alter, may take control of any documents or assets or arrest the person
+involved in the offence by conducting search operation at the place where
+offence was committed, being committed or going to be committed
+immediately.
+(3) The department shall obtain consultancy of government
+attorney while conducting such immediate investigation and inquiry
 pursuant to sub-section (1).', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 14 (Investigation and Inquiry)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '15', 'To Appoint or Prescribe Investigation Officer:', 'To Appoint or Prescribe Investigation Officer', '(1) The department 
-may appoint or prescribe any officer of  the department or other officer in 
-service of government or of any public corporate body as an investigation 
-officer in order to conduct investigation and inquiry of the offences under 
-this Act.  
-(2) The department while appointin g or prescribing any other staff 
-in service of government or public corporate body as an investigation 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '15', 'To Appoint or Prescribe Investigation Officer: (1) The department', 'To Appoint or Prescribe Investigation Officer', 'may appoint or prescribe any officer of the department or other officer in
+service of government or of any public corporate body as an investigation
+officer in order to conduct investigation and inquiry of the offences under
+this Act.
+(2) The department while appointing or prescribing any other staff
+in service of government or public corporate body as an investigation
 officer shall consult the chief of the concerned entity or corporate body.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 15 (To Appoint or Prescribe Investigation Officer)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '16', 'Functions, Duties and Powers of the Investigation Officer :  (1) The', 'Functions, Duties and Powers of the Investigation Officer', 'functions, powers and duties of the in vestigation office r, appointed or 
-prescribed pursuant to section 15, shall be as follows:- 
-a) To take necessary action by arresting the offender immediately,  
-b) To conduct search or cause to conduct search operation of any 
-office, residence, building, storage, vehicles or of any place in the 
-course of investigation and inquiry,  
-c) To exercise other powers vested to the department.  
-(2)  The investigation officer, while working pursuant to sub-
-section (1), may keep the offender on dating, release him by obtaining 
-bail or guarantee or keep under cust ody with the permission of the court 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '16', 'Functions, Duties and Powers of the Investigation Officer: (1) The', 'Functions, Duties and Powers of the Investigation Officer', 'functions, powers and duties of the investigation officer, appointed or
+prescribed pursuant to section 15, shall be as follows:-
+a) To take necessary action by arresting the offender immediately,
+b) To conduct search or cause to conduct search operation of any
+office, residence, building, storage, vehicles or of any place in the
+course of investigation and inquiry,
+c) To exercise other powers vested to the department.
+(2) The investigation officer, while working pursuant to sub-
+section (1), may keep the offender on dating, release him by obtaining
+bail or guarantee or keep under custody with the permission of the court
 if he fails to provide bail or guarantee.', 3, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 16 (Functions, Duties and Powers of the Investigation Officer)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '17', 'To Keep Under Custody for Investigation and Inquiry', 'To Keep Under Custody for Investigation and Inquiry', ': (1) The 
-investigation officer may detain th e person against whom proceedings 
-have been initiated as per this Act,  if there are sufficient grounds that he 
-may extinct or destroy any evidence or create obstacles or perverse 
-effects in the proceeding s of investigation and inquiry providing him a 
-warrant as per prevailing laws.  
-(2) In case the invest igation and inquiry could not be completed 
-within twenty four hours and it is deemed necessary to continue the 
-investigation and inquiry process by de taining him further under custody, 
-the investigation officer shall deta in the offender further with the 
-approval of  the adjudicating office r presenting the offender before the 
-adjudicating officer. 
-  (3) The department, while reques ting for permission as stipulated 
-under sub-section (2), shall clearly mention the charges against the 
-person detained under custody, reason s and grounds thereon, description 
-of the affidavit of statement if any obtained and justification for 
-continuing the investigation and inquiry proceedings by detaining him 
-under custody before the adjudicating officer. 
-(4) If request is made to carry  out investigation and inquiry 
-continuing detention pursuant to sub-section (3), the adjudicating officer,  
-after reviewing the concerned documents and the process of 
-investigation and inquiry whether satisfactory or not,  may grant 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '17', 'To Keep Under Custody for Investigation and Inquiry: (1) The', 'To Keep Under Custody for Investigation and Inquiry', 'investigation officer may detain the person against whom proceedings
+have been initiated as per this Act, if there are sufficient grounds that he
+may extinct or destroy any evidence or create obstacles or perverse
+effects in the proceedings of investigation and inquiry providing him a
+warrant as per prevailing laws.
+(2) In case the investigation and inquiry could not be completed
+within twenty four hours and it is deemed necessary to continue the
+investigation and inquiry process by detaining him further under custody,
+the investigation officer shall detain the offender further with the
+approval of the adjudicating officer presenting the offender before the
+adjudicating officer.
+(3) The department, while requesting for permission as stipulated
+under sub-section (2), shall clearly mention the charges against the
+person detained under custody, reasons and grounds thereon, description
+of the affidavit of statement if any obtained and justification for
+continuing the investigation and inquiry proceedings by detaining him
+under custody before the adjudicating officer.
+(4) If request is made to carry out investigation and inquiry
+continuing detention pursuant to sub-section (3), the adjudicating officer,
+after reviewing the concerned documents and the process of
+investigation and inquiry whether satisfactory or not, may grant
 permission for detaining him up to ninety days time by time but not-
-exceeding thirty days at a time.   
-(5) In case permission is requested to keep under custody as per 
-sub-section (2), the detainee may appe al to the adjudicating officer with 
+exceeding thirty days at a time.
+(5) In case permission is requested to keep under custody as per
+sub-section (2), the detainee may appeal to the adjudicating officer with
 reasons and grounds requiring no detainment.', 4, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 17 (To Keep Under Custody for Investigation and Inquiry)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '18', 'To Order for Freezing Assets', 'To Order for Freezing Assets', ': (1) The department or investigation 
-officer may give order to the concer ned entity to prevent any transfer, 
-pledge, sale/disposal of the assets collected by offence for a time period 
-fixed, if it is deemed in the course  of investigation and inquiry or there 
-are reasonable grounds at hand that  he may transfer, sale/dispose or 
-conceal or transform such assets by any manner.   
- (2) In case a written request is made to freeze assets pursuant to 
-sub-section (1), the concerned entity  shall freeze/withhold such assets 
-preventing its  transfer or pledge or sale/disposal.  
-(3) The department may impose fine to the chief of the concerned 
-entity, who does not freeze the asse ts in contraven tion to the order 
-pursuant to sub-section (1), up to fifty thousand rupees as per the report 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '18', 'To Order for Freezing Assets: (1) The department or investigation', 'To Order for Freezing Assets', 'officer may give order to the concerned entity to prevent any transfer,
+pledge, sale/disposal of the assets collected by offence for a time period
+fixed, if it is deemed in the course of investigation and inquiry or there
+are reasonable grounds at hand that he may transfer, sale/dispose or
+conceal or transform such assets by any manner.
+(2) In case a written request is made to freeze assets pursuant to
+sub-section (1), the concerned entity shall freeze/withhold such assets
+preventing its transfer or pledge or sale/disposal.
+(3) The department may impose fine to the chief of the concerned
+entity, who does not freeze the assets in contravention to the order
+pursuant to sub-section (1), up to fifty thousand rupees as per the report
 of the investigation officer.', 5, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 18 (To Order for Freezing Assets)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '19', 'Suspension of Account or Transactions', 'Suspension of Account or Transactions', ': Notwithstanding anything 
-mentioned in the prevailing laws, the department may give order, in 
-course of inquiry and investigation of an offence under this Act, to 
-prevent transactions or freeze bank account of a person transacting with a 
-bank, financial institution or non-fina ncial institution if any information 
-was obtained that he ha s maintained transactions  or account with such 
-bank, financial institution or non-financial institution. 
-Provided that such transaction or account operated with a bank, 
-financial institution, non-financial ins titution or with are situated abroad, 
-the department shall make a request of freezing such transactions or 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '19', 'Suspension of Account or Transactions: Notwithstanding anything', 'Suspension of Account or Transactions', 'mentioned in the prevailing laws, the department may give order, in
+course of inquiry and investigation of an offence under this Act, to
+prevent transactions or freeze bank account of a person transacting with a
+bank, financial institution or non-financial institution if any information
+was obtained that he has maintained transactions or account with such
+bank, financial institution or non-financial institution.
+Provided that such transaction or account operated with a bank,
+financial institution, non-financial institution or with are situated abroad,
+the department shall make a request of freezing such transactions or
 account through a diplomatic channel.', 6, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 19 (Suspension of Account or Transactions)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '20', 'Seized Assets and Documents to Be Kept Secured:  The investigation', 'Seized Assets and Documents to Be Kept Secured', 'officer should keep the assets and documents seized in course of inquiry 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '20', 'Seized Assets and Documents to Be Kept Secured: The investigation', 'Seized Assets and Documents to Be Kept Secured', 'officer should keep the assets and documents seized in course of inquiry
 and investigation under this Act safe.', 7, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 20 (Seized Assets and Documents to Be Kept Secured)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '21', 'Support of Other Entities May Be Obtained : (1) The department may', 'Support of Other Entities May Be Obtained', 'demand support of any entities or public corporate bodies in the course of  
-conducting inquiry and investigati on of offence under this Act and it 
-shall be the duty of such entities and bodies to prov ide support to the 
-department at the time of demand.  
-(2) The department may also demand support of  Nepal police in 
-course of inquiry and investigation of offence under this Act. It shall be 
-the duty of the concerned police officer  or of the police staff to provide 
-support to the department if such support is demanded. 
- (3) The department  if it deems by the nature of offence under 
-investigation and inquire, may make a request for consultancy from a 
-specialist belonging with an entity or  his deputation for involving him in 
-investigation and inquiry and such en tity shall have to  avail or depute 
-such specialist to th e department notwithstanding whatever has been 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '21', 'Support of Other Entities May Be Obtained: (1) The department may', 'Support of Other Entities May Be Obtained', 'demand support of any entities or public corporate bodies in the course of
+conducting inquiry and investigation of offence under this Act and it
+shall be the duty of such entities and bodies to provide support to the
+department at the time of demand.
+(2) The department may also demand support of Nepal police in
+course of inquiry and investigation of offence under this Act. It shall be
+the duty of the concerned police officer or of the police staff to provide
+support to the department if such support is demanded.
+(3) The department if it deems by the nature of offence under
+investigation and inquire, may make a request for consultancy from a
+specialist belonging with an entity or his deputation for involving him in
+investigation and inquiry and such entity shall have to avail or depute
+such specialist to the department notwithstanding whatever has been
 written in prevailing laws.', 8, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 21 (Support of Other Entities May Be Obtained)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.9', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '22', 'Filing Cases:  (1) If any one, whosoever, is deemed to have committed', 'Filing Cases', 'offence under this Act from inves tigation and inquiry, the department 
-shall write to the concerned  gove rnment attorney for taking decision 
-whether a case is to be filed against him or not.  
-(2) In case the concerned governme nt attorney decides to file a 
-case, in response to writing pursuant to  sub-section (1), the department 
-shall file the case with the court pr escribed by the Government of Nepal 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.9', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '22', 'Filing Cases: (1) If any one, whosoever, is deemed to have committed', 'Filing Cases', 'offence under this Act from investigation and inquiry, the department
+shall write to the concerned government attorney for taking decision
+whether a case is to be filed against him or not.
+(2) In case the concerned government attorney decides to file a
+case, in response to writing pursuant to sub-section (1), the department
+shall file the case with the court prescribed by the Government of Nepal
 by publishing notice in Nepal Gazette.', 9, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 22 (Filing Cases)', '2026-01-15T09:00:00.000Z'),
   ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.10', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '23', 'Time Limitation: There shall be no time limitation to file a case relating', 'Time Limitation', 'to the offences under this Act.', 10, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 23 (Time Limitation)', '2026-01-15T09:00:00.000Z'),
   ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.11', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '24', 'Government to Be Plaintiff: The Government of Nepal shall be plaintiff', 'Government to Be Plaintiff', 'in the cases relating to offences under this Act.', 11, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 24 (Government to Be Plaintiff)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.12', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '25', 'No Obstacle to Sue Under Prevailing Laws : (1) A case may be filed', 'No Obstacle to Sue Under Prevailing Laws', 'under other prevailing laws if the offence under this Act is also 
-punishable under those prevailing laws.  
-(2) In case a person involved in the offence under any prevailing 
-laws is found to have committed offe nce under this Act, the entity or 
-officer conducting investigation and inquiry of such offence shall inform 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.12', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '25', 'No Obstacle to Sue Under Prevailing Laws: (1) A case may be filed', 'No Obstacle to Sue Under Prevailing Laws', 'under other prevailing laws if the offence under this Act is also
+punishable under those prevailing laws.
+(2) In case a person involved in the offence under any prevailing
+laws is found to have committed offence under this Act, the entity or
+officer conducting investigation and inquiry of such offence shall inform
 that to the department.', 12, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 25 (No Obstacle to Sue Under Prevailing Laws)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.13', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '26', 'Not to Violate Confidentiality:', 'Not to Violate Confidentiality', '(1) No Investigation Officer or staff or 
-person involved in the investigation and inquiry shall violate 
-confidentiality of any matter or su bmitted documents that came to his 
-information in the course of investig ation and inquiry or in performing 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.13', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '26', 'Not to Violate Confidentiality: (1) No Investigation Officer or staff or', 'Not to Violate Confidentiality', 'person involved in the investigation and inquiry shall violate
+confidentiality of any matter or submitted documents that came to his
+information in the course of investigation and inquiry or in performing
 his duty, unless the prevailing laws require so.', 13, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 26 (Not to Violate Confidentiality)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.14', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '27', 'Automatic Suspension : Any official or staff of any bank, financial', 'Automatic Suspension', 'institution or non-financia l institution or civil servant shall be deemed to 
-be in automatic suspension for the period he is under custody as per this 
-Act or for the period the case is deci ded if any case has been filed against 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.14', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '27', 'Automatic Suspension: Any official or staff of any bank, financial', 'Automatic Suspension', 'institution or non-financial institution or civil servant shall be deemed to
+be in automatic suspension for the period he is under custody as per this
+Act or for the period the case is decided if any case has been filed against
 such staff, official or civil servant pursuant to section 22.', 14, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 27 (Automatic Suspension)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.15', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '28', 'Assets Deemed to Have  Gained by Laundering', 'Assets Deemed to Have  Gained by Laundering', ': In case assets of the 
-person sued for offence under this Act is found to be unnatural in 
-comparison to his income source or financial condition or he is living a 
-life unnaturally high in standard or proved to have donated, granted, 
-gifted, provided loans, contributio n or  endowment more than his 
-capacity, he is required to prove the sources of earnings and in case he 
-fails to prove so he shall be deemed  to have earned such assets by 
-committing offences under this Act.', 15, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 28 (Assets Deemed to Have  Gained by Laundering)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.16', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '29', 'Offence not Required to be Proved : Notwithstanding whatever written', 'Offence not Required to be Proved', 'in this Act or in the prevailing laws, it shall not be necessary to have the 
-acts or offences occurred as mentioned in the section 4 for penalizing in 
-the offence under section 3 and it shal l not be deemed to be barred to 
-penalize for the offence under sectio n 3 just because there was no case 
-filed against such act or offence or  dismissed even though case had been 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.15', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '28', 'Assets Deemed to Have Gained by Laundering: In case assets of the', 'Assets Deemed to Have Gained by Laundering', 'person sued for offence under this Act is found to be unnatural in
+comparison to his income source or financial condition or he is living a
+life unnaturally high in standard or proved to have donated, granted,
+gifted, provided loans, contribution or endowment more than his
+capacity, he is required to prove the sources of earnings and in case he
+fails to prove so he shall be deemed to have earned such assets by
+committing offences under this Act.', 15, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 28 (Assets Deemed to Have Gained by Laundering)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6.16', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:6', 2, 'section', '29', 'Offence not Required to be Proved: Notwithstanding whatever written', 'Offence not Required to be Proved', 'in this Act or in the prevailing laws, it shall not be necessary to have the
+acts or offences occurred as mentioned in the section 4 for penalizing in
+the offence under section 3 and it shall not be deemed to be barred to
+penalize for the offence under section 3 just because there was no case
+filed against such act or offence or dismissed even though case had been
 filed or charge therein not proved.', 16, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-6, Section 29 (Offence not Required to be Proved)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-7', 'Chapter-7', NULL, NULL, 7, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '30', 'Punishment to the Offender:  (1) Anyone commit ting offence under', 'Punishment to the Offender', 'section-3 shall be punished  as follows, in accordan ce with the degree of 
-offence committed:- 
-(a) Fine equal to the amount involved in the offence or 
-imprisonment from one year to four years or both punishments 
-to any person or staff of  a ba nk, financial institution or non-
-financial institution who has committed offence or in case such 
-staff is not identified for the pe rson working as  chief at the 
-time of committal,  
-(b) In case an office bearer, chief or staff of a bank, financial 
-institution or non-financial ins titution or public servant has 
-committed offence, ten percen t more than the punishment 
-written in clause (a).  
-(2) The person assisting or prov oking to commit or causing to 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter-7', 'Chapter-7
+Punishment', NULL, NULL, 7, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '30', 'Punishment to the Offender: (1) Anyone committing offence under', 'Punishment to the Offender', 'section-3 shall be punished as follows, in accordance with the degree of
+offence committed:-
+(a) Fine equal to the amount involved in the offence or
+imprisonment from one year to four years or both punishments
+to any person or staff of a bank, financial institution or non-
+financial institution who has committed offence or in case such
+staff is not identified for the person working as chief at the
+time of committal,
+(b) In case an office bearer, chief or staff of a bank, financial
+institution or non-financial institution or public servant has
+committed offence, ten percent more than the punishment
+written in clause (a).
+(2) The person assisting or provoking to commit or causing to
 commit offences under this Act shall be punished half of the offender.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7, Section 30 (Punishment to the Offender)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '31', 'Imposing Fines', 'Imposing Fines', ': (1) There shall be five hundred thousands rupees fines 
-to a bank or financial institution and from twenty five thousands to one 
-hundred thousands to non-financial in stitution as per the degree of 
-offence for their act of not subm itting documents to the Financial 
-Information Unit pursuant to section 7 and clause (a) of section 10.   
-(2) The Financial Information Un it shall punish pursuant to sub-
-section (1) and person not satisfied with the punishment may appeal to 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '31', 'Imposing Fines: (1) There shall be five hundred thousands rupees fines', 'Imposing Fines', 'to a bank or financial institution and from twenty five thousands to one
+hundred thousands to non-financial institution as per the degree of
+offence for their act of not submitting documents to the Financial
+Information Unit pursuant to section 7 and clause (a) of section 10.
+(2) The Financial Information Unit shall punish pursuant to sub-
+section (1) and person not satisfied with the punishment may appeal to
 the Appellate Court within thirty five days of such punishment.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7, Section 31 (Imposing Fines)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '32', 'Punishment for Concealing or Destroying Evidences: Any person who', 'Punishment for Concealing or Destroying Evidences', 'commits the offence of concealing or destroying evidences related to acts 
-deemed to be offences under this Act shall be imprisoned from one 
-month to three months or fifty thous and rupees to one hundred thousands 
-rupees fine or both in accordance with the degree of offence committed 
-and person assisting  for committing su ch act shall be punished half of 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '32', 'Punishment for Concealing or Destroying Evidences: Any person who', 'Punishment for Concealing or Destroying Evidences', 'commits the offence of concealing or destroying evidences related to acts
+deemed to be offences under this Act shall be imprisoned from one
+month to three months or fifty thousand rupees to one hundred thousands
+rupees fine or both in accordance with the degree of offence committed
+and person assisting for committing such act shall be punished half of
 such punishment.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7, Section 32 (Punishment for Concealing or Destroying Evidences)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '33', 'Punishment for Creating Obstacles:', 'Punishment for Creating Obstacles', 'If any person creates obstacles   in 
-the proceedings of investigation and inquiry undertaken under this Act, 
-the adjudicating officer may punish him with an imprisonment up to six 
-months or a  fine up to   five thousand rupees or both based on the report 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '33', 'Punishment for Creating Obstacles: If any person creates obstacles in', 'Punishment for Creating Obstacles', 'the proceedings of investigation and inquiry undertaken under this Act,
+the adjudicating officer may punish him with an imprisonment up to six
+months or a fine up to five thousand rupees or both based on the report
 of investigation Officer.', 3, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7, Section 33 (Punishment for Creating Obstacles)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '34', 'Assets to be Confiscated :  (1) Any assets obtain ed from offences under', 'Assets to be Confiscated', 'this Act and assets accumulated from  such and assets utilized for 
-committing such offence shall be confiscated.  
-  (2) In case entitlement to asse ts pursuant to sub-section (1) has 
-been transferred to someone else and fixed amount has been quoted in 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:7', 2, 'section', '34', 'Assets to be Confiscated: (1) Any assets obtained from offences under', 'Assets to be Confiscated', 'this Act and assets accumulated from such and assets utilized for
+committing such offence shall be confiscated.
+(2) In case entitlement to assets pursuant to sub-section (1) has
+been transferred to someone else and fixed amount has been quoted in
 such act of transfer, the amount shall be as in home deed.', 4, 'An Act promulgated for the Prevention of Asset Laundering, Chapter-7, Section 34 (Assets to be Confiscated)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -8', 'Chapter -8', NULL, NULL, 8, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '35', 'Seizure of Passport : Notwithstanding anything written in prevailing', 'Seizure of Passport', 'laws, the department may give order to concerned office for not issuing 
-new passport or to seize old passport if  it has been already issued if so 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', NULL, 1, 'chapter', 'Chapter -8', 'Chapter -8
+Miscellaneous', NULL, NULL, 8, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.0', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '35', 'Seizure of Passport: Notwithstanding anything written in prevailing', 'Seizure of Passport', 'laws, the department may give order to concerned office for not issuing
+new passport or to seize old passport if it has been already issued if so
 required as per the situation, condition and quantity of the offence.', 0, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 35 (Seizure of Passport)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '36', 'Assets to Be Released :  In case the asset wi thheld in accordance with', 'Assets to Be Released', 'section 18 was not found to be obt ained by committing offences under 
-this Act, the department if no case ha s been filed, or the court hearing the 
-case if the case has been filed, shall order to release such assets to the 
-entity withholding such as sets and the entity shall release such assets if 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.1', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '36', 'Assets to Be Released: In case the asset withheld in accordance with', 'Assets to Be Released', 'section 18 was not found to be obtained by committing offences under
+this Act, the department if no case has been filed, or the court hearing the
+case if the case has been filed, shall order to release such assets to the
+entity withholding such assets and the entity shall release such assets if
 such order is made.', 1, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 36 (Assets to Be Released)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '37', 'Not to be Liable for Providing Information', 'Not to be Liable for Providing Information', ': In case any loss occurs to 
-a person because of submission of  information to the Financial 
-Information Unit by a government enti ty, bank, financial institution or 
-non-financial institution or by a staff, official or agent of such bank, 
-financial institution or non-financial institution subject to the provisions 
-mentioned in section 7 and clause (a) of  section 10, no  such entity, bank, 
-financial institution or non-financial in stitution or staff, official or agent 
-of such entity, bank, financial institut ion or non-financial institution shall 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.2', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '37', 'Not to be Liable for Providing Information: In case any loss occurs to', 'Not to be Liable for Providing Information', 'a person because of submission of information to the Financial
+Information Unit by a government entity, bank, financial institution or
+non-financial institution or by a staff, official or agent of such bank,
+financial institution or non-financial institution subject to the provisions
+mentioned in section 7 and clause (a) of section 10, no such entity, bank,
+financial institution or non-financial institution or staff, official or agent
+of such entity, bank, financial institution or non-financial institution shall
 be taken any action in against.', 2, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 37 (Not to be Liable for Providing Information)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '38', 'Auction Sale to be Made:', 'Auction Sale to be Made', '(1) The goods seized in course of taking 
-action against an offence under this Act may be auctioned by fulfilling 
-the procedures as prescribed by the pr evailing laws, if there is possibility 
-of damage by rust or loss of any kind or breakage or ro tting or loss of 
-price due to ageing  or lack of maintenance and pr otection due to lack of 
-right placement. 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.3', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '38', 'Auction Sale to be Made: (1) The goods seized in course of taking', 'Auction Sale to be Made', 'action against an offence under this Act may be auctioned by fulfilling
+the procedures as prescribed by the prevailing laws, if there is possibility
+of damage by rust or loss of any kind or breakage or rotting or loss of
+price due to ageing or lack of maintenance and protection due to lack of
+right placement.
 (2) The proceeds obtained from auction sale pursuant to sub-
-section (1)  shall be balanced in th e deposit account and if it was decided 
-to provide such goods to th e owner later,  the amou nt received from such 
+section (1) shall be balanced in the deposit account and if it was decided
+to provide such goods to the owner later, the amount received from such
 auction sale shall be given to him.', 3, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 38 (Auction Sale to be Made)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '39', 'Departmental Action to the Staff involved in Investigation and', 'Departmental Action to the Staff involved in Investigation and', 'Inquiry: If any Investigation officer or staff of the department acts with a 
-view to cause troubles or tension to  others knowingly in the course of 
-investigation and inquiry of the offe nces under this Act or in doing any 
-other acts, notwithstanding whatever  written in prevailing laws, the 
-secretary of the concerned ministry if such staff is chief of the department 
-or the chief of the department  if  he  is other staff shall take departmental 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.4', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '39', 'Departmental Action to the Staff involved in Investigation and', 'Departmental Action to the Staff involved in Investigation and', 'Inquiry: If any Investigation officer or staff of the department acts with a
+view to cause troubles or tension to others knowingly in the course of
+investigation and inquiry of the offences under this Act or in doing any
+other acts, notwithstanding whatever written in prevailing laws, the
+secretary of the concerned ministry if such staff is chief of the department
+or the chief of the department if he is other staff shall take departmental
 action against him.', 4, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 39 (Departmental Action to the Staff involved in Investigation and)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '40', 'Provisions Relating to Delivery of Notice:   (1) Notwithstanding', 'Provisions Relating to Delivery of Notice', 'anything written in the prevailing laws , a notice to be delivered in the 
-name of a foreign person in connectio n with the offenses under this Act, 
-shall be delivered in the name of an office or representative of such 
-person in Nepal, if any, and the not ice so delivered shall be deemed to 
-have been duly delivered. 
- 
-(2) In case the office or  representative as stipulated under sub-
-section (1) is not existent , the notice shall be delivered at the main place 
-of business of such person or his pe rmanent residential address or at the 
-mailing address if provided by him in  t h e  c o u r s e  o f  business, through 
-telex, telefax or other means of telecommunication or through post by 
-registration and the notice so delive red shall be deemed to be duly 
-delivered. 
-(3) Notwithstanding anyt hing written in sub-sect ion (1) or (2), if 
-there is a separate provision in any treaty where Government of Nepal or 
-Nepal is a party, there shall be no obstruction in delive ring the notice in 
-the name of a person residing in foreign country in the manner as 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.5', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '40', 'Provisions Relating to Delivery of Notice: (1) Notwithstanding', 'Provisions Relating to Delivery of Notice', 'anything written in the prevailing laws, a notice to be delivered in the
+name of a foreign person in connection with the offenses under this Act,
+shall be delivered in the name of an office or representative of such
+person in Nepal, if any, and the notice so delivered shall be deemed to
+have been duly delivered.
+(2) In case the office or representative as stipulated under sub-
+section (1) is not existent, the notice shall be delivered at the main place
+of business of such person or his permanent residential address or at the
+mailing address if provided by him in the course of business, through
+telex, telefax or other means of telecommunication or through post by
+registration and the notice so delivered shall be deemed to be duly
+delivered.
+(3) Notwithstanding anything written in sub-section (1) or (2), if
+there is a separate provision in any treaty where Government of Nepal or
+Nepal is a party, there shall be no obstruction in delivering the notice in
+the name of a person residing in foreign country in the manner as
 specified in the same.', 5, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 40 (Provisions Relating to Delivery of Notice)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '41', 'Notice to be Published:', 'Notice to be Published', 'In case a report is recei ved, in connection with 
-the dispatch or  delivery of a notice to any person  under this Act or other 
-prevailing laws, that the notice could not be dispat ched or delivered for 
-the reason that the addres s of such person could not  be identified or for 
-any other reasons, notwithstanding an ything contained in the prevailing 
-laws, a public notice to this effect shall be published in a national level 
-newspaper (in an English daily in regard to a foreigner) at least two times 
-extending him a time period of thir ty days and furnishing thereon the 
-abridged particulars of the case, whet her the case is investigated or is 
-already lodged with the adjudicati ng officer. If such notice is so 
-published, it shall be deemed to be duly delivered or delivered to such 
-person, notwithstanding anything c ontained under this Act or other 
-prevailing laws.', 6, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 41 (Notice to be Published)', '2026-01-15T09:00:00.000Z')
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.6', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '41', 'Notice to be Published: In case a report is received, in connection with', 'Notice to be Published', 'the dispatch or delivery of a notice to any person under this Act or other
+prevailing laws, that the notice could not be dispatched or delivered for
+the reason that the address of such person could not be identified or for
+any other reasons, notwithstanding anything contained in the prevailing
+laws, a public notice to this effect shall be published in a national level
+newspaper (in an English daily in regard to a foreigner) at least two times
+extending him a time period of thirty days and furnishing thereon the
+abridged particulars of the case, whether the case is investigated or is
+already lodged with the adjudicating officer. If such notice is so
+published, it shall be deemed to be duly delivered or delivered to such
+person, notwithstanding anything contained under this Act or other
+prevailing laws.', 6, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 41 (Notice to be Published)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '42', 'Order to Freeze the Assets of a Foreigner: (1) If any foreign person', 'Order to Freeze the Assets of a Foreigner', 'does not appear in front of the investigation officer as per his notice or
+even after such notice is delivered to him pursuant to section 40, the
+investigation officer may issue an order to keep his assets, entitlement,
+interest or concern within Nepal standstill or preventing it to take outside
+Nepal if he has any such assets, entitlement, interest or concern in the
+form as determined by the investigation officer till he presents himself
+before the investigation officer and it shall be the duty of the all
+concerned to comply with such order.
+(2) Person not complying with the order issued pursuant to sub-
+section (1) shall be punished with a fine up to Rupees one hundred
+thousand by the investigation officer. The losses or harm caused to the
+Government of Nepal or public institution, if any, due to such non
+compliance of the order, shall also be recovered from him.', 7, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 42 (Order to Freeze the Assets of a Foreigner)', '2026-01-15T09:00:00.000Z')
 ;
 
 INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.7', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '42', 'Order to Freeze the Assets of a Foreigner:', 'Order to Freeze the Assets of a Foreigner', '(1) If any foreign person 
-does not appear in front of the inves tigation officer as per his notice or 
-even after such notice is delivered to  him pursuant to section 40,  the 
-investigation officer may issue an or der to keep his assets, entitlement, 
-interest or concern within Nepal stands till or preventing it to take outside 
-Nepal if he has any such assets, entit lement, interest or  concern in the 
-form as determined by the investigat ion officer till he presents himself 
-before the investigation officer and  it shall be the duty of the all 
-concerned to comply with such order.  
-(2) Person not complying with th e order issued pursuant to sub-
-section (1) shall be punished with  a fine up to Rupees one hundred 
-thousand by the investigation officer. The losses or harm caused to the 
-Government of Nepal or public ins titution, if any, due to such non 
-compliance of the order, shall also be recovered from him.', 7, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 42 (Order to Freeze the Assets of a Foreigner)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '43', 'No Obstruction to Adjudication  and Decision  Proceedings:', 'No Obstruction to Adjudication  and Decision  Proceedings', 'Notwithstanding anything written under the prevailing laws, the 
-adjudication and decision proceedings  of a case under this Act shall no 
-longer be affected even if the offender dies befo re or after the date of 
-filing a case.', 8, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 43 (No Obstruction to Adjudication  and Decision  Proceedings)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.9', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '44', 'Waiver May Be Given in Punishment:  The investigation officer may', 'Waiver May Be Given in Punishment', 'provide waiver in the claim of puni shment, in full or part, to a person 
-extending cooperation in regard to the investigation and inquiry 
-proceedings initiated under the Act presenting such person as his witness. 
- 
- Provided, notwithstanding anything written in this Act or in 
-prevailing laws a lawsuit may be reregistered against such person if his 
-cooperation could not be established fr om other evidences or if he made 
-statement before the adjudicating officer against the cooperation 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.8', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '43', 'No Obstruction to Adjudication and Decision Proceedings:', 'No Obstruction to Adjudication and Decision Proceedings', 'Notwithstanding anything written under the prevailing laws, the
+adjudication and decision proceedings of a case under this Act shall no
+longer be affected even if the offender dies before or after the date of
+filing a case.', 8, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 43 (No Obstruction to Adjudication and Decision Proceedings)', '2026-01-15T09:00:00.000Z'),
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.9', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '44', 'Waiver May Be Given in Punishment: The investigation officer may', 'Waiver May Be Given in Punishment', 'provide waiver in the claim of punishment, in full or part, to a person
+extending cooperation in regard to the investigation and inquiry
+proceedings initiated under the Act presenting such person as his witness.
+Provided, notwithstanding anything written in this Act or in
+prevailing laws a lawsuit may be reregistered against such person if his
+cooperation could not be established from other evidences or if he made
+statement before the adjudicating officer against the cooperation
 extended by him to the investigation and inquiry officer', 9, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 44 (Waiver May Be Given in Punishment)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.10', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '45', 'Reward', 'Reward', ': (1) Any person may be  given amount equal to ten percent of 
-the amount claimed or one million rupees whichever is lesser as reward if 
-he has made a complaint against an offence under this Act along with 
-cooperation extended for investigati on and inquiry or in collection of 
-other evidences and proofs.  
-  (2) In case the person pursuant to  sub-section (1) are more than 
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.10', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '45', 'Reward: (1) Any person may be given amount equal to ten percent of', 'Reward', 'the amount claimed or one million rupees whichever is lesser as reward if
+he has made a complaint against an offence under this Act along with
+cooperation extended for investigation and inquiry or in collection of
+other evidences and proofs.
+(2) In case the person pursuant to sub-section (1) are more than
 one, such amount shall be distributed proportionately.', 10, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 45 (Reward)', '2026-01-15T09:00:00.000Z'),
-  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.11', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '46', 'Rules May be Formulated:', 'Rules May be Formulated', 'The Government of Nepal may formulate 
-necessary rules for implementation of the objectives of this Act.  
- 
- 
- 
- 
- Date of Authentication: 2008/1/28 (2064/10/14)', 11, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 46 (Rules May be Formulated)', '2026-01-15T09:00:00.000Z')
+  ('doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8.11', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf', 'doc_an_act_promulgated_for_the_prevention_of_asset_laundering_2008_prevention_of_asset_laundering_pdf:8', 2, 'section', '46', 'Rules May be Formulated: The Government of Nepal may formulate', 'Rules May be Formulated', 'necessary rules for implementation of the objectives of this Act.
+Date of Authentication: 2008/1/28 (2064/10/14)', 11, 'An Act promulgated for the Prevention of Asset Laundering, Chapter -8, Section 46 (Rules May be Formulated)', '2026-01-15T09:00:00.000Z')
 ;
 
 INSERT INTO document_nodes (id, document_id, parent_id, depth, node_type, identifier, title, heading, content, position, citation, created_at) VALUES
