@@ -25,7 +25,7 @@ export function SupportOfferCard({ offer }: { offer: TSupportOffer }) {
     setFailed(false);
     try {
       const created = await createTicket({
-        message: offer.query,
+        message: offer.message,
         category: offer.category,
         source: "chat",
       });
@@ -46,8 +46,10 @@ export function SupportOfferCard({ offer }: { offer: TSupportOffer }) {
             Report this to the team?
           </p>
           <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">
-            {offer.reason || "The assistant could not fully resolve this."} A
-            ticket will include your last message.
+            {offer.reason || "The assistant could not fully resolve this."}
+          </p>
+          <p className="mt-2 border-l-2 border-border pl-3 text-[14px] leading-relaxed text-muted-foreground">
+            {offer.message}
           </p>
 
           {ticket ? (

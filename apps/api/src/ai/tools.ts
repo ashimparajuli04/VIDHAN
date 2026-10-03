@@ -273,16 +273,29 @@ export function buildTools(env: Env, origin: string) {
     offer_support_ticket: tool({
       description:
         "Offer to file a support ticket with the team. Call when you cannot find " +
-        "a relevant provision, or when find_lawyers returned no lawyers. This only " +
-        "shows the user an offer they must click; it does not create the ticket.",
+        "a relevant provision, when find_lawyers returned no lawyers, or when the " +
+        "user directly asks you to file a ticket (including app issues unrelated " +
+        "to the law). This only shows the user an offer they must click; it does " +
+        "not create the ticket.",
       inputSchema: z.object({
         category: z
           .enum(SUPPORT_TICKET_CATEGORIES)
           .describe(
             "missing_document when a provision was not found, missing_lawyer " +
-              "when no lawyer was found, other otherwise",
+              "when no lawyer was found, other otherwise — including a direct " +
+              "request to file a ticket",
           ),
-        reason: z.string().describe("One sentence on why the ticket is offered"),
+        message: z
+          .string()
+          .describe(
+            "The ticket body an admin will read. Write it as the user's problem " +
+              "in full: what they asked, what was missing, and what they need. " +
+              "Name the topic and district where relevant; do not just repeat the " +
+              "raw question.",
+          ),
+        reason: z
+          .string()
+          .describe("One short sentence shown on the offer card"),
       }),
       execute: async ({ category }) => ({ offered: true, category }),
     }),

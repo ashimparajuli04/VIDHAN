@@ -10,8 +10,8 @@ export type TChatRole = "user" | "assistant";
 export type TSupportOffer = {
   category: TSupportTicketCategory;
   reason: string;
-  /** The user query the ticket body is taken from. */
-  query: string;
+  /** The composed ticket body the model wrote. */
+  message: string;
 };
 
 export type TLawyerSearch = {

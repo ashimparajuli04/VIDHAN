@@ -26,7 +26,7 @@ export function chatSystemPrompt(
     districtLine,
     prefetchedContext,
     "If, after reading the titles and at least one summary, you still cannot find a relevant provision, say so plainly and do not answer from memory — but do not answer that you could not find it while an obvious candidate document is still unread.",
-    "When you cannot find a relevant provision, or find_lawyers returned no lawyers, also call offer_support_ticket with the matching category so the user can report it to the team; the offer only appears if they choose to file it.",
+    "When you cannot find a relevant provision, or find_lawyers returned no lawyers, also call offer_support_ticket with the matching category so the user can report it to the team; the offer only appears if they choose to file it. Also call it when the user directly asks you to file a ticket (even for app issues unrelated to the law), with category other. Its message is the ticket an admin reads: state the user's problem in full — what they asked, what is missing, and what they need — not the raw question.",
     "Always end with a normal-language answer to the user's question. Never make a tool call the last thing you do.",
     "Never invent lawyers, courts, case outcomes, or provisions.",
     "Do not narrate the steps you are about to take — running a tool call is already visible to the user.",

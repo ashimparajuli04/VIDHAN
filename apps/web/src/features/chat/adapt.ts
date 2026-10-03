@@ -148,16 +148,23 @@ function isSupportCategory(value: unknown): value is TSupportTicketCategory {
   return (SUPPORT_TICKET_CATEGORIES as readonly string[]).includes(value as string);
 }
 
-// The offer body is the user query the ticket is filed from; the tool's own
-// input only carries category + reason. Read the input off the tool part.
-function toSupportOffer(input: unknown, query: string): TSupportOffer | undefined {
+// The model composes `message` for the ticket body; older persisted turns only
+// have the raw query, so fall back to that when message is absent.
+function toSupportOffer(
+  input: unknown,
+  fallbackQuery: string
+): TSupportOffer | undefined {
   if (!input || typeof input !== "object") return undefined;
-  const record = input as { category?: unknown; reason?: unknown };
+  const record = input as { category?: unknown; reason?: unknown; message?: unknown };
   if (!isSupportCategory(record.category)) return undefined;
+  const message =
+    typeof record.message === "string" && record.message.trim()
+      ? record.message
+      : fallbackQuery;
   return {
     category: record.category,
     reason: typeof record.reason === "string" ? record.reason : "",
-    query,
+    message,
   };
 }
 
