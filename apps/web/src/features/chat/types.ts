@@ -58,6 +58,7 @@ export type TChatContextValue = {
   sessions: TChatSessionView[];
   mode: TChatMode;
   createSession: () => Promise<string>;
+  deleteSession: (id: string) => Promise<void>;
   refresh: () => Promise<void>;
   /** Upserts a session with a streamed title, before a full refresh lands. */
   setSessionTitle: (id: string, title: string) => void;

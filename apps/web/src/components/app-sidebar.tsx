@@ -5,7 +5,7 @@ import { SidebarToggleIcon } from "@/components/sidebar-toggle-icon";
 import { BrandLogo } from "@/components/brand-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   BriefcaseBusiness,
   Gauge,
@@ -16,6 +16,7 @@ import {
   MessageSquare,
   MessageSquarePlus,
   MoreHorizontal,
+  Trash2,
   User,
 } from "lucide-react";
 
@@ -28,10 +29,22 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 import {
   DropdownMenu,
@@ -42,8 +55,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
+
 import { useAuth } from "@/features/auth/provider";
 import { useChat } from "@/features/chat/store";
+import type { TChatSessionView } from "@/features/chat/types";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -80,14 +101,36 @@ const navItems = [
 ] as const;
 
 export function AppSidebar() {
+  const router = useRouter();
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
   const { user, logout } = useAuth();
-  const { sessions } = useChat();
+  const { sessions, deleteSession, refresh } = useChat();
+
+  const [pendingDelete, setPendingDelete] =
+    React.useState<TChatSessionView | null>(null);
+  const [deleting, setDeleting] = React.useState(false);
 
   const collapsed = state === "collapsed";
   const displayName = user?.name ?? "Account";
   const displayEmail = user?.email ?? "";
+
+  async function confirmDelete() {
+    if (!pendingDelete) return;
+    setDeleting(true);
+    try {
+      await deleteSession(pendingDelete.id);
+      // Static export forbids useSearchParams in the layout, so read the
+      // active session straight from the URL.
+      const activeId = new URLSearchParams(window.location.search).get("id");
+      if (pendingDelete.id === activeId) router.push("/chat");
+    } catch {
+      void refresh();
+    } finally {
+      setDeleting(false);
+      setPendingDelete(null);
+    }
+  }
 
   return (
     <Sidebar collapsible="icon">
@@ -202,30 +245,59 @@ export function AppSidebar() {
               <SidebarMenu className="gap-0.5">
                 {sessions.map((chat) => (
                   <SidebarMenuItem key={chat.id}>
-                    <SidebarMenuButton
-                      asChild
-                      className="group h-11 rounded-lg px-2 text-sm font-normal"
-                    >
-                      <Link href={`/chat?id=${chat.id}`}>
-                        <MessageSquare className="size-4 shrink-0 opacity-50" />
-
-                        <span className="min-w-0 flex-1 truncate">
-                          {chat.title}
-                        </span>
-
-                        <button
-                          type="button"
-                          aria-label={`More options for ${chat.title}`}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            event.stopPropagation();
-                          }}
-                          className="hidden size-6 shrink-0 items-center justify-center rounded-md opacity-0 transition-opacity hover:bg-sidebar-accent group-hover:flex group-hover:opacity-100"
+                    <ContextMenu>
+                      <ContextMenuTrigger asChild>
+                        <SidebarMenuButton
+                          asChild
+                          className="h-11 rounded-lg px-2 text-sm font-normal"
                         >
-                          <MoreHorizontal className="size-4" />
-                        </button>
-                      </Link>
-                    </SidebarMenuButton>
+                          <Link href={`/chat?id=${chat.id}`}>
+                            <MessageSquare className="size-4 shrink-0 opacity-50" />
+
+                            <span className="min-w-0 flex-1 truncate">
+                              {chat.title}
+                            </span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </ContextMenuTrigger>
+
+                      <ContextMenuContent className="w-44 rounded-xl">
+                        <ContextMenuItem
+                          variant="destructive"
+                          onSelect={() => setPendingDelete(chat)}
+                        >
+                          <Trash2 />
+                          Delete
+                        </ContextMenuItem>
+                      </ContextMenuContent>
+                    </ContextMenu>
+
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <SidebarMenuAction
+                          showOnHover
+                          aria-label={`More options for ${chat.title}`}
+                          className="top-1/2 -translate-y-1/2 peer-data-[size=default]/menu-button:top-1/2"
+                        >
+                          <MoreHorizontal />
+                        </SidebarMenuAction>
+                      </DropdownMenuTrigger>
+
+                      <DropdownMenuContent
+                        side="right"
+                        align="start"
+                        sideOffset={8}
+                        className="w-44 rounded-xl"
+                      >
+                        <DropdownMenuItem
+                          variant="destructive"
+                          onSelect={() => setPendingDelete(chat)}
+                        >
+                          <Trash2 />
+                          Delete
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
@@ -299,6 +371,38 @@ export function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
+
+      <AlertDialog
+        open={pendingDelete !== null}
+        onOpenChange={(open) => {
+          if (!open && !deleting) setPendingDelete(null);
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete chat?</AlertDialogTitle>
+            <AlertDialogDescription>
+              &ldquo;{pendingDelete?.title}&rdquo; and its messages will be
+              permanently deleted.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={deleting}>Cancel</AlertDialogCancel>
+
+            <AlertDialogAction
+              variant="destructive"
+              disabled={deleting}
+              onClick={(event) => {
+                event.preventDefault();
+                void confirmDelete();
+              }}
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Sidebar>
   );
 }

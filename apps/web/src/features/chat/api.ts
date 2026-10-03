@@ -44,6 +44,10 @@ export async function listSessions(): Promise<TChatSession[]> {
   return payload.sessions.map((item) => ZChatSession.parse(item));
 }
 
+export async function deleteSession(id: string): Promise<void> {
+  await request(`/chat/sessions/${encodeURIComponent(id)}`, { method: "DELETE" });
+}
+
 export async function getSession(
   id: string
 ): Promise<{ session: TChatSession; messages: TChatMessage[] }> {

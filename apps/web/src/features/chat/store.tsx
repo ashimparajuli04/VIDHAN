@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { createSession as createSessionRequest, listSessions } from "./api";
+import { createSession as createSessionRequest, deleteSession as deleteSessionRequest, listSessions } from "./api";
 import type { TChatContextValue, TChatMode, TChatSessionView } from "./types";
 
 const ChatContext = React.createContext<TChatContextValue | null>(null);
@@ -31,6 +31,11 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     return session.id;
   }, []);
 
+  const deleteSession = React.useCallback(async (id: string) => {
+    await deleteSessionRequest(id);
+    setSessions((prev) => prev.filter((session) => session.id !== id));
+  }, []);
+
   // The title streams in before `refresh` runs, so insert the row if the new
   // session is not in the list yet.
   const setSessionTitle = React.useCallback((id: string, title: string) => {
@@ -42,8 +47,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = React.useMemo<TChatContextValue>(
-    () => ({ sessions, mode, createSession, refresh, setSessionTitle, setMode }),
-    [sessions, mode, createSession, refresh, setSessionTitle]
+    () => ({ sessions, mode, createSession, deleteSession, refresh, setSessionTitle, setMode }),
+    [sessions, mode, createSession, deleteSession, refresh, setSessionTitle]
   );
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
