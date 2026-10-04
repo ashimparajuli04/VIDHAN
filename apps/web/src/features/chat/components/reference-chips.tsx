@@ -18,13 +18,13 @@ export function ReferenceChips({ references }: { references: TReference[] }) {
           href={`/repo/${encodeURIComponent(ref.documentId)}?node=${encodeURIComponent(ref.nodeId)}`}
           title={ref.citation ?? undefined}
           className={cn(
-            "inline-flex max-w-full items-center gap-1 rounded-full border bg-card/50",
+            "group/citation inline-flex max-w-full items-center gap-1 rounded-full border bg-card/50",
             "px-2.5 py-0.5 text-xs text-muted-foreground transition-colors",
-            "hover:bg-accent hover:text-foreground",
+            "hover:bg-accent hover:text-accent-foreground",
             "focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none"
           )}
         >
-          <span className="shrink-0 font-medium text-foreground/80">
+          <span className="shrink-0 font-medium text-foreground/80 group-hover/citation:text-accent-foreground">
             §{ref.identifier}
           </span>
           {ref.heading && (

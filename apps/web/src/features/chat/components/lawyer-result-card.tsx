@@ -14,7 +14,12 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { RequestCallDialog } from "@/features/lawyers/components/request-call-dialog";
-import { districtLabel, practiceAreaLabel } from "@/features/lawyers/labels";
+import {
+  districtLabel,
+  formatPrice,
+  practiceAreaLabel,
+  seniorityLabel,
+} from "@/features/lawyers/labels";
 
 export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
   return (
@@ -34,7 +39,7 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
               <PigAvatar name={lawyer.name} className="size-12 shrink-0" />
             )}
 
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="truncate text-[15px] font-semibold">{lawyer.name}</p>
               <p className="mt-0.5 flex items-center gap-1 text-[13px] text-muted-foreground">
                 <Clock className="size-3.5" />
@@ -42,7 +47,13 @@ export function LawyerResultCard({ lawyer }: { lawyer: TPublicLawyer }) {
                   ? `${lawyer.yearsOfExperience} yrs experience`
                   : "Experience not listed"}
               </p>
+              <p className="mt-0.5 text-[11px] font-semibold tracking-wide text-primary uppercase">
+                {seniorityLabel(lawyer.seniority)}
+              </p>
             </div>
+            <span className="shrink-0 text-[15px] font-bold tracking-tight">
+              {formatPrice(lawyer.price)}
+            </span>
           </div>
 
           <div className="mt-auto grid grid-cols-2 gap-2">

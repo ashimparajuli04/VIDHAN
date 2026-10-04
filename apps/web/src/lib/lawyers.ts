@@ -55,9 +55,9 @@ export async function getLawyer(
   return ZPublicLawyerDetail.parse(payload.lawyer);
 }
 
-// Static export needs every route's params at build time, and the seed
-// lawyer ids are deterministic (seed-001 … seed-150). Swap this for the
-// real id source when the API becomes the source of truth for builds.
+// Fallback for generateStaticParams when the build can't reach the API
+// (e.g. no backend running at build time) — matches the deterministic
+// seed ids (seed-001 … seed-150) so the export still has something to render.
 export const LAWYER_IDS: string[] = Array.from(
   { length: 150 },
   (_, index) => `seed-${String(index + 1).padStart(3, "0")}`,

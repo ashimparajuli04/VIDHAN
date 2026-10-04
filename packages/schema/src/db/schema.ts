@@ -112,6 +112,9 @@ export const lawyers = sqliteTable(
       .default("advocate"),
     totalCases: integer("total_cases"),
     caseCounts: text("case_counts", { mode: "json" }).$type<TCaseCounts>(),
+    // DB default only backfills pre-existing rows; the admin form and seed
+    // always supply a real consultation fee.
+    price: integer("price").notNull().default(0),
     verified: integer("verified", { mode: "boolean" }).notNull().default(false),
     active: integer("active", { mode: "boolean" }).notNull().default(true),
     createdAt: text("created_at").notNull(),
@@ -625,6 +628,7 @@ const lawyerRefinements = {
   seniority: () => z.enum(SENIORITY_LEVELS),
   totalCases: (s: z.ZodNumber) => s.int().min(0),
   caseCounts: () => ZCaseCounts.nullable(),
+  price: (s: z.ZodNumber) => s.int().min(0),
 };
 
 export const ZLawyer = createSelectSchema(lawyers, lawyerRefinements);
@@ -635,7 +639,8 @@ export const ZLawyerCreate = createInsertSchema(
   lawyerRefinements,
 )
   .omit({ id: true, createdAt: true, updatedAt: true })
-  .extend({ seniority: z.enum(SENIORITY_LEVELS) });
+  .extend({ seniority: z.enum(SENIORITY_LEVELS) })
+  .extend({ price: z.number().int().min(0) });
 export const ZLawyerUpdate = createUpdateSchema(
   lawyers,
   lawyerRefinements,
@@ -659,6 +664,7 @@ export const ZPublicLawyer = z.object({
   totalCases: z.number().int().min(0).nullable(),
   seniority: z.enum(SENIORITY_LEVELS),
   consultationModes: z.array(z.enum(CONSULTATION_MODES)).nullable(),
+  price: z.number().int().min(0),
 });
 
 // Detail/profile view adds the trust and credential signals the list
@@ -826,8 +832,13 @@ export const ZChatMessage = createSelectSchema(chatMessages, {
   toolResults: () => ZChatMessageToolResults,
   references: () => ZChatMessageReferences,
 });
+// "research" means the message poses a scenario for legal study, not a
+// request for help with the sender's own matter — the model should answer
+// without steering toward a lawyer referral.
+export const ZChatMode = z.enum(["general", "research"]);
 export const ZChatSend = z.object({
   content: z.string().trim().min(1).max(4000),
+  mode: ZChatMode.default("general"),
 });
 // Streamed as a transient UI data part so the sidebar can name a session
 // before its first answer finishes.
@@ -1068,6 +1079,7 @@ export type TAuthLogin = z.infer<typeof ZAuthLogin>;
 export type TAuthUpdate = z.infer<typeof ZAuthUpdate>;
 export type TChatSession = z.infer<typeof ZChatSession>;
 export type TChatMessage = z.infer<typeof ZChatMessage>;
+export type TChatMode = z.infer<typeof ZChatMode>;
 export type TChatSend = z.infer<typeof ZChatSend>;
 export type TChatTitle = z.infer<typeof ZChatTitle>;
 export type TSupportTicket = z.infer<typeof ZSupportTicket>;

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import {
   districtLabel,
+  formatPrice,
   languageLabel,
   practiceAreaLabel,
   seniorityLabel,
@@ -73,6 +74,10 @@ export function LawyerCard({ lawyer }: { lawyer: TPublicLawyer }) {
               {seniorityLabel(lawyer.seniority)}
             </p>
           </div>
+
+          <span className="ms-auto shrink-0 text-[15px] font-bold tracking-tight">
+            {formatPrice(lawyer.price)}
+          </span>
         </div>
       </CardHeader>
 

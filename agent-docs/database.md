@@ -123,7 +123,7 @@ pnpm --filter @vidhan/api exec wrangler d1 migrations apply DB --local
 
 ## Seeding mock lawyers (local)
 
-`apps/api/src/seed/lawyers.ts` deterministically generates 150 lawyers and writes `data/lawyers.seed.sql`. The first full pass over `DISTRICTS` guarantees one lawyer per district (all 77), extras densify randomly chosen districts. `senior_advocate` requires 16+ years of practice; seniors get a heavier docket (higher per-year case rate) skewed toward the Supreme/High courts so the counts stay believable for their career length. Practice areas run 1–4 distinct per lawyer; courts are multi-bench by default (only the three tiers — Supreme, High, District): seniors always hold the Supreme Court plus 1–2 others, advocates 2–3 courts. Bios are professional first-person profile copy (designation, district, firm, courts), not placeholder sentences. Portraits live in `data/portraits/{male,female}` and are assigned randomly per gender (deterministic PRNG); `image_key` references the R2 key `lawyers/seed/<file>`.
+`apps/api/src/seed/lawyers.ts` deterministically generates 150 lawyers and writes `data/lawyers.seed.sql`. The first full pass over `DISTRICTS` guarantees one lawyer per district (all 77), extras densify randomly chosen districts. `senior_advocate` requires 16+ years of practice; seniors get a heavier docket (higher per-year case rate) skewed toward the Supreme/High courts so the counts stay believable for their career length. Practice areas run 1–4 distinct per lawyer; courts are multi-bench by default (only the three tiers — Supreme, High, District): seniors always hold the Supreme Court plus 1–2 others, advocates 2–3 courts. Bios are professional first-person profile copy (designation, district, firm, courts), not placeholder sentences. Portraits live in `data/portraits/{male,female}` and are assigned randomly per gender (deterministic PRNG); `image_key` references the R2 key `lawyers/seed/<file>`. Consultation fees (NPR, rounded to the nearest 100) come from their own PRNG stream so every other column stays byte-identical to earlier seeds; seniors run higher (~3000–7000) than advocates (~1200–3500), and `seed-037` (Bishal Magar) is pinned to 5500.
 
 ```pwsh
 pnpm --filter @vidhan/api db:seed:images  # upload data/portraits into local miniflare R2 (idempotent)
@@ -133,7 +133,7 @@ pnpm --filter @vidhan/api db:seed:load    # load into local D1
 
 `db:seed:images` writes into the same miniflare state (`apps/api/.wrangler/state/v3`) that `wrangler dev` reads, so portraits are served by the public `GET /uploads/:key` route without further setup. Safe to rerun; run it before `dev` on a fresh clone.
 
-The lawyers seed starts with `DELETE FROM lawyers;`, so `db:seed:load` is idempotent — rerunning replaces the row set (local dev only; it also drops lawyers created via the admin UI on reseed, same trade-off as the documents seed).
+The lawyers seed starts with `DELETE FROM lawyer_requests;` then `DELETE FROM lawyers;` (the booking table must empty first or the reseed trips the FK constraint), so `db:seed:load` is idempotent — rerunning replaces the row set (local dev only; it also drops lawyers created via the admin UI and any booking requests on reseed, same trade-off as the documents seed).
 
 ## Seeding legal documents (local)
 

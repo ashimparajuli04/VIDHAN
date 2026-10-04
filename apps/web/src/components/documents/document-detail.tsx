@@ -58,8 +58,17 @@ export function DocumentDetail({ id }: { id: string }) {
   >("loading");
   const [retryKey, setRetryKey] = React.useState(0);
   const [activeRow, setActiveRow] = React.useState<number | null>(null);
-  const [expanded, setExpanded] = React.useState<ReadonlySet<string>>(
+  // Auto-opened by the scroll-spy's ancestor chain, scoped to the active
+  // branch; manual clicks live in their own set so they survive branch changes.
+  const [autoExpanded, setAutoExpanded] = React.useState<ReadonlySet<string>>(
     () => new Set(),
+  );
+  const [manualExpanded, setManualExpanded] = React.useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
+  const expanded = React.useMemo(
+    () => new Set([...autoExpanded, ...manualExpanded]),
+    [autoExpanded, manualExpanded],
   );
   const [highlightId, setHighlightId] = React.useState<string | null>(null);
 
@@ -177,22 +186,21 @@ export function DocumentDetail({ id }: { id: string }) {
   }, [rows]);
 
   // Keep the reader's place visible: unfold the ancestors of the section at the
-  // top of the viewport. Additive and keyed to the active id, so a manual
-  // collapse is only overridden when the reader moves to a different branch.
+  // top of the viewport. Scoped to the active branch — the set holds only the
+  // chain to the current node, so leaving a branch closes it instead of
+  // accumulating. No-op when the chain is unchanged.
   React.useEffect(() => {
     if (!activeId) return;
     const chain = tocIndex.ancestors.get(activeId);
     if (!chain || chain.length === 0) return;
-    setExpanded((prev) => {
-      let changed = false;
-      const next = new Set(prev);
-      for (const nodeId of chain) {
-        if (!next.has(nodeId)) {
-          next.add(nodeId);
-          changed = true;
-        }
+    setAutoExpanded((prev) => {
+      if (
+        prev.size === chain.length &&
+        [...prev].every((id) => chain.includes(id))
+      ) {
+        return prev;
       }
-      return changed ? next : prev;
+      return new Set(chain);
     });
   }, [activeId, tocIndex]);
 
@@ -295,7 +303,7 @@ export function DocumentDetail({ id }: { id: string }) {
   }, [status, rows, targetNodeId, rowIdByNode, scrollToNode]);
 
   function toggleNode(nodeId: string) {
-    setExpanded((prev) => {
+    setManualExpanded((prev) => {
       const next = new Set(prev);
       if (next.has(nodeId)) next.delete(nodeId);
       else next.add(nodeId);
@@ -547,9 +555,10 @@ function buildTocIndex(nodes: TDocumentNodeOutline[]): TocIndex {
 }
 
 // Amber wash marking the section a chat citation deep-linked to. Negative
-// margin keeps the highlighted block aligned with unhighlighted rows.
+// margin keeps the highlighted block aligned with unhighlighted rows. Dark
+// mode swaps the wash for a left rail so no colour sits behind the light text.
 const HIGHLIGHT_CLASS =
-  "-mx-3 rounded-lg bg-amber-100/70 px-3 ring-1 ring-amber-300/60 transition-colors duration-500 dark:bg-amber-400/10 dark:ring-amber-400/30";
+  "-mx-3 rounded-lg bg-amber-100/70 px-3 ring-1 ring-amber-300/60 transition-colors duration-500 dark:bg-transparent dark:ring-amber-400/40 dark:shadow-[inset_3px_0_0_0_#fbbf24]";
 
 // One virtualized reader row. Structural containers render as an underlined
 // heading; section rows render the fetched body. A body that resolves to empty
@@ -720,7 +729,7 @@ function TocTreeNode({
             onClick={() => onToggle(node.id)}
             aria-expanded={isExpanded}
             aria-label={`${isExpanded ? "Collapse" : "Expand"} ${node.label}`}
-            className="flex size-5 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
+            className="flex size-5 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-accent/60 hover:text-accent-foreground"
           >
             <ChevronDown
               className={cn(
@@ -740,9 +749,9 @@ function TocTreeNode({
           className={cn(
             "min-w-0 flex-1 truncate rounded-md py-1 pl-2 pr-2 text-left text-sm leading-snug transition-colors",
             isActive
-              ? "bg-accent font-medium text-foreground"
+              ? "bg-accent font-medium text-accent-foreground"
               : cn(
-                  "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
+                  "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground",
                   isLevel1 && "font-semibold",
                 ),
           )}

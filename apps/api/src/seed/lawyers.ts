@@ -77,6 +77,23 @@ function mulberry32(seed: number) {
 
 const rand = mulberry32(20260115);
 
+// Consultation fee in NPR. Own PRNG stream so buildRow's stream — and
+// therefore every other column — stays identical to earlier seeds.
+const priceRng = mulberry32(20261004);
+
+function buildPrice(
+  seniority: TSeniority,
+  yearsOfExperience: number,
+  index: number,
+): number {
+  // seed-037 (Bishal Magar) is the pricing reference point: Rs 5,500.
+  if (index === 36) return 5500;
+  const base = seniority === "senior_advocate" ? 3000 : 1200;
+  const perYear = seniority === "senior_advocate" ? 70 : 50;
+  const jitter = Math.round((priceRng() * 2 - 1) * 400);
+  return Math.max(800, Math.round((base + yearsOfExperience * perYear + jitter) / 100) * 100);
+}
+
 function pick<T>(items: readonly T[]): T {
   return items[Math.floor(rand() * items.length)]!;
 }
@@ -270,6 +287,8 @@ function buildRow(index: number, district: TDistrict) {
     supremeCourtCases: caseCounts.supreme_court,
   });
 
+  const price = buildPrice(seniority, yearsOfExperience, index);
+
   return {
     id: `seed-${String(index + 1).padStart(3, "0")}`,
     name,
@@ -289,6 +308,7 @@ function buildRow(index: number, district: TDistrict) {
     seniority,
     totalCases,
     caseCounts,
+    price,
     createdAt: NOW,
     updatedAt: NOW,
   };
@@ -349,13 +369,15 @@ async function main() {
           ? "NULL"
           : String(row.totalCases),
         row.caseCounts ? sqlString(JSON.stringify(row.caseCounts)) : "NULL",
+        String(row.price),
       ].join(", "),
     )
     .map((cols) => `  (${cols})`)
     .join(",\n");
 
-  const sql = `DELETE FROM lawyers;
-INSERT INTO lawyers (id, name, practice_areas, district, languages, bar_number, years_of_experience, bio, image_key, verified, active, created_at, updated_at, firm_name, consultation_modes, courts, education, bar_enrollment_year, seniority, total_cases, case_counts) VALUES\n${values};\n`;
+  const sql = `DELETE FROM lawyer_requests;
+DELETE FROM lawyers;
+INSERT INTO lawyers (id, name, practice_areas, district, languages, bar_number, years_of_experience, bio, image_key, verified, active, created_at, updated_at, firm_name, consultation_modes, courts, education, bar_enrollment_year, seniority, total_cases, case_counts, price) VALUES\n${values};\n`;
 
   await writeFile(OUT, sql, "utf-8");
   console.log(`[seed] wrote ${rows.length} lawyers to ${OUT}`);

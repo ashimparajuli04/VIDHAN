@@ -22,18 +22,21 @@ import { Thinking } from "./thinking";
 export function MessageBubble({
   message,
   thinking = false,
+  streamingText = false,
   onRestoreQuery,
 }: {
   message: TChatMessageView;
   thinking?: boolean;
+  /** True while this message's answer text is still being streamed in. */
+  streamingText?: boolean;
   /** Seeds the composer with the message text, so the user can resend an edited prompt. */
   onRestoreQuery?: (query: string) => void;
 }) {
   const isUser = message.role === "user";
   const [copied, setCopied] = React.useState(false);
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-  // The assistant's copy button floats below the bubble and is always
-  // visible, so clear room for it when attachments follow the text.
+  // Reactions float below the bubble and only appear on hover, so keep room
+  // clear when attachments follow the text or the hovered row overlaps them.
   const hasBelow = Boolean(
     message.lawyerSearch ||
       message.supportOffer ||
@@ -128,8 +131,7 @@ export function MessageBubble({
               // and push the row past the bubble edge with a gap.
               className={cn(
                 "translate-y-[calc(100%+0.25rem)] bg-transparent ring-0",
-                isUser &&
-                  "opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+                "opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
               )}
             >
               <Button
@@ -165,18 +167,19 @@ export function MessageBubble({
           </Bubble>
         )}
 
-        {/* Tool parts stream in before the answer text, so these would
-            otherwise pop in above the (not yet written) text. Show them
-            only once the turn's text has started. */}
-        {message.content && message.lawyerSearch && (
+        {/* Tool parts resolve before the answer text starts, so showing them
+            as soon as content exists pops them in mid-sentence, ahead of the
+            text that's still typing out. Hold them until the text itself is
+            done streaming. */}
+        {message.content && !streamingText && message.lawyerSearch && (
           <LawyerStep search={message.lawyerSearch} />
         )}
 
-        {message.content && message.supportOffer && (
+        {message.content && !streamingText && message.supportOffer && (
           <SupportOfferCard offer={message.supportOffer} />
         )}
 
-        {message.content && message.references && (
+        {message.content && !streamingText && message.references && (
           <ReferenceChips references={message.references} />
         )}
       </div>

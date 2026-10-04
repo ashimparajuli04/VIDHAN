@@ -45,6 +45,31 @@ const REFINEMENT_TOOLS = [
   "offer_support_ticket",
 ] as const;
 
+// Every tool key buildTools returns; step 0 has no activeTools restriction
+// by default, so research mode needs its own full-width list to keep
+// find_lawyers out from the first step on.
+const ALL_TOOLS = [
+  "find_lawyers",
+  "list_documents",
+  "get_document_titles",
+  "get_document_summary",
+  "get_sections",
+  "search_documents",
+  "get_document_outline",
+  "search_document_sections",
+  "get_section",
+  "offer_support_ticket",
+  "cite",
+] as const;
+
+// Research mode means the message poses a scenario for study, not a request
+// for the sender's own matter — find_lawyers is dropped from the active set
+// so the model cannot recommend one.
+const RESEARCH_TOOLS = ALL_TOOLS.filter((name) => name !== "find_lawyers");
+const RESEARCH_REFINEMENT_TOOLS = REFINEMENT_TOOLS.filter(
+  (name) => name !== "find_lawyers",
+);
+
 chat.post("/sessions", async (c) => {
   const db = createDb(c.env.DB);
   const session = await createSession(db, c.get("user").id);
@@ -147,6 +172,8 @@ chat.post("/sessions/:id/messages", async (c) => {
   const priorMessages = await listMessages(db, session.id);
   const isFirstMessage = priorMessages.length === 0;
 
+  const mode = parsed.data.mode;
+
   // Persist the user turn before streaming so a failed AI call still keeps it.
   const userMessage = await insertUserMessage(db, session.id, parsed.data.content);
 
@@ -165,7 +192,7 @@ chat.post("/sessions/:id/messages", async (c) => {
 
   const result = streamText({
     model: chatModel(c.env),
-    system: chatSystemPrompt(c.get("user").language, c.get("user").district, prefetchedContext),
+    system: chatSystemPrompt(c.get("user").language, c.get("user").district, prefetchedContext, mode),
     messages,
     tools: buildTools(c.env, origin),
     // OpenRouter wants reasoning opted in per request. `providerOptions` keys
@@ -197,7 +224,16 @@ chat.post("/sessions/:id/messages", async (c) => {
         }
         return { toolChoice: "none" };
       }
-      if (stepNumber >= 1) return { activeTools: [...REFINEMENT_TOOLS] };
+      if (stepNumber >= 1) {
+        return {
+          activeTools: [
+            ...(mode === "research" ? RESEARCH_REFINEMENT_TOOLS : REFINEMENT_TOOLS),
+          ],
+        };
+      }
+      // Step 0 otherwise gets the full unrestricted tool set, so research
+      // mode needs its own first-step restriction to keep find_lawyers out.
+      if (mode === "research") return { activeTools: [...RESEARCH_TOOLS] };
       return undefined;
     },
     onFinish: (event) => {

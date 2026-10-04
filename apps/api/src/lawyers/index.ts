@@ -50,6 +50,7 @@ export function toPublicLawyer(
     totalCases: row.totalCases,
     seniority: row.seniority,
     consultationModes: row.consultationModes,
+    price: row.price,
   };
 }
 

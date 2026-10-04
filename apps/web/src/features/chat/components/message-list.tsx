@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import type { TChatMessageView, TStreamStatus } from "../types";
+import { GeneratingIndicator } from "./generating-indicator";
 import { MessageBubble } from "./message-bubble";
 import { SourceSteps } from "./source-steps";
 
@@ -65,6 +66,7 @@ export function MessageList({
                   (status === "thinking" || status === "searching") &&
                   message.id === lastId
                 }
+                streamingText={status === "streaming" && message.id === lastId}
                 onRestoreQuery={onRestoreQuery}
               />
 
@@ -72,6 +74,10 @@ export function MessageList({
                 <div className="max-w-[85%] self-start">
                   <SourceSteps steps={message.sources} />
                 </div>
+              )}
+
+              {status !== "idle" && message.id === lastId && (
+                <GeneratingIndicator />
               )}
             </div>
           ))}

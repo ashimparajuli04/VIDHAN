@@ -23,12 +23,16 @@ export function ChatView() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
-  const { createSession, refresh, setSessionTitle } = useChat();
+  const { createSession, refresh, setSessionTitle, mode } = useChat();
   const { refresh: refreshUsage } = useUsage();
 
   // Session the transport targets. Set before the first send so the stream
   // request has an id even before router.replace lands.
   const activeIdRef = React.useRef<string | null>(null);
+  // Read at send time so toggling mode mid-session affects the next message
+  // without recreating the transport.
+  const modeRef = React.useRef(mode);
+  modeRef.current = mode;
   const loadRef = React.useRef(0);
   const [historyLoading, setHistoryLoading] = React.useState(false);
   const [historyError, setHistoryError] = React.useState(false);
@@ -43,7 +47,7 @@ export function ChatView() {
       new DefaultChatTransport({
         prepareSendMessagesRequest: ({ messages }) => ({
           api: `${API_URL}/chat/sessions/${activeIdRef.current}/messages`,
-          body: { content: lastUserText(messages) },
+          body: { content: lastUserText(messages), mode: modeRef.current },
           headers: { authorization: `Bearer ${readToken() ?? ""}` },
         }),
       }),

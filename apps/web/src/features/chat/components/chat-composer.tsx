@@ -74,7 +74,7 @@ export function ChatComposer({
           </div>
         )}
 
-        <div className="flex items-end gap-1.5 rounded-full border border-border bg-white p-1.5 pl-5 transition-[border-color] focus-within:border-ring/70 dark:bg-white/[0.06]">
+        <div className="flex items-end gap-1.5 rounded-3xl border border-border bg-white p-1.5 pl-5 transition-[border-color] focus-within:border-ring/70 dark:bg-white/[0.06]">
           <textarea
             ref={textareaRef}
             rows={1}
@@ -84,7 +84,7 @@ export function ChatComposer({
             disabled={overLimit}
             placeholder={overLimit ? "Session limit reached" : "Ask about a legal issue…"}
             aria-label="Message"
-            className="max-h-[200px] flex-1 resize-none self-center bg-transparent px-1 py-2.5 text-base leading-relaxed outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed md:text-[15px]"
+            className="max-h-[200px] flex-1 resize-none self-center overflow-y-auto bg-transparent px-1 py-2.5 text-base leading-relaxed outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed md:text-[15px]"
           />
 
           {streaming ? (

@@ -1,8 +1,11 @@
 import type {
+  TChatMode,
   TPublicLawyer,
   TReference,
   TSupportTicketCategory,
 } from "@vidhan/schema";
+
+export type { TChatMode };
 
 export type TChatRole = "user" | "assistant";
 
@@ -53,8 +56,6 @@ export type TChatSessionView = {
 };
 
 export type TStreamStatus = "idle" | "thinking" | "streaming" | "searching";
-
-export type TChatMode = "general" | "research";
 
 export type TChatContextValue = {
   sessions: TChatSessionView[];

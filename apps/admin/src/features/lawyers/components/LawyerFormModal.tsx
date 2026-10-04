@@ -57,6 +57,7 @@ type TDraft = {
   imageKey: string;
   totalCases: string;
   caseCounts: TCaseCountDraft;
+  price: string;
   verified: boolean;
   active: boolean;
 };
@@ -81,6 +82,7 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
       imageKey: "",
       totalCases: "",
       caseCounts: { ...BLANK_CASE_COUNTS },
+      price: "",
       verified: false,
       active: true,
     };
@@ -97,6 +99,7 @@ function toDraft(lawyer: TLawyerWithImage | null): TDraft {
     bio: lawyer.bio ?? "",
     imageKey: lawyer.imageKey ?? "",
     totalCases: lawyer.totalCases == null ? "" : String(lawyer.totalCases),
+    price: lawyer.price == null ? "" : String(lawyer.price),
     caseCounts: {
       supreme_court:
         lawyer.caseCounts?.supreme_court == null
@@ -269,6 +272,8 @@ export function LawyerFormModal({
             district_court: Number(draft.caseCounts.district_court || 0),
           }
         : undefined,
+      price:
+        draft.price === "" ? undefined : Number(draft.price),
       verified: draft.verified,
       active: draft.active,
     });
@@ -496,6 +501,22 @@ export function LawyerFormModal({
             <FieldError messages={fieldErrors.totalCases} />
             <FieldError messages={fieldErrors.caseCounts} />
           </div>
+
+          <label className="block space-y-1">
+            <span className="text-sm font-medium text-slate-700">
+              Consultation fee (Rs)
+            </span>
+            <input
+              type="number"
+              min={0}
+              value={draft.price}
+              onChange={(event) =>
+                setDraft({ ...draft, price: event.target.value })
+              }
+              className={inputClass}
+            />
+            <FieldError messages={fieldErrors.price} />
+          </label>
 
           <label className="block space-y-1">
             <span className="text-sm font-medium text-slate-700">Bio</span>

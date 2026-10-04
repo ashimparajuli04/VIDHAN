@@ -92,6 +92,7 @@ lawyers.post("/", async (c) => {
     seniority: parsed.data.seniority,
     totalCases: parsed.data.totalCases ?? null,
     caseCounts: parsed.data.caseCounts ? asJsonObject(parsed.data.caseCounts) : null,
+    price: parsed.data.price,
     verified: parsed.data.verified ?? false,
     active: parsed.data.active ?? true,
     createdAt: now,

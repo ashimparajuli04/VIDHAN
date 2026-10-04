@@ -84,3 +84,7 @@ export function districtLabel(district: TDistrict): string {
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
 }
+
+export function formatPrice(price: number): string {
+  return `Rs ${price.toLocaleString("en-IN")}`;
+}

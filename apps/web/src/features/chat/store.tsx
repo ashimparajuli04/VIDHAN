@@ -3,15 +3,19 @@
 import * as React from "react";
 
 import { createSession as createSessionRequest, deleteSession as deleteSessionRequest, listSessions } from "./api";
+import { useAuth } from "@/features/auth/provider";
 import type { TChatContextValue, TChatMode, TChatSessionView } from "./types";
 
 const ChatContext = React.createContext<TChatContextValue | null>(null);
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
+  // Starts in the account's preferred mode; the composer toggle overrides it
+  // for the rest of the session.
+  const { user } = useAuth();
   const [sessions, setSessions] = React.useState<TChatSessionView[]>([]);
-  // General is the default; the empty-state picker and composer toggle
-  // override it for the rest of the session.
-  const [mode, setMode] = React.useState<TChatMode>("general");
+  const [mode, setMode] = React.useState<TChatMode>(
+    user?.isResearcher ? "research" : "general"
+  );
 
   const refresh = React.useCallback(async () => {
     try {

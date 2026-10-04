@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import {
   courtLabel,
   districtLabel,
+  formatPrice,
   languageLabel,
   practiceAreaLabel,
   seniorityLabel,
@@ -284,6 +285,15 @@ export function LawyerProfile({ id }: { id: string }) {
             {/* ── Aside: the featured dark card with the booking CTA ── */}
             <aside className="lg:sticky lg:top-8 lg:self-start">
               <div className="space-y-6 rounded-[var(--radius)] bg-primary p-6 text-primary-foreground">
+                <div className="space-y-1">
+                  <p className="text-[13px] font-medium text-primary-foreground/70">
+                    Consultation fee
+                  </p>
+                  <p className="text-3xl font-bold tracking-tight">
+                    {formatPrice(lawyer.price)}
+                  </p>
+                </div>
+
                 <div className="hidden lg:block">
                   <RequestCallDialog
                     lawyerId={lawyer.id}
