@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter_Tight } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
@@ -19,6 +19,19 @@ const brandFont = Inter_Tight({
 export const metadata: Metadata = {
   title: "Vidhan",
   description: "Legal guidance chatbot for Nepal",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Vidhan",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#61211D",
 };
 
 export default function RootLayout({

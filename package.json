@@ -14,7 +14,8 @@
     "dev:admin": "nx run admin:dev",
     "api:dev": "nx run api:dev",
     "web:dev": "nx run web:dev",
-    "admin:dev": "nx run admin:dev"
+    "admin:dev": "nx run admin:dev",
+    "share": "bash scripts/share.sh"
   },
   "devDependencies": {
     "nx": "^23.0.0",

@@ -196,6 +196,107 @@ export async function getDocumentSummary(
   };
 }
 
+// A provision's body is not always on the node that names it: in several
+// ingested documents the parent rule is empty and its clause children carry the
+// text, or the parent holds clause (1) and the children hold the rest. Reads
+// resolve the whole subtree so a requested section is always complete; the
+// resolver is only applied to content nodes, so a chapter read cannot dump
+// every section beneath it.
+type TResolvableNode = {
+  id: string;
+  parentId: string | null;
+  nodeType: string;
+  identifier: string;
+  title: string;
+  heading: string | null;
+  content: string | null;
+  position: number;
+};
+
+// D1 caps bound parameters per statement, so `inArray` lookups are batched.
+const PARAM_BATCH = 99;
+
+async function loadDescendants(
+  db: Db,
+  documentId: string,
+  rootIds: string[],
+): Promise<Map<string, TResolvableNode[]>> {
+  const byRoot = new Map<string, TResolvableNode[]>(rootIds.map((id) => [id, []]));
+  const visited = new Set(rootIds);
+  let frontier = rootIds.map((id) => ({ id, root: id }));
+
+  while (frontier.length > 0) {
+    const next: { id: string; root: string }[] = [];
+    for (let start = 0; start < frontier.length; start += PARAM_BATCH) {
+      const batch = frontier.slice(start, start + PARAM_BATCH);
+      const roots = new Map(batch.map((entry) => [entry.id, entry.root]));
+      const rows = await db
+        .select({
+          id: documentNodes.id,
+          parentId: documentNodes.parentId,
+          nodeType: documentNodes.nodeType,
+          identifier: documentNodes.identifier,
+          title: documentNodes.title,
+          heading: documentNodes.heading,
+          content: documentNodes.content,
+          position: documentNodes.position,
+        })
+        .from(documentNodes)
+        .where(
+          and(
+            eq(documentNodes.documentId, documentId),
+            inArray(documentNodes.parentId, [...roots.keys()]),
+          ),
+        )
+        .orderBy(asc(documentNodes.position));
+
+      for (const row of rows) {
+        const root = row.parentId === null ? undefined : roots.get(row.parentId);
+        if (root === undefined || visited.has(row.id)) continue;
+        visited.add(row.id);
+        byRoot.get(root)?.push(row);
+        next.push({ id: row.id, root });
+      }
+    }
+    frontier = next;
+  }
+
+  // `position` is the document-wide flat order, so sorting the collected rows
+  // once restores reading order across levels.
+  for (const list of byRoot.values()) {
+    list.sort((a, b) => a.position - b.position);
+  }
+  return byRoot;
+}
+
+// Sub-section labels live in `identifier`, not in the body, so a merged read
+// re-attaches them; punctuation-only rows are extraction noise and are skipped.
+function mergeSectionContent(root: TResolvableNode, descendants: TResolvableNode[]): string {
+  const parts: string[] = [];
+  const append = (content: string | null, label?: string) => {
+    const body = (content ?? "").trim();
+    if (!/[a-z0-9\u0900-\u097F]/i.test(body)) return;
+    const part = label && !body.startsWith(label) ? `${label} ${body}` : body;
+    if (parts.includes(part)) return;
+    parts.push(part);
+  };
+
+  append(root.content);
+  for (const child of descendants) {
+    if (!isDocumentContentNode(child.nodeType)) continue;
+    append(child.content, nodeLabel(child) || undefined);
+  }
+  return parts.join("\n\n");
+}
+
+function resolveContent(
+  node: TResolvableNode,
+  descendants: Map<string, TResolvableNode[]>,
+): string {
+  if (!isDocumentContentNode(node.nodeType)) return node.content ?? "";
+  return mergeSectionContent(node, descendants.get(node.id) ?? []);
+}
+
 // Batch fetch: several sections in one round trip, so the model reads a handful
 // of candidate provisions without one tool call each.
 export async function getSections(
@@ -217,10 +318,13 @@ export async function getSections(
   const rows = await db
     .select({
       id: documentNodes.id,
+      parentId: documentNodes.parentId,
+      nodeType: documentNodes.nodeType,
       identifier: documentNodes.identifier,
       heading: documentNodes.heading,
       title: documentNodes.title,
       content: documentNodes.content,
+      position: documentNodes.position,
       citation: documentNodes.citation,
     })
     .from(documentNodes)
@@ -229,10 +333,19 @@ export async function getSections(
     );
 
   const byId = new Map(rows.map((row) => [row.id, row]));
+  const resolvableIds = unique.filter((id) => {
+    const node = byId.get(id);
+    return node !== undefined && isDocumentContentNode(node.nodeType);
+  });
+  const descendants =
+    resolvableIds.length > 0
+      ? await loadDescendants(db, documentId, resolvableIds)
+      : new Map<string, TResolvableNode[]>();
+
   return unique.flatMap((id) => {
     const node = byId.get(id);
     if (!node) return [];
-    const content = node.content ?? "";
+    const content = resolveContent(node, descendants);
     return [
       {
         documentId,
@@ -267,10 +380,13 @@ export async function getBoundedSection(
   const [node] = await db
     .select({
       id: documentNodes.id,
+      parentId: documentNodes.parentId,
+      nodeType: documentNodes.nodeType,
       identifier: documentNodes.identifier,
       heading: documentNodes.heading,
       title: documentNodes.title,
       content: documentNodes.content,
+      position: documentNodes.position,
       citation: documentNodes.citation,
     })
     .from(documentNodes)
@@ -280,7 +396,10 @@ export async function getBoundedSection(
     .limit(1);
   if (!node) return null;
 
-  const content = node.content ?? "";
+  const descendants = isDocumentContentNode(node.nodeType)
+    ? await loadDescendants(db, documentId, [node.id])
+    : new Map<string, TResolvableNode[]>();
+  const content = resolveContent(node, descendants);
   return {
     documentId: documentId,
     documentTitle: doc[0].title,

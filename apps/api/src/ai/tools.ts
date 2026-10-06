@@ -30,7 +30,7 @@ export type TFindLawyersInput = {
   practiceAreas: (typeof PRACTICE_AREAS)[number][];
   district?: (typeof DISTRICTS)[number];
   language?: (typeof LANGUAGES)[number];
-  reason: string;
+  reason?: string;
 };
 
 export function buildTools(env: Env, origin: string) {
@@ -50,7 +50,10 @@ export function buildTools(env: Env, origin: string) {
           .enum(LANGUAGES)
           .optional()
           .describe("Language the lawyer should speak, when relevant"),
-        reason: z.string().describe("One sentence on why these filters fit the user's issue"),
+        reason: z
+          .string()
+          .optional()
+          .describe("Optional one sentence on why these filters fit the user's issue"),
       }),
       execute: async (input): Promise<TLawyerSearchResult> => {
         const db = createDb(env.DB);
@@ -346,9 +349,18 @@ export async function prefetchSections(
       match.nodeId,
       DEFAULT_SECTION_MAX_CHARS,
     );
-    if (section) sections.push(section);
+    if (section && section.content.trim()) sections.push(section);
   }
-  return sections;
+  // A resolved parent already carries its clauses' text, so drop any hit that
+  // is a descendant of another hit kept in the same prefetch.
+  return sections.filter(
+    (section) =>
+      !sections.some(
+        (other) =>
+          other.nodeId !== section.nodeId &&
+          section.nodeId.startsWith(`${other.nodeId}.`),
+      ),
+  );
 }
 
 export function renderPrefetchedContext(sections: TSectionText[]): string {

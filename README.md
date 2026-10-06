@@ -515,15 +515,15 @@ Provider wiring is in `apps/api/src/ai/`:
 
 | Tool | Input | Returns |
 |---|---|---|
-| `find_lawyers` | `{ practiceAreas[], district?, language?, reason }` | Public lawyers (limit 5) + `districtCounts` fallback. **Dropped in research mode** |
+| `find_lawyers` | `{ practiceAreas[], district?, language?, reason? }` | Public lawyers (limit 5) + `districtCounts` fallback. **Dropped in research mode** |
 | `get_document_titles` | — | Primary discovery: `{ id, title, documentType }` |
 | `list_documents` | — | Full list (the prompt tells the model to prefer `get_document_titles`) |
 | `search_documents` | `{ query, type? }` | Title/type search |
 | `get_document_summary` | `{ documentId }` | Summary + section index (cap 80) |
 | `get_document_outline` | `{ documentId, query?, limit? }` | Compact sections (cap 40) |
 | `search_document_sections` | `{ query, limit? }` | Hybrid FTS+vector matches |
-| `get_sections` | `{ documentId, nodeIds[], maxChars? }` | Batch bodies |
-| `get_section` | `{ documentId, nodeId, maxChars? }` | Single body |
+| `get_sections` | `{ documentId, nodeIds[], maxChars? }` | Batch bodies; merges descendant clauses, so a section reads complete even when ingest stored its text on child nodes |
+| `get_section` | `{ documentId, nodeId, maxChars? }` | Single body; same subtree merge |
 | `offer_support_ticket` | `{ category, message, reason }` | **No-op** — nothing is created until the user clicks the offer card |
 | `cite` | `{ nodeIds[] }` | Resolved `TReference[]` (invented ids dropped, deduped) |
 
@@ -531,9 +531,13 @@ Provider wiring is in `apps/api/src/ai/`:
 
 The chat route (`apps/api/src/routes/public/chat.ts`) runs `streamText` with:
 
-- `prefetchSections` — top-5 hybrid hits injected into the system prompt before any tool call.
-- `stopWhen: stepCountIs(7)`; by step 5 the model is forced to call `cite` (if not yet called) or
-  to finish with prose (`toolChoice: "none"`), guaranteeing the turn ends in normal language.
+- `prefetchSections` — top-5 hybrid hits injected into the system prompt before any tool call;
+  sections that resolve to no text and descendants of other hits are dropped.
+- `stopWhen: stepCountIs(7)`; by step 5 the model is forced to call `cite` (if not yet called) and
+  `cite` is the only active tool; the last step removes all tools and appends a closing user turn
+  asking for the final answer, so the turn ends in prose rather than a plan.
+- If no `cite` ran (some providers ignore forced tool choices), the references fall back to the last
+  `get_sections`/`get_section` read so the sources row is still populated.
 - Reasoning is opt-in (`openrouter.reasoning = { enabled: true, max_tokens: 1024 }`) and streamed
   as a separate UI part.
 - A transient `data-title` part carries the generated session title to the sidebar.
@@ -724,6 +728,12 @@ The API reads `apps/api/.dev.vars` for secrets. A minimal local file needs `ADMI
 
 > Per `AGENTS.md`, do not start dev servers unless explicitly asked — an extra instance grabs the
 > next port and causes confusion.
+
+### Sharing the build with someone outside your network
+
+`pnpm dev:api` in one terminal, then `pnpm share` in another. The script builds `apps/web/out`,
+tunnels the API and the static site over Cloudflare Quick Tunnels, and prints the public URL.
+Details and gotchas: `agent-docs/remote-sharing.md`.
 
 ---
 

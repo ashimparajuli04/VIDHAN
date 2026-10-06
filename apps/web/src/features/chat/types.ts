@@ -44,7 +44,8 @@ export type TChatMessageView = {
 export type TSourceStep = {
   id: string;
   label: string;
-  running: boolean;
+  /** Only the streamed turn's tail is pending; terminal states mean the call resolved. */
+  state: "pending" | "done" | "error";
   /** Set for get_section rows; the rest render label-only. */
   title?: string;
 };

@@ -111,9 +111,18 @@ function titleOf(output: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+// A pending tool part only runs while its own turn streams. Once the stream
+// ends, a still-pending call never completed — the provider dropped it (e.g.
+// the step was truncated) — so it must settle instead of spinning forever.
+function sourceState(tool: TToolPart, live: boolean): TSourceStep["state"] {
+  if (tool.state === "output-available") return "done";
+  if (tool.state === "output-error") return "error";
+  return live ? "pending" : "error";
+}
+
 // Ordered, deduped retrieval steps. One tool call streams under a single
 // toolCallId, so map by id and let the latest state win.
-function extractSources(message: UIMessage): TSourceStep[] | undefined {
+function extractSources(message: UIMessage, live: boolean): TSourceStep[] | undefined {
   const steps: TSourceStep[] = [];
   const index = new Map<string, number>();
   for (const part of message.parts) {
@@ -123,7 +132,7 @@ function extractSources(message: UIMessage): TSourceStep[] | undefined {
     const step: TSourceStep = {
       id: "toolCallId" in part ? (part.toolCallId as string) : tool.toolName,
       label: RETRIEVAL_LABELS[tool.toolName],
-      running: tool.state !== "output-available",
+      state: sourceState(tool, live),
     };
     if (tool.toolName === "get_section") step.title = titleOf(tool.output);
 
@@ -171,7 +180,8 @@ function toSupportOffer(
 
 export function toMessageView(
   message: UIMessage,
-  precedingUserText = ""
+  precedingUserText = "",
+  live = false
 ): TChatMessageView {
   // A disabled-tool step can leak the model's tool call into the text; strip it
   // so the bubble shows prose, not markup.
@@ -181,13 +191,13 @@ export function toMessageView(
       .join("")
   );
 
+  // Chain-of-thought is deliberately not surfaced: it deliberates about
+  // instructions and tool availability, which must not reach the user. The
+  // live "thinking" indicator comes from the stream status instead.
   const view: TChatMessageView = {
     id: message.id,
     role: message.role === "user" ? "user" : "assistant",
     content,
-    reasoning: message.parts
-      .map((part) => (part.type === "reasoning" ? part.text : ""))
-      .join("") || undefined,
   };
 
   for (const part of message.parts) {
@@ -214,7 +224,7 @@ export function toMessageView(
   }
 
   if (message.role !== "user") {
-    const sources = extractSources(message);
+    const sources = extractSources(message, live);
     if (sources) view.sources = sources;
   }
 
@@ -259,6 +269,8 @@ export function toMessageViews(
   messages: UIMessage[],
   status: TStreamStatus
 ): TChatMessageView[] {
+  // Only the tail message of a live stream can have tool calls still running.
+  const liveAt = status === "idle" ? -1 : messages.length - 1;
   const views = messages.map((message, index) => {
     // The offer card's ticket body is the user query that prompted the turn.
     let query = "";
@@ -270,7 +282,7 @@ export function toMessageViews(
         .join("");
       break;
     }
-    return toMessageView(message, query);
+    return toMessageView(message, query, index === liveAt);
   });
   // The SDK appends the assistant message only when the first chunk lands, so
   // synthesize one during the submitted phase to keep the thinking dots.
@@ -298,9 +310,8 @@ export function historyToMessages(history: TChatMessage[]): UIMessage[] {
     }
 
     const parts: UIMessage["parts"] = [];
-    // Stored as one joined string; surface it as a reasoning part so the same
-    // extraction path (`toMessageView`) serves both live and reloaded turns.
-    if (row.reasoning) parts.push({ type: "reasoning", text: row.reasoning });
+    // `row.reasoning` is retained in the database for debugging but never
+    // surfaced as a reasoning part; chain-of-thought stays out of the UI.
     if (row.content) parts.push({ type: "text", text: row.content });
 
     const results = row.toolResults ?? [];
@@ -318,12 +329,16 @@ export function historyToMessages(history: TChatMessage[]): UIMessage[] {
           output: result.output,
         });
       } else {
+        // A call with no stored result never completed (e.g. the provider
+        // dropped it on a truncated step). Mark it terminal so reloading a
+        // turn cannot leave its spinner running forever.
         parts.push({
           type: "dynamic-tool",
           toolName: call.toolName,
           toolCallId: call.toolCallId,
-          state: "input-available",
+          state: "output-error",
           input: call.input,
+          errorText: "The tool call did not finish.",
         });
       }
     }

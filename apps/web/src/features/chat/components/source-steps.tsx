@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronDown, Loader2 } from "lucide-react";
+import { Check, ChevronDown, CircleAlert, Loader2 } from "lucide-react";
 
 import {
   Collapsible,
@@ -15,7 +15,8 @@ import type { TSourceStep } from "../types";
 /** Live "what am I reading" trail for the retrieval tools. */
 export function SourceSteps({ steps }: { steps: TSourceStep[] }) {
   const [open, setOpen] = React.useState(false);
-  const running = steps.filter((step) => step.running).length;
+  const running = steps.filter((step) => step.state === "pending").length;
+  const failed = steps.filter((step) => step.state === "error").length;
 
   return (
     <Collapsible
@@ -33,7 +34,9 @@ export function SourceSteps({ steps }: { steps: TSourceStep[] }) {
         <span className="flex-1 text-left">
           {running > 0
             ? `Searching the legal corpus…`
-            : `Reviewed ${steps.length} source${steps.length === 1 ? "" : "s"}`}
+            : failed > 0
+              ? `Reviewed ${steps.length - failed} of ${steps.length} sources`
+              : `Reviewed ${steps.length} source${steps.length === 1 ? "" : "s"}`}
         </span>
 
         <ChevronDown
@@ -51,8 +54,10 @@ export function SourceSteps({ steps }: { steps: TSourceStep[] }) {
               key={step.id}
               className="flex items-center gap-2 text-xs text-muted-foreground"
             >
-              {step.running ? (
+              {step.state === "pending" ? (
                 <Loader2 className="size-3.5 shrink-0 animate-spin" />
+              ) : step.state === "error" ? (
+                <CircleAlert className="size-3.5 shrink-0 text-amber-600" />
               ) : (
                 <Check className="size-3.5 shrink-0 text-emerald-600" />
               )}

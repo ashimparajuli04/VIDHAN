@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LifeBuoy, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import type { TSupportTicket } from "@vidhan/schema";
+import type { TSupportTicket, TSupportTicketCategory } from "@vidhan/schema";
 
 import { createTicket } from "@/features/support/api";
 import { categoryLabel } from "@/features/support/labels";
@@ -17,10 +17,31 @@ import {
   supportOfferKey,
 } from "../support-offer-storage";
 
+// A "missing lawyer" offer is a request to expand the directory, not a bug
+// report, so the card says what it is for.
+const OFFER_COPY: Record<
+  TSupportTicketCategory,
+  { title: string; action: string }
+> = {
+  missing_lawyer: {
+    title: "Request a lawyer in your district?",
+    action: "Request a lawyer",
+  },
+  missing_document: {
+    title: "Request this provision be added?",
+    action: "Request provision",
+  },
+  other: {
+    title: "Report this to the team?",
+    action: "File a ticket",
+  },
+};
+
 // Files nothing until the user clicks; the button then disables. A reloaded
 // chat re-renders the card, so the server-side dedupe on the ticket body is
 // what stops a second click from filing a duplicate.
 export function SupportOfferCard({ offer }: { offer: TSupportOffer }) {
+  const copy = OFFER_COPY[offer.category];
   const [ticket, setTicket] = React.useState<TSupportTicket | null>(null);
   const [pending, setPending] = React.useState(false);
   const [failed, setFailed] = React.useState(false);
@@ -72,9 +93,7 @@ export function SupportOfferCard({ offer }: { offer: TSupportOffer }) {
       <div className="flex items-start gap-3">
         <LifeBuoy className="mt-0.5 size-5 shrink-0 text-primary" />
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] font-semibold">
-            Report this to the team?
-          </p>
+          <p className="text-[15px] font-semibold">{copy.title}</p>
           <p className="mt-1 text-[14px] leading-relaxed text-muted-foreground">
             {offer.reason || "The assistant could not fully resolve this."}
           </p>
@@ -94,7 +113,7 @@ export function SupportOfferCard({ offer }: { offer: TSupportOffer }) {
               disabled={pending}
               onClick={fileTicket}
             >
-              {pending ? "Filing…" : "File a ticket"}
+              {pending ? "Filing…" : copy.action}
             </Button>
           )}
 
